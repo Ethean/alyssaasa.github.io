@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/2.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/1.png?v=7.3.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="二叉树结构的定义：123456class TreeNode &amp;#123;    int val;    TreeNode left;    TreeNode right;    TreeNode(int x) &amp;#123; val = x; &amp;#125;&amp;#125;">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉树">
+<meta property="og:url" content="http://yoursite.com/2019/08/17/二叉树/index.html">
+<meta property="og:site_name" content="Sooner or Later, One Way or Another">
+<meta property="og:description" content="二叉树结构的定义：123456class TreeNode &amp;#123;    int val;    TreeNode left;    TreeNode right;    TreeNode(int x) &amp;#123; val = x; &amp;#125;&amp;#125;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-20T14:39:12.299Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="二叉树">
+<meta name="twitter:description" content="二叉树结构的定义：123456class TreeNode &amp;#123;    int val;    TreeNode left;    TreeNode right;    TreeNode(int x) &amp;#123; val = x; &amp;#125;&amp;#125;">
+  <link rel="canonical" href="http://yoursite.com/2019/08/17/二叉树/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>二叉树 | Sooner or Later, One Way or Another</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Sooner or Later, One Way or Another</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup">
+  <div class="search-header">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <div class="search-input-wrapper">
+      <input autocomplete="off" autocorrect="off" autocapitalize="none"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="search-input">
+    </div>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+  <div id="search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/17/二叉树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ge Song">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/toux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sooner or Later, One Way or Another">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">二叉树
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-17 14:11:16" itemprop="dateCreated datePublished" datetime="2019-08-17T14:11:16+08:00">2019-08-17</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-08-20 22:39:12" itemprop="dateModified" datetime="2019-08-20T22:39:12+08:00">2019-08-20</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="二叉树结构的定义："><a href="#二叉树结构的定义：" class="headerlink" title="二叉树结构的定义："></a>二叉树结构的定义：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+<h4 id="1-二叉树的遍历："><a href="#1-二叉树的遍历：" class="headerlink" title="1. 二叉树的遍历："></a>1. 二叉树的遍历：</h4><ol>
+<li><p><a href="https://leetcode.com/problems/binary-tree-preorder-traversal/" target="_blank" rel="noopener">leetcode 144 . 二叉树的先序遍历</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode node, List&lt;Integer&gt; res)</span> </span>&#123;</span><br><span class="line">  			<span class="keyword">if</span>(node==<span class="keyword">null</span>)  <span class="comment">// 终止条件</span></span><br><span class="line">            <span class="keyword">return</span>;     </span><br><span class="line">        res.add(node.val);         <span class="comment">// 先序遍历，访问到当前节点，需要执行的操作</span></span><br><span class="line">        preorder(node.left, res);  <span class="comment">// 访问左子节点</span></span><br><span class="line">        preorder(node.right, res); <span class="comment">// 访问右子节点</span></span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">  List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">  preorder(root, res);</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://leetcode.com/problems/binary-tree-inorder-traversal/" target="_blank" rel="noopener">leetcode 94. 二叉树的中序遍历</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode node, List&lt;Integer&gt; res)</span> </span>&#123;</span><br><span class="line">  			<span class="keyword">if</span>(node==<span class="keyword">null</span>)  <span class="comment">// 终止条件</span></span><br><span class="line">            <span class="keyword">return</span>;           </span><br><span class="line">        preorder(node.left, res);  <span class="comment">// 访问左子节点</span></span><br><span class="line">        res.add(node.val); 				<span class="comment">// 中序遍历，访问到当前节点，需要执行的操作</span></span><br><span class="line">        preorder(node.right, res); <span class="comment">// 访问右子节点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://leetcode.com/problems/binary-tree-postorder-traversal/" target="_blank" rel="noopener">leetcode 145. 二叉树的后序遍历</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode node, List&lt;Integer&gt; res)</span> </span>&#123;</span><br><span class="line">  			<span class="keyword">if</span>(node==<span class="keyword">null</span>)  <span class="comment">// 终止条件</span></span><br><span class="line">            <span class="keyword">return</span>;           </span><br><span class="line">        preorder(node.left, res);  <span class="comment">// 访问左子节点</span></span><br><span class="line">        preorder(node.right, res); <span class="comment">// 访问右子节点</span></span><br><span class="line">        res.add(node.val); 				 <span class="comment">// 后序遍历，访问到当前节点，需要执行的操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank" rel="noopener">leetcode 102. 二叉树的层次遍历</a></p>
+<p><strong>要注意用两个临时变量 node_count 和 next_count 来记录当前层和下一层节点的数量</strong></p>
+<p>以前我想的方法是当队列中访问到null节点时表示当前层已经访问完，显然这不是一个好的方法，尤其是到最后一层，下一层都是null了，那么就还要加条件判断当前层节点个数是不是空，就很麻烦。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span> result;   <span class="comment">// 别忘了二叉树为空的特殊情况处理</span></span><br><span class="line"></span><br><span class="line">    List&lt;Integer&gt; tmp_res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Queue&lt;TreeNode&gt; que = <span class="keyword">new</span> LinkedList();   <span class="comment">// 用队列来暂存二叉树的节点</span></span><br><span class="line">    que.add(root);</span><br><span class="line">    <span class="keyword">int</span> node_count = <span class="number">1</span>;    <span class="comment">// 用来表示当前层节点个数</span></span><br><span class="line">    <span class="keyword">int</span> next_count = <span class="number">0</span>;    <span class="comment">// 用来表示下一层节点个数</span></span><br><span class="line">    <span class="keyword">while</span>(!que.isEmpty()) &#123;</span><br><span class="line">        TreeNode tmp_node = que.remove();</span><br><span class="line">        tmp_res.add(tmp_node.val);</span><br><span class="line">        node_count -= <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(tmp_node.left!=<span class="keyword">null</span>) &#123;   <span class="comment">// 左子节点不为空，将左子节点加入队列</span></span><br><span class="line">          que.add(tmp_node.left);</span><br><span class="line">          next_count += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(tmp_node.right!=<span class="keyword">null</span>) &#123;  <span class="comment">// 右子节点不为空，将右子节点加入队列</span></span><br><span class="line">          que.add(tmp_node.right);</span><br><span class="line">          next_count += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(node_count==<span class="number">0</span>) &#123;   <span class="comment">//表示当前层已经访问完</span></span><br><span class="line">          node_count = next_count;</span><br><span class="line">          next_count = <span class="number">0</span>;</span><br><span class="line">          result.add(tmp_res);</span><br><span class="line">          tmp_res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="2-二叉树给定任意一个节点，找出其中序遍历的下一个节点（剑指-offer）："><a href="#2-二叉树给定任意一个节点，找出其中序遍历的下一个节点（剑指-offer）：" class="headerlink" title="2. 二叉树给定任意一个节点，找出其中序遍历的下一个节点（剑指 offer）："></a>2. 二叉树给定任意一个节点，找出其中序遍历的下一个节点（剑指 offer）：</h4><p>题目描述：给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">        <span class="number">1</span></span><br><span class="line">      /   \</span><br><span class="line">     <span class="number">2</span>     <span class="number">3</span></span><br><span class="line">   /  \   / \</span><br><span class="line">  <span class="number">4</span>    <span class="number">5</span> <span class="number">6</span>   <span class="number">7</span></span><br><span class="line"> /    / \    </span><br><span class="line"><span class="number">14</span>   <span class="number">8</span>   <span class="number">9</span>   </span><br><span class="line">   /  \   </span><br><span class="line">  <span class="number">10</span>  <span class="number">11</span></span><br></pre></td></tr></table></figure>
+
+<p>如上图所示，其中序遍历结果为：[14, 4, 2, 10, 8, 11, 5, 9, 1, 6, 3, 7, 9 ]</p>
+<ul>
+<li>因为是中序遍历，所以当前节点的下一个节点必然在其右子树中产生。只需要考虑有没有右子树即可，而不用再去考虑当前节点是不是存在左子树。因为访问到当前节点的时候，其左子树肯定已经都访问完了。</li>
+<li>如果它存在右子树，则其中序遍历的下一个节点是右子树的最左子节点 […2, 10…]；[…1, 6…]</li>
+<li>节点4无右子树，且它为其父节点2的左子节点，则其中序遍历的下一个节点是其<strong>父节点</strong>。[…4, 2…]</li>
+<li>节点9无右子树，且它为其父节点5的右子节点，则其中序遍历的下一个节点要<strong>沿着指向父节点的指针不断向上找，直到找到一个视其父节点为左子节点的节点</strong>。[…9, 1…]</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">getInorderNext</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node==<span class="keyword">null</span>)</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(node.right!=<span class="keyword">null</span>) &#123;   <span class="comment">// 如果右子树不为空，返回右子树的最左子节点</span></span><br><span class="line">         TreeNode tmp_node = node.right;</span><br><span class="line">         <span class="keyword">while</span>(tmp_node.left!=<span class="keyword">null</span>)</span><br><span class="line">            tmp_node = tmp_node.left;</span><br><span class="line">         <span class="keyword">return</span> tmp_node;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(node.father!=<span class="keyword">null</span>) &#123;   <span class="comment">// 如果右子树为空</span></span><br><span class="line">        <span class="keyword">while</span>(node.father!=<span class="keyword">null</span> &amp;&amp; node.father.right==node) &#123;</span><br><span class="line">            node = node.father;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> node.father;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-leetcode-105-根据先序遍历和中序遍历确定二叉树的结构："><a href="#3-leetcode-105-根据先序遍历和中序遍历确定二叉树的结构：" class="headerlink" title="3. leetcode 105. 根据先序遍历和中序遍历确定二叉树的结构："></a>3. <a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/" target="_blank" rel="noopener">leetcode 105. 根据先序遍历和中序遍历确定二叉树的结构</a>：</h4><p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">preorder = [3,9,20,15,7]</span><br><span class="line">inorder  = [9,3,15,20,7]</span><br></pre></td></tr></table></figure>
+
+<p>分析：preorder中先访问的是根节点，那么在inorder中找到根节点的位置，然后iorder根节点左侧的即为其左子树，右侧的即为其右子树，然后递归进行该过程即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> pre_index = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TreeNode <span class="title">buildTree</span><span class="params">(<span class="keyword">int</span>[] preorder, <span class="keyword">int</span>[] inorder, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(left&gt;=right)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  TreeNode node = <span class="keyword">new</span> TreeNode(preorder[pre_index]);  <span class="comment">// 建立当前节点</span></span><br><span class="line">  <span class="keyword">int</span> index = -<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=left;i&lt;right;i++) &#123;   <span class="comment">// 找到preorder中当前节点在inoder中的位置</span></span><br><span class="line">    <span class="keyword">if</span>(inorder[i]==preorder[pre_index])</span><br><span class="line">      index = i;</span><br><span class="line">  &#125;</span><br><span class="line">  pre_index += <span class="number">1</span>;</span><br><span class="line">  node.left = buildTree(preorder, inorder, left, index);     <span class="comment">// 递归inorder中当前节点的左侧节点</span></span><br><span class="line">  node.right = buildTree(preorder, inorder, index+<span class="number">1</span>, right); <span class="comment">// 递归inorder中当前节点的右侧节点</span></span><br><span class="line">  <span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-leetcode-106-根据后序遍历和中序遍历确定二叉树的结构："><a href="#4-leetcode-106-根据后序遍历和中序遍历确定二叉树的结构：" class="headerlink" title="4. leetcode 106. 根据后序遍历和中序遍历确定二叉树的结构："></a>4. <a href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/" target="_blank" rel="noopener">leetcode 106. 根据后序遍历和中序遍历确定二叉树的结构</a>：</h4><p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">inorder   = [9,3,15,20,7]</span><br><span class="line">postorder = [9,15,7,20,3]</span><br></pre></td></tr></table></figure>
+
+<p>分析：因为是后序遍历，所以postorder要从后向前看，最右一个是根节点，然后逐渐向前遍历。postorder中从后向前访问根节点，那么在inorder中找到根节点的位置，然后iorder根节点左侧的即为其左子树，右侧的即为其右子树，然后递归进行该过程即可。</p>
+<p><strong>注意：3题和4题最后两个递归循环的顺序是不一样的，后序遍历中，因为是从后向前遍历postorder， 所以它会先访问右子树，所以递归循环时要先建立右子树，再建立左子树。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> post_index = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">buildTree</span><span class="params">(<span class="keyword">int</span>[] postorder, <span class="keyword">int</span>[] inorder, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(left&gt;=right)</span><br><span class="line">    		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    TreeNode node = <span class="keyword">new</span> TreeNode(postorder[post_index]);</span><br><span class="line">    <span class="keyword">int</span> index = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=left;i&lt;right;i++) &#123;</span><br><span class="line">    		<span class="keyword">if</span>(inorder[i]==postorder[post_index])</span><br><span class="line">    				index = i;</span><br><span class="line">    &#125;</span><br><span class="line">    post_index -= <span class="number">1</span>;</span><br><span class="line">    node.right = buildTree(postorder, inorder, index+<span class="number">1</span>, right);</span><br><span class="line">    node.left = buildTree(postorder, inorder, left, index);</span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">buildTree</span><span class="params">(<span class="keyword">int</span>[] inorder, <span class="keyword">int</span>[] postorder)</span> </span>&#123;</span><br><span class="line">    post_index = postorder.length-<span class="number">1</span>;</span><br><span class="line">    TreeNode node = buildTree(postorder, inorder, <span class="number">0</span>, inorder.length);</span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-leetcode-100-判断两棵二叉树是否相等："><a href="#5-leetcode-100-判断两棵二叉树是否相等：" class="headerlink" title="5. leetcode 100. 判断两棵二叉树是否相等："></a>5. <a href="https://leetcode.com/problems/same-tree/" target="_blank" rel="noopener">leetcode 100. 判断两棵二叉树是否相等</a>：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">judge</span><span class="params">(TreeNode n1, TreeNode n2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n1==<span class="keyword">null</span> &amp;&amp; n2==<span class="keyword">null</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(n1==<span class="keyword">null</span> || n2==<span class="keyword">null</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(n1.val!=n2.val)</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (judge(n1.left, n2.left) &amp;&amp; judge(n1.right, n2.right));</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSameTree</span><span class="params">(TreeNode p, TreeNode q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> preorder(p, q);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-leetcode-101-判断二叉树是不是对称的："><a href="#6-leetcode-101-判断二叉树是不是对称的：" class="headerlink" title="6. leetcode 101. 判断二叉树是不是对称的："></a>6. <a href="https://leetcode.com/problems/symmetric-tree/" target="_blank" rel="noopener">leetcode 101. 判断二叉树是不是对称的</a>：</h4><p>一种方法，就是判断二叉树镜像之后和自己是不是相等。如果相等就是对称的。但是那样有点太麻烦了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">      <span class="number">1</span></span><br><span class="line">    /   \</span><br><span class="line">   <span class="number">2</span>     <span class="number">2</span></span><br><span class="line"> /  \   /  \</span><br><span class="line"><span class="number">4</span>    <span class="number">3</span> <span class="number">3</span>    <span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">judge</span><span class="params">(TreeNode left, TreeNode right)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(left==<span class="keyword">null</span> &amp;&amp; right==<span class="keyword">null</span>)</span><br><span class="line">    		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(left==<span class="keyword">null</span> || right==<span class="keyword">null</span>)</span><br><span class="line">    		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(left.val!=right.val)</span><br><span class="line">    		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (judge(left.left, right.right) &amp;&amp; judge(left.right, right.left));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSymmetric</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node==<span class="keyword">null</span>)</span><br><span class="line">    		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">return</span> judge(node.left, node.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到第五题和第六题很相似，只是在递归的时候传的参数不一样。</p>
+<h4 id="7-leetcode-226-二叉树的镜像："><a href="#7-leetcode-226-二叉树的镜像：" class="headerlink" title="7. leetcode 226. 二叉树的镜像："></a>7. <a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank" rel="noopener">leetcode 226. 二叉树的镜像</a>：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">      <span class="number">1</span>          |          <span class="number">1</span></span><br><span class="line">    /   \        |        /   \</span><br><span class="line">   <span class="number">2</span>     <span class="number">3</span>       |       <span class="number">3</span>     <span class="number">2</span></span><br><span class="line"> /  \   / \      |      / \   /  \</span><br><span class="line"><span class="number">4</span>    <span class="number">5</span> <span class="number">6</span>   <span class="number">7</span>     |     <span class="number">7</span>   <span class="number">6</span> <span class="number">5</span>    <span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TreeNode <span class="title">SymmetricTree</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node==<span class="keyword">null</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(node.left==<span class="keyword">null</span> &amp;&amp; node.right==<span class="keyword">null</span>)</span><br><span class="line">       <span class="keyword">return</span> node;</span><br><span class="line">    TreeNode tmp = node.left;   <span class="comment">// 左右节点交换</span></span><br><span class="line">    node.left = node.right;</span><br><span class="line">    node.right = tmp;</span><br><span class="line">    SymmetricTree(node.left);</span><br><span class="line">    SymmetricTree(node.right);</span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-Z字形打印二叉树："><a href="#8-Z字形打印二叉树：" class="headerlink" title="8. Z字形打印二叉树："></a>8. Z字形打印二叉树：</h4><hr>
+<h4 id="二叉搜索树："><a href="#二叉搜索树：" class="headerlink" title="二叉搜索树："></a>二叉搜索树：</h4><h4 id="给定一个数组，判断该数组是不是二叉搜索树的后序遍历结果："><a href="#给定一个数组，判断该数组是不是二叉搜索树的后序遍历结果：" class="headerlink" title="给定一个数组，判断该数组是不是二叉搜索树的后序遍历结果："></a>给定一个数组，判断该数组是不是二叉搜索树的后序遍历结果：</h4><h4 id="二叉搜索树转为双向链表："><a href="#二叉搜索树转为双向链表：" class="headerlink" title="二叉搜索树转为双向链表："></a>二叉搜索树转为双向链表：</h4>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/08/16/Self-Attention机制/" rel="next" title="Self-Attention机制">
+                  <i class="fa fa-chevron-left"></i> Self-Attention机制
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/08/17/排序算法/" rel="prev" title="排序算法">
+                  排序算法 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/toux.jpg"
+      alt="Ge Song">
+  <p class="site-author-name" itemprop="name">Ge Song</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/alyssaasa" title="GitHub &rarr; https://github.com/alyssaasa" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://instagram.com/yourname" title="Instagram &rarr; https://instagram.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+    
+  </div>
+
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树结构的定义："><span class="nav-number">1.</span> <span class="nav-text">二叉树结构的定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-二叉树的遍历："><span class="nav-number">2.</span> <span class="nav-text">1. 二叉树的遍历：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-二叉树给定任意一个节点，找出其中序遍历的下一个节点（剑指-offer）："><span class="nav-number">3.</span> <span class="nav-text">2. 二叉树给定任意一个节点，找出其中序遍历的下一个节点（剑指 offer）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-leetcode-105-根据先序遍历和中序遍历确定二叉树的结构："><span class="nav-number">4.</span> <span class="nav-text">3. leetcode 105. 根据先序遍历和中序遍历确定二叉树的结构：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-leetcode-106-根据后序遍历和中序遍历确定二叉树的结构："><span class="nav-number">5.</span> <span class="nav-text">4. leetcode 106. 根据后序遍历和中序遍历确定二叉树的结构：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-leetcode-100-判断两棵二叉树是否相等："><span class="nav-number">6.</span> <span class="nav-text">5. leetcode 100. 判断两棵二叉树是否相等：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-leetcode-101-判断二叉树是不是对称的："><span class="nav-number">7.</span> <span class="nav-text">6. leetcode 101. 判断二叉树是不是对称的：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-leetcode-226-二叉树的镜像："><span class="nav-number">8.</span> <span class="nav-text">7. leetcode 226. 二叉树的镜像：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-Z字形打印二叉树："><span class="nav-number">9.</span> <span class="nav-text">8. Z字形打印二叉树：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树："><span class="nav-number">10.</span> <span class="nav-text">二叉搜索树：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给定一个数组，判断该数组是不是二叉搜索树的后序遍历结果："><span class="nav-number">11.</span> <span class="nav-text">给定一个数组，判断该数组是不是二叉搜索树的后序遍历结果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树转为双向链表："><span class="nav-number">12.</span> <span class="nav-text">二叉搜索树转为双向链表：</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      	
+
+    </div>
+
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ge Song</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script><script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+
+
+</html>
