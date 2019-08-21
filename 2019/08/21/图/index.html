@@ -55,18 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="​    DFS 访问顶点v； 依次从v的未被访问的邻接点出发，对图进行深度优先遍历；直至图中和v有路径相通的顶点都被访问； 若此时图中尚有顶点未被访问，则从一个未被访问的顶点出发，重新进行深度优先遍历，直到图中所有顶点均被访问过为止。">
+  <meta name="description" content="DFS 访问顶点v； 依次从v的未被访问的邻接点出发，对图进行深度优先遍历；直至图中和v有路径相通的顶点都被访问； 若此时图中尚有顶点未被访问，则从一个未被访问的顶点出发，重新进行深度优先遍历，直到图中所有顶点均被访问过为止。">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sooner or Later, One Way or Another">
-<meta property="og:url" content="http://yoursite.com/2019/08/20/图/index.html">
+<meta property="og:title" content="图">
+<meta property="og:url" content="http://yoursite.com/2019/08/21/图/index.html">
 <meta property="og:site_name" content="Sooner or Later, One Way or Another">
-<meta property="og:description" content="​    DFS 访问顶点v； 依次从v的未被访问的邻接点出发，对图进行深度优先遍历；直至图中和v有路径相通的顶点都被访问； 若此时图中尚有顶点未被访问，则从一个未被访问的顶点出发，重新进行深度优先遍历，直到图中所有顶点均被访问过为止。">
+<meta property="og:description" content="DFS 访问顶点v； 依次从v的未被访问的邻接点出发，对图进行深度优先遍历；直至图中和v有路径相通的顶点都被访问； 若此时图中尚有顶点未被访问，则从一个未被访问的顶点出发，重新进行深度优先遍历，直到图中所有顶点均被访问过为止。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-20T14:38:48.612Z">
+<meta property="og:updated_time" content="2019-08-21T15:05:42.992Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sooner or Later, One Way or Another">
-<meta name="twitter:description" content="​    DFS 访问顶点v； 依次从v的未被访问的邻接点出发，对图进行深度优先遍历；直至图中和v有路径相通的顶点都被访问； 若此时图中尚有顶点未被访问，则从一个未被访问的顶点出发，重新进行深度优先遍历，直到图中所有顶点均被访问过为止。">
-  <link rel="canonical" href="http://yoursite.com/2019/08/20/图/">
+<meta name="twitter:title" content="图">
+<meta name="twitter:description" content="DFS 访问顶点v； 依次从v的未被访问的邻接点出发，对图进行深度优先遍历；直至图中和v有路径相通的顶点都被访问； 若此时图中尚有顶点未被访问，则从一个未被访问的顶点出发，重新进行深度优先遍历，直到图中所有顶点均被访问过为止。">
+  <link rel="canonical" href="http://yoursite.com/2019/08/21/图/">
 
 
 <script id="page-configurations">
@@ -80,7 +81,7 @@
   };
 </script>
 
-  <title> | Sooner or Later, One Way or Another</title>
+  <title>图 | Sooner or Later, One Way or Another</title>
   
 
 
@@ -255,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/图/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ge Song">
@@ -267,7 +268,7 @@
       <meta itemprop="name" content="Sooner or Later, One Way or Another">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h1 class="post-title" itemprop="name headline">图
 
           
         </h1>
@@ -283,12 +284,25 @@
                 
               
 
-              <time title="创建时间：2019-08-20 22:42:32 / 修改时间：22:38:48" itemprop="dateCreated datePublished" datetime="2019-08-20T22:42:32+08:00">2019-08-20</time>
+              <time title="创建时间：2019-08-21 21:30:11 / 修改时间：23:05:42" itemprop="dateCreated datePublished" datetime="2019-08-21T21:30:11+08:00">2019-08-21</time>
             </span>
           
             
 
             
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -302,12 +316,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>​    DFS</p><ol>
+        <pre><code>DFS</code></pre><ol>
 <li>访问顶点v；</li>
 <li>依次从v的未被访问的邻接点出发，对图进行深度优先遍历；直至图中和v有路径相通的顶点都被访问；</li>
 <li>若此时图中尚有顶点未被访问，则从一个未被访问的顶点出发，重新进行深度优先遍历，直到图中所有顶点均被访问过为止。</li>
 </ol><a id="more"></a>
-
 <p>BFS</p>
 <p>算法步骤：</p>
 <ol>
@@ -326,14 +339,23 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+            
+          </div>
+        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/17/排序算法/" rel="next" title="排序算法">
-                  <i class="fa fa-chevron-left"></i> 排序算法
+                <a href="/2019/08/21/将keras的h5文件转为tensorflow的pb文件/" rel="next" title="将keras的h5文件转为tensorflow的pb文件">
+                  <i class="fa fa-chevron-left"></i> 将keras的h5文件转为tensorflow的pb文件
                 </a>
               
             </div>
@@ -342,8 +364,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/21/将keras的h5文件转为tensorflow的pb文件/" rel="prev" title="将keras的h5文件转为tensorflow的pb文件">
-                  将keras的h5文件转为tensorflow的pb文件 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/08/21/字符串/" rel="prev" title="字符串">
+                  字符串 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -362,6 +384,9 @@
 
           </div>
           
+    
+    <div class="comments" id="gitalk-container"></div>
+  
 
         </div>
           
@@ -633,6 +658,25 @@
   
   <script src="/js/scrollspy.js?v=7.3.0"></script><script src="/js/post-details.js?v=7.3.0"></script>
 
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'a0b09f47cc93396b2dd6',
+      clientSecret: 'bdf8c7211c890d37071003e98dd9879483be6512',
+      repo: 'alyssaasa.github.io',
+      owner: 'alyssaasa',
+      admin: ['alyssaasa'],
+      id: '6728e4cbc222066608118650160c3746',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 </body>
 
