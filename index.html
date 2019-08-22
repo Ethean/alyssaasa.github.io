@@ -250,119 +250,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/字符串/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ge Song">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/toux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sooner or Later, One Way or Another">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/08/21/字符串/" class="post-title-link" itemprop="url">字符串</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-21 21:30:11" itemprop="dateCreated datePublished" datetime="2019-08-21T21:30:11+08:00">2019-08-21</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-22 21:09:58" itemprop="dateModified" datetime="2019-08-22T21:09:58+08:00">2019-08-22</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li><p><a href="https://leetcode.com/problems/largest-number/" target="_blank" rel="noopener">leetcode 179. 将数组进行排序，使之组成的数最大 (实则为对字符串排序)</a></p>
-<ul>
-<li>输入：<code>[3,30,34,5,9]</code> </li>
-<li>输出：<code>9534330</code></li>
-<li>特殊问题：<code>[2, 2281]</code>   <code>[12, 121]</code>   <code>[23, 234]</code></li>
-<li>碰到长度不等时，会有些问题，比如第一个要交换。第二个不要交换；第三个要交换</li>
-<li>最好的办法就是直接把两个字符串m和n拼接起来，然后比较mn和nm的大小即可，不存在长度不等的情况。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(String[] str, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line"> String tmp = str[i];</span><br><span class="line"> str[i] = str[j];</span><br><span class="line"> str[j] = tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//因为这道题涉及到了长度不同，谁放在前面的问题，不能简单地直接逐个字符比较</span></span><br><span class="line"><span class="comment">//那么，把m和n拼接成的mn和nm按照字符串大小的比较规则来处理即可。</span></span><br><span class="line"><span class="comment">//如果mn &lt; nm,应该打印出nm,即n应该排在m前面，要交换顺序，反之，m应该排在n前面。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">cmp</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">    String new_1 = a+b;</span><br><span class="line">    String new_2 = b+a;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;new_1.length();i++)  &#123;</span><br><span class="line">        <span class="keyword">if</span>(new_1.charAt(i)==new_2.charAt(i)) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">return</span> new_1.charAt(i)&lt;new_2.charAt(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">largestNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    String[] str = <span class="keyword">new</span> String[nums.length];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++) &#123;  <span class="comment">// 先将数组中的数字转为字符串，再去比较。</span></span><br><span class="line">        str[i] = nums[i]+<span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//写个冒泡排序，任何一种排序算法都可以，只要把交换的条件变为我们的cmp条件即可。</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=nums.length-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--) &#123;</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(cmp(str[j], str[j+<span class="number">1</span>])) &#123;</span><br><span class="line">                swap(str, j, j+<span class="number">1</span>);</span><br><span class="line">                flag = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!flag) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    String result = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str.length;i++) &#123;</span><br><span class="line">        result += str[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(result.charAt(<span class="number">0</span>)==<span class="string">'0'</span>) <span class="keyword">return</span> <span class="string">"0"</span>; <span class="comment">//防止出现"00"的情况。</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -560,6 +447,119 @@
             </div>
           
           <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/字符串/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ge Song">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/toux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sooner or Later, One Way or Another">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/08/21/字符串/" class="post-title-link" itemprop="url">字符串</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-21 21:30:11" itemprop="dateCreated datePublished" datetime="2019-08-21T21:30:11+08:00">2019-08-21</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-08-22 21:09:58" itemprop="dateModified" datetime="2019-08-22T21:09:58+08:00">2019-08-22</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li><p><a href="https://leetcode.com/problems/largest-number/" target="_blank" rel="noopener">leetcode 179. 将数组进行排序，使之组成的数最大 (实则为对字符串排序)</a></p>
+<ul>
+<li>输入：<code>[3,30,34,5,9]</code> </li>
+<li>输出：<code>9534330</code></li>
+<li>特殊问题：<code>[2, 2281]</code>   <code>[12, 121]</code>   <code>[23, 234]</code></li>
+<li>碰到长度不等时，会有些问题，比如第一个要交换。第二个不要交换；第三个要交换</li>
+<li>最好的办法就是直接把两个字符串m和n拼接起来，然后比较mn和nm的大小即可，不存在长度不等的情况。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(String[] str, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line"> String tmp = str[i];</span><br><span class="line"> str[i] = str[j];</span><br><span class="line"> str[j] = tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//因为这道题涉及到了长度不同，谁放在前面的问题，不能简单地直接逐个字符比较</span></span><br><span class="line"><span class="comment">//那么，把m和n拼接成的mn和nm按照字符串大小的比较规则来处理即可。</span></span><br><span class="line"><span class="comment">//如果mn &lt; nm,应该打印出nm,即n应该排在m前面，要交换顺序，反之，m应该排在n前面。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">cmp</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">    String new_1 = a+b;</span><br><span class="line">    String new_2 = b+a;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;new_1.length();i++)  &#123;</span><br><span class="line">        <span class="keyword">if</span>(new_1.charAt(i)==new_2.charAt(i)) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">return</span> new_1.charAt(i)&lt;new_2.charAt(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">largestNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    String[] str = <span class="keyword">new</span> String[nums.length];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++) &#123;  <span class="comment">// 先将数组中的数字转为字符串，再去比较。</span></span><br><span class="line">        str[i] = nums[i]+<span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//写个冒泡排序，任何一种排序算法都可以，只要把交换的条件变为我们的cmp条件即可。</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=nums.length-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--) &#123;</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(cmp(str[j], str[j+<span class="number">1</span>])) &#123;</span><br><span class="line">                swap(str, j, j+<span class="number">1</span>);</span><br><span class="line">                flag = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!flag) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    String result = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str.length;i++) &#123;</span><br><span class="line">        result += str[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(result.charAt(<span class="number">0</span>)==<span class="string">'0'</span>) <span class="keyword">return</span> <span class="string">"0"</span>; <span class="comment">//防止出现"00"的情况。</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
         
       
     </div>
@@ -1100,102 +1100,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/shell变量的定义、赋值和删除/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ge Song">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/toux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sooner or Later, One Way or Another">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/08/15/shell变量的定义、赋值和删除/" class="post-title-link" itemprop="url">Shell变量的定义、赋值和删除</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-15 23:30:11 / 修改时间：23:42:56" itemprop="dateCreated datePublished" datetime="2019-08-15T23:30:11+08:00">2019-08-15</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="http://c.biancheng.net/view/743.html" target="_blank" rel="noopener">http://c.biancheng.net/view/743.html</a></p><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1. 定义变量：variable=value		注意等号两侧不能有空格</span><br><span class="line">2. 使用变量：echo $&#123;variable&#125;</span><br><span class="line">3. 修改变量：variable=alyssa 	赋值的时候不要加引号，只有引用的时候才加&#123;&#125;</span><br><span class="line">4. 单引号和双引号区别：</span><br><span class="line">	- 单引号内&apos;name:$&#123;variable&#125;&apos;输出：name:$&#123;variable&#125;</span><br><span class="line">	- 双引号内&quot;name:$&#123;variable&#125;&quot;输出：name:alyssa</span><br><span class="line">5. 将命令的结果赋值给变量：</span><br><span class="line">	- variable=`command`</span><br><span class="line">	- variable=$(command)</span><br><span class="line">6. 只读变量：readonly variable   变量的值不可修改</span><br><span class="line">7. 删除变量：unset variable</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/08/15/shell变量的定义、赋值和删除/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1270,6 +1174,102 @@
           
             <div class="post-button text-center">
               <a class="btn" href="/2019/08/15/链表/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/shell变量的定义、赋值和删除/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ge Song">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/toux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sooner or Later, One Way or Another">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/08/15/shell变量的定义、赋值和删除/" class="post-title-link" itemprop="url">Shell变量的定义、赋值和删除</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-15 23:30:11 / 修改时间：23:42:56" itemprop="dateCreated datePublished" datetime="2019-08-15T23:30:11+08:00">2019-08-15</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="http://c.biancheng.net/view/743.html" target="_blank" rel="noopener">http://c.biancheng.net/view/743.html</a></p><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1. 定义变量：variable=value		注意等号两侧不能有空格</span><br><span class="line">2. 使用变量：echo $&#123;variable&#125;</span><br><span class="line">3. 修改变量：variable=alyssa 	赋值的时候不要加引号，只有引用的时候才加&#123;&#125;</span><br><span class="line">4. 单引号和双引号区别：</span><br><span class="line">	- 单引号内&apos;name:$&#123;variable&#125;&apos;输出：name:$&#123;variable&#125;</span><br><span class="line">	- 双引号内&quot;name:$&#123;variable&#125;&quot;输出：name:alyssa</span><br><span class="line">5. 将命令的结果赋值给变量：</span><br><span class="line">	- variable=`command`</span><br><span class="line">	- variable=$(command)</span><br><span class="line">6. 只读变量：readonly variable   变量的值不可修改</span><br><span class="line">7. 删除变量：unset variable</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/15/shell变量的定义、赋值和删除/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
