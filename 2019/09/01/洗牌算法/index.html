@@ -55,19 +55,21 @@
   };
 </script>
 
-  <meta name="description" content="leetcode 567. 字符串中的全排列 Given two strings s1 and s2, write a function to return true if s2 contains the permutation of s1. In other words, one of the first string&amp;apos;s permutations is the substr">
+  <meta name="description" content="🌈. 洗牌算法定义之前两次面试都被问到洗牌算法，虽然不是直接问的，但都是基于洗牌算法的。结果第一次被问到之后没有重视，导致在一个地方栽了两次坑。。。😭">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="字符串">
-<meta property="og:url" content="http://yoursite.com/2019/08/21/字符串/index.html">
+<meta property="og:title" content="洗牌算法">
+<meta property="og:url" content="http://yoursite.com/2019/09/01/洗牌算法/index.html">
 <meta property="og:site_name" content="Sooner or Later, One Way or Another">
-<meta property="og:description" content="leetcode 567. 字符串中的全排列 Given two strings s1 and s2, write a function to return true if s2 contains the permutation of s1. In other words, one of the first string&amp;apos;s permutations is the substr">
+<meta property="og:description" content="🌈. 洗牌算法定义之前两次面试都被问到洗牌算法，虽然不是直接问的，但都是基于洗牌算法的。结果第一次被问到之后没有重视，导致在一个地方栽了两次坑。。。😭">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-24T07:04:13.842Z">
+<meta property="og:image" content="http://yoursite.com/images/shuffle.gif">
+<meta property="og:updated_time" content="2019-09-01T14:22:20.687Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="字符串">
-<meta name="twitter:description" content="leetcode 567. 字符串中的全排列 Given two strings s1 and s2, write a function to return true if s2 contains the permutation of s1. In other words, one of the first string&amp;apos;s permutations is the substr">
-  <link rel="canonical" href="http://yoursite.com/2019/08/21/字符串/">
+<meta name="twitter:title" content="洗牌算法">
+<meta name="twitter:description" content="🌈. 洗牌算法定义之前两次面试都被问到洗牌算法，虽然不是直接问的，但都是基于洗牌算法的。结果第一次被问到之后没有重视，导致在一个地方栽了两次坑。。。😭">
+<meta name="twitter:image" content="http://yoursite.com/images/shuffle.gif">
+  <link rel="canonical" href="http://yoursite.com/2019/09/01/洗牌算法/">
 
 
 <script id="page-configurations">
@@ -81,7 +83,7 @@
   };
 </script>
 
-  <title>字符串 | Sooner or Later, One Way or Another</title>
+  <title>洗牌算法 | Sooner or Later, One Way or Another</title>
   
 
 
@@ -256,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/字符串/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/01/洗牌算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alyssa">
@@ -268,7 +270,7 @@
       <meta itemprop="name" content="Sooner or Later, One Way or Another">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">字符串
+        <h1 class="post-title" itemprop="name headline">洗牌算法
 
           
         </h1>
@@ -284,19 +286,11 @@
                 
               
 
-              <time title="创建时间：2019-08-21 21:30:11" itemprop="dateCreated datePublished" datetime="2019-08-21T21:30:11+08:00">2019-08-21</time>
+              <time title="创建时间：2019-09-01 20:00:12 / 修改时间：22:22:20" itemprop="dateCreated datePublished" datetime="2019-09-01T20:00:12+08:00">2019-09-01</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-24 15:04:13" itemprop="dateModified" datetime="2019-08-24T15:04:13+08:00">2019-08-24</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -324,36 +318,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <ol>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li><p><a href="https://leetcode.com/problems/permutation-in-string/" target="_blank" rel="noopener">leetcode 567. 字符串中的全排列</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Given two strings s1 and s2, write a function to return true if s2 contains the permutation of s1. In other words, one of the first string&apos;s permutations is the substring of the second string.</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: s1 = &quot;ab&quot; s2 = &quot;eidbaooo&quot;</span><br><span class="line">Output: True</span><br><span class="line">Explanation: s2 contains one permutation of s1 (&quot;ba&quot;).</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>最直观的做法就是把s1的全排列都列出来，然后看每个全排列是不是s2的子串，但是当字符串的长度过长时，会超时。</li>
-<li><strong>如何判断字符串m是不是字符串n的全排列，我们只要把字符串m和字符串n中的每个字符出现的次数做统计，如果两者每个字符出现的次数都相等，那么就证明字符串m是字符串n的一个全排列。</strong></li>
-<li>如何判断字符串n是不是包含字符串m的全排列，也就是字符串m的全排列是不是字符串n的一个子串，那么我们就需要<strong>建立一个长度为m.length的滑动窗口</strong>，判断n的这个滑动窗口中n子串和m字符串每个字符出现的次数是不是相等。</li>
-<li>但每到一个滑动窗口都重新统计一次次数很麻烦，每次移动滑动窗口的时候，只有左侧被移出去的字符和右侧被移进来的字符的次数有变化，那么我们把左侧移出去的字符数-1，右侧移进来的字符数+1，即为当前窗口n的每个字符出现的次数。</li>
-<li>该题的类似题目：<a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/" target="_blank" rel="noopener">leetcode 438. 找到s1的全排列在s2中的位置</a></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkInclusion</span><span class="params">(String s1, String s2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s1.length()&gt;s2.length())</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="comment">//统计s1中每个字符出现的次数，s2中每个长度为s1.length的窗口中字符出现的次数</span></span><br><span class="line">    <span class="keyword">int</span>[] hash1 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">    <span class="keyword">int</span>[] hash2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s1.length();i++) &#123;</span><br><span class="line">        hash1[s1.charAt(i)-<span class="string">'a'</span>] ++;</span><br><span class="line">        hash2[s2.charAt(i)-<span class="string">'a'</span>] ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(Arrays.equals(hash1, hash2))</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=s1.length();i&lt;s2.length();i++) &#123;</span><br><span class="line">        hash2[s2.charAt(i)-<span class="string">'a'</span>] ++;</span><br><span class="line">        hash2[s2.charAt(i-s1.length())-<span class="string">'a'</span>] --;</span><br><span class="line">        <span class="keyword">if</span>(Arrays.equals(hash1, hash2))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h4 id="🌈-洗牌算法定义"><a href="#🌈-洗牌算法定义" class="headerlink" title="🌈. 洗牌算法定义"></a>🌈. 洗牌算法定义</h4><p>之前两次面试都被问到洗牌算法，虽然不是直接问的，但都是基于洗牌算法的。结果第一次被问到之后没有重视，导致在一个地方栽了两次坑。。。😭</p><a id="more"></a>
+<p>洗牌算法，就是给你一个1到n的序列，让你随机打乱，保证每个数出现在任意一个位置的概率相同。换句话说，经过洗牌的数组的排列组合有n!种可能。</p>
+<h4 id="🌈-解法"><a href="#🌈-解法" class="headerlink" title="🌈. 解法"></a>🌈. 解法</h4><h5 id="1-Fisher-Yates-Shuffle-算法-动态演示"><a href="#1-Fisher-Yates-Shuffle-算法-动态演示" class="headerlink" title="1.  Fisher-Yates Shuffle 算法 动态演示"></a>1.  Fisher-Yates Shuffle 算法 <a href="https://bost.ocks.org/mike/shuffle/" target="_blank" rel="noopener">动态演示</a></h5><ul>
+<li><p>思想：从原始数组中随机取一个之前没有取过的数字到新的数组中。</p>
 </li>
-<li><p><a href="https://leetcode.com/problems/largest-number/" target="_blank" rel="noopener">leetcode 179. 将数组进行排序，使之组成的数最大 (实则为对字符串排序)</a></p>
-<ul>
-<li>输入：<code>[3,30,34,5,9]</code> </li>
-<li>输出：<code>9534330</code></li>
-<li>特殊问题：<code>[2, 2281]</code>   <code>[12, 121]</code>   <code>[23, 234]</code></li>
-<li>碰到长度不等时，会有些问题，比如第一个要交换。第二个不要交换；第三个要交换</li>
-<li>最好的办法就是直接把两个字符串m和n拼接起来，然后比较mn和nm的大小即可，不存在长度不等的情况。</li>
+<li><p>步骤：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 初始化原始数组和新数组，原始数组长度为n（已知）；</span><br><span class="line">2. 从还没处理的数组（假如还剩k个）中，随机产生一个[0, k)之间的数字p（数组下标从0开始）；</span><br><span class="line">3. 从剩下的k个数中第p个数取出；</span><br><span class="line">4. 重复步骤2，3直到数字全部取完；</span><br><span class="line">5. 从步骤3中去除的数字序列便是一个打乱的数列。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>证明：证明其随机性，即每个元素被放置在新数组中的第 <code>i</code> 个位置是 <code>1/n</code><br>一个元素m被放入第 <code>i</code> 个位置的概率 P = 前 <code>i-1</code> 个位置选择元素时没有选中m的概率 * 第 <code>i</code> 个位置选中m的概率，即:<br><img src="/images/shuffle.gif" alt></p>
+</li>
+<li><p><strong>时间复杂度为O(n*n),空间复杂度为O(n).</strong>  </p>
+</li>
+<li><p>时间复杂度为O(n*n) 是因为我们要删除list中的元素，那么也就是要将后面的元素都向前移动一位，导致时间复杂度为O(n*n) .</p>
+</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(String[] str, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line"> String tmp = str[i];</span><br><span class="line"> str[i] = str[j];</span><br><span class="line"> str[j] = tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//因为这道题涉及到了长度不同，谁放在前面的问题，不能简单地直接逐个字符比较</span></span><br><span class="line"><span class="comment">//那么，把m和n拼接成的mn和nm按照字符串大小的比较规则来处理即可。</span></span><br><span class="line"><span class="comment">//如果mn &lt; nm,应该打印出nm,即n应该排在m前面，要交换顺序，反之，m应该排在n前面。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">cmp</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">    String new_1 = a+b;</span><br><span class="line">    String new_2 = b+a;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;new_1.length();i++)  &#123;</span><br><span class="line">        <span class="keyword">if</span>(new_1.charAt(i)==new_2.charAt(i)) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">return</span> new_1.charAt(i)&lt;new_2.charAt(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">largestNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    String[] str = <span class="keyword">new</span> String[nums.length];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++) &#123;  <span class="comment">// 先将数组中的数字转为字符串，再去比较。</span></span><br><span class="line">        str[i] = nums[i]+<span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//写个冒泡排序，任何一种排序算法都可以，只要把交换的条件变为我们的cmp条件即可。</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=nums.length-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--) &#123;</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(cmp(str[j], str[j+<span class="number">1</span>])) &#123;</span><br><span class="line">                swap(str, j, j+<span class="number">1</span>);</span><br><span class="line">                flag = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!flag) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    String result = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str.length;i++) &#123;</span><br><span class="line">        result += str[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(result.charAt(<span class="number">0</span>)==<span class="string">'0'</span>) <span class="keyword">return</span> <span class="string">"0"</span>; <span class="comment">//防止出现"00"的情况。</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> ArrayList <span class="title">Fisher_Yates_Shuffle</span><span class="params">(ArrayList&lt;Integer&gt; arr)</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; tar_arr = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    <span class="keyword">int</span> n = arr.size();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) &#123;</span><br><span class="line">        <span class="comment">// 生成0-n的随机数，包括0不包括n -- [0,n)</span></span><br><span class="line">        <span class="keyword">int</span> p =(<span class="keyword">int</span>)(Math.random()*(n-i));</span><br><span class="line">        tar_arr.add(arr.get(p));</span><br><span class="line">        arr.remove(p);  <span class="comment">// 删除index=p位置的元素</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tar_arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h5 id="2-Knuth-Durstenfeld-Shuffle-算法"><a href="#2-Knuth-Durstenfeld-Shuffle-算法" class="headerlink" title="2.  Knuth-Durstenfeld Shuffle 算法"></a>2.  Knuth-Durstenfeld Shuffle 算法</h5><ul>
+<li><p>对1的算法进行了改进，直接在原始数组上进行交换，而不必开辟额外的数组，节省空间。</p>
+</li>
+<li><p>思想：每次从未处理的数字中随机取出一个数字，然后把该数字放在数组的尾部，即数组尾部存放的是已经处理过的数字。</p>
+</li>
+<li><p>步骤：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>. 建立一个数组大小为 n 的数组 arr，分别存放 <span class="number">1</span> 到 n 的数值；</span><br><span class="line"><span class="number">2</span>. 生成一个从 <span class="number">0</span> 到 n - <span class="number">1</span> 的随机数 x；</span><br><span class="line"><span class="number">3</span>. 输出 arr 下标为 x 的数值，即为第一个随机数；</span><br><span class="line"><span class="number">4</span>. 将 arr 的尾元素和下标为 x 的元素互换；</span><br><span class="line"><span class="number">5</span>. 同<span class="number">2</span>，生成一个从 <span class="number">0</span> 到 n - <span class="number">2</span> 的随机数 x；</span><br><span class="line"><span class="number">6</span>. 输出 arr 下标为 x 的数值，为第二个随机数；</span><br><span class="line"><span class="number">7</span>. 将 arr 的倒数第二个元素和下标为 x 的元素互换；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>时间复杂度为O(n),空间复杂度为O(1)。缺点：必须知道数组长度n.</strong></p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Knuth_Durstenfeld_Shuffle</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = arr.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) &#123;</span><br><span class="line">        <span class="comment">// 生成0-n的随机数，包括0不包括n -- [0,n)</span></span><br><span class="line">        <span class="keyword">int</span> p =(<span class="keyword">int</span>)(Math.random()*(n-i));</span><br><span class="line">        swap(arr, p, n-i-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-Inside-Out-Algorithm-算法"><a href="#3-Inside-Out-Algorithm-算法" class="headerlink" title="3.  Inside-Out Algorithm 算法"></a>3.  Inside-Out Algorithm 算法</h5><ul>
+<li>Knuth-Durstenfeld Shuffle 是一个内部打乱的算法，算法完成后原始数据被直接打乱，尽管这个方法可以节省空间，但在有些应用中可能需要保留原始数据，所以需要另外开辟一个数组来存储生成的新序列。</li>
+<li>Inside-Out Algorithm 算法是既可以开辟新的空间，而且不需要对原数组进行删除操作。</li>
+<li>思想：设一游标i从前向后扫描原始数据的拷贝，在[0, i]之间随机一个下标p，然后用位置p的元素替换掉位置i的数字，再用原始数据位置i的元素替换掉拷贝数据位置p的元素。其作用相当于在拷贝数据中交换i与p位置处的值。</li>
+<li><strong>时间复杂度为O(n),空间复杂度为O(n)</strong></li>
+<li>这个算法的一个优点就是可以处理n未知的数组。</li>
+<li>这个相当于：<code>1*2*3*4*5*6*7*...*n = n!</code> 种可能情况。</li>
+<li>而前两种洗牌算法都相当于：<code>n*n-1*n-2*n-3*...*1 = n!</code> 种可能情况。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] Inside_Out_Shuffle(<span class="keyword">int</span>[] arr) &#123;</span><br><span class="line">    <span class="keyword">int</span>[] tar_arr = <span class="keyword">new</span> <span class="keyword">int</span>[arr.length];</span><br><span class="line">    tar_arr = arr.clone();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> p = (<span class="keyword">int</span>)(Math.random()*(i+<span class="number">1</span>));</span><br><span class="line">        tar_arr[i] = tar_arr[p];</span><br><span class="line">        tar_arr[p] = arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tar_arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注：之前Inside-Out Algorithm看了半天，没搞明白为什么需要那么麻烦两个数组替换来替换去的。。搞这么一波骚操作，但其实，Inside-Out Algorithm算法和Knuth-Durstenfeld Shuffle 算法的区别就在于一个原地打乱，一个在新数组上打乱。那么我们就可以先拷贝一份原数组，然后在新数组上按照Knuth-Durstenfeld Shuffle 算法的方法执行一遍就行了。两个数组替换实际上就是代替了原来的swap操作，不用额外开辟一个空间给暂存数据。而且Inside-Out Algorithm是从前向后处理的，可以处理n未知的数组。</p>
+<h4 id="🌈-例题"><a href="#🌈-例题" class="headerlink" title="🌈. 例题"></a>🌈. 例题</h4>
     </div>
 
     
@@ -378,8 +385,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/21/图/" rel="next" title="图">
-                  <i class="fa fa-chevron-left"></i> 图
+                <a href="/2019/08/28/查找算法/" rel="next" title="查找算法">
+                  <i class="fa fa-chevron-left"></i> 查找算法
                 </a>
               
             </div>
@@ -387,10 +394,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/08/21/数组/" rel="prev" title="数组">
-                  数组 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -425,8 +428,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -528,7 +540,24 @@
 
 
         </div>
-      </div>	
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#🌈-洗牌算法定义"><span class="nav-number">1.</span> <span class="nav-text">🌈. 洗牌算法定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#🌈-解法"><span class="nav-number">2.</span> <span class="nav-text">🌈. 解法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Fisher-Yates-Shuffle-算法-动态演示"><span class="nav-number">2.1.</span> <span class="nav-text">1.  Fisher-Yates Shuffle 算法 动态演示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Knuth-Durstenfeld-Shuffle-算法"><span class="nav-number">2.2.</span> <span class="nav-text">2.  Knuth-Durstenfeld Shuffle 算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Inside-Out-Algorithm-算法"><span class="nav-number">2.3.</span> <span class="nav-text">3.  Inside-Out Algorithm 算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#🌈-例题"><span class="nav-number">3.</span> <span class="nav-text">🌈. 例题</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      	
 
     </div>
 
@@ -693,7 +722,7 @@
       repo: 'alyssaasa.github.io',
       owner: 'alyssaasa',
       admin: ['alyssaasa'],
-      id: '60cd745a8f5e862189900a91e7004f32',
+      id: 'f67128f69e01cbcdf74e5b71d7b63f62',
         language: 'zh-CN',
       
       distractionFreeMode: 'true'
