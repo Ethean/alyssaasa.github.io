@@ -55,20 +55,20 @@
   };
 </script>
 
-  <meta name="description" content="1. 图的深度优先搜索和广度优先搜索 图分为邻接矩阵和邻接表。  邻接矩阵：  邻接表：  不管是dfs还是bfs，都要设置一个visit变量，表示当前node是否已经被访问过，使用递归遍历所有的节点。">
+  <meta name="description" content="🌈. 图的深度优先搜索和广度优先搜索 图分为邻接矩阵和邻接表。  邻接矩阵：  邻接表：  不管是dfs还是bfs，都要设置一个visit变量，表示当前node是否已经被访问过，使用递归遍历所有的节点。">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图">
 <meta property="og:url" content="http://yoursite.com/2019/08/21/图/index.html">
 <meta property="og:site_name" content="Sooner or Later, One Way or Another">
-<meta property="og:description" content="1. 图的深度优先搜索和广度优先搜索 图分为邻接矩阵和邻接表。  邻接矩阵：  邻接表：  不管是dfs还是bfs，都要设置一个visit变量，表示当前node是否已经被访问过，使用递归遍历所有的节点。">
+<meta property="og:description" content="🌈. 图的深度优先搜索和广度优先搜索 图分为邻接矩阵和邻接表。  邻接矩阵：  邻接表：  不管是dfs还是bfs，都要设置一个visit变量，表示当前node是否已经被访问过，使用递归遍历所有的节点。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/graph/2.png">
 <meta property="og:image" content="http://yoursite.com/images/graph/3.png">
-<meta property="og:updated_time" content="2019-08-24T15:01:21.709Z">
+<meta property="og:updated_time" content="2019-09-02T12:43:22.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图">
-<meta name="twitter:description" content="1. 图的深度优先搜索和广度优先搜索 图分为邻接矩阵和邻接表。  邻接矩阵：  邻接表：  不管是dfs还是bfs，都要设置一个visit变量，表示当前node是否已经被访问过，使用递归遍历所有的节点。">
+<meta name="twitter:description" content="🌈. 图的深度优先搜索和广度优先搜索 图分为邻接矩阵和邻接表。  邻接矩阵：  邻接表：  不管是dfs还是bfs，都要设置一个visit变量，表示当前node是否已经被访问过，使用递归遍历所有的节点。">
 <meta name="twitter:image" content="http://yoursite.com/images/graph/2.png">
   <link rel="canonical" href="http://yoursite.com/2019/08/21/图/">
 
@@ -298,7 +298,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-24 23:01:21" itemprop="dateModified" datetime="2019-08-24T23:01:21+08:00">2019-08-24</time>
+                <time title="修改时间：2019-09-02 20:43:22" itemprop="dateModified" datetime="2019-09-02T20:43:22+08:00">2019-09-02</time>
               </span>
             
           
@@ -327,7 +327,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="1-图的深度优先搜索和广度优先搜索"><a href="#1-图的深度优先搜索和广度优先搜索" class="headerlink" title="1. 图的深度优先搜索和广度优先搜索"></a>1. 图的深度优先搜索和广度优先搜索</h3><ul>
+        <h3 id="🌈-图的深度优先搜索和广度优先搜索"><a href="#🌈-图的深度优先搜索和广度优先搜索" class="headerlink" title="🌈. 图的深度优先搜索和广度优先搜索"></a>🌈. 图的深度优先搜索和广度优先搜索</h3><ul>
 <li><p>图分为邻接矩阵和邻接表。</p>
 </li>
 <li><p>邻接矩阵：<br><img src="/images/graph/2.png" alt></p>
@@ -351,9 +351,7 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span>[][] graph, <span class="keyword">int</span>[] visit, <span class="keyword">int</span> node)</span> </span>&#123;</span><br><span class="line">    visit[node] = <span class="number">1</span>;</span><br><span class="line">    Queue&lt;Integer&gt; que = <span class="keyword">new</span> LinkedList();</span><br><span class="line">    que.add(node);</span><br><span class="line">    <span class="keyword">while</span>(!que.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">int</span> new_node = que.poll();</span><br><span class="line">        <span class="comment">// 访问node节点要执行的操作</span></span><br><span class="line">        System.out.println(new_node);</span><br><span class="line">        <span class="comment">// 将new_node相连的节点放入队列</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;graph[new_node].length;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(graph[new_node][i]==<span class="number">1</span> &amp;&amp; visit[i]==<span class="number">0</span>) &#123;</span><br><span class="line">                visit[i] = <span class="number">1</span>;</span><br><span class="line">                que.add(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-经典题"><a href="#2-经典题" class="headerlink" title="2. 经典题"></a>2. 经典题</h3><ol>
-<li><p><a href="https://leetcode.com/problems/number-of-islands/" target="_blank" rel="noopener">leetcode 200. 岛屿的数量</a></p>
-<ul>
+<h3 id="🌈-经典题"><a href="#🌈-经典题" class="headerlink" title="🌈. 经典题"></a>🌈. 经典题</h3><h5 id="1-leetcode-200-岛屿的数量"><a href="#1-leetcode-200-岛屿的数量" class="headerlink" title="1.  leetcode 200. 岛屿的数量"></a>1.  <a href="https://leetcode.com/problems/number-of-islands/" target="_blank" rel="noopener">leetcode 200. 岛屿的数量</a></h5><ul>
 <li>1为陆地，0为水，垂直方向才能算作一个岛屿，斜着不能算作一个岛屿。</li>
 <li>类似题目1：<a href="https://leetcode.com/problems/max-area-of-island/" target="_blank" rel="noopener">leetcode 695. 岛屿的最大面积</a>，只需再增加一个计数功能即可。</li>
 <li>类似题目2：<a href="https://leetcode.com/problems/flood-fill/" target="_blank" rel="noopener">leetcode 733. Flood Fill</a>,  访问节点时再改变一下节点的值即可。</li>
@@ -361,29 +359,25 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input:</span><br><span class="line">11000</span><br><span class="line">11000</span><br><span class="line">00100</span><br><span class="line">00011</span><br><span class="line"></span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">islandDFS</span><span class="params">(<span class="keyword">char</span>[][] grid, <span class="keyword">int</span>[][] visit, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i&lt;<span class="number">0</span> || i&gt;=grid.length || j&lt;<span class="number">0</span> || j&gt;=grid[<span class="number">0</span>].length)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span>(grid[i][j]==<span class="string">'1'</span> &amp;&amp; visit[i][j]==<span class="number">0</span>)&#123;</span><br><span class="line">        visit[i][j] = <span class="number">1</span>;</span><br><span class="line">        islandDFS(grid, visit, i, j-<span class="number">1</span>);</span><br><span class="line">        islandDFS(grid, visit, i, j+<span class="number">1</span>);</span><br><span class="line">        islandDFS(grid, visit, i+<span class="number">1</span>, j);</span><br><span class="line">        islandDFS(grid, visit, i-<span class="number">1</span>, j);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numIslands</span><span class="params">(<span class="keyword">char</span>[][] grid)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(grid.length==<span class="number">0</span>)  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span>[][] visit = <span class="keyword">new</span> <span class="keyword">int</span>[grid.length][grid[<span class="number">0</span>].length];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;grid.length;i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;grid[<span class="number">0</span>].length;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(grid[i][j]==<span class="string">'1'</span> &amp;&amp; visit[i][j]==<span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">// 把和grid[i][j]相连接的位置都标记为1，记作一块岛屿</span></span><br><span class="line">                islandDFS(grid, visit, i, j);</span><br><span class="line">                number += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://leetcode.com/problems/island-perimeter/" target="_blank" rel="noopener">leetcode 463. 确定岛屿的周长</a></p>
-<ul>
+
+<h5 id="2-leetcode-463-确定岛屿的周长"><a href="#2-leetcode-463-确定岛屿的周长" class="headerlink" title="2.  leetcode 463. 确定岛屿的周长"></a>2.  <a href="https://leetcode.com/problems/island-perimeter/" target="_blank" rel="noopener">leetcode 463. 确定岛屿的周长</a></h5><ul>
 <li>题目中只有一个岛屿，确定岛屿的周长</li>
 <li>就是确定每个1周围有几个0，或者在边界位置。</li>
 <li>这道题跟图没什么关系。遍历一遍就行了。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[[0,1,0,0],</span><br><span class="line"> [1,1,1,0],</span><br><span class="line"> [0,1,0,0],</span><br><span class="line"> [1,1,0,0]]</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">islandPerimeter</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//从头到尾遍历，查看每个1周围几个0，上下左右。</span></span><br><span class="line">    <span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;grid.length;i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;grid[<span class="number">0</span>].length;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(grid[i][j]==<span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">0</span> || grid[i-<span class="number">1</span>][j]==<span class="number">0</span>) number += <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(j==<span class="number">0</span> || grid[i][j-<span class="number">1</span>]==<span class="number">0</span>) number += <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(i==grid.length-<span class="number">1</span> || grid[i+<span class="number">1</span>][j]==<span class="number">0</span>) number += <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(j==grid[<span class="number">0</span>].length-<span class="number">1</span> || grid[i][j+<span class="number">1</span>]==<span class="number">0</span>) number += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-   <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">islandPerimeter</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//从头到尾遍历，查看每个1周围几个0，上下左右。</span></span><br><span class="line">    <span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;grid.length;i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;grid[<span class="number">0</span>].length;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(grid[i][j]==<span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">0</span> || grid[i-<span class="number">1</span>][j]==<span class="number">0</span>) number += <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(j==<span class="number">0</span> || grid[i][j-<span class="number">1</span>]==<span class="number">0</span>) number += <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(i==grid.length-<span class="number">1</span> || grid[i+<span class="number">1</span>][j]==<span class="number">0</span>) number += <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(j==grid[<span class="number">0</span>].length-<span class="number">1</span> || grid[i][j+<span class="number">1</span>]==<span class="number">0</span>) number += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-leetcode-787-从src飞到dst的最小花销"><a href="#3-leetcode-787-从src飞到dst的最小花销" class="headerlink" title="3.  leetcode. 787 从src飞到dst的最小花销"></a>3.  <a href="https://leetcode.com/problems/cheapest-flights-within-k-stops/" target="_blank" rel="noopener">leetcode. 787 从src飞到dst的最小花销</a></h5><ul>
+<li>方法一：递归调用，但leetcode会超时。</li>
+<li>优化：对于遍历到的结点，首先判断如果当前结点已经访问过了，直接跳过。或者是当前价格out加上到达这个结点需要的价格之和大于结果res的话，那么直接跳过。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> min = Integer.MAX_VALUE;</span><br><span class="line">     </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> [][] flights, <span class="keyword">int</span> src, <span class="keyword">int</span> dst, <span class="keyword">int</span> K, <span class="keyword">int</span> v, <span class="keyword">int</span>[] visit)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(src==dst &amp;&amp; v&lt;min) &#123;</span><br><span class="line">        min = v;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(K&lt;<span class="number">0</span>||v&gt;min) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;flights.length;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(visit[src]==<span class="number">0</span> &amp;&amp; flights[i][<span class="number">0</span>]==src) &#123;</span><br><span class="line">            visit[src] = <span class="number">1</span>;</span><br><span class="line">            DFS(flights, flights[i][<span class="number">1</span>], dst, K-<span class="number">1</span>, v+flights[i][<span class="number">2</span>], visit);    </span><br><span class="line">            visit[src] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findCheapestPrice</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>[][] f, <span class="keyword">int</span> src, <span class="keyword">int</span> dst, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] visit = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">    DFS(f, src, dst, K, <span class="number">0</span>, visit);</span><br><span class="line">    <span class="keyword">if</span>(min == Integer.MAX_VALUE) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> min;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-
-<ol start="3">
-<li><a href="https://leetcode.com/problems/minesweeper/" target="_blank" rel="noopener">leetcode 529. 扫雷游戏</a><ul>
+<h5 id="4-leetcode-529-扫雷游戏"><a href="#4-leetcode-529-扫雷游戏" class="headerlink" title="4.  leetcode 529. 扫雷游戏"></a>4.  <a href="https://leetcode.com/problems/minesweeper/" target="_blank" rel="noopener">leetcode 529. 扫雷游戏</a></h5><ul>
 <li>题太复杂了。。之后再做。</li>
 </ul>
-</li>
-</ol>
 <h3 id="3-拓扑排序"><a href="#3-拓扑排序" class="headerlink" title="3. 拓扑排序"></a>3. 拓扑排序</h3><p>图片来源： <a href="https://www.cnblogs.com/XMU-hcq/p/6065057.html" target="_blank" rel="noopener">https://www.cnblogs.com/XMU-hcq/p/6065057.html</a></p>
 
     </div>
@@ -420,8 +414,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/21/数组/" rel="prev" title="数组">
-                  数组 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/08/28/查找算法/" rel="prev" title="查找算法">
+                  查找算法 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -482,7 +476,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -580,7 +574,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-图的深度优先搜索和广度优先搜索"><span class="nav-number">1.</span> <span class="nav-text">1. 图的深度优先搜索和广度优先搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-DFS"><span class="nav-number">1.1.</span> <span class="nav-text">1.1. DFS:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-BFS"><span class="nav-number">1.2.</span> <span class="nav-text">1.2. BFS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-经典题"><span class="nav-number">2.</span> <span class="nav-text">2. 经典题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-拓扑排序"><span class="nav-number">3.</span> <span class="nav-text">3. 拓扑排序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#🌈-图的深度优先搜索和广度优先搜索"><span class="nav-number">1.</span> <span class="nav-text">🌈. 图的深度优先搜索和广度优先搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-DFS"><span class="nav-number">1.1.</span> <span class="nav-text">1.1. DFS:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-BFS"><span class="nav-number">1.2.</span> <span class="nav-text">1.2. BFS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#🌈-经典题"><span class="nav-number">2.</span> <span class="nav-text">🌈. 经典题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-leetcode-200-岛屿的数量"><span class="nav-number">2.0.1.</span> <span class="nav-text">1.  leetcode 200. 岛屿的数量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-leetcode-463-确定岛屿的周长"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.  leetcode 463. 确定岛屿的周长</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-leetcode-787-从src飞到dst的最小花销"><span class="nav-number">2.0.3.</span> <span class="nav-text">3.  leetcode. 787 从src飞到dst的最小花销</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-leetcode-529-扫雷游戏"><span class="nav-number">2.0.4.</span> <span class="nav-text">4.  leetcode 529. 扫雷游戏</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-拓扑排序"><span class="nav-number">3.</span> <span class="nav-text">3. 拓扑排序</span></a></li></ol></div>
             
 
           </div>
