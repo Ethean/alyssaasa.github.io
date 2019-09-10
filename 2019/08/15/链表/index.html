@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="Sooner or Later, One Way or Another">
 <meta property="og:description" content="链表有一个很烦的点在于可能会对头节点进行处理。。所以时刻不能忽略头节点可能被处理的情况。class ListNode &amp;#123;    int val;    ListNode next;    ListNode(int x) &amp;#123; val = x; &amp;#125;&amp;#125;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-08T13:38:55.536Z">
+<meta property="og:updated_time" content="2019-09-10T15:33:15.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="链表">
 <meta name="twitter:description" content="链表有一个很烦的点在于可能会对头节点进行处理。。所以时刻不能忽略头节点可能被处理的情况。class ListNode &amp;#123;    int val;    ListNode next;    ListNode(int x) &amp;#123; val = x; &amp;#125;&amp;#125;">
@@ -295,7 +295,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-08 21:38:55" itemprop="dateModified" datetime="2019-09-08T21:38:55+08:00">2019-09-08</time>
+                <time title="修改时间：2019-09-10 23:33:15" itemprop="dateModified" datetime="2019-09-10T23:33:15+08:00">2019-09-10</time>
               </span>
             
           
@@ -327,23 +327,19 @@
         <p>链表有一个很烦的点在于可能会对头节点进行处理。。所以时刻不能忽略头节点可能被处理的情况。</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ListNode next;</span><br><span class="line">    ListNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a>
 
 
-<ol>
-<li><p>在o(1)时间内删除链表节点，给定头节点和要删除节点。</p>
-<ul>
+<h5 id="1-在o-1-时间内删除链表节点，给定头节点和要删除节点。"><a href="#1-在o-1-时间内删除链表节点，给定头节点和要删除节点。" class="headerlink" title="1. 在o(1)时间内删除链表节点，给定头节点和要删除节点。"></a>1. 在o(1)时间内删除链表节点，给定头节点和要删除节点。</h5><ul>
 <li>知道要删除的节点，要从头开始遍历找到他前面的结点，才能删除该节点。</li>
 <li>把要删节点的下一个节点的值赋值给要删除的节点，然后删除要删节点的下一个节点</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(ListNode head, ListNode node)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head==<span class="keyword">null</span> || node==<span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span>(node.next!=<span class="keyword">null</span>) &#123;</span><br><span class="line">        node.val = node.next.val;</span><br><span class="line">        node.next = node.next.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//node节点为尾节点，则需要找到node的前驱节点再删除它</span></span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        ListNode pre_node = head;</span><br><span class="line">        <span class="keyword">while</span>(pre_node.next!=node)</span><br><span class="line">            pre_node = pre_node.next;</span><br><span class="line">        pre_node.next = <span class="keyword">null</span>;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/" target="_blank" rel="noopener">leetcode 83. 删除已排序链表中重复的节点</a></p>
-<ul>
+
+<h5 id="2-leetcode-83-删除已排序链表中重复的节点"><a href="#2-leetcode-83-删除已排序链表中重复的节点" class="headerlink" title="2. leetcode 83. 删除已排序链表中重复的节点"></a>2. <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/" target="_blank" rel="noopener">leetcode 83. 删除已排序链表中重复的节点</a></h5><ul>
 <li>题意：输入：<code>1-&gt;2-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5</code>   输出：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code></li>
 <li>从前向后遍历，设立两个指针pre， post。pre指向重复位置的第一个节点，post指向重复的最后一个节点，然后将他们相连即可。</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    ListNode pre = head;</span><br><span class="line">    ListNode post = head;</span><br><span class="line">    <span class="keyword">while</span>(post!=<span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span>(post.next!=<span class="keyword">null</span> &amp;&amp; post.val==post.next.val)</span><br><span class="line">            post = post.next;</span><br><span class="line">        pre.next = post.next;</span><br><span class="line">        pre = post.next;</span><br><span class="line">        post = post.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/" target="_blank" rel="noopener">Leetcode 82. 删除已排序链表中重复的节点</a></p>
-<ul>
+
+<h5 id="3-Leetcode-82-删除已排序链表中重复的节点"><a href="#3-Leetcode-82-删除已排序链表中重复的节点" class="headerlink" title="3. Leetcode 82. 删除已排序链表中重复的节点"></a>3. <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/" target="_blank" rel="noopener">Leetcode 82. 删除已排序链表中重复的节点</a></h5><ul>
 <li>题意：输入：<code>1-&gt;1-&gt;2-&gt;2-&gt;3-&gt;6-&gt;4-&gt;4-&gt;5</code>   输出：<code>3-&gt;6-&gt;5</code></li>
 <li>和之前的不同，这个因为要把重复的都删掉，那么头节点也会有重复的，所以要多设置一个开始节点start</li>
 <li>start.next = head，防止头节点被删除。</li>
@@ -351,9 +347,8 @@
 <li>但是这个代码的还是很耗时的，有待优化。</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    ListNode start = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    start.next = head;</span><br><span class="line">    ListNode pre = start;</span><br><span class="line">    ListNode post = start.next;</span><br><span class="line">    <span class="keyword">int</span> current_num = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(post!=<span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span>(post.next!=<span class="keyword">null</span> &amp;&amp; post.val==post.next.val) &#123;</span><br><span class="line">            current_num += <span class="number">1</span>;</span><br><span class="line">            post = post.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(current_num==<span class="number">1</span>) &#123;</span><br><span class="line">            pre.next = post;</span><br><span class="line">            pre = post;</span><br><span class="line">        &#125;</span><br><span class="line">        post = post.next;</span><br><span class="line">        current_num = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    pre.next=post;</span><br><span class="line">  	<span class="keyword">return</span> start.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">leetcode 19. 移除链表中倒数第n个节点</a></p>
-<ul>
+
+<h5 id="4-leetcode-19-移除链表中倒数第n个节点"><a href="#4-leetcode-19-移除链表中倒数第n个节点" class="headerlink" title="4. leetcode 19. 移除链表中倒数第n个节点"></a>4. <a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">leetcode 19. 移除链表中倒数第n个节点</a></h5><ul>
 <li>题意：输入：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code>,   <code>n=2</code>.   输出：<code>1-&gt;2-&gt;3-&gt;5</code></li>
 <li><strong>因为要移除的可能是头指针，所以要定义一个指针指向头节点</strong></li>
 <li>思路1：遍历一遍，知道链表长度，第二次遍历到<code>length-n-1</code>的时候，<code>node.next = node.next.next</code> 即可。</li>
@@ -365,12 +360,7 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    ListNode start = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line"> 	start.next = head;</span><br><span class="line">    ListNode node1 = start;</span><br><span class="line">    ListNode node2 = start;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)</span><br><span class="line">        node1 = node1.next;</span><br><span class="line">  	<span class="keyword">while</span>(node1!=<span class="keyword">null</span>) &#123;</span><br><span class="line">        node1 = node1.next;</span><br><span class="line">        node2 = node2.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(node2.next.next==<span class="keyword">null</span>) node2.next=<span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">else</span> node2.next = node2.next.next;</span><br><span class="line">    <span class="keyword">return</span> start.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-</li>
-</ol>
-<ol start="5">
-<li><p><a href="https://leetcode.com/problems/middle-of-the-linked-list/" target="_blank" rel="noopener">Leetcode 876. 输出链表的中间节点</a></p>
-<ul>
+<h5 id="5-leetcode-876-输出链表的中间节点"><a href="#5-leetcode-876-输出链表的中间节点" class="headerlink" title="5. leetcode 876. 输出链表的中间节点"></a>5. <a href="https://leetcode.com/problems/middle-of-the-linked-list/" target="_blank" rel="noopener">leetcode 876. 输出链表的中间节点</a></h5><ul>
 <li>如果链表长度为奇数，输出中间一个：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code>, 输出为：<code>3</code></li>
 <li>如果链表长度为偶数，输出中间两个的第二个：<code>1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;6</code>, 输出为：<code>4</code></li>
 <li>这道题和上一道题和相似，上一道题是指定第n个，这个是中间一个</li>
@@ -379,21 +369,14 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">middleNode</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    ListNode fast = head;</span><br><span class="line">    ListNode slow = head;</span><br><span class="line">    <span class="keyword">while</span>(fast!=<span class="keyword">null</span> &amp;&amp; fast.next!=<span class="keyword">null</span>) &#123;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">        slow = slow.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**举一反三：当我们用一个指针遍历链表不能解决问题的时候，可以尝试用两个指针来遍历链表。可以让其中一个指针遍历的速度快一些，或者让它在链表上先走若干步。**</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>链表反转</p>
-<ul>
+<p><strong>举一反三：当我们用一个指针遍历链表不能解决问题的时候，可以尝试用两个指针来遍历链表。可以让其中一个指针遍历的速度快一些，或者让它在链表上先走若干步。</strong></p>
+<h5 id="6-leetcode-206-链表反转"><a href="#6-leetcode-206-链表反转" class="headerlink" title="6. leetcode 206. 链表反转"></a>6. <a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" rel="noopener">leetcode 206. 链表反转</a></h5><ul>
 <li>定义一个new_head, 用在开头，每次在new_head之后插入节点。</li>
 <li>Ori: 1-&gt;2-&gt;3-&gt;4</li>
 <li>New: new_head-&gt;1;   new_head-&gt;2-&gt;1;  new_head-&gt;3-&gt;2-&gt;1;  new_head-&gt;4-&gt;3-&gt;2-&gt;1</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    ListNode new_head = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">while</span>(head!=<span class="keyword">null</span>) &#123;</span><br><span class="line">        ListNode tmp = head.next;</span><br><span class="line">        head.next = new_head.next;</span><br><span class="line">        new_head.next = head;</span><br><span class="line">        head = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> new_head.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-</li>
-</ol>
-<p>7. </p>
 
     </div>
 
@@ -466,8 +449,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -569,7 +561,24 @@
 
 
         </div>
-      </div>	
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-在o-1-时间内删除链表节点，给定头节点和要删除节点。"><span class="nav-number">1.</span> <span class="nav-text">1. 在o(1)时间内删除链表节点，给定头节点和要删除节点。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-leetcode-83-删除已排序链表中重复的节点"><span class="nav-number">2.</span> <span class="nav-text">2. leetcode 83. 删除已排序链表中重复的节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Leetcode-82-删除已排序链表中重复的节点"><span class="nav-number">3.</span> <span class="nav-text">3. Leetcode 82. 删除已排序链表中重复的节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-leetcode-19-移除链表中倒数第n个节点"><span class="nav-number">4.</span> <span class="nav-text">4. leetcode 19. 移除链表中倒数第n个节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-leetcode-876-输出链表的中间节点"><span class="nav-number">5.</span> <span class="nav-text">5. leetcode 876. 输出链表的中间节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-leetcode-206-链表反转"><span class="nav-number">6.</span> <span class="nav-text">6. leetcode 206. 链表反转</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      	
 
     </div>
 

@@ -64,7 +64,7 @@
 <meta property="og:description" content="分类模型的衡量指标原文链接：https://segmentfault.com/a/1190000016686335">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/1042406/201610/1042406-20161024164359046-1869944207.png">
-<meta property="og:updated_time" content="2019-09-03T11:53:54.728Z">
+<meta property="og:updated_time" content="2019-09-10T16:55:22.799Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="精确率，准确率，召回率和AUC曲线，PR曲线">
 <meta name="twitter:description" content="分类模型的衡量指标原文链接：https://segmentfault.com/a/1190000016686335">
@@ -297,7 +297,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-03 19:53:54" itemprop="dateModified" datetime="2019-09-03T19:53:54+08:00">2019-09-03</time>
+                <time title="修改时间：2019-09-11 00:55:22" itemprop="dateModified" datetime="2019-09-11T00:55:22+08:00">2019-09-11</time>
               </span>
             
           
@@ -367,11 +367,11 @@
 <p>F值 = 70% * 100% * 2 / (70% + 100%) = 82.35% </p>
 <p>由此可见，正确率是评估捕获的成果中目标成果所占得比例；召回率，顾名思义，就是从关注领域中，召回目标类别的比例；而F值，则是综合这二者指标的评估指标，用于综合反映整体的指标。</p>
 <p>当然希望检索结果Precision越高越好，同时Recall也越高越好，但事实上这两者在某些情况下有矛盾的。比如极端情况下，我们只搜索出了一个结果，且是准确的，那么Precision就是100%，但是Recall就很低；而如果我们把所有结果都返回，那么比如Recall是100%，但是Precision就会很低。因此在不同的场合中需要自己判断希望Precision比较高或是Recall比较高。如果是做实验研究，可以绘制<strong>Precision-Recall曲线</strong>来帮助分析。</p>
-<p>有时候我们对精确率和召回率并不是一视同仁，比如有时候我们更加重视精确率。我们用一个参数𝛽β来度量两者之间的关系。如果𝛽&gt;1β&gt;1, 召回率有更大影响，如果𝛽&lt;1β&lt;1,精确率有更大影响。自然，当𝛽=1β=1的时候，精确率和召回率影响力相同，和F1形式一样。含有度量参数𝛽β的F1我们记为𝐹𝛽Fβ, 严格的数学定义如下：</p>
+<p>有时候我们对精确率和召回率并不是一视同仁，比如有时候我们更加重视精确率。我们用一个参数𝛽来度量两者之间的关系。如果𝛽&gt;1, 召回率有更大影响，如果𝛽&lt;1,精确率有更大影响。自然，当𝛽=1的时候，精确率和召回率影响力相同，和F1形式一样。含有度量参数𝛽 F1我们记为𝐹𝛽, 严格的数学定义如下：</p>
 <p>　　　　$𝐹_𝛽=\frac{(1+𝛽^2)∗𝑃∗𝑅}{𝛽^2∗𝑃+𝑅} $</p>
 <p>灵敏度 TPR（true positive rate）（同召回率）</p>
 <p>真实样本中为正的，有多少被预测为正</p>
-<p>1-特异度FPR（false postive rate）</p>
+<p>1-特异度：FPR（false postive rate）</p>
 <p>真实样本为负的，有多少被预测为正</p>
 <p>FPR = FP/(FP+TN)</p>
 <p>Roc 曲线</p>
@@ -404,8 +404,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/16/Self-Attention机制/" rel="next" title="Self-Attention机制">
-                  <i class="fa fa-chevron-left"></i> Self-Attention机制
+                <a href="/2019/08/17/二叉树/" rel="next" title="二叉树">
+                  <i class="fa fa-chevron-left"></i> 二叉树
                 </a>
               
             </div>
@@ -414,8 +414,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/17/二叉树/" rel="prev" title="二叉树">
-                  二叉树 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/08/17/排序算法/" rel="prev" title="排序算法">
+                  排序算法 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
