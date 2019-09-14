@@ -11,19 +11,19 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png">
-  <meta name="description" content="分类模型的衡量指标 原文链接：https://segmentfault.com/a/1190000016686335 https://www.cnblogs.com/pinard/p/5993450.html 什么是性能度量？ 我们都知道机器学习要建模，但是对于模型性能的好坏（即模型的泛化能力），我们并不知道是怎样的，很可能这个模型就是一个差的模型，泛化能力弱，对测试集不能很好的预测或分类。那么如">
+  <meta name="description" content="分类模型的衡量指标">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="精确率，准确率，召回率和AUC曲线，PR曲线">
 <meta property="og:url" content="http://yoursite.com/2019/08/17/混淆矩阵，准确率，精准率，召回率/index.html">
 <meta property="og:site_name" content="Sooner or Later, One Way or Another">
-<meta property="og:description" content="分类模型的衡量指标 原文链接：https://segmentfault.com/a/1190000016686335 https://www.cnblogs.com/pinard/p/5993450.html 什么是性能度量？ 我们都知道机器学习要建模，但是对于模型性能的好坏（即模型的泛化能力），我们并不知道是怎样的，很可能这个模型就是一个差的模型，泛化能力弱，对测试集不能很好的预测或分类。那么如">
+<meta property="og:description" content="分类模型的衡量指标">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/1042406/201610/1042406-20161024164359046-1869944207.png">
-<meta property="og:updated_time" content="2019-09-10T16:55:22.799Z">
+<meta property="og:updated_time" content="2019-09-14T12:36:10.722Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="精确率，准确率，召回率和AUC曲线，PR曲线">
-<meta name="twitter:description" content="分类模型的衡量指标 原文链接：https://segmentfault.com/a/1190000016686335 https://www.cnblogs.com/pinard/p/5993450.html 什么是性能度量？ 我们都知道机器学习要建模，但是对于模型性能的好坏（即模型的泛化能力），我们并不知道是怎样的，很可能这个模型就是一个差的模型，泛化能力弱，对测试集不能很好的预测或分类。那么如">
+<meta name="twitter:description" content="分类模型的衡量指标">
 <meta name="twitter:image" content="https://images2015.cnblogs.com/blog/1042406/201610/1042406-20161024164359046-1869944207.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
@@ -32,13 +32,13 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568443290199">
+  <link rel="stylesheet" href="/css/style.css?v=1568476338013">
 </head>
 
 <body class="mdui-drawer-body-left">
   
   <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="nexmoe-bg" style="background-image: url(/images/bg/2.jpg)"></div>
     <div class="mdui-appbar mdui-shadow-0">
       <div class="mdui-toolbar">
         <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
@@ -163,21 +163,9 @@
 
   
   
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章归档</h3>
-    <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
-    </div>
-  </div>
-
 
   
 </aside>
-    <div class="nexmoe-copyright">
-        &copy; 2019 Alyssa
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
-    </div>
 </div><!-- .nexmoe-drawer -->
   </div>
   <div id="nexmoe-content">
@@ -185,14 +173,13 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
+        <img src="/images/bg/bg.png">
         
         <h1>精确率，准确率，召回率和AUC曲线，PR曲线</h1>
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月17日</a>
     <a><i class="nexmoefont icon-areachart"></i>1,720 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 6 分钟</a>
     
       <a class="nexmoefont icon-appstore-fill -link" href="/categories/机器学习/">机器学习</a>
     
@@ -202,6 +189,8 @@
   </div>
   <article>
     <p>分类模型的衡量指标</p>
+<a id="more"></a>
+
 <p>原文链接：<a href="https://segmentfault.com/a/1190000016686335" target="_blank" rel="noopener">https://segmentfault.com/a/1190000016686335</a></p>
 <p><a href="https://www.cnblogs.com/pinard/p/5993450.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinard/p/5993450.html</a></p>
 <p>什么是性能度量？</p>
@@ -268,7 +257,7 @@
     var gitalk = new Gitalk({
         clientID: 'a0b09f47cc93396b2dd6',
         clientSecret: 'bdf8c7211c890d37071003e98dd9879483be6512',
-        id: window.location.pathname,
+        id: (location.pathname).split("/").pop().substring(0, 49),
         repo: 'alyssaasa.github.io',
         owner: 'alyssaasa',
         admin: 'alyssaasa'
@@ -292,7 +281,7 @@
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568443290204"></script>
+<script src="/js/app.js?v=1568476338022"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

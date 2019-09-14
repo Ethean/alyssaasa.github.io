@@ -11,18 +11,18 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png">
-  <meta name="description" content="Hexo next 的配置过程 回溯法：实现某个元素选或不选的问题。">
+  <meta name="description" content="回溯法：实现某个元素选或不选的问题。">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="回溯算法">
 <meta property="og:url" content="http://yoursite.com/2019/09/08/回溯算法/index.html">
 <meta property="og:site_name" content="Sooner or Later, One Way or Another">
-<meta property="og:description" content="Hexo next 的配置过程 回溯法：实现某个元素选或不选的问题。">
+<meta property="og:description" content="回溯法：实现某个元素选或不选的问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-14T05:38:52.714Z">
+<meta property="og:updated_time" content="2019-09-14T12:36:02.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回溯算法">
-<meta name="twitter:description" content="Hexo next 的配置过程 回溯法：实现某个元素选或不选的问题。">
+<meta name="twitter:description" content="回溯法：实现某个元素选或不选的问题。">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -30,13 +30,13 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568443290046">
+  <link rel="stylesheet" href="/css/style.css?v=1568476337900">
 </head>
 
 <body class="mdui-drawer-body-left">
   
   <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="nexmoe-bg" style="background-image: url(/images/bg/2.jpg)"></div>
     <div class="mdui-appbar mdui-shadow-0">
       <div class="mdui-toolbar">
         <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
@@ -161,21 +161,9 @@
 
   
   
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章归档</h3>
-    <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
-    </div>
-  </div>
-
 
   
 </aside>
-    <div class="nexmoe-copyright">
-        &copy; 2019 Alyssa
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
-    </div>
 </div><!-- .nexmoe-drawer -->
   </div>
   <div id="nexmoe-content">
@@ -183,14 +171,13 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-        <img src="/images/bg.jfif">
+        <img src="/images/bg/bg.png">
         
         <h1>回溯算法</h1>
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月08日</a>
-    <a><i class="nexmoefont icon-areachart"></i>901 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 5 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>878 字</a>
     
       <a class="nexmoefont icon-appstore-fill -link" href="/categories/算法/">算法</a>
     
@@ -199,11 +186,9 @@
     
   </div>
   <article>
-    <p>Hexo next 的配置过程</p>
-<p>回溯法：实现某个元素选或不选的问题。</p>
+    <p>回溯法：实现某个元素选或不选的问题。</p>
 <a id="more"></a>
 
-<p>回溯法：实现某个元素选或不选的问题。</p>
 <ul>
 <li>选当前元素，递归的进行后续元素的选择；</li>
 <li>将当前元素拿出，再进行一次不放入该元素，递归的进行后续元素的选择。</li>
@@ -410,7 +395,7 @@ public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int targ
     var gitalk = new Gitalk({
         clientID: 'a0b09f47cc93396b2dd6',
         clientSecret: 'bdf8c7211c890d37071003e98dd9879483be6512',
-        id: window.location.pathname,
+        id: (location.pathname).split("/").pop().substring(0, 49),
         repo: 'alyssaasa.github.io',
         owner: 'alyssaasa',
         admin: 'alyssaasa'
@@ -434,7 +419,7 @@ public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int targ
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568443290054"></script>
+<script src="/js/app.js?v=1568476337909"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

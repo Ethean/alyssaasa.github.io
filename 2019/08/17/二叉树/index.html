@@ -11,18 +11,18 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png">
-  <meta name="description" content="二叉树结构的定义：class TreeNode {     int val;     TreeNode left;     TreeNode right;     TreeNode(int x) { val = x; } } 1. 二叉树的遍历： leetcode 144 . 二叉树的先序遍历 public void preorder(TreeNode node, List&amp;lt;Intege">
+  <meta name="description" content="二叉树的相关">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二叉树">
 <meta property="og:url" content="http://yoursite.com/2019/08/17/二叉树/index.html">
 <meta property="og:site_name" content="Sooner or Later, One Way or Another">
-<meta property="og:description" content="二叉树结构的定义：class TreeNode {     int val;     TreeNode left;     TreeNode right;     TreeNode(int x) { val = x; } } 1. 二叉树的遍历： leetcode 144 . 二叉树的先序遍历 public void preorder(TreeNode node, List&amp;lt;Intege">
+<meta property="og:description" content="二叉树的相关">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-14T06:21:11.307Z">
+<meta property="og:updated_time" content="2019-09-14T12:35:56.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二叉树">
-<meta name="twitter:description" content="二叉树结构的定义：class TreeNode {     int val;     TreeNode left;     TreeNode right;     TreeNode(int x) { val = x; } } 1. 二叉树的遍历： leetcode 144 . 二叉树的先序遍历 public void preorder(TreeNode node, List&amp;lt;Intege">
+<meta name="twitter:description" content="二叉树的相关">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -30,13 +30,13 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568443290212">
+  <link rel="stylesheet" href="/css/style.css?v=1568476338027">
 </head>
 
 <body class="mdui-drawer-body-left">
   
   <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="nexmoe-bg" style="background-image: url(/images/bg/2.jpg)"></div>
     <div class="mdui-appbar mdui-shadow-0">
       <div class="mdui-toolbar">
         <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
@@ -161,21 +161,9 @@
 
   
   
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章归档</h3>
-    <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
-    </div>
-  </div>
-
 
   
 </aside>
-    <div class="nexmoe-copyright">
-        &copy; 2019 Alyssa
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
-    </div>
 </div><!-- .nexmoe-drawer -->
   </div>
   <div id="nexmoe-content">
@@ -183,14 +171,13 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-        <img src="/images/bg.jfif">
+        <img src="/images/bg/bg.png">
         
         <h1>二叉树</h1>
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月17日</a>
-    <a><i class="nexmoefont icon-areachart"></i>2,934 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 13 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>2,940 字</a>
     
       <a class="nexmoefont icon-appstore-fill -link" href="/categories/算法/">算法</a>
     
@@ -199,7 +186,8 @@
     
   </div>
   <article>
-    <a id="more"></a>
+    <p>二叉树的相关</p>
+<a id="more"></a>
 
 <h4 id="二叉树结构的定义："><a href="#二叉树结构的定义：" class="headerlink" title="二叉树结构的定义："></a>二叉树结构的定义：</h4><pre><code class="java">class TreeNode {
     int val;
@@ -565,7 +553,7 @@ public TreeNode sortedListToBST(ListNode head) {
     var gitalk = new Gitalk({
         clientID: 'a0b09f47cc93396b2dd6',
         clientSecret: 'bdf8c7211c890d37071003e98dd9879483be6512',
-        id: window.location.pathname,
+        id: (location.pathname).split("/").pop().substring(0, 49),
         repo: 'alyssaasa.github.io',
         owner: 'alyssaasa',
         admin: 'alyssaasa'
@@ -589,7 +577,7 @@ public TreeNode sortedListToBST(ListNode head) {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568443290227"></script>
+<script src="/js/app.js?v=1568476338035"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

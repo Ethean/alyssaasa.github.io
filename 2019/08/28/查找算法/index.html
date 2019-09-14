@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Sooner or Later, One Way or Another">
 <meta property="og:description" content="平均查找长度（Average Search Length，ASL）：需和指定key进行比较的关键字的个数的期望值，称为查找算法在查找成功时的平均查找长度。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-14T05:41:20.179Z">
+<meta property="og:updated_time" content="2019-09-14T12:35:43.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="查找算法">
 <meta name="twitter:description" content="平均查找长度（Average Search Length，ASL）：需和指定key进行比较的关键字的个数的期望值，称为查找算法在查找成功时的平均查找长度。">
@@ -30,13 +30,13 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568443290104">
+  <link rel="stylesheet" href="/css/style.css?v=1568476337939">
 </head>
 
 <body class="mdui-drawer-body-left">
   
   <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="nexmoe-bg" style="background-image: url(/images/bg/2.jpg)"></div>
     <div class="mdui-appbar mdui-shadow-0">
       <div class="mdui-toolbar">
         <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
@@ -161,21 +161,9 @@
 
   
   
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章归档</h3>
-    <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
-    </div>
-  </div>
-
 
   
 </aside>
-    <div class="nexmoe-copyright">
-        &copy; 2019 Alyssa
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
-    </div>
 </div><!-- .nexmoe-drawer -->
   </div>
   <div id="nexmoe-content">
@@ -183,14 +171,13 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-        <img src="/images/bg.jfif">
+        <img src="/images/bg/bg.png">
         
         <h1>查找算法</h1>
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月28日</a>
     <a><i class="nexmoefont icon-areachart"></i>171 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
       <a class="nexmoefont icon-appstore-fill -link" href="/categories/算法/">算法</a>
     
@@ -219,7 +206,7 @@
     var gitalk = new Gitalk({
         clientID: 'a0b09f47cc93396b2dd6',
         clientSecret: 'bdf8c7211c890d37071003e98dd9879483be6512',
-        id: window.location.pathname,
+        id: (location.pathname).split("/").pop().substring(0, 49),
         repo: 'alyssaasa.github.io',
         owner: 'alyssaasa',
         admin: 'alyssaasa'
@@ -243,7 +230,7 @@
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568443290111"></script>
+<script src="/js/app.js?v=1568476337948"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

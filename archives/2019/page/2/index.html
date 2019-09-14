@@ -25,13 +25,13 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568443290356">
+  <link rel="stylesheet" href="/css/style.css?v=1568476338127">
 </head>
 
 <body class="mdui-drawer-body-left">
   
   <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="nexmoe-bg" style="background-image: url(/images/bg/2.jpg)"></div>
     <div class="mdui-appbar mdui-shadow-0">
       <div class="mdui-toolbar">
         <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
@@ -156,21 +156,9 @@
 
   
   
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章归档</h3>
-    <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
-    </div>
-  </div>
-
 
   
 </aside>
-    <div class="nexmoe-copyright">
-        &copy; 2019 Alyssa
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
-    </div>
 </div><!-- .nexmoe-drawer -->
   </div>
   <div id="nexmoe-content">
@@ -181,7 +169,7 @@
         <a href="/2019/08/17/排序算法/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                <img src="/images/bg.jfif" alt="排序算法">
+                <img src="/images/bg/bg.png" alt="排序算法">
                 
                 <h1>排序算法</h1>
             </div>
@@ -208,7 +196,7 @@
         <a href="/2019/08/17/混淆矩阵，准确率，精准率，召回率/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="精确率，准确率，召回率和AUC曲线，PR曲线">
+                <img src="/images/bg/bg.png" alt="精确率，准确率，召回率和AUC曲线，PR曲线">
                 
                 <h1>精确率，准确率，召回率和AUC曲线，PR曲线</h1>
             </div>
@@ -227,59 +215,6 @@
         <article>
             
             <p>分类模型的衡量指标</p>
-<p>原文链接：<a href="https://segmentfault.com/a/1190000016686335" target="_blank" rel="noopener">https://segmentfault.com/a/1190000016686335</a></p>
-<p><a href="https://www.cnblogs.com/pinard/p/5993450.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinard/p/5993450.html</a></p>
-<p>什么是性能度量？</p>
-<p>我们都知道机器学习要建模，但是对于模型性能的好坏（即模型的泛化能力），我们并不知道是怎样的，很可能这个模型就是一个差的模型，泛化能力弱，对测试集不能很好的预测或分类。那么如何知道这个模型是好是坏呢？我们必须有个评判的标准。<strong>为了了解模型的泛化能力，我们需要用某个指标来衡量，这就是性能度量的意义。</strong>有了一个指标，我们就可以对比不同模型了，从而知道哪个模型相对好，那个模型相对差，并通过这个指标来进一步调参逐步优化我们的模型。</p>
-<h3 id="混淆矩阵，准确率，精准率，召回率"><a href="#混淆矩阵，准确率，精准率，召回率" class="headerlink" title="混淆矩阵，准确率，精准率，召回率"></a><strong>混淆矩阵，准确率，精准率，召回率</strong></h3><p>TP TN FP FN</p>
-<ol>
-<li>　　True Positives,TP：预测为正样本，实际也为正样本的特征数</li>
-<li>　　False Positives,FP：预测为正样本，实际为负样本的特征数</li>
-<li>　　True Negatives,TN：预测为负样本，实际也为负样本的特征数</li>
-<li>　　False Negatives,FN：预测为负样本，实际为正样本的特征数</li>
-</ol>
-<p>True false : 是针对原样本而言的。</p>
-<p>Positive  negative 是针对预测结果而言的。</p>
-<p>准确率 accuracy：</p>
-<p>既然是个分类指标，我们可以很自然的想到准确率，准确率的定义是预测正确的结果占总样本的百分比，其公式如下：</p>
-<p>准确率=(TP+TN)/(TP+TN+FP+FN)</p>
-<p>虽然准确率可以判断总的正确率，但是在样本不平衡的情况下，并不能作为很好的指标来衡量结果。举个简单的例子，比如在一个总样本中，正样本占90%，负样本占10%，样本是严重不平衡的。对于这种情况，我们只需要将全部样本预测为正样本即可得到90%的高准确率，但实际上我们并没有很用心的分类，只是随便无脑一分而已。这就说明了：由于样本不平衡的问题，导致了得到的高准确率结果含有很大的水分。即如果样本不平衡，准确率就会失效。</p>
-<p>正因为如此，也就衍生出了其它两种指标：精准率和召回率。</p>
-<p>精确率 precision</p>
-<p><strong>精确率=TP/(TP+FP)</strong></p>
-<p>精确率和准确率看上去有些类似，但是完全不同的两个概念。精准率代表对正样本结果中的预测准确程度，而准确率则代表整体的预测准确程度，既包括正样本，也包括负样本。</p>
-<p>召回率（Recall）又叫查全率，它是针对原样本而言的，它的含义是在实际为正的样本中被预测为正样本的概率，其公式如下：</p>
-<p>召回率=TP/(TP+FN)</p>
-<p>样本中为正的，有多少被预测为正</p>
-<p><strong>召回率的应用场景：</strong>比如拿网贷违约率为例，相对好用户，我们更关心坏用户，不能错放过任何一个坏用户。因为如果我们过多的将坏用户当成好用户，这样后续可能发生的违约金额会远超过好用户偿还的借贷利息金额，造成严重偿失。<strong>召回率越高，代表实际坏用户被预测出来的概率越高，它的含义类似：宁可错杀一千，绝不放过一个。</strong></p>
-<p>特异性 specificity</p>
-<p>样本中为负的，有多少被预测为负。</p>
-<p>特异性 = TN/(TN+FP)</p>
-<p>作者：知乎用户</p>
-<p>F1值 = 精确率 * 召回率 * 2 / (精确率 + 召回率) （F1值即为精确率和召回率的调和平均值）</p>
-<p>不妨举<a href="https://link.zhihu.com/?target=http%3A//peghoty.blog.163.com/blog/static/49346409201302595935709/" target="_blank" rel="noopener">这样一个例子</a>：某池塘有1400条鲤鱼，300只虾，300只鳖。现在以捕鲤鱼为目的。撒一大网，逮着了700条鲤鱼，200只虾，100只鳖。那么，这些指标分别如下：</p>
-<p>精确率 = 700 / (700 + 200 + 100) = 70%</p>
-<p>召回率 = 700 / 1400 = 50%</p>
-<p>F1值 = 70% * 50% * 2 / (70% + 50%) = 58.3%</p>
-<p>不妨看看如果把池子里的所有的鲤鱼、虾和鳖都一网打尽，这些指标又有何变化：</p>
-<p>精确率 = 1400 / (1400 + 300 + 300) = 70%</p>
-<p>召回率 = 1400 / 1400 = 100%</p>
-<p>F值 = 70% * 100% * 2 / (70% + 100%) = 82.35% </p>
-<p>由此可见，正确率是评估捕获的成果中目标成果所占得比例；召回率，顾名思义，就是从关注领域中，召回目标类别的比例；而F值，则是综合这二者指标的评估指标，用于综合反映整体的指标。</p>
-<p>当然希望检索结果Precision越高越好，同时Recall也越高越好，但事实上这两者在某些情况下有矛盾的。比如极端情况下，我们只搜索出了一个结果，且是准确的，那么Precision就是100%，但是Recall就很低；而如果我们把所有结果都返回，那么比如Recall是100%，但是Precision就会很低。因此在不同的场合中需要自己判断希望Precision比较高或是Recall比较高。如果是做实验研究，可以绘制<strong>Precision-Recall曲线</strong>来帮助分析。</p>
-<p>有时候我们对精确率和召回率并不是一视同仁，比如有时候我们更加重视精确率。我们用一个参数𝛽来度量两者之间的关系。如果𝛽&gt;1, 召回率有更大影响，如果𝛽&lt;1,精确率有更大影响。自然，当𝛽=1的时候，精确率和召回率影响力相同，和F1形式一样。含有度量参数𝛽 F1我们记为𝐹𝛽, 严格的数学定义如下：</p>
-<p>　　　　$𝐹_𝛽=\frac{(1+𝛽^2)∗𝑃∗𝑅}{𝛽^2∗𝑃+𝑅} $</p>
-<p>灵敏度 TPR（true positive rate）（同召回率）</p>
-<p>真实样本中为正的，有多少被预测为正</p>
-<p>1-特异度：FPR（false postive rate）</p>
-<p>真实样本为负的，有多少被预测为正</p>
-<p>FPR = FP/(FP+TN)</p>
-<p>Roc 曲线</p>
-<p>　以TPR为y轴，以FPR为x轴，我们就直接得到了RoC曲线。从FPR和TPR的定义可以理解，TPR越高，FPR越小，我们的模型和算法就越高效。也就是画出来的RoC曲线越靠近左上越好。如下图左图所示。从几何的角度讲，RoC曲线下方的面积越大越大，则模型越优。所以有时候我们用RoC曲线下的面积，即AUC（Area Under Curve）值来作为算法和模型好坏的标准。</p>
-<p><img src="https://images2015.cnblogs.com/blog/1042406/201610/1042406-20161024164359046-1869944207.png" alt="img"></p>
-<p>PR曲线</p>
-<p>以精确率为y轴，以召回率为x轴，我们就得到了PR曲线。仍然从精确率和召回率的定义可以理解，精确率越高，召回率越高，我们的模型和算法就越高效。也就是画出来的PR曲线越靠近右上越好。如上图右图所示。</p>
-
             
         </article>
     </div>
@@ -288,14 +223,14 @@
         <a href="/2019/08/17/二叉树/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                <img src="/images/bg.jfif" alt="二叉树">
+                <img src="/images/bg/bg.png" alt="二叉树">
                 
                 <h1>二叉树</h1>
             </div>
         </a>
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月17日</a>
-            <a><i class="nexmoefont icon-areachart"></i>2,934 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>2,940 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 13 分钟</a>
             
                 <a class="nexmoefont icon-appstore-fill -link" href="/categories/算法/">算法</a>
@@ -306,359 +241,7 @@
         </div>
         <article>
             
-            <a id="more"></a>
-
-<h4 id="二叉树结构的定义："><a href="#二叉树结构的定义：" class="headerlink" title="二叉树结构的定义："></a>二叉树结构的定义：</h4><pre><code class="java">class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) { val = x; }
-}</code></pre>
-<h4 id="1-二叉树的遍历："><a href="#1-二叉树的遍历：" class="headerlink" title="1. 二叉树的遍历："></a>1. 二叉树的遍历：</h4><ol>
-<li><p><a href="https://leetcode.com/problems/binary-tree-preorder-traversal/" target="_blank" rel="noopener">leetcode 144 . 二叉树的先序遍历</a></p>
-<pre><code class="java">public void preorder(TreeNode node, List&lt;Integer&gt; res) {
-    if(node==null)  // 终止条件
-        return;     
-    res.add(node.val);         // 先序遍历，访问到当前节点，需要执行的操作
-    preorder(node.left, res);  // 访问左子节点
-    preorder(node.right, res); // 访问右子节点
-} 
-public List&lt;Integer&gt; preorderTraversal(TreeNode root) {
-  List&lt;Integer&gt; res = new ArrayList&lt;&gt;();
-  preorder(root, res);
-  return res;
-}</code></pre>
-</li>
-<li><p><a href="https://leetcode.com/problems/binary-tree-inorder-traversal/" target="_blank" rel="noopener">leetcode 94. 二叉树的中序遍历</a></p>
-<pre><code class="java">public void inorder(TreeNode node, List&lt;Integer&gt; res) {
-    if(node==null)  // 终止条件
-        return;           
-    preorder(node.left, res);  // 访问左子节点
-    res.add(node.val);            // 中序遍历，访问到当前节点，需要执行的操作
-    preorder(node.right, res); // 访问右子节点
-} </code></pre>
-</li>
-<li><p><a href="https://leetcode.com/problems/binary-tree-postorder-traversal/" target="_blank" rel="noopener">leetcode 145. 二叉树的后序遍历</a></p>
-<pre><code class="java">public void postorder(TreeNode node, List&lt;Integer&gt; res) {
-    if(node==null)  // 终止条件
-        return;           
-    preorder(node.left, res);  // 访问左子节点
-    preorder(node.right, res); // 访问右子节点
-    res.add(node.val);            // 后序遍历，访问到当前节点，需要执行的操作
-} </code></pre>
-</li>
-<li><p><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank" rel="noopener">leetcode 102. 二叉树的层次遍历</a></p>
-<p><strong>要注意用两个临时变量 node_count 和 next_count 来记录当前层和下一层节点的数量</strong></p>
-<p>以前我想的方法是当队列中访问到null节点时表示当前层已经访问完，显然这不是一个好的方法，尤其是到最后一层，下一层都是null了，那么就还要加条件判断当前层节点个数是不是空，就很麻烦。</p>
-<pre><code class="java">public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) {
-    List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
-    if(root==null) return result;   // 别忘了二叉树为空的特殊情况处理
-
-    List&lt;Integer&gt; tmp_res = new ArrayList&lt;&gt;();
-    Queue&lt;TreeNode&gt; que = new LinkedList();   // 用队列来暂存二叉树的节点
-    que.add(root);
-    int node_count = 1;    // 用来表示当前层节点个数
-    int next_count = 0;    // 用来表示下一层节点个数
-    while(!que.isEmpty()) {
-        TreeNode tmp_node = que.remove();
-        tmp_res.add(tmp_node.val);
-        node_count -= 1;
-        if(tmp_node.left!=null) {   // 左子节点不为空，将左子节点加入队列
-          que.add(tmp_node.left);
-          next_count += 1;
-        }
-        if(tmp_node.right!=null) {  // 右子节点不为空，将右子节点加入队列
-          que.add(tmp_node.right);
-          next_count += 1;
-        }
-        if(node_count==0) {   //表示当前层已经访问完
-          node_count = next_count;
-          next_count = 0;
-          result.add(tmp_res);
-          tmp_res = new ArrayList&lt;&gt;();
-        }
-    }
-    return result;
-}</code></pre>
-</li>
-</ol>
-<h4 id="2-二叉树给定任意一个节点，找出其中序遍历的下一个节点（剑指-offer）："><a href="#2-二叉树给定任意一个节点，找出其中序遍历的下一个节点（剑指-offer）：" class="headerlink" title="2. 二叉树给定任意一个节点，找出其中序遍历的下一个节点（剑指 offer）："></a>2. 二叉树给定任意一个节点，找出其中序遍历的下一个节点（剑指 offer）：</h4><p>题目描述：给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
-<pre><code class="java">                    1
-                  /   \
-                 2     3
-               /  \   / \
-              4    5 6   7
-             /    / \    
-            14   8   9   
-               /  \   
-              10  11 </code></pre>
-<p>如上图所示，其中序遍历结果为：[14, 4, 2, 10, 8, 11, 5, 9, 1, 6, 3, 7, 9 ]</p>
-<ul>
-<li>因为是中序遍历，所以当前节点的下一个节点必然在其右子树中产生。只需要考虑有没有右子树即可，而不用再去考虑当前节点是不是存在左子树。因为访问到当前节点的时候，其左子树肯定已经都访问完了。</li>
-<li>如果它存在右子树，则其中序遍历的下一个节点是右子树的最左子节点 […2, 10…]；[…1, 6…]</li>
-<li>节点4无右子树，且它为其父节点2的左子节点，则其中序遍历的下一个节点是其<strong>父节点</strong>。[…4, 2…]</li>
-<li>节点9无右子树，且它为其父节点5的右子节点，则其中序遍历的下一个节点要<strong>沿着指向父节点的指针不断向上找，直到找到一个视其父节点为左子节点的节点</strong>。[…9, 1…]</li>
-</ul>
-<pre><code class="java">public TreeNode getInorderNext(TreeNode node) {
-    if(node==null)
-         return null;
-    if(node.right!=null) {   // 如果右子树不为空，返回右子树的最左子节点
-         TreeNode tmp_node = node.right;
-         while(tmp_node.left!=null)
-            tmp_node = tmp_node.left;
-         return tmp_node;
-    }
-    else if(node.father!=null) {   // 如果右子树为空
-        while(node.father!=null &amp;&amp; node.father.right==node) {
-            node = node.father;
-        }
-        return node.father;
-    }
-    else
-        return null;
-}</code></pre>
-<h4 id="3-leetcode-105-根据先序遍历和中序遍历确定二叉树的结构："><a href="#3-leetcode-105-根据先序遍历和中序遍历确定二叉树的结构：" class="headerlink" title="3. leetcode 105. 根据先序遍历和中序遍历确定二叉树的结构："></a>3. <a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/" target="_blank" rel="noopener">leetcode 105. 根据先序遍历和中序遍历确定二叉树的结构</a>：</h4><p>输入：</p>
-<pre><code>preorder = [3,9,20,15,7]
-inorder  = [9,3,15,20,7]</code></pre><p>分析：preorder中先访问的是根节点，那么在inorder中找到根节点的位置，然后iorder根节点左侧的即为其左子树，右侧的即为其右子树，然后递归进行该过程即可。</p>
-<pre><code class="java">int pre_index = 0;
-public static TreeNode buildTree(int[] preorder, int[] inorder, int left, int right) {
-  if(left&gt;=right)
-    return null;
-  TreeNode node = new TreeNode(preorder[pre_index]);  // 建立当前节点
-  int index = -1;
-  for(int i=left;i&lt;right;i++) {   // 找到preorder中当前节点在inoder中的位置
-    if(inorder[i]==preorder[pre_index])
-      index = i;
-  }
-  pre_index += 1;
-  node.left = buildTree(preorder, inorder, left, index);     // 递归inorder中当前节点的左侧节点
-  node.right = buildTree(preorder, inorder, index+1, right); // 递归inorder中当前节点的右侧节点
-  return node;
-}</code></pre>
-<h4 id="4-leetcode-106-根据后序遍历和中序遍历确定二叉树的结构："><a href="#4-leetcode-106-根据后序遍历和中序遍历确定二叉树的结构：" class="headerlink" title="4. leetcode 106. 根据后序遍历和中序遍历确定二叉树的结构："></a>4. <a href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/" target="_blank" rel="noopener">leetcode 106. 根据后序遍历和中序遍历确定二叉树的结构</a>：</h4><p>输入：</p>
-<pre><code>inorder   = [9,3,15,20,7]
-postorder = [9,15,7,20,3]</code></pre><p>分析：因为是后序遍历，所以postorder要从后向前看，最右一个是根节点，然后逐渐向前遍历。postorder中从后向前访问根节点，那么在inorder中找到根节点的位置，然后iorder根节点左侧的即为其左子树，右侧的即为其右子树，然后递归进行该过程即可。</p>
-<p><strong>注意：3题和4题最后两个递归循环的顺序是不一样的，后序遍历中，因为是从后向前遍历postorder， 所以它会先访问右子树，所以递归循环时要先建立右子树，再建立左子树。</strong></p>
-<pre><code class="java">int post_index = 0;
-public TreeNode buildTree(int[] postorder, int[] inorder, int left, int right) {
-    if(left&gt;=right)
-        return null;
-
-    TreeNode node = new TreeNode(postorder[post_index]);
-    int index = -1;
-    for(int i=left;i&lt;right;i++) {
-        if(inorder[i]==postorder[post_index])
-            index = i;
-    }
-    post_index -= 1;
-    node.right = buildTree(postorder, inorder, index+1, right);
-    node.left = buildTree(postorder, inorder, left, index);
-    return node;
-}
-
-public TreeNode buildTree(int[] inorder, int[] postorder) {
-    post_index = postorder.length-1;
-    TreeNode node = buildTree(postorder, inorder, 0, inorder.length);
-    return node;
-}</code></pre>
-<h4 id="5-leetcode-100-判断两棵二叉树是否相等："><a href="#5-leetcode-100-判断两棵二叉树是否相等：" class="headerlink" title="5. leetcode 100. 判断两棵二叉树是否相等："></a>5. <a href="https://leetcode.com/problems/same-tree/" target="_blank" rel="noopener">leetcode 100. 判断两棵二叉树是否相等</a>：</h4><pre><code class="java">public boolean judge(TreeNode n1, TreeNode n2) {
-    if(n1==null &amp;&amp; n2==null)
-       return true;
-    else if(n1==null || n2==null)
-       return false;
-    if(n1.val!=n2.val)
-       return false;
-
-    return (judge(n1.left, n2.left) &amp;&amp; judge(n1.right, n2.right));
-}
-
-public boolean isSameTree(TreeNode p, TreeNode q) {
-    return preorder(p, q);
-}</code></pre>
-<h4 id="6-leetcode-101-判断二叉树是不是对称的："><a href="#6-leetcode-101-判断二叉树是不是对称的：" class="headerlink" title="6. leetcode 101. 判断二叉树是不是对称的："></a>6. <a href="https://leetcode.com/problems/symmetric-tree/" target="_blank" rel="noopener">leetcode 101. 判断二叉树是不是对称的</a>：</h4><p>一种方法，就是判断二叉树镜像之后和自己是不是相等。如果相等就是对称的。但是那样有点太麻烦了。</p>
-<pre><code class="java">      1
-    /   \
-   2     2
- /  \   /  \
-4    3 3    4</code></pre>
-<pre><code class="java">public boolean judge(TreeNode left, TreeNode right) {
-    if(left==null &amp;&amp; right==null)
-        return true;
-    else if(left==null || right==null)
-        return false;
-    if(left.val!=right.val)
-        return false;
-
-    return (judge(left.left, right.right) &amp;&amp; judge(left.right, right.left));
-}
-
-public boolean isSymmetric(TreeNode node) {
-    if(node==null)
-        return true;
-    return judge(node.left, node.right);
-}</code></pre>
-<p>我们可以看到第五题和第六题很相似，只是在递归的时候传的参数不一样。</p>
-<h4 id="7-leetcode-226-二叉树的镜像："><a href="#7-leetcode-226-二叉树的镜像：" class="headerlink" title="7. leetcode 226. 二叉树的镜像："></a>7. <a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank" rel="noopener">leetcode 226. 二叉树的镜像</a>：</h4><pre><code class="java">                    1          |          1
-                  /   \        |        /   \
-                 2     3       |       3     2
-               /  \   / \      |      / \   /  \
-              4    5 6   7     |     7   6 5    4</code></pre>
-<pre><code class="java">public static TreeNode SymmetricTree(TreeNode node) {
-    if(node==null)
-       return null;
-    if(node.left==null &amp;&amp; node.right==null)
-       return node;
-    TreeNode tmp = node.left;   // 左右节点交换
-    node.left = node.right;
-    node.right = tmp;
-    SymmetricTree(node.left);
-    SymmetricTree(node.right);
-    return node;
-}</code></pre>
-<h4 id="8-完全二叉树"><a href="#8-完全二叉树" class="headerlink" title="8. 完全二叉树"></a>8. 完全二叉树</h4><h5 id="8-1-leetcode-222-完全二叉树的节点个数"><a href="#8-1-leetcode-222-完全二叉树的节点个数" class="headerlink" title="8.1 leetcode 222. 完全二叉树的节点个数"></a>8.1 <a href="https://leetcode.com/problems/count-complete-tree-nodes/" target="_blank" rel="noopener">leetcode 222. 完全二叉树的节点个数</a></h5><ul>
-<li><p>完全二叉树和普通二叉树的区别就在于，除了最后一层可能不满以外，其他层全都是满的。</p>
-</li>
-<li><p>所以想要查完全二叉树的节点个数，除了和普通的方法一样，遍历一遍，只需要知道完全二叉树的层数，和最后一层的节点个数就行了。前面可以用公式 $2^n-1$ 即可。n为前面满二叉树的层数。</p>
-</li>
-</ul>
-<pre><code class="java">public int get_num(TreeNode node, int num) {
-    if(node==null)
-        return 0;
-    if(num==1) {
-        if(node.left!=null &amp;&amp; node.right!=null) return 2;
-        else if(node.left!=null) return 1;
-        else return 0;
-    }
-    return get_num(node.left, num-1) + get_num(node.right, num-1);
-}
-
-public int countNodes(TreeNode root) {
-    TreeNode left = root;
-    TreeNode right = root;
-    int num_left = 0;
-    while(left!=null) {   // 通过左子节点计算二叉树的层数。
-        num_left += 1;
-        left = left.left;
-    }
-    int num_right = 0;
-    while(right!=null) {  // 从右侧计算二叉树的层数。
-        num_right += 1;
-        right = right.right;
-    }
-    // 如果左侧层数和右侧计算的层数相等，那么这是一棵满二叉树。直接用公式计算节点数即可。
-    if(num_left==num_right) return (int)Math.pow(2, num_left)-1;
-    // 如果不是满二叉树，那么用公式计算前num_right层，然后递归计算最后一层的数目即可。
-    else return (int)(Math.pow(2, num_right)-1 + get_num(root, num_right));
-}</code></pre>
-<h5 id="8-2-leetcode-958-判断一棵二叉树是不是完全二叉树"><a href="#8-2-leetcode-958-判断一棵二叉树是不是完全二叉树" class="headerlink" title="8.2 leetcode 958. 判断一棵二叉树是不是完全二叉树"></a>8.2 <a href="https://leetcode.com/problems/check-completeness-of-a-binary-tree/" target="_blank" rel="noopener">leetcode 958. 判断一棵二叉树是不是完全二叉树</a></h5><ul>
-<li>联想堆，堆就是一棵完全二叉树，堆排序中我们知道，堆可以用一个数组表示，所以完全二叉树也可以由一个数组表示，第 <code>k</code> 个节点的儿子节点是 <code>2k</code> 和 <code>2k+1</code>，那么我们就可以在遍历二叉树的时候给每个节点一个编号，如果最后一层最右侧的节点的编号和二叉树节点个数相等，那么就说明他是一棵完全二叉树。</li>
-</ul>
-<pre><code class="java">                    1          |          1
-                  /   \        |        /   \
-                 2     3       |       2     3
-               /      / \      |      / \      
-              4      6   7     |     4   5     </code></pre>
-<ul>
-<li>如上图所示，按照编号左侧最后一层最右节点编号为7，但二叉树只有6个节点，所以其不是一棵完全二叉树。右面的二叉树，最后一层最右节点编号为5，而二叉树有5个节点，所以是完全二叉树。</li>
-</ul>
-<pre><code class="java">int num = 0;  // 二叉树节点个数
-int final_index = 0;  // 最后一个节点的编号
-
-public void dfs(TreeNode node, int index) {
-    if(node==null)
-        return;
-    num += 1;
-    if(node.left==null &amp;&amp; node.right==null) 
-        final_index = index&gt;final_index?index:final_index;
-    dfs(node.left, index*2);
-    dfs(node.right, index*2+1);
-}
-
-public boolean isCompleteTree(TreeNode root) {
-    dfs(root, 1);
-    if(final_index==num)  return true;
-    else return false;
-}</code></pre>
-<h4 id="9-二叉搜索树"><a href="#9-二叉搜索树" class="headerlink" title="9. 二叉搜索树"></a>9. 二叉搜索树</h4><h5 id="9-1-leetcode-98-判断一棵二叉树是不是二叉搜索树"><a href="#9-1-leetcode-98-判断一棵二叉树是不是二叉搜索树" class="headerlink" title="9.1 leetcode 98. 判断一棵二叉树是不是二叉搜索树"></a>9.1 <a href="https://leetcode.com/problems/validate-binary-search-tree/" target="_blank" rel="noopener">leetcode 98. 判断一棵二叉树是不是二叉搜索树</a></h5><ul>
-<li>二叉搜索树的中序遍历是有序的，只要判断中序遍历时当前值是不是大于前一个值就行了</li>
-<li>下面的代码，本来没设置num来标记是不是第一个节点。直接第一个节点和 <code>Integer.MIN_VALUE</code> 就好了，谁知道测试用例有第一个值是 <code>Integer.MIN_VALUE</code> 的，没办法又多设置了一个变量。</li>
-</ul>
-<pre><code class="java">boolean flag = true;
-int num = 0;
-int tmp_value = Integer.MIN_VALUE;
-
-public void preorder(TreeNode node) {
-    if(node==null || flag == false)
-        return;
-    preorder(node.left);
-
-    if(num!=0 &amp;&amp; node.val&lt;=tmp_value) {
-        flag = false;
-        return;
-    }
-    else  {
-        tmp_value = node.val;
-        num += 1;
-    }
-    preorder(node.right);
-}
-
-public boolean isValidBST(TreeNode root) {
-    preorder(root);
-    return flag;
-}</code></pre>
-<h5 id="9-2-leetcode-108-将排序数组转为平衡的二叉搜索树"><a href="#9-2-leetcode-108-将排序数组转为平衡的二叉搜索树" class="headerlink" title="9.2 leetcode 108. 将排序数组转为平衡的二叉搜索树"></a>9.2 <a href="https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/" target="_blank" rel="noopener">leetcode 108. 将排序数组转为平衡的二叉搜索树</a></h5><pre><code class="java">Given the sorted array: [-10,-3,0,5,9],
-
-One possible answer is: [0,-3,9,-10,null,5], which represents the following height balanced BST:
-
-      0
-     / \
-   -3   9
-   /   /
- -10  5</code></pre>
-<ul>
-<li>很简单，每次选取中间节点作为当前节点，然后递归调用就好了。</li>
-</ul>
-<pre><code class="java">public TreeNode BST(int[] nums, int begin, int end) {
-    if(begin&gt;=end)
-        return null;
-    int mid = (begin + end)/2;
-    TreeNode node = new TreeNode(nums[mid]);
-    node.left = BST(nums, begin, mid);
-    node.right = BST(nums, mid+1, end);
-    return node;
-}
-
-public TreeNode sortedArrayToBST(int[] nums) {
-    return BST(nums, 0, nums.length);
-}</code></pre>
-<h5 id="9-3-leetcode-109-将排序链表转为平衡的二叉搜索树"><a href="#9-3-leetcode-109-将排序链表转为平衡的二叉搜索树" class="headerlink" title="9.3 leetcode 109. 将排序链表转为平衡的二叉搜索树"></a>9.3 <a href="https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/" target="_blank" rel="noopener">leetcode 109. 将排序链表转为平衡的二叉搜索树</a></h5><ul>
-<li>跟上道题是一样的，只不过由排序数组改为了排序链表。</li>
-<li>方法一：把链表中的内容先存到数组中，再用9.2题的方法。</li>
-<li>方法二：直接用链表去找中间节点，其他方法同9.2。找中间节点的方法就是设置快慢指针。一个每次走一步，一个每次走两步。第一个到达尾部时，第二个指向中间节点。</li>
-</ul>
-<pre><code class="java">public TreeNode BST(ListNode begin, ListNode end) {
-    if(begin==end)
-        return null;
-
-    ListNode slow = begin;
-    ListNode fast = begin;
-    while(fast!=end &amp;&amp; fast.next!=end) {
-        slow = slow.next;
-        fast = fast.next.next;
-    }
-
-    TreeNode node = new TreeNode(slow.val);
-    node.left = BST(begin, slow);
-    node.right = BST(slow.next, end);
-    return node;
-}
-
-public TreeNode sortedListToBST(ListNode head) {
-    return BST(head, null);
-}</code></pre>
-<h4 id="10-Z字形打印二叉树："><a href="#10-Z字形打印二叉树：" class="headerlink" title="10. Z字形打印二叉树："></a>10. Z字形打印二叉树：</h4><hr>
-<h4 id="二叉搜索树："><a href="#二叉搜索树：" class="headerlink" title="二叉搜索树："></a>二叉搜索树：</h4><h4 id="给定一个数组，判断该数组是不是二叉搜索树的后序遍历结果："><a href="#给定一个数组，判断该数组是不是二叉搜索树的后序遍历结果：" class="headerlink" title="给定一个数组，判断该数组是不是二叉搜索树的后序遍历结果："></a>给定一个数组，判断该数组是不是二叉搜索树的后序遍历结果：</h4><h4 id="二叉搜索树转为双向链表："><a href="#二叉搜索树转为双向链表：" class="headerlink" title="二叉搜索树转为双向链表："></a>二叉搜索树转为双向链表：</h4>
+            <p>二叉树的相关</p>
             
         </article>
     </div>
@@ -667,14 +250,14 @@ public TreeNode sortedListToBST(ListNode head) {
         <a href="/2019/08/16/Self-Attention机制/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="Self-Attention机制">
+                <img src="/images/bg/bg.png" alt="Self-Attention机制">
                 
                 <h1>Self-Attention机制</h1>
             </div>
         </a>
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月16日</a>
-            <a><i class="nexmoefont icon-areachart"></i>691 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>695 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
             
                 <a class="nexmoefont icon-appstore-fill -link" href="/categories/深度学习/">深度学习</a>
@@ -685,40 +268,7 @@ public TreeNode sortedListToBST(ListNode head) {
         </div>
         <article>
             
-            <h1 id="Self-Attention机制"><a href="#Self-Attention机制" class="headerlink" title="Self-Attention机制"></a>Self-Attention机制</h1><p>图像方面：增大图像的感受野</p>
-<p>NLP方面：定位关键token或者特征</p>
-<h3 id="NLP：Attention-Is-All-You-Need"><a href="#NLP：Attention-Is-All-You-Need" class="headerlink" title="NLP：Attention Is All You Need"></a>NLP：Attention Is All You Need</h3><h4 id="1-高层Transformer"><a href="#1-高层Transformer" class="headerlink" title="1. 高层Transformer"></a>1. 高层Transformer</h4><p>我们就以机器翻译为例子详细剖析Transformer的结构，在机器翻译中，Transformer可概括为：</p>
-<p><img src="/images/self-attention/the_transformer_3.png" alt="1"></p>
-<p>Transformer的本质上是一个Encoder-Decoder的结构，那么上面图片的结构可以表示为：</p>
-<p><img src="/images/self-attention/The_transformer_encoders_decoders.png" alt="2"></p>
-<p>Encoders由6个编码block组成，同样Decoders是6个解码block组成。与所有的生成模型相同的是，编码器的输出会作为解码器的输入，如图3所示：</p>
-<p><img src="/images/self-attention/The_transformer_encoder_decoder_stack.png" alt="3"></p>
-<p>6个encoder的结构都是相同的，但是他们不共享权值，每个encoder由两部分组成：self-attention 和 feedd forward neural network:</p>
-<p><img src="/images/self-attention/Transformer_encoder.png" alt="4"></p>
-<p>Decoder的结构如图5所示，它和encoder的不同之处在于Decoder多了一个Encoder-Decoder Attention，两个Attention分别用于计算输入和输出的权值：</p>
-<ul>
-<li>Self-Attention：当前翻译和已经翻译的前文之间的关系；</li>
-<li>Encoder-Decnoder Attention：当前翻译和编码的特征向量之间的关系。</li>
-</ul>
-<p><img src="/images/self-attention/Transformer_decoder.png" alt="5"></p>
-<h4 id="2-输入编码"><a href="#2-输入编码" class="headerlink" title="2. 输入编码"></a>2. 输入编码</h4><p>上一节主要介绍了Transformer的框架，下面介绍他的输入数据。</p>
-<p>如图6所示，首先通过Word2Vec等embedding方法将输入语料转为特征向量：（dimension=512）</p>
-<p><img src="/images/self-attention/embeddings.png" alt="6. 单词的输入编码"></p>
-<p>embedding只发生在最底层的encoder中，即只有网络的第一层是将embedding的结果输入到网络中，之后每层的输入都是上一层的输出。</p>
-<p><img src="/images/self-attention/encoder_with_tensors.png" alt="7"></p>
-<p>在这里，我们可以看到Transformer的一个关键属性，即每个位置的单词在编码器中流经它自己的路径。 self-attention层中的这些路径之间存在依赖关系。 然而，feed-forward层不具有那些依赖性，因此各种路径可以在流过前馈层时并行执行。?? 不太懂</p>
-<h4 id="3-Self-Attention机制"><a href="#3-Self-Attention机制" class="headerlink" title="3. Self-Attention机制"></a>3. Self-Attention机制</h4><p>self-attention的核心内容是为输入向量的每个单词学习一个权重。</p>
-<p>例如我们要翻译的句子是：（即网络模型的输入sentence）<br>”The animal didn’t cross the street because it was too tired”</p>
-<p>句子里面的<code>it</code>指代的是谁？animal 还是 street。</p>
-<p>Self-attention 就是 Transformer 用来将其他相关单词的“理解”融入我们当前正在处理的单词中的方法。</p>
-<p>Self-attention is the method the Transformer uses to bake the “understanding” of other relevant words into the one we’re currently processing.</p>
-<p><img src="/images/self-attention/transformer_self-attention_visualization.png" alt="8. As we are encoding the word &quot;it&quot; in encoder #5 (the top encoder in the stack), part of the attention mechanism was focusing on &quot;The Animal&quot;, and baked a part of its representation into the encoding of &quot;it&quot;."></p>
-<p>在self-attention中，每个单词有3个不同的向量，它们分别是Query向量（ $Q$ ），Key向量（ $K$ ）和Value向量（ $V$ ），长度均是64。它们是通过3个不同的权值矩阵由embedding向量 $X$ 乘以三个不同的权值矩阵 $W^Q$ ， $W^K$ ， $W^V$ 得到，其中三个矩阵的尺寸也是相同的。均是 $512*64$ 。</p>
-<p><img src="/images/self-attention/transformer_self_attention_vectors.png" alt="9"></p>
-<p><a href="https://zhuanlan.zhihu.com/p/48508221" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/48508221</a></p>
-<p><a href="http://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener">http://jalammar.github.io/illustrated-transformer/</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/64881836" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/64881836</a></p>
-
+            <p>Self-Attention机制</p>
             
         </article>
     </div>
@@ -727,14 +277,14 @@ public TreeNode sortedListToBST(ListNode head) {
         <a href="/2019/08/15/Shell字符串/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="Shell字符串">
+                <img src="/images/bg/bg.png" alt="Shell字符串">
                 
                 <h1>Shell字符串</h1>
             </div>
         </a>
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月15日</a>
-            <a><i class="nexmoefont icon-areachart"></i>1,014 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>1,018 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
             
                 <a class="nexmoefont icon-appstore-fill -link" href="/categories/Shell/">Shell</a>
@@ -745,123 +295,7 @@ public TreeNode sortedListToBST(ListNode head) {
         </div>
         <article>
             
-            <h4 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h4><p>字符串可以由单引号<code>&#39; &#39;</code>包围，也可以由双引号<code>&quot; &quot;</code>包围，也可以不用引号。</p>
-<p>字符串举例：</p>
-<pre><code>str1=alyssaasa.github.io
-str2=&quot;shell script&quot;
-str3=&#39;Shell字符串&#39;</code></pre><p>三种形式的区别：</p>
-<ol>
-<li><p>由单引号<code>&#39;&#39;</code>包围的字符串：</p>
-<ul>
-<li>任何字符都会原样输出，在其中使用变量是无效的。</li>
-<li>字符串中不能出现单引号，即使对单引号进行转义也不行。</li>
-</ul>
-</li>
-<li><p>由双引号<code>&quot; &quot;</code>包围的字符串：</p>
-<ul>
-<li>如果其中包含了某个变量，那么该变量会被解析（得到该变量的值），而不是原样输出。</li>
-<li>字符串中可以出现双引号，只要它被转义了就行。</li>
-</ul>
-</li>
-<li><p>不被引号包围的字符串：</p>
-<ul>
-<li>不被引号包围的字符串中出现变量时也会被解析，这一点和双引号<code>&quot; &quot;</code>包围的字符串一样。</li>
-<li>字符串中<strong>不能出现空格</strong>，否则空格后边的字符串会作为其他变量或者命令解析。</li>
-</ul>
-</li>
-</ol>
-<pre><code>#!/bin/bash
-n=74
-str1=c.biancheng.net$n 
-str2=&quot;shell \&quot;script\&quot; $n&quot;
-str3=&#39;C语言中文网 $n&#39;
-echo $str1
-echo $str2
-echo $str3</code></pre><p>运行结果：</p>
-<pre><code>c.biancheng.net74
-shell &quot;script&quot; 74
-C语言中文网 $n</code></pre><h4 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h4><pre><code>${#string_name}    其中string_name为字符串名字</code></pre><p>举例：</p>
-<pre><code>#! /bin/bash
-
-str = &quot;http://alyssaasa.github.io&quot;
-echo ${#str}</code></pre><p>运行结果：<code>26</code></p>
-<h4 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a>字符串的拼接</h4><p>不需要使用任何运算符，将两个字符串并排放在一起就能实现拼接</p>
-<pre><code>#!/bin/bash
-name=&quot;Shell&quot;
-url=&quot;http://c.biancheng.net/shell/&quot;
-str1=$name$url          # 中间不能有空格
-str2=&quot;$name $url&quot;   # 如果被双引号包围，那么中间可以有空格
-str3=$name&quot;: &quot;$url  # 中间可以出现别的字符串
-str4=&quot;$name: $url&quot;  # 这样写也可以
-str5=&quot;${name}Script: ${url}index.html&quot;  # 这个时候需要给变量名加上大括号,帮助解释器识别变量的边界
-echo $str1
-echo $str2
-echo $str3
-echo $str4
-echo $str5</code></pre><p>运行结果：</p>
-<pre><code>Shellhttp://c.biancheng.net/shell/
-Shell http://c.biancheng.net/shell/
-Shell: http://c.biancheng.net/shell/
-Shell: http://c.biancheng.net/shell/
-ShellScript: http://c.biancheng.net/shell/index.html</code></pre><h4 id="字符串的截取"><a href="#字符串的截取" class="headerlink" title="字符串的截取"></a>字符串的截取</h4><ul>
-<li><p><strong>从指定位置开始截取</strong></p>
-<p>这种方式需要两个参数：除了指定起始位置，还需要截取长度，才能最终确定要截取的字符串。</p>
-<ol>
-<li><p><strong>从字符串左边开始计数：</strong><code>${string:start:length}</code></p>
-<ul>
-<li><p>string: 要截取的字符串</p>
-</li>
-<li><p>start: 起始位置 （从左边开始，从 0 开始计数）</p>
-</li>
-<li><p>length 是要截取的长度（省略的话表示直到字符串的末尾）</p>
-<pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 2: 9}
-结果：biancheng</code></pre><pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 2}  # 省略 length，截取到字符串末尾
-结果：biancheng.net</code></pre></li>
-</ul>
-</li>
-<li><p><strong>从字符串左边开始计数：</strong><code>${string:0-start:length}</code></p>
-<ul>
-<li><p>0-start: 这是固定的写法，专门用来表示从字符串右边开始计数。</p>
-</li>
-<li><p><strong>从左边开始计数时，起始数字是 0；从右边开始计数时，起始数字是 1。</strong></p>
-</li>
-<li><p>不管从哪边开始计数，截取方向都是从左到右。</p>
-<pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 0-13: 9}
-结果：biancheng  # 从右边数，b 是第 13 个字符。</code></pre><pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 0-13}  # 省略 length，直接截取到字符串末尾
-结果：biancheng.net</code></pre></li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p><strong>从指定字符（子字符串）开始截取</strong></p>
-<p>这种截取方式无法指定字符串长度，只能从指定字符（子字符串）截取到字符串末尾。</p>
-<p>Shell 可以截取指定字符（子字符串）右边的所有字符，也可以截取左边的所有字符。</p>
-<ol>
-<li><p>使用 <code>#</code> 截取指定字符（或者子字符串）右边的所有字符：<code>${string#*chars}</code></p>
-<ul>
-<li><p>string: 要截取的字符串</p>
-</li>
-<li><p>chars: 指定的字符（或者子字符串）</p>
-</li>
-<li><p><code>*</code>：通配符的一种，表示任意长度的字符串</p>
-</li>
-<li><p><code>*chars</code>  连起来使用的意思是：忽略左边的所有字符，直到遇见 chars（chars 不会被截取）</p>
-<pre><code>url=&quot;http://c.biancheng.net/index.html&quot;
-echo ${url#*:}
-结果：//c.biancheng.net/index.html</code></pre><p>以下写法也会得到同样的结果：</p>
-<pre><code>echo ${url#*p:}
-echo ${url#*ttp:}</code></pre><p><a href="http://c.biancheng.net/view/1120.html" target="_blank" rel="noopener">http://c.biancheng.net/view/1120.html</a> 太多了，以后用得到的时候再写。。</p>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-
+            <p>Shell字符串</p>
             
         </article>
     </div>
@@ -870,7 +304,7 @@ echo ${url#*ttp:}</code></pre><p><a href="http://c.biancheng.net/view/1120.html"
         <a href="/2019/08/15/shell变量的定义、赋值和删除/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="Shell变量的定义、赋值和删除">
+                <img src="/images/bg/bg.png" alt="Shell变量的定义、赋值和删除">
                 
                 <h1>Shell变量的定义、赋值和删除</h1>
             </div>
@@ -889,90 +323,6 @@ echo ${url#*ttp:}</code></pre><p><a href="http://c.biancheng.net/view/1120.html"
         <article>
             
             <p><a href="http://c.biancheng.net/view/743.html" target="_blank" rel="noopener">http://c.biancheng.net/view/743.html</a></p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><pre><code>1. 定义变量：variable=value        注意等号两侧不能有空格
-2. 使用变量：echo ${variable}
-3. 修改变量：variable=alyssa     赋值的时候不要加引号，只有引用的时候才加{}
-4. 单引号和双引号区别：
-    - 单引号内&#39;name:${variable}&#39;输出：name:${variable}
-    - 双引号内&quot;name:${variable}&quot;输出：name:alyssa
-5. 将命令的结果赋值给变量：
-    - variable=`command`
-    - variable=$(command)
-6. 只读变量：readonly variable   变量的值不可修改
-7. 删除变量：unset variable</code></pre><hr>
-<h4 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h4><pre><code>variable=value   
-variable=&#39;value&#39;  
-variable=&quot;value&quot;  </code></pre><p><strong>⚠️注：赋值号=的周围不能有空格！！！</strong><br>variable 是变量名，value 是赋给变量的值。如果 value 不包含任何空白符（例如空格、Tab 缩进等），那么可以不使用引号；如果 value 包含了空白符，那么就必须使用引号包围起来。单引号和双引号的区别在下面说明。</p>
-<p>Shell 变量的命名规范和大部分编程语言都一样：  </p>
-<ul>
-<li>变量名由数字、字母、下划线组成；  </li>
-<li>必须以字母或者下划线开头；  </li>
-<li>不能使用 Shell 里的关键字（通过 help 命令可以查看保留关键字）。  </li>
-</ul>
-<p>变量定义举例：</p>
-<pre><code>url=http://alyssaasa.github.io  
-echo $url  
-name=&#39;alyssaasa的 网站&#39; 
-echo $name  
-author=&quot;alyssaasa&quot;  
-echo $author  </code></pre><h4 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h4><p>使用一个定义过的变量，只要在变量名前加<code>$</code>即可。如：</p>
-<pre><code>author=&quot;alyssaasa&quot;
-echo $author
-echo ${author}</code></pre><p>变量名外面的花括号<code>{}</code>是可选的， 加不加都行，加是为了帮助解释器识别变量的边界，例如下面这种情况：</p>
-<pre><code>skill=&quot;java&quot;
-echo &quot;I am good at ${skill}Script&quot;</code></pre><p>如果不给 skill 变量加花括号，写成<code>echo &quot;I am good at $skillScript&quot;</code>，解释器就会把 <code>$skillScript</code> 当成一个变量（其值为空），代码执行结果就不是我们期望的样子了。</p>
-<p><strong>推荐给所有变量加上花括号<code>{}</code>，这是个良好的编程习惯。</strong></p>
-<h4 id="修改变量的值"><a href="#修改变量的值" class="headerlink" title="修改变量的值"></a>修改变量的值</h4><p>已定义的变量，可以被重新赋值，如：</p>
-<pre><code>url=http://alyssaasa.github.io  
-echo ${url} 
-url=http://alyssaasa.github.io/home 
-echo ${url} </code></pre><p><strong>第二次对变量赋值时不能在变量名前加<code>$</code>，只有在使用变量时才能加<code>$</code>。</strong></p>
-<h4 id="单引号和双引号的区别"><a href="#单引号和双引号的区别" class="headerlink" title="单引号和双引号的区别"></a>单引号和双引号的区别</h4><p>定义变量时，变量的值可以由单引号<code>&#39; &#39;</code>包围，也可以由双引号<code>&quot; &quot;</code>包围，它们到底有什么区别呢？</p>
-<pre><code>#!/bin/bash
-
-url=&quot;http://c.biancheng.net&quot;
-website1=&#39;C语言中文网：${url}&#39;
-website2=&quot;C语言中文网：${url}&quot;
-echo $website1
-echo $website2</code></pre><pre><code>运行结果：
-C语言中文网：${url}
-C语言中文网：http://c.biancheng.net</code></pre><p>以单引号<code>&#39; &#39;</code>包围变量的值时，单引号里面是什么就输出什么，即使内容中有变量和命令（命令需要用<code>``</code>反引起来）也会把它们原样输出。这种方式比较适合定义显示纯字符串的情况，即不希望解析变量、命令等的场景。</p>
-<p>以双引号<code>&quot; &quot;</code>包围变量的值时，输出时会先解析里面的变量和命令，而不是把双引号中的变量名和命令原样输出。这种方式比较适合字符串中附带有变量和命令并且想将其解析后再输出的变量定义。</p>
-<p><strong>注意，如果命令行输出的内容包括多行（也即有换行符），或者含有多个连续的空白符，那么在输出变量时应该将变量用双引号包围，否则系统会使用默认的空白符来填充，这会导致换行无效，以及连续的空白符被压缩成一个。</strong>请看下面的代码：</p>
-<pre><code>#!/bin/bash
-LSL=`ls -l`
-echo $LSL  #不使用双引号包围
-echo &quot;--------------------------&quot;  #输出分隔符
-echo &quot;$LSL&quot;  #使用引号包围</code></pre><p>运行结果：</p>
-<pre><code>total 8 drwxr-xr-x. 2 root root 21 7月 1 2016 abc -rw-rw-r--. 1 mozhiyan mozhiyan 147 10月 31 10:29 demo.sh -rw-rw-r--. 1 mozhiyan mozhiyan 35 10月 31 10:20 demo.sh~
---------------------------
-total 8
-drwxr-xr-x. 2 root     root      21 7月   1 2016 abc
--rw-rw-r--. 1 mozhiyan mozhiyan 147 10月 31 10:29 demo.sh
--rw-rw-r--. 1 mozhiyan mozhiyan  35 10月 31 10:20 demo.sh~</code></pre><p>所以，为了防止出现格式混乱的情况，我建议在输出变量时加上双引号。</p>
-<h4 id="将命令的结果赋值给变量"><a href="#将命令的结果赋值给变量" class="headerlink" title="将命令的结果赋值给变量"></a>将命令的结果赋值给变量</h4><p>Shell 也支持将命令的执行结果赋值给变量，常见的有以下两种方式：</p>
-<pre><code>variable=`command`
-variable=$(command)</code></pre><p>第一种方式把命令用反引号<code>``</code>包围起来，反引号和单引号非常相似，容易产生混淆，所以不推荐使用这种方式；第二种方式把命令用  <code>$()</code> 包围起来，区分更加明显，所以推荐使用这种方式。而且<code>$()</code> 支持嵌套，而<code>``</code>不支持嵌套。</p>
-<p>例如，我在 demo 目录中创建了一个名为 log.txt 的文本文件，用来记录我的日常工作。下面的代码中，使用 cat 命令将 log.txt 的内容读取出来，并赋值给一个变量，然后使用 echo 命令输出。</p>
-<pre><code>log=$(cat log.txt)
-echo $log
-严长生正在编写Shell教程，教程地址：http://c.biancheng.net/shell/
-
-log=`cat log.txt`
-echo $log
-严长生正在编写Shell教程，教程地址：http://c.biancheng.net/shell/</code></pre><h4 id="只读变量"><a href="#只读变量" class="headerlink" title="只读变量"></a>只读变量</h4><p>使用 <strong>readonly</strong><br>下面的例子尝试更改只读变量，结果报错：</p>
-<pre><code>#!/bin/bash
-myUrl=&quot;http://c.biancheng.net/shell/&quot;
-readonly myUrl
-myUrl=&quot;http://c.biancheng.net/shell/&quot;</code></pre><p>运行脚本，结果如下：</p>
-<pre><code>bash: myUrl: This variable is read only.</code></pre><h4 id="删除变量"><a href="#删除变量" class="headerlink" title="删除变量"></a>删除变量</h4><p>使用 <strong>unset</strong> 命令可以删除变量。语法：</p>
-<pre><code>unset variable_name</code></pre><p>变量被删除后不能再次使用；unset 命令不能删除只读变量。</p>
-<p>举个例子：</p>
-<pre><code>#!/bin/sh
-myUrl=&quot;http://c.biancheng.net/shell/&quot;
-unset myUrl
-echo $myUrl</code></pre><p>上面的脚本没有任何输出。</p>
-
             
         </article>
     </div>
@@ -981,7 +331,7 @@ echo $myUrl</code></pre><p>上面的脚本没有任何输出。</p>
         <a href="/2019/08/15/链表/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                <img src="/images/bg.jfif" alt="链表">
+                <img src="/images/bg/bg.png" alt="链表">
                 
                 <h1>链表</h1>
             </div>
@@ -1008,15 +358,15 @@ echo $myUrl</code></pre><p>上面的脚本没有任何输出。</p>
         <a href="/2019/08/13/动态规划/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="动态规划">
+                <img src="/images/bg/bg.png" alt="动态规划">
                 
                 <h1>动态规划</h1>
             </div>
         </a>
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月13日</a>
-            <a><i class="nexmoefont icon-areachart"></i>5,939 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 28 分钟</a>
+            <a><i class="nexmoefont icon-areachart"></i>6,002 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 29 分钟</a>
             
                 <a class="nexmoefont icon-appstore-fill -link" href="/categories/算法/">算法</a>
             
@@ -1026,589 +376,7 @@ echo $myUrl</code></pre><p>上面的脚本没有任何输出。</p>
         </div>
         <article>
             
-            <p><code>将一个问题拆成几个子问题，分别求解这些子问题的解，即可推断出大问题的解。</code></p>
-<h4 id="🌈-DP的特点"><a href="#🌈-DP的特点" class="headerlink" title="🌈. DP的特点"></a>🌈. DP的特点</h4><ol>
-<li>无后效性：未来与过去无关。即：如果给定某一阶段的状态，则在这一阶段以后过程的发展不受这阶段以前的各状态的影响。</li>
-<li>最优子结构：大问题的<strong>最优解</strong>可以由小问题的<strong>最优解</strong>推出</li>
-</ol>
-<h4 id="🌈-DP的操作过程"><a href="#🌈-DP的操作过程" class="headerlink" title="🌈. DP的操作过程"></a>🌈. DP的操作过程</h4><p>将一个大问题转化为几个小问题，大事化小，小事化了：</p>
-<ul>
-<li>求解小问题</li>
-<li>推出大问题的解</li>
-</ul>
-<h4 id="🌈-DP经典题型"><a href="#🌈-DP经典题型" class="headerlink" title="🌈. DP经典题型"></a>🌈. DP经典题型</h4><p>但是感觉不管查什么资料都是这些，其实什么也解决不了，根据做题的经验，动态规划最难的地方，一是确定一道题能不能用动态规划解决，二就是怎么确定状态，就是f(n)怎么定义。</p>
-<ul>
-<li>线性表： length – length + 1</li>
-<li>字符串（线性表）–&gt; 前缀 + 后缀 –&gt; 前缀 true &amp;&amp; 后缀 true –&gt; true</li>
-</ul>
-<h5 id="1-leetcode-53-最大子段和"><a href="#1-leetcode-53-最大子段和" class="headerlink" title="1.  leetcode 53. 最大子段和"></a>1.  <a href="https://leetcode.com/problems/maximum-subarray/submissions/" target="_blank" rel="noopener">leetcode 53. 最大子段和</a></h5><ul>
-<li><code>dp[i]</code> 表示以 <code>i</code> 结尾的子段和的最大值</li>
-</ul>
-<pre><code class="java">public int maxSubArray(int[] nums) {
-    int[] dp = new int[nums.length];
-    dp[0] = nums[0];
-    for(int i=1;i&lt;nums.length;i++)
-    dp[i] = Math.max(nums[i], dp[i-1]+nums[i]);
-    Arrays.sort(dp);
-    return dp[dp.length-1];
-}</code></pre>
-<h5 id="2-leetcode-139-word-break"><a href="#2-leetcode-139-word-break" class="headerlink" title="2.  leetcode 139. word break"></a>2.  <a href="https://leetcode.com/problems/word-break/" target="_blank" rel="noopener">leetcode 139. word break</a></h5><ul>
-<li>这道题就是字符串的问题，并且是前缀 + 后缀问题</li>
-<li><code>dp[i]</code> : 字符串 <code>s[:i]</code> 能否能否由字典中的词拆分开。（以i结尾的字符串能否被字典拆分开）</li>
-<li>求 <code>dp[i]</code> : 如果 <code>dp[j]=true</code>, 并且 <code>s[j:i]</code> 在字典中，那么 <code>dp[i]</code> 为 <code>true</code></li>
-</ul>
-<pre><code>Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
-Note:
-1. The same word in the dictionary may be reused multiple times in the segmentation.
-2. You may assume the dictionary does not contain duplicate words.</code></pre><pre><code class="java">public static boolean wordBreak(String s, List&lt;String&gt; wordDict) {
-    boolean[] dp = new boolean[s.length()+1];
-    dp[0] = true;
-    for(int i=1;i&lt;=s.length();i++) {
-        for(int j=0;j&lt;i;j++) {
-            String tmp = s.substring(j, i);
-            if(dp[j]&amp;&amp;wordDict.contains(tmp)) {
-                dp[i] = true;
-                break;
-            }
-        }
-    }
-    return dp[s.length()];
-}</code></pre>
-<h5 id="3-leetcode-300-最长上升子序列"><a href="#3-leetcode-300-最长上升子序列" class="headerlink" title="3.  leetcode 300. 最长上升子序列"></a>3.  <a href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">leetcode 300. 最长上升子序列</a></h5><ul>
-<li>输入：[10, 9, 2, 5, 3, 7, 101, 18]，则输出为：4，因为最长的上升子序列是：[2, 3, 7, 101]</li>
-<li>dp[i]: 以第i位为结尾的最长上升子序列的长度。</li>
-</ul>
-<pre><code class="java">public int lengthOfLIS(int[] nums) {
-    if(nums.length==0)
-        return 0;
-    int[] dp = new int[nums.length];
-    for(int i=0;i&lt;nums.length;i++) {
-        dp[i] = 1;
-        for(int j=i-1;j&gt;=0;j--) {
-            if(nums[j]&lt;nums[i])
-                dp[i] = Math.max(dp[j]+1, dp[i]);
-        }
-    }
-    Arrays.sort(dp);
-    return dp[nums.length-1];
-}</code></pre>
-<h5 id="4-leetcode-1143-最长公共子序列"><a href="#4-leetcode-1143-最长公共子序列" class="headerlink" title="4.  leetcode 1143. 最长公共子序列"></a>4.  <a href="https://leetcode.com/problems/longest-common-subsequence/" target="_blank" rel="noopener">leetcode 1143. 最长公共子序列</a></h5><ul>
-<li>输入：text1= “abcde” ,  text2 = “ace”</li>
-<li>输出：3</li>
-<li>最长公共子序列不需要连续，只要是共同有的就行了。</li>
-<li>最长公共子串是需要连续的。</li>
-</ul>
-<pre><code class="java">public int longestCommonSubsequence(String text1, String text2) {
-    int[][] dp = new int[text1.length()+1][text2.length()+1];
-    for(int i=1;i&lt;=text1.length();i++) {
-        for(int j=1;j&lt;=text2.length();j++) {
-            if(text1.charAt(i-1)==text2.charAt(j-1))
-                dp[i][j] = dp[i-1][j-1]+1;
-            else
-                dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
-        }
-    }
-    return dp[text1.length()][text2.length()];
-}</code></pre>
-<h5 id="5-leetcode-62-从左上到右下共有多少条路径"><a href="#5-leetcode-62-从左上到右下共有多少条路径" class="headerlink" title="5.  leetcode 62. 从左上到右下共有多少条路径"></a>5.  <a href="https://leetcode.com/problems/unique-paths/" target="_blank" rel="noopener">leetcode 62. 从左上到右下共有多少条路径</a></h5><ul>
-<li><code>dp[m][n]</code> 表示走到 <code>m n</code> 位置时的走法数</li>
-<li><code>dp[m][n] = dp[m-1][n] + dp[m][n-1]</code></li>
-<li>相似题目：<a href="https://leetcode.com/problems/unique-paths-ii/" target="_blank" rel="noopener">leetcode 63. 62题多了障碍</a>，就是递归的时候多了判断而已。</li>
-</ul>
-<pre><code class="java">public int uniquePaths(int m, int n) {
-    int[][] dp = new int[m][n];
-    for(int i=0;i&lt;m;i++)
-        dp[i][0] = 1;
-    for(int i=0;i&lt;n;i++)
-        dp[0][i] = 1;
-    for(int i=1;i&lt;m;i++) 
-        for(int j=1;j&lt;n;j++) 
-            dp[i][j] = dp[i-1][j] + dp[i][j-1];
-
-    return dp[m-1][n-1];
-}</code></pre>
-<h5 id="6-leetcode-134-环形加油站"><a href="#6-leetcode-134-环形加油站" class="headerlink" title="6.  leetcode 134. 环形加油站"></a>6.  <a href="https://leetcode.com/problems/gas-station/" target="_blank" rel="noopener">leetcode 134. 环形加油站</a></h5><pre><code class="java">public static int canCompleteCircuit(int[] gas, int[] cost) {
-    int res_index = 0;
-    for(int i=0;i&lt;gas.length;i++) {
-        if(gas[i]&lt;cost[i])
-            continue;
-        else {
-            boolean flag = true;
-            int[] dp = new int[2*gas.length];
-            dp[i] = gas[i] - cost[i];
-            for(int j=i%gas.length+1;j&lt;2*gas.length;j++) {
-                dp[j] = dp[j-1]+gas[j%gas.length]-cost[j%gas.length];
-                if(dp[j]&lt;0) {
-                    flag = false;
-                    break;
-                }
-
-            }
-            if(flag) {
-                res_index = i;
-                return res_index;
-            }
-        }
-    }
-    return -1;
-}</code></pre>
-<h5 id="7-leetcode-96-独一无二的二叉搜索树数目"><a href="#7-leetcode-96-独一无二的二叉搜索树数目" class="headerlink" title="7.  leetcode 96. 独一无二的二叉搜索树数目"></a>7.  <a href="https://leetcode.com/problems/unique-binary-search-trees/" target="_blank" rel="noopener">leetcode 96. 独一无二的二叉搜索树数目</a></h5><pre><code class="java">Input: 3    //输入:1...n
-Output: 5   //有多少独一无二的二叉搜索树
-Explanation:
-Given n = 3, there are a total of 5 unique BST&#39;s:
-
-      1         3     3      2      1
-       \       /     /      / \      \
-        3     2     1      1   3      2
-       /     /       \                 \
-      2     1         2                 3</code></pre>
-<ul>
-<li>要分析有多少独一无二的二叉搜索树的个数。那么可以定义<strong>f(x):x为根节点时二叉搜索树的个数</strong></li>
-<li>f(x)的定义很关键。。看到这个定义我就知道怎么做了。但是自己想的时候就想不到这一点。😭</li>
-<li>当n为根节点时，那么其他1…n-1都在其左子树。那么f(n)=n-1个节点能够成的二叉搜索树的个数。</li>
-<li>当n-1为根节点时，那么其他1…n-2都在其左子树，右子树只有n，那么f(n-1)=n-2个节点能够组成的二叉搜索树的个数*右子树只有一个节点能组成的二叉搜索树的个数。</li>
-<li>所以可以定义<strong>G(x): 1…x能够组成的二叉搜索树的个数。</strong></li>
-</ul>
-<pre><code>f(n)=G(n-1)*G(0)
-f(n-1) = G(n-2)*G(1)
-f(n-2) = G(n-3)*G(2)
-...
-f(1) = G(0)*G(n-1)
-而 f(1)+f(2)+...+f(n) = G(n)
-所以：G(n) = G(n-1)*G(0) + G(n-2)*G(1) + G(n-3)*G(2) + ... + G(0)*G(n-1)</code></pre><ul>
-<li>从上面我们就能看出来，要想求G(n), 要先求出 G(0)…G(n-1)</li>
-<li>G(0) = 1, G(1) = 1;</li>
-<li>G(2) = G(1)*G(0) + G(0)*G(1) = 2</li>
-<li>G(3) = G(2)*G(0) + G(1)*G(1) + G(0)*G(2)</li>
-</ul>
-<pre><code class="java">public int numTrees(int n) {
-    int[] dp = new int[n+1];
-    dp[0] = 1;
-    dp[1] = 1;
-    // G(n) = G(n-1)*G(0) + G(n-2)*G(1) + G(n-3)*G(2) + ... + G(0)*G(n-1)
-    for(int i=2;i&lt;=n;i++)
-        for(int j=i-1;j&gt;=0;j--)
-            dp[i] += dp[j]*dp[i-j-1];
-    return dp[n];
-}</code></pre>
-<h5 id="8-leetcode-95-把96题所有的二叉搜索树都写出来"><a href="#8-leetcode-95-把96题所有的二叉搜索树都写出来" class="headerlink" title="8.  leetcode 95. 把96题所有的二叉搜索树都写出来"></a>8.  <a href="https://leetcode.com/problems/unique-binary-search-trees-ii/" target="_blank" rel="noopener">leetcode 95. 把96题所有的二叉搜索树都写出来</a></h5><ul>
-<li>虽然感觉是在96的基础上做了变形，但是完全不一样啊！！上一道题的起点就是个数。。😫</li>
-</ul>
-<pre><code>先放这吧。。。</code></pre><h5 id="9-leetcode-120-三角形矩阵从上到小的最小和路径"><a href="#9-leetcode-120-三角形矩阵从上到小的最小和路径" class="headerlink" title="9.  leetcode 120. 三角形矩阵从上到小的最小和路径"></a>9.  <a href="https://leetcode.com/problems/triangle/" target="_blank" rel="noopener">leetcode 120. 三角形矩阵从上到小的最小和路径</a></h5><pre><code>   [                        | index:
-        [2],                |           0
-       [3,4],               |         0   1
-      [6,5,7],              |       0   1   2
-     [4,1,8,3]              |     0   1   2   3
-   ]                        |   0   1   2   3   4</code></pre><ul>
-<li>从下到上，第 <code>n</code> 行第 <code>i</code> 个位置 由第 <code>n-1</code> 行的第 <code>i-1</code>个和第 <code>i</code> 个走到，取两个路径和中小的那个。</li>
-<li><code>dp[n][i] = nums[n][i] + min(dp[n-1][i-1], dp[n-1][i])</code></li>
-</ul>
-<pre><code class="java">public int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) {
-    int result = Integer.MAX_VALUE;
-    int m = triangle.size();
-    int n = triangle.get(m-1).size();  // 最后一行的长度
-    int[][] dp = new int[m][n];
-    dp[0][0] = triangle.get(0).get(0);
-    for(int i=1;i&lt;m;i++) {
-        int size = triangle.get(i).size();
-        //三角形最边上的两个值只有一种情况
-        dp[i][0] = dp[i-1][0] + triangle.get(i).get(0);
-        dp[i][size-1] = dp[i-1][size-2] + triangle.get(i).get(size-1);
-        for(int j=1;j&lt;triangle.get(i).size()-1;j++) 
-            dp[i][j] = triangle.get(i).get(j) + Math.min(dp[i-1][j-1], dp[i-1][j]);
-    }
-    for(int i=0;i&lt;n;i++)
-        result = dp[m-1][i] &lt; result ? dp[m-1][i] : result;
-
-    return result;
-}</code></pre>
-<h5 id="11-leetcode-392-判断s是不是t的子序列"><a href="#11-leetcode-392-判断s是不是t的子序列" class="headerlink" title="11.  leetcode 392. 判断s是不是t的子序列"></a>11.  <a href="https://leetcode.com/problems/is-subsequence/" target="_blank" rel="noopener">leetcode 392. 判断s是不是t的子序列</a></h5><pre><code class="java">public boolean isSubsequence(String s, String t) {
-    //判断s是不是t的子序列
-    //dp[i][j] s的第i位到t的第j位是否是子序列
-    if(s.length()==0)
-        return true;
-    else if(s.length()&gt;t.length())
-        return false;
-    boolean[][] dp = new boolean[s.length()][t.length()];
-    dp[0][0] = (s.charAt(0)==t.charAt(0));
-    for(int i=1;i&lt;t.length();i++) 
-        dp[0][i] = (s.charAt(0)==t.charAt(i) || dp[0][i-1]);
-    for(int i=1;i&lt;s.length();i++) {
-        for(int j=i;j&lt;t.length();j++) {
-            dp[i][j] = (s.charAt(i)==t.charAt(j)&amp;&amp;dp[i-1][j-1]) || dp[i][j-1];
-        }
-    }
-    return dp[s.length()-1][t.length()-1];
-}</code></pre>
-<h5 id="12-leetcode-338-计算二进制中1的个数"><a href="#12-leetcode-338-计算二进制中1的个数" class="headerlink" title="12.  leetcode 338. 计算二进制中1的个数"></a>12.  <a href="https://leetcode.com/problems/counting-bits/" target="_blank" rel="noopener">leetcode 338. 计算二进制中1的个数</a></h5><ul>
-<li>每2的幂开始，就是前面全部的位置+1</li>
-<li>0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  …….</li>
-<li>0 1 1 2 1 2 2 3 1 2  2   3   2    3   3   4   1    2   2    3   2   …….</li>
-<li>4的位置，8的位置，16的位置开始，都是从头部遍历，然后+1即可。</li>
-</ul>
-<pre><code class="java">public int[] countBits(int num) {
-    int[] dp = new int[num+1];
-    if(num&gt;=0) dp[0] = 0;
-    if(num&gt;=1) dp[1] = 1;
-    if(num&gt;=2) dp[2] = 1;
-    if(num&gt;=3) dp[3] = 2;
-
-    if(num&lt;=3) return dp;
-
-    int i=4;
-    int tmp = 2;
-    while(i&lt;=num) {
-        int cou = 0;
-        int start = (int)Math.pow(2, tmp);
-        int end = (int)Math.pow(2, tmp+1);
-        int j = start;
-        while(j&lt;end &amp;&amp; j&lt;=num) {
-            dp[j] = dp[cou] + 1;
-            j += 1;
-            cou += 1;
-        }
-        i = j;
-        tmp += 1;
-    }
-    return dp;
-}</code></pre>
-<h5 id="13-leetcode-714-带有转移费用的股票最佳买卖时间"><a href="#13-leetcode-714-带有转移费用的股票最佳买卖时间" class="headerlink" title="13.  leetcode 714. 带有转移费用的股票最佳买卖时间"></a>13.  <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/" target="_blank" rel="noopener">leetcode 714. 带有转移费用的股票最佳买卖时间</a></h5><pre><code class="java">Input: prices = [1, 3, 2, 8, 4, 9], fee = 2
-Output: 8
-Explanation: The maximum profit can be achieved by:
-Buying at prices[0] = 1
-Selling at prices[3] = 8
-Buying at prices[4] = 4
-Selling at prices[5] = 9
-The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.</code></pre>
-<ul>
-<li>股票必须先卖出然后才能再买入。</li>
-<li><code>hold[i]</code>：表示第 <code>i</code> 时刻手里有股票的最大收益。那么该状态可由两种情况得到。一种是之前没有股票，在该时刻买入。一种是之前就有股票：<code>hold[i] = max(hold[i-1], unhold[i-1]-prices[i])</code></li>
-<li><code>unhold[i]</code>：表示第 <code>i</code> 时刻手里没有股票最大收益。一种是之前有股票，在该时刻卖出。一种是之前就没有股票： <code>unhold[i] = max(unhold[i-1], hold[i-1]+prices[i]-fee)</code></li>
-<li>最终返回 <code>unhold[len-1]</code>。即最后时刻手里没有股票。</li>
-</ul>
-<pre><code class="java">public int maxProfit(int[] prices, int fee) {
-    int[] hold = new int[prices.length];
-    int[] unhold = new int[prices.length];
-    hold[0] = 0-prices[0];
-    for(int i=1;i&lt;prices.length;i++) {
-        unhold[i] = Math.max(unhold[i-1], hold[i-1]+prices[i]-fee);
-        hold[i] = Math.max(hold[i-1], unhold[i-1]-prices[i]);
-    }
-    return unhold[prices.length-1];
-}</code></pre>
-<hr>
-<h4 id="🌈-区间DP"><a href="#🌈-区间DP" class="headerlink" title="🌈. 区间DP"></a>🌈. 区间DP</h4><p><strong>思想：先在小区间进行DP得到最优解，然后再利用小区间的最优解合并求大区间的最优解。</strong></p>
-<pre><code class="java">int[][] dp = new int[n][n];
-for(int i=n-1;i&gt;=0;i--) {
-    for(int j=i+1;j&lt;n;j++) {
-        dp[i][j] = Integer.MIN_VALUE; // 初始值
-        for(int k=i;k&lt;j;k++) {
-            // max 还是 min 根据题目不同要求判断。
-            dp[i][j] = max(dp[i][j], dp[i][k] + dp[k+1][j] + w[i][j]);
-        }
-    }
-}</code></pre>
-<h5 id="1-leetcode-5-最长回文子串"><a href="#1-leetcode-5-最长回文子串" class="headerlink" title="1.  leetcode 5. 最长回文子串"></a>1.  <a href="https://leetcode.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener">leetcode 5. 最长回文子串</a></h5><pre><code>Input: &quot;babad&quot;
-Output: &quot;bab&quot;
-Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
-<li>方法一：中心扩展法，遍历到数组的某一个元素时，以这个元素为中心，向两边进行扩展，如果两边的元素相同则继续扩展，否则停止扩展。<strong>时间复杂度O(n^2),空间复杂度为O(1)</strong></li>
-<li>存在问题：但这种方法存在一个问题，当长度为偶数时，例如<code>1221</code>，这是一个回文串，但是并没有中心元素，如果直接用方法1，就会判断其不为回文串。</li>
-<li>解决办法：在字符串的中间插入分隔符<code>#</code>，那么<code>1221</code>就会变成<code>1#2#2#1</code>，长度为奇数。而本身长度为奇数的<code>12321</code>，插入分隔符变为<code>1#2#3#2#1</code>，仍然为奇数。那么就可以采用1的方法进行统一判断。插入分隔符后长度为<code>2*n-1</code></li>
-</ul>
-<pre><code class="java">public String longestPalindrome(String s) {
-    if(s.length()&lt;2)
-        return s;
-    String res = &quot;&quot;;
-
-    String new_s = s.charAt(0) + &quot;&quot;;
-    for(int i=1;i&lt;s.length();i++) {
-        new_s += &quot;#&quot; + s.charAt(i);
-    }
-
-    int begin = 0;
-    int end = 0;
-    for(int i=0;i&lt;new_s.length();i++) {
-        int tmp_begin = i-1;
-        int tmp_end = i+1;
-        while(tmp_begin&gt;=0 &amp;&amp; tmp_end&lt;new_s.length()) {
-            if(new_s.charAt(tmp_begin)!=new_s.charAt(tmp_end))
-                break;
-
-            tmp_begin -= 1;
-            tmp_end += 1;
-        }
-        tmp_begin += 1;
-        tmp_end -= 1;
-        //不加下面这个if会出现#c#和bab，这种长度是一样的，但是最终结果的长度就不一样了。
-        if(new_s.charAt(tmp_begin)==&#39;#&#39;) {  
-            tmp_begin += 1;
-            tmp_end -=1;
-        }
-        if((tmp_end-tmp_begin)&gt;=(end-begin)) {
-            begin = tmp_begin;
-            end = tmp_end;
-        }
-    }
-    res = new_s.substring(begin, end+1);
-    res = res.replace(&quot;#&quot;,&quot;&quot;);
-    return res;
-}</code></pre>
-<ul>
-<li>方法二：动态规划：如果用<code>dp[i][j]</code>保存子串从<code>i</code> 到<code>j</code>是否是回文子串， 如果<code>dp[i][j]</code>为回文，那么<code>dp[i+1][j-1]</code>,也一定为回文。</li>
-<li><code>dp[i][j]= s[i]==s[j] &amp;&amp; dp[i+1][j-1]</code>, 要想求<code>dp[i][j]</code>，要先求出<code>dp[i+1][j-1]</code></li>
-<li><strong>求 <code>i</code> 要先求 <code>i+1</code>， 说明 <code>i</code> 要从大到小遍历；</strong></li>
-<li><strong>求 <code>j</code> 要先求 <code>j-1</code>， 说明 <code>j</code> 要从小到大遍历；</strong></li>
-<li><strong>用<code>dp[i][j]</code>保存子串从<code>i</code> 到<code>j</code>是否是回文子串， 那么 <code>j&gt;=i</code></strong></li>
-</ul>
-<pre><code class="java">public String longestPalindrome(String s) {
-    if (s.isEmpty()) {
-        return s;
-    }
-    int n = s.length();
-    boolean[][] dp = new boolean[n][n];
-    int left = 0;
-    int right = 0;
-    for (int i = n - 2; i &gt;= 0; i--) {
-        dp[i][i] = true;
-        for (int j = i + 1; j &lt; n; j++) {
-            //小于2是因为abbc, 两个元素相邻
-            //dp[1][2] 要判断 dp[2][1]，但是这样的dp是没有的，或者说初始化的时候恒为false
-            dp[i][j] = s.charAt(i) == s.charAt(j) &amp;&amp;( j-i&lt;2||dp[i+1][j-1]);
-            if(dp[i][j]&amp;&amp;right-left&lt;j-i){
-                left=i;
-                right=j;
-            }
-        }
-    }
-    return s.substring(left,right+1);
-}</code></pre>
-<h5 id="2-leetcode-1130-Minimum-Cost-Tree-From-Leaf-Values"><a href="#2-leetcode-1130-Minimum-Cost-Tree-From-Leaf-Values" class="headerlink" title="2.  leetcode 1130. Minimum Cost Tree From Leaf Values"></a>2.  <a href="https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/" target="_blank" rel="noopener">leetcode 1130. Minimum Cost Tree From Leaf Values</a></h5><pre><code class="java">给你一个正整数数组 arr，考虑所有满足以下条件的二叉树：
-1. 每个节点都有 0 个或是 2 个子节点。
-2. 数组 arr 中的值与树的中序遍历中每个叶节点的值一一对应。
-3. 每个非叶节点的值等于其左子树和右子树中叶节点的最大值的乘积。
-在所有这样的二叉树中，返回每个非叶节点的值的最小可能总和。这个和的值是一个 32 位整数。
-
-输入：arr = [6,2,4]
-输出：32
-解释：有两种可能的树，第一种的非叶节点的总和为 36，第二种非叶节点的总和为 32。
-
-    24            24
-   /  \          /  \
-  12   4        6    8
- /  \               / \
-6    2             2   4 </code></pre>
-<ul>
-<li><code>dp[i][j]</code>：从 <code>i</code> 到 <code>j</code> 的非叶子节点的最小和。</li>
-<li><code>dp[i][j] = min(dp[i][j], dp[i][k] + dp[k+1][j] + max(A[i..k])*max(A[k+1..j]))</code></li>
-<li>想求 <code>dp[i][j]</code>， 要先知道 <code>dp[i][k]</code> 和 <code>dp[k+1][j]</code>，<code>k</code> 是从 <code>i</code> 到 <code>j</code> 的一个值。</li>
-<li>要求 <code>dp[1][4]</code> ，要先求 <code>dp[1][2] dp[3][4]</code> ， 所以 <code>i</code> 要从大到小遍历，<code>j</code> 从小到大遍历。</li>
-</ul>
-<pre><code class="java">public int mctFromLeafValues(int[] arr) {
-    // max数组是先把arr中区间i到j的最大值保存下来，后面max[i][k]*max[k+1][j]要用。
-    // 不保存，直接调用函数查找最大值也行，但是比较耗时。
-    int[][] max = new int[arr.length][arr.length];
-    for(int i=0;i&lt;arr.length;i++) {
-        max[i][i] = arr[i];
-        for(int j=i+1;j&lt;arr.length;j++) {
-            max[i][j] = Math.max(arr[j], max[i][j-1]);
-        }
-    }
-
-    int[][] dp = new int[arr.length][arr.length];
-    for(int i=arr.length-1;i&gt;=0;i--) {
-        for(int j=i+1;j&lt;arr.length;j++) {
-            dp[i][j] = Integer.MAX_VALUE;
-            for(int k=i;k&lt;j;k++) {
-                int tmp = dp[i][k] + dp[k+1][j] + max[i][k]*max[k+1][j];
-                dp[i][j] = Math.min(dp[i][j], tmp);
-            }
-        }
-    }
-    // 其实根据返回值也能确定i是从大到小，j是从小到大，因为返回的位置一定是最后一个得到结果的值。
-    return dp[0][arr.length-1];
-}</code></pre>
-<h5 id="3-poj-1738-石子合并-（直线型）"><a href="#3-poj-1738-石子合并-（直线型）" class="headerlink" title="3.  poj 1738. 石子合并 （直线型）"></a>3.  <a href="http://poj.org/problem?id=1738" target="_blank" rel="noopener">poj 1738. 石子合并 （直线型）</a></h5><pre><code class="JAVA">有N堆石子排成一排，每堆石子有一定的数量。现要将N堆石子并成为一堆。合并的过程只能每次将相邻的两堆石子堆成一堆，每次合并花费的代价为这两堆石子的和，经过N-1次合并后成为一堆。求出总的代价最小值。
-
-输入：13 7 8 16 21 4 18
-输出：239</code></pre>
-<ul>
-<li><code>dp[i][j]</code>：从 <code>i</code> 堆石子到 <code>j</code> 堆石子进行合并最小代价。</li>
-<li><code>dp[i][j] = dp[i][k] + dp[k+1][j] + w[i][j]</code>, 其中<code>w[i][j]</code>表示 <code>i</code> 到 <code>j</code> 的石子的和。 </li>
-<li>为了方便我们定义 <code>sum[i]</code> 为从第 <code>0</code> 堆石子到第 <code>i</code> 堆石子的和。那么 <code>w[i][j]=sum[j]-sum[i-1]</code></li>
-</ul>
-<pre><code class="java">public int stoneSum(int[] arr) {
-    int[] sum = new int[arr.length+1];
-    // sum[1] 表示第0堆石子。
-    for(int i=1;i&lt;=arr.length;i++)
-        sum[i] = sum[i-1] + arr[i-1];
-
-    int[][] dp = new int[arr.length][arr.length];
-    for(int i=arr.length-1;i&gt;=0;i--) {
-        for(int j=i+1;j&lt;arr.length;j++) {
-            dp[i][j] = Integer.MAX_VALUE;
-            for(int k=i;k&lt;j;k++) {
-                int tmp = dp[i][k] + dp[k+1][j] + sum[j+1]-sum[i];
-                dp[i][j] = Math.min(dp[i][j], tmp);
-            }
-        }
-    }
-    return dp[0][arr.length-1];
-}</code></pre>
-<h5 id="4-石子合并（环形）"><a href="#4-石子合并（环形）" class="headerlink" title="4.  石子合并（环形）"></a>4.  石子合并（环形）</h5><pre><code class="JAVA">有n堆石子排成一圈，每次选择相邻的两堆石子，将其合并为一堆，记录该次合并的得分为两堆石子个数之和。已知每堆石子的石子个数，求当所有石子合并为一堆时，最小的总得分。</code></pre>
-<ul>
-<li>注：3题是排成一列，该题是排成一圈。</li>
-<li>方法一：将石子复制一遍，由n个堆的环形变成2n个堆的直线形。最终不再是求 <code>dp[0][n-1]</code>, 而是在 <code>dp[0][n-1], dp[1][n], dp[2][n+1]...dp[n][2n-1]</code>中取最小值。</li>
-<li>相当于我起始位置不一定从 <code>0</code> 开始，可以从任意位置开始，到长度为 <code>n</code> 的地方结束。</li>
-</ul>
-<pre><code class="java">public static int stoneSum(int[] stone) {
-    int[] arr = new int[stone.length*2];
-    for(int i=0;i&lt;stone.length;i++) {
-        arr[i] = stone[i];
-        arr[i+stone.length] = stone[i];
-    }
-
-    int[] sum = new int[arr.length+1];
-    // sum[1] 表示第0堆石子。
-    for(int i=1;i&lt;=arr.length;i++)
-        sum[i] = sum[i-1] + arr[i-1];
-
-    int[][] dp = new int[arr.length][arr.length];
-    for(int i=arr.length-1;i&gt;=0;i--) {
-        for(int j=i+1;j&lt;arr.length;j++) {
-            dp[i][j] = Integer.MAX_VALUE;
-            for(int k=i;k&lt;j;k++) {
-                int tmp = dp[i][k] + dp[k+1][j] + sum[j+1]-sum[i];
-                dp[i][j] = Math.min(dp[i][j], tmp);
-            }
-        }
-    }
-
-    int min_val = Integer.MAX_VALUE;
-    int n = stone.length;
-    for(int i=0;i&lt;n;i++)
-        min_val = dp[i][n-1+i]&lt;min_val?dp[i][n-1+i]:min_val;
-    return min_val;
-}</code></pre>
-<ul>
-<li>方法二： 直接利用环形的动态规划，取余即可。这个暂时不太懂怎么来的。</li>
-<li><code>dp[i][j] = dp[i][k] + dp[(i+k−1)%n+1][j−k] + w[i][j]</code></li>
-</ul>
-<pre><code class="java">不太懂原理。。</code></pre>
-<h5 id="5-poj-2955-括号匹配问题：最长匹配子序列的长度"><a href="#5-poj-2955-括号匹配问题：最长匹配子序列的长度" class="headerlink" title="5.  poj 2955. 括号匹配问题：最长匹配子序列的长度"></a>5.  <a href="http://poj.org/problem?id=2955" target="_blank" rel="noopener">poj 2955. 括号匹配问题：最长匹配子序列的长度</a></h5><pre><code class="java">Given the initial sequence ([([]])], the longest regularbrackets subsequence is[([])].
-找到符合括号匹配的最长子序列的长度。</code></pre>
-<ul>
-<li>这道题和回文串的动规方法很像，如果 <code>s[i]==s[j]</code>，那么 <code>dp[i][j] = 2 + dp[i+1][j-1]</code></li>
-<li>但仅仅做上面一个判断是不够的。</li>
-<li>比如 <code>s=&quot;()()&quot;</code>，<code>dp[0][3] = 2 + dp[1][2] = 2</code>； 显然是不对的。</li>
-<li><code>dp[0][3] = max(dp[0][3], dp[0][0]+dp[1][3], dp[0][1]+dp[2][3], dp[0][2]+dp[3][3])</code></li>
-<li>也就是，我到底是把最外面两个括号当作一个匹配，然后加上里面。还是把最左括号和左面一部分匹配+最右括号和右面一部分匹配。然后看哪种得到的结果最大就是哪种情况。</li>
-</ul>
-<pre><code class="java">public static int longestValidParentheses(String s) {
-    if(s.length()==0)
-        return 0;
-    int[][] dp = new int[s.length()][s.length()];
-    for(int i=s.length()-1;i&gt;=0;i--) {
-        dp[i][i] = 0;
-        for(int j=i+1;j&lt;s.length();j++) {
-            if((s.charAt(i)==&#39;(&#39; &amp;&amp; s.charAt(j)==&#39;)&#39;)||(s.charAt(i)==&#39;[&#39; &amp;&amp; s.charAt(j)==&#39;]&#39;))
-                dp[i][j] = Math.max(dp[i][j], 2 + dp[i+1][j-1]);
-            for(int k=i;k&lt;j;k++)
-                dp[i][j] = Math.max(dp[i][j], dp[i][k]+dp[k+1][j]);
-        }
-    }
-    return dp[0][s.length()-1];
-}</code></pre>
-<h5 id="6-⭐-整数划分使乘积最大"><a href="#6-⭐-整数划分使乘积最大" class="headerlink" title="6.  ⭐ 整数划分使乘积最大"></a>6.  ⭐ 整数划分使乘积最大</h5><pre><code class="java">给出两个整数 n, m, 要求在 n 中加入 m - 1 个乘号，将 n 分成 m 段，求出这 m 段的最大乘积。
-输入：111，2       输出：11
-输入：1111，2      输出：121</code></pre>
-<pre><code class="java">我的思考过程：
-1. dp[i][j][m]: 从位置i到位置j,分成m段的乘积最大值。
-2. 那么dp[i][j][m] = dp[i][k][p]*dp[k+1][j][m-p-1]，但是这样参数太多。
-3. 我们最终求dp[0][len][m] = dp[0][k][p]*dp[k+1][len][m-p-1]
-4. 可以定义：dp[i][j]:从0位置到i位置插入了j个乘号得到的最大值。那么原dp[0][k][p]可表示为dp[k][p]
-5. 那么dp[k+1][len][m-p-1]又没办法表示了。那么我们只能让后一段只有一个数，没有乘号，那么后一段就不需要这么复杂，直接num[k+1...len]就行了。
-6. dp[i][j] = max(dp[i][j], dp[k][j-1]*num[k+1...len])
-7. 最终求：dp[len][m-1], 所以i和i都要从小到大遍历。</code></pre>
-<pre><code class="java">public static int maxResult(int n, int m) {
-    String s = n + &quot;&quot;;
-    int[][] dp = new int[s.length()][m];
-    // 如果不分割，那么0到i子串的值为多少。
-    for(int i=0;i&lt;s.length();i++)
-        dp[i][0] = Integer.parseInt(s.substring(0, i+1));
-
-    // 循环的顺序也很重要，把j写在最外层训练位置，因为j的值会决定i的起始位置。
-    for(int j=1;j&lt;m;j++) {
-        for(int i=j;i&lt;s.length();i++) {  // 前2个位置分割3次是不可能的，所以i从j开始取即可。
-            for(int k=j-1;k&lt;i;k++) {     // 同理，前k个位置分割j-1次，所以k从j-1开始取即可。
-                int tmp = dp[k][j-1]*Integer.parseInt(s.substring(k+1, i+1));
-                dp[i][j] = Math.max(dp[i][j], tmp);
-            }
-        }
-    }
-    return dp[s.length()-1][m-1];
-}</code></pre>
-<h5 id="7-凸多边形三角划分问题"><a href="#7-凸多边形三角划分问题" class="headerlink" title="7.  凸多边形三角划分问题"></a>7.  凸多边形三角划分问题</h5><pre><code class="java">给定一个具有N(N&lt;=50)个顶点(从1到N编号)的凸多边形，每个顶点的权值已知。问如何把这个凸多边形划分成N-2个互不相交的三角形，使得这些三角形顶点的权值的乘积之和最小。</code></pre>
-<ul>
-<li><code>dp[i][j]</code>：表示从顶点 <code>i</code> 到顶点 <code>j</code> 组成的凸多边形划分之后乘积之和的最小值。</li>
-<li><code>dp[i][j] = dp[i][k] + dp[k][j] + arr[i]*arr[j]*arr[k]</code></li>
-<li>哎😔，，边界太难控制了。。</li>
-</ul>
-<p><img src="/images/donggui1.png" alt></p>
-<pre><code class="java">public int triangleMin(int[] arr) {
-    int[][] dp = new int[arr.length][arr.length];
-    // 至少得有三条边
-    for(int i=arr.length-3;i&gt;=0;i--) {
-        for(int j=i+2;j&lt;arr.length;j++) {
-            dp[i][j] = Integer.MAX_VALUE;
-            for(int k=i+1;k&lt;j;k++)
-                dp[i][j] = Math.min(dp[i][j], dp[i][k]+dp[k][j] + arr[i]*arr[k]*arr[j]);
-        }
-    }
-    return dp[0][arr.length-1];
-}</code></pre>
-<h5 id="8-leetcode-375-猜数字，使花费最小"><a href="#8-leetcode-375-猜数字，使花费最小" class="headerlink" title="8.  leetcode 375. 猜数字，使花费最小"></a>8.  <a href="https://leetcode.com/problems/guess-number-higher-or-lower-ii/" target="_blank" rel="noopener">leetcode 375. 猜数字，使花费最小</a></h5><pre><code class="java">我从 1 到 n 之间选择一个数字，你来猜我选了哪个数字。每次你猜错了，我都会告诉你，我选的数字比你的大了或者小了。然而，当你猜了数字 x 并且猜错了的时候，你需要支付金额为 x 的现金。直到你猜到我选的数字，你才算赢得了这个游戏。
-
-示例: n = 10, 我选择了8.
-     第一轮: 你猜我选择的数字是5，我会告诉你，我的数字更大一些，然后你需要支付5块。
-     第二轮: 你猜是7，我告诉你，我的数字更大一些，你支付7块。
-     第三轮: 你猜是9，我告诉你，我的数字更小一些，你支付9块。
-     游戏结束。8 就是我选的数字。
-你最终要支付 5 + 7 + 9 = 21 块钱。
-
-给定 n ≥ 1，计算你至少需要拥有多少现金才能确保你能赢得这个游戏。</code></pre>
-<ul>
-<li><p>就是要怎样进行猜数字，才能让自己花费的钱最少。比如n=10，那么一开始猜7，如果大了就猜9，那么需要花费7+9=16块钱赢得游戏。如果一开始猜5，那么大了还要猜7和9，那么就要花费5+7+9=21。所以我们要求最少花费多少钱赢得游戏。</p>
-</li>
-<li><p>通过上面的解释可以看出这不是二分查找的题，二分查找虽然能保证一定找到你想要的数字，但却不是花费最少的方法。所以是一道动态规划的题。</p>
-</li>
-<li><p>分析：</p>
-<pre><code class="java">在1到n里面，随便猜一个数i，那么此时赢得游戏的最少花费为: 
-            dp[1..n] = arr[i] + max(dp[1..i-1], dp[i+1..n])，
-而 dp[1..i+1] 又可以继续分割，随机猜一个数字k, 那么
-            dp[1..i+1] = arr[k] + max(dp[1..k], dp[k..i+1])</code></pre>
-</li>
-<li><p>麻卖批。。分析到这明显是区间dp啊！！！为什么自己就不能从这么简单的地方开始分析呢。。</p>
-</li>
-<li><p>定义 <code>dp[i][j]</code>：从位置 <code>i</code> 到位置 <code>j</code> 猜出数字的最小花费。那么我们最终要求的为 <code>dp[1][n]</code> 。</p>
-</li>
-</ul>
-<pre><code class="java">public int getMoneyAmount(int n) {
-    if(n==1) return 0;
-    // 定义长度为 n+1, 0位置不使用，为了让index和值对应，要不然还要减一，不方便看。
-    int[][] dp = new int[n+1][n+1];
-
-    for(int i=n;i&gt;0;i--) {
-        dp[i][i] = 0;
-        for(int j=i+1;j&lt;=n;j++) {
-            dp[i][j] = Integer.MAX_VALUE;
-            if(j==i+1) dp[i][j] = i;
-            for(int k=i+1;k&lt;j;k++)
-                dp[i][j] = Math.min(dp[i][j], k + Math.max(dp[i][k-1], dp[k+1][j]));
-        }
-    }
-    return dp[1][n];
-}</code></pre>
-
+            <p>将一个问题拆成几个子问题，分别求解这些子问题的解，即可推断出大问题的解。</p>
             
         </article>
     </div>
@@ -1617,7 +385,7 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
         <a href="/2019/08/12/Hexo+NexT+github Pages配置/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                <img src="/images/bg.jfif" alt="Hexo+NexT+github Pages 搭建">
+                <img src="/images/bg/bg.png" alt="Hexo+NexT+github Pages 搭建">
                 
                 <h1>Hexo+NexT+github Pages 搭建</h1>
             </div>
@@ -1661,7 +429,7 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568443290361"></script>
+<script src="/js/app.js?v=1568476338133"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

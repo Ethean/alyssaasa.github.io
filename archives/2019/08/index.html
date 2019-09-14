@@ -25,13 +25,13 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568443290363">
+  <link rel="stylesheet" href="/css/style.css?v=1568476338134">
 </head>
 
 <body class="mdui-drawer-body-left">
   
   <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="nexmoe-bg" style="background-image: url(/images/bg/2.jpg)"></div>
     <div class="mdui-appbar mdui-shadow-0">
       <div class="mdui-toolbar">
         <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
@@ -156,21 +156,9 @@
 
   
   
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章归档</h3>
-    <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
-    </div>
-  </div>
-
 
   
 </aside>
-    <div class="nexmoe-copyright">
-        &copy; 2019 Alyssa
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
-    </div>
 </div><!-- .nexmoe-drawer -->
   </div>
   <div id="nexmoe-content">
@@ -181,7 +169,7 @@
         <a href="/2019/08/28/查找算法/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                <img src="/images/bg.jfif" alt="查找算法">
+                <img src="/images/bg/bg.png" alt="查找算法">
                 
                 <h1>查找算法</h1>
             </div>
@@ -208,7 +196,7 @@
         <a href="/2019/08/21/数组/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                <img src="/images/bg.jfif" alt="数组">
+                <img src="/images/bg/bg.png" alt="数组">
                 
                 <h1>数组</h1>
             </div>
@@ -235,7 +223,7 @@
         <a href="/2019/08/21/图/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                <img src="/images/bg.jfif" alt="图">
+                <img src="/images/bg/bg.png" alt="图">
                 
                 <h1>图</h1>
             </div>
@@ -262,7 +250,7 @@
         <a href="/2019/08/21/字符串/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                <img src="/images/bg.jfif" alt="字符串">
+                <img src="/images/bg/bg.png" alt="字符串">
                 
                 <h1>字符串</h1>
             </div>
@@ -289,7 +277,7 @@
         <a href="/2019/08/21/将keras的h5文件转为tensorflow的pb文件/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                <img src="/images/bg.jfif" alt="将keras的h5文件转为tensorflow的pb文件">
+                <img src="/images/bg/bg.png" alt="将keras的h5文件转为tensorflow的pb文件">
                 
                 <h1>将keras的h5文件转为tensorflow的pb文件</h1>
             </div>
@@ -316,7 +304,7 @@
         <a href="/2019/08/17/排序算法/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                <img src="/images/bg.jfif" alt="排序算法">
+                <img src="/images/bg/bg.png" alt="排序算法">
                 
                 <h1>排序算法</h1>
             </div>
@@ -343,7 +331,7 @@
         <a href="/2019/08/17/混淆矩阵，准确率，精准率，召回率/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="精确率，准确率，召回率和AUC曲线，PR曲线">
+                <img src="/images/bg/bg.png" alt="精确率，准确率，召回率和AUC曲线，PR曲线">
                 
                 <h1>精确率，准确率，召回率和AUC曲线，PR曲线</h1>
             </div>
@@ -362,59 +350,6 @@
         <article>
             
             <p>分类模型的衡量指标</p>
-<p>原文链接：<a href="https://segmentfault.com/a/1190000016686335" target="_blank" rel="noopener">https://segmentfault.com/a/1190000016686335</a></p>
-<p><a href="https://www.cnblogs.com/pinard/p/5993450.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinard/p/5993450.html</a></p>
-<p>什么是性能度量？</p>
-<p>我们都知道机器学习要建模，但是对于模型性能的好坏（即模型的泛化能力），我们并不知道是怎样的，很可能这个模型就是一个差的模型，泛化能力弱，对测试集不能很好的预测或分类。那么如何知道这个模型是好是坏呢？我们必须有个评判的标准。<strong>为了了解模型的泛化能力，我们需要用某个指标来衡量，这就是性能度量的意义。</strong>有了一个指标，我们就可以对比不同模型了，从而知道哪个模型相对好，那个模型相对差，并通过这个指标来进一步调参逐步优化我们的模型。</p>
-<h3 id="混淆矩阵，准确率，精准率，召回率"><a href="#混淆矩阵，准确率，精准率，召回率" class="headerlink" title="混淆矩阵，准确率，精准率，召回率"></a><strong>混淆矩阵，准确率，精准率，召回率</strong></h3><p>TP TN FP FN</p>
-<ol>
-<li>　　True Positives,TP：预测为正样本，实际也为正样本的特征数</li>
-<li>　　False Positives,FP：预测为正样本，实际为负样本的特征数</li>
-<li>　　True Negatives,TN：预测为负样本，实际也为负样本的特征数</li>
-<li>　　False Negatives,FN：预测为负样本，实际为正样本的特征数</li>
-</ol>
-<p>True false : 是针对原样本而言的。</p>
-<p>Positive  negative 是针对预测结果而言的。</p>
-<p>准确率 accuracy：</p>
-<p>既然是个分类指标，我们可以很自然的想到准确率，准确率的定义是预测正确的结果占总样本的百分比，其公式如下：</p>
-<p>准确率=(TP+TN)/(TP+TN+FP+FN)</p>
-<p>虽然准确率可以判断总的正确率，但是在样本不平衡的情况下，并不能作为很好的指标来衡量结果。举个简单的例子，比如在一个总样本中，正样本占90%，负样本占10%，样本是严重不平衡的。对于这种情况，我们只需要将全部样本预测为正样本即可得到90%的高准确率，但实际上我们并没有很用心的分类，只是随便无脑一分而已。这就说明了：由于样本不平衡的问题，导致了得到的高准确率结果含有很大的水分。即如果样本不平衡，准确率就会失效。</p>
-<p>正因为如此，也就衍生出了其它两种指标：精准率和召回率。</p>
-<p>精确率 precision</p>
-<p><strong>精确率=TP/(TP+FP)</strong></p>
-<p>精确率和准确率看上去有些类似，但是完全不同的两个概念。精准率代表对正样本结果中的预测准确程度，而准确率则代表整体的预测准确程度，既包括正样本，也包括负样本。</p>
-<p>召回率（Recall）又叫查全率，它是针对原样本而言的，它的含义是在实际为正的样本中被预测为正样本的概率，其公式如下：</p>
-<p>召回率=TP/(TP+FN)</p>
-<p>样本中为正的，有多少被预测为正</p>
-<p><strong>召回率的应用场景：</strong>比如拿网贷违约率为例，相对好用户，我们更关心坏用户，不能错放过任何一个坏用户。因为如果我们过多的将坏用户当成好用户，这样后续可能发生的违约金额会远超过好用户偿还的借贷利息金额，造成严重偿失。<strong>召回率越高，代表实际坏用户被预测出来的概率越高，它的含义类似：宁可错杀一千，绝不放过一个。</strong></p>
-<p>特异性 specificity</p>
-<p>样本中为负的，有多少被预测为负。</p>
-<p>特异性 = TN/(TN+FP)</p>
-<p>作者：知乎用户</p>
-<p>F1值 = 精确率 * 召回率 * 2 / (精确率 + 召回率) （F1值即为精确率和召回率的调和平均值）</p>
-<p>不妨举<a href="https://link.zhihu.com/?target=http%3A//peghoty.blog.163.com/blog/static/49346409201302595935709/" target="_blank" rel="noopener">这样一个例子</a>：某池塘有1400条鲤鱼，300只虾，300只鳖。现在以捕鲤鱼为目的。撒一大网，逮着了700条鲤鱼，200只虾，100只鳖。那么，这些指标分别如下：</p>
-<p>精确率 = 700 / (700 + 200 + 100) = 70%</p>
-<p>召回率 = 700 / 1400 = 50%</p>
-<p>F1值 = 70% * 50% * 2 / (70% + 50%) = 58.3%</p>
-<p>不妨看看如果把池子里的所有的鲤鱼、虾和鳖都一网打尽，这些指标又有何变化：</p>
-<p>精确率 = 1400 / (1400 + 300 + 300) = 70%</p>
-<p>召回率 = 1400 / 1400 = 100%</p>
-<p>F值 = 70% * 100% * 2 / (70% + 100%) = 82.35% </p>
-<p>由此可见，正确率是评估捕获的成果中目标成果所占得比例；召回率，顾名思义，就是从关注领域中，召回目标类别的比例；而F值，则是综合这二者指标的评估指标，用于综合反映整体的指标。</p>
-<p>当然希望检索结果Precision越高越好，同时Recall也越高越好，但事实上这两者在某些情况下有矛盾的。比如极端情况下，我们只搜索出了一个结果，且是准确的，那么Precision就是100%，但是Recall就很低；而如果我们把所有结果都返回，那么比如Recall是100%，但是Precision就会很低。因此在不同的场合中需要自己判断希望Precision比较高或是Recall比较高。如果是做实验研究，可以绘制<strong>Precision-Recall曲线</strong>来帮助分析。</p>
-<p>有时候我们对精确率和召回率并不是一视同仁，比如有时候我们更加重视精确率。我们用一个参数𝛽来度量两者之间的关系。如果𝛽&gt;1, 召回率有更大影响，如果𝛽&lt;1,精确率有更大影响。自然，当𝛽=1的时候，精确率和召回率影响力相同，和F1形式一样。含有度量参数𝛽 F1我们记为𝐹𝛽, 严格的数学定义如下：</p>
-<p>　　　　$𝐹_𝛽=\frac{(1+𝛽^2)∗𝑃∗𝑅}{𝛽^2∗𝑃+𝑅} $</p>
-<p>灵敏度 TPR（true positive rate）（同召回率）</p>
-<p>真实样本中为正的，有多少被预测为正</p>
-<p>1-特异度：FPR（false postive rate）</p>
-<p>真实样本为负的，有多少被预测为正</p>
-<p>FPR = FP/(FP+TN)</p>
-<p>Roc 曲线</p>
-<p>　以TPR为y轴，以FPR为x轴，我们就直接得到了RoC曲线。从FPR和TPR的定义可以理解，TPR越高，FPR越小，我们的模型和算法就越高效。也就是画出来的RoC曲线越靠近左上越好。如下图左图所示。从几何的角度讲，RoC曲线下方的面积越大越大，则模型越优。所以有时候我们用RoC曲线下的面积，即AUC（Area Under Curve）值来作为算法和模型好坏的标准。</p>
-<p><img src="https://images2015.cnblogs.com/blog/1042406/201610/1042406-20161024164359046-1869944207.png" alt="img"></p>
-<p>PR曲线</p>
-<p>以精确率为y轴，以召回率为x轴，我们就得到了PR曲线。仍然从精确率和召回率的定义可以理解，精确率越高，召回率越高，我们的模型和算法就越高效。也就是画出来的PR曲线越靠近右上越好。如上图右图所示。</p>
-
             
         </article>
     </div>
@@ -423,14 +358,14 @@
         <a href="/2019/08/17/二叉树/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                <img src="/images/bg.jfif" alt="二叉树">
+                <img src="/images/bg/bg.png" alt="二叉树">
                 
                 <h1>二叉树</h1>
             </div>
         </a>
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月17日</a>
-            <a><i class="nexmoefont icon-areachart"></i>2,934 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>2,940 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 13 分钟</a>
             
                 <a class="nexmoefont icon-appstore-fill -link" href="/categories/算法/">算法</a>
@@ -441,359 +376,7 @@
         </div>
         <article>
             
-            <a id="more"></a>
-
-<h4 id="二叉树结构的定义："><a href="#二叉树结构的定义：" class="headerlink" title="二叉树结构的定义："></a>二叉树结构的定义：</h4><pre><code class="java">class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) { val = x; }
-}</code></pre>
-<h4 id="1-二叉树的遍历："><a href="#1-二叉树的遍历：" class="headerlink" title="1. 二叉树的遍历："></a>1. 二叉树的遍历：</h4><ol>
-<li><p><a href="https://leetcode.com/problems/binary-tree-preorder-traversal/" target="_blank" rel="noopener">leetcode 144 . 二叉树的先序遍历</a></p>
-<pre><code class="java">public void preorder(TreeNode node, List&lt;Integer&gt; res) {
-    if(node==null)  // 终止条件
-        return;     
-    res.add(node.val);         // 先序遍历，访问到当前节点，需要执行的操作
-    preorder(node.left, res);  // 访问左子节点
-    preorder(node.right, res); // 访问右子节点
-} 
-public List&lt;Integer&gt; preorderTraversal(TreeNode root) {
-  List&lt;Integer&gt; res = new ArrayList&lt;&gt;();
-  preorder(root, res);
-  return res;
-}</code></pre>
-</li>
-<li><p><a href="https://leetcode.com/problems/binary-tree-inorder-traversal/" target="_blank" rel="noopener">leetcode 94. 二叉树的中序遍历</a></p>
-<pre><code class="java">public void inorder(TreeNode node, List&lt;Integer&gt; res) {
-    if(node==null)  // 终止条件
-        return;           
-    preorder(node.left, res);  // 访问左子节点
-    res.add(node.val);            // 中序遍历，访问到当前节点，需要执行的操作
-    preorder(node.right, res); // 访问右子节点
-} </code></pre>
-</li>
-<li><p><a href="https://leetcode.com/problems/binary-tree-postorder-traversal/" target="_blank" rel="noopener">leetcode 145. 二叉树的后序遍历</a></p>
-<pre><code class="java">public void postorder(TreeNode node, List&lt;Integer&gt; res) {
-    if(node==null)  // 终止条件
-        return;           
-    preorder(node.left, res);  // 访问左子节点
-    preorder(node.right, res); // 访问右子节点
-    res.add(node.val);            // 后序遍历，访问到当前节点，需要执行的操作
-} </code></pre>
-</li>
-<li><p><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank" rel="noopener">leetcode 102. 二叉树的层次遍历</a></p>
-<p><strong>要注意用两个临时变量 node_count 和 next_count 来记录当前层和下一层节点的数量</strong></p>
-<p>以前我想的方法是当队列中访问到null节点时表示当前层已经访问完，显然这不是一个好的方法，尤其是到最后一层，下一层都是null了，那么就还要加条件判断当前层节点个数是不是空，就很麻烦。</p>
-<pre><code class="java">public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) {
-    List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
-    if(root==null) return result;   // 别忘了二叉树为空的特殊情况处理
-
-    List&lt;Integer&gt; tmp_res = new ArrayList&lt;&gt;();
-    Queue&lt;TreeNode&gt; que = new LinkedList();   // 用队列来暂存二叉树的节点
-    que.add(root);
-    int node_count = 1;    // 用来表示当前层节点个数
-    int next_count = 0;    // 用来表示下一层节点个数
-    while(!que.isEmpty()) {
-        TreeNode tmp_node = que.remove();
-        tmp_res.add(tmp_node.val);
-        node_count -= 1;
-        if(tmp_node.left!=null) {   // 左子节点不为空，将左子节点加入队列
-          que.add(tmp_node.left);
-          next_count += 1;
-        }
-        if(tmp_node.right!=null) {  // 右子节点不为空，将右子节点加入队列
-          que.add(tmp_node.right);
-          next_count += 1;
-        }
-        if(node_count==0) {   //表示当前层已经访问完
-          node_count = next_count;
-          next_count = 0;
-          result.add(tmp_res);
-          tmp_res = new ArrayList&lt;&gt;();
-        }
-    }
-    return result;
-}</code></pre>
-</li>
-</ol>
-<h4 id="2-二叉树给定任意一个节点，找出其中序遍历的下一个节点（剑指-offer）："><a href="#2-二叉树给定任意一个节点，找出其中序遍历的下一个节点（剑指-offer）：" class="headerlink" title="2. 二叉树给定任意一个节点，找出其中序遍历的下一个节点（剑指 offer）："></a>2. 二叉树给定任意一个节点，找出其中序遍历的下一个节点（剑指 offer）：</h4><p>题目描述：给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
-<pre><code class="java">                    1
-                  /   \
-                 2     3
-               /  \   / \
-              4    5 6   7
-             /    / \    
-            14   8   9   
-               /  \   
-              10  11 </code></pre>
-<p>如上图所示，其中序遍历结果为：[14, 4, 2, 10, 8, 11, 5, 9, 1, 6, 3, 7, 9 ]</p>
-<ul>
-<li>因为是中序遍历，所以当前节点的下一个节点必然在其右子树中产生。只需要考虑有没有右子树即可，而不用再去考虑当前节点是不是存在左子树。因为访问到当前节点的时候，其左子树肯定已经都访问完了。</li>
-<li>如果它存在右子树，则其中序遍历的下一个节点是右子树的最左子节点 […2, 10…]；[…1, 6…]</li>
-<li>节点4无右子树，且它为其父节点2的左子节点，则其中序遍历的下一个节点是其<strong>父节点</strong>。[…4, 2…]</li>
-<li>节点9无右子树，且它为其父节点5的右子节点，则其中序遍历的下一个节点要<strong>沿着指向父节点的指针不断向上找，直到找到一个视其父节点为左子节点的节点</strong>。[…9, 1…]</li>
-</ul>
-<pre><code class="java">public TreeNode getInorderNext(TreeNode node) {
-    if(node==null)
-         return null;
-    if(node.right!=null) {   // 如果右子树不为空，返回右子树的最左子节点
-         TreeNode tmp_node = node.right;
-         while(tmp_node.left!=null)
-            tmp_node = tmp_node.left;
-         return tmp_node;
-    }
-    else if(node.father!=null) {   // 如果右子树为空
-        while(node.father!=null &amp;&amp; node.father.right==node) {
-            node = node.father;
-        }
-        return node.father;
-    }
-    else
-        return null;
-}</code></pre>
-<h4 id="3-leetcode-105-根据先序遍历和中序遍历确定二叉树的结构："><a href="#3-leetcode-105-根据先序遍历和中序遍历确定二叉树的结构：" class="headerlink" title="3. leetcode 105. 根据先序遍历和中序遍历确定二叉树的结构："></a>3. <a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/" target="_blank" rel="noopener">leetcode 105. 根据先序遍历和中序遍历确定二叉树的结构</a>：</h4><p>输入：</p>
-<pre><code>preorder = [3,9,20,15,7]
-inorder  = [9,3,15,20,7]</code></pre><p>分析：preorder中先访问的是根节点，那么在inorder中找到根节点的位置，然后iorder根节点左侧的即为其左子树，右侧的即为其右子树，然后递归进行该过程即可。</p>
-<pre><code class="java">int pre_index = 0;
-public static TreeNode buildTree(int[] preorder, int[] inorder, int left, int right) {
-  if(left&gt;=right)
-    return null;
-  TreeNode node = new TreeNode(preorder[pre_index]);  // 建立当前节点
-  int index = -1;
-  for(int i=left;i&lt;right;i++) {   // 找到preorder中当前节点在inoder中的位置
-    if(inorder[i]==preorder[pre_index])
-      index = i;
-  }
-  pre_index += 1;
-  node.left = buildTree(preorder, inorder, left, index);     // 递归inorder中当前节点的左侧节点
-  node.right = buildTree(preorder, inorder, index+1, right); // 递归inorder中当前节点的右侧节点
-  return node;
-}</code></pre>
-<h4 id="4-leetcode-106-根据后序遍历和中序遍历确定二叉树的结构："><a href="#4-leetcode-106-根据后序遍历和中序遍历确定二叉树的结构：" class="headerlink" title="4. leetcode 106. 根据后序遍历和中序遍历确定二叉树的结构："></a>4. <a href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/" target="_blank" rel="noopener">leetcode 106. 根据后序遍历和中序遍历确定二叉树的结构</a>：</h4><p>输入：</p>
-<pre><code>inorder   = [9,3,15,20,7]
-postorder = [9,15,7,20,3]</code></pre><p>分析：因为是后序遍历，所以postorder要从后向前看，最右一个是根节点，然后逐渐向前遍历。postorder中从后向前访问根节点，那么在inorder中找到根节点的位置，然后iorder根节点左侧的即为其左子树，右侧的即为其右子树，然后递归进行该过程即可。</p>
-<p><strong>注意：3题和4题最后两个递归循环的顺序是不一样的，后序遍历中，因为是从后向前遍历postorder， 所以它会先访问右子树，所以递归循环时要先建立右子树，再建立左子树。</strong></p>
-<pre><code class="java">int post_index = 0;
-public TreeNode buildTree(int[] postorder, int[] inorder, int left, int right) {
-    if(left&gt;=right)
-        return null;
-
-    TreeNode node = new TreeNode(postorder[post_index]);
-    int index = -1;
-    for(int i=left;i&lt;right;i++) {
-        if(inorder[i]==postorder[post_index])
-            index = i;
-    }
-    post_index -= 1;
-    node.right = buildTree(postorder, inorder, index+1, right);
-    node.left = buildTree(postorder, inorder, left, index);
-    return node;
-}
-
-public TreeNode buildTree(int[] inorder, int[] postorder) {
-    post_index = postorder.length-1;
-    TreeNode node = buildTree(postorder, inorder, 0, inorder.length);
-    return node;
-}</code></pre>
-<h4 id="5-leetcode-100-判断两棵二叉树是否相等："><a href="#5-leetcode-100-判断两棵二叉树是否相等：" class="headerlink" title="5. leetcode 100. 判断两棵二叉树是否相等："></a>5. <a href="https://leetcode.com/problems/same-tree/" target="_blank" rel="noopener">leetcode 100. 判断两棵二叉树是否相等</a>：</h4><pre><code class="java">public boolean judge(TreeNode n1, TreeNode n2) {
-    if(n1==null &amp;&amp; n2==null)
-       return true;
-    else if(n1==null || n2==null)
-       return false;
-    if(n1.val!=n2.val)
-       return false;
-
-    return (judge(n1.left, n2.left) &amp;&amp; judge(n1.right, n2.right));
-}
-
-public boolean isSameTree(TreeNode p, TreeNode q) {
-    return preorder(p, q);
-}</code></pre>
-<h4 id="6-leetcode-101-判断二叉树是不是对称的："><a href="#6-leetcode-101-判断二叉树是不是对称的：" class="headerlink" title="6. leetcode 101. 判断二叉树是不是对称的："></a>6. <a href="https://leetcode.com/problems/symmetric-tree/" target="_blank" rel="noopener">leetcode 101. 判断二叉树是不是对称的</a>：</h4><p>一种方法，就是判断二叉树镜像之后和自己是不是相等。如果相等就是对称的。但是那样有点太麻烦了。</p>
-<pre><code class="java">      1
-    /   \
-   2     2
- /  \   /  \
-4    3 3    4</code></pre>
-<pre><code class="java">public boolean judge(TreeNode left, TreeNode right) {
-    if(left==null &amp;&amp; right==null)
-        return true;
-    else if(left==null || right==null)
-        return false;
-    if(left.val!=right.val)
-        return false;
-
-    return (judge(left.left, right.right) &amp;&amp; judge(left.right, right.left));
-}
-
-public boolean isSymmetric(TreeNode node) {
-    if(node==null)
-        return true;
-    return judge(node.left, node.right);
-}</code></pre>
-<p>我们可以看到第五题和第六题很相似，只是在递归的时候传的参数不一样。</p>
-<h4 id="7-leetcode-226-二叉树的镜像："><a href="#7-leetcode-226-二叉树的镜像：" class="headerlink" title="7. leetcode 226. 二叉树的镜像："></a>7. <a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank" rel="noopener">leetcode 226. 二叉树的镜像</a>：</h4><pre><code class="java">                    1          |          1
-                  /   \        |        /   \
-                 2     3       |       3     2
-               /  \   / \      |      / \   /  \
-              4    5 6   7     |     7   6 5    4</code></pre>
-<pre><code class="java">public static TreeNode SymmetricTree(TreeNode node) {
-    if(node==null)
-       return null;
-    if(node.left==null &amp;&amp; node.right==null)
-       return node;
-    TreeNode tmp = node.left;   // 左右节点交换
-    node.left = node.right;
-    node.right = tmp;
-    SymmetricTree(node.left);
-    SymmetricTree(node.right);
-    return node;
-}</code></pre>
-<h4 id="8-完全二叉树"><a href="#8-完全二叉树" class="headerlink" title="8. 完全二叉树"></a>8. 完全二叉树</h4><h5 id="8-1-leetcode-222-完全二叉树的节点个数"><a href="#8-1-leetcode-222-完全二叉树的节点个数" class="headerlink" title="8.1 leetcode 222. 完全二叉树的节点个数"></a>8.1 <a href="https://leetcode.com/problems/count-complete-tree-nodes/" target="_blank" rel="noopener">leetcode 222. 完全二叉树的节点个数</a></h5><ul>
-<li><p>完全二叉树和普通二叉树的区别就在于，除了最后一层可能不满以外，其他层全都是满的。</p>
-</li>
-<li><p>所以想要查完全二叉树的节点个数，除了和普通的方法一样，遍历一遍，只需要知道完全二叉树的层数，和最后一层的节点个数就行了。前面可以用公式 $2^n-1$ 即可。n为前面满二叉树的层数。</p>
-</li>
-</ul>
-<pre><code class="java">public int get_num(TreeNode node, int num) {
-    if(node==null)
-        return 0;
-    if(num==1) {
-        if(node.left!=null &amp;&amp; node.right!=null) return 2;
-        else if(node.left!=null) return 1;
-        else return 0;
-    }
-    return get_num(node.left, num-1) + get_num(node.right, num-1);
-}
-
-public int countNodes(TreeNode root) {
-    TreeNode left = root;
-    TreeNode right = root;
-    int num_left = 0;
-    while(left!=null) {   // 通过左子节点计算二叉树的层数。
-        num_left += 1;
-        left = left.left;
-    }
-    int num_right = 0;
-    while(right!=null) {  // 从右侧计算二叉树的层数。
-        num_right += 1;
-        right = right.right;
-    }
-    // 如果左侧层数和右侧计算的层数相等，那么这是一棵满二叉树。直接用公式计算节点数即可。
-    if(num_left==num_right) return (int)Math.pow(2, num_left)-1;
-    // 如果不是满二叉树，那么用公式计算前num_right层，然后递归计算最后一层的数目即可。
-    else return (int)(Math.pow(2, num_right)-1 + get_num(root, num_right));
-}</code></pre>
-<h5 id="8-2-leetcode-958-判断一棵二叉树是不是完全二叉树"><a href="#8-2-leetcode-958-判断一棵二叉树是不是完全二叉树" class="headerlink" title="8.2 leetcode 958. 判断一棵二叉树是不是完全二叉树"></a>8.2 <a href="https://leetcode.com/problems/check-completeness-of-a-binary-tree/" target="_blank" rel="noopener">leetcode 958. 判断一棵二叉树是不是完全二叉树</a></h5><ul>
-<li>联想堆，堆就是一棵完全二叉树，堆排序中我们知道，堆可以用一个数组表示，所以完全二叉树也可以由一个数组表示，第 <code>k</code> 个节点的儿子节点是 <code>2k</code> 和 <code>2k+1</code>，那么我们就可以在遍历二叉树的时候给每个节点一个编号，如果最后一层最右侧的节点的编号和二叉树节点个数相等，那么就说明他是一棵完全二叉树。</li>
-</ul>
-<pre><code class="java">                    1          |          1
-                  /   \        |        /   \
-                 2     3       |       2     3
-               /      / \      |      / \      
-              4      6   7     |     4   5     </code></pre>
-<ul>
-<li>如上图所示，按照编号左侧最后一层最右节点编号为7，但二叉树只有6个节点，所以其不是一棵完全二叉树。右面的二叉树，最后一层最右节点编号为5，而二叉树有5个节点，所以是完全二叉树。</li>
-</ul>
-<pre><code class="java">int num = 0;  // 二叉树节点个数
-int final_index = 0;  // 最后一个节点的编号
-
-public void dfs(TreeNode node, int index) {
-    if(node==null)
-        return;
-    num += 1;
-    if(node.left==null &amp;&amp; node.right==null) 
-        final_index = index&gt;final_index?index:final_index;
-    dfs(node.left, index*2);
-    dfs(node.right, index*2+1);
-}
-
-public boolean isCompleteTree(TreeNode root) {
-    dfs(root, 1);
-    if(final_index==num)  return true;
-    else return false;
-}</code></pre>
-<h4 id="9-二叉搜索树"><a href="#9-二叉搜索树" class="headerlink" title="9. 二叉搜索树"></a>9. 二叉搜索树</h4><h5 id="9-1-leetcode-98-判断一棵二叉树是不是二叉搜索树"><a href="#9-1-leetcode-98-判断一棵二叉树是不是二叉搜索树" class="headerlink" title="9.1 leetcode 98. 判断一棵二叉树是不是二叉搜索树"></a>9.1 <a href="https://leetcode.com/problems/validate-binary-search-tree/" target="_blank" rel="noopener">leetcode 98. 判断一棵二叉树是不是二叉搜索树</a></h5><ul>
-<li>二叉搜索树的中序遍历是有序的，只要判断中序遍历时当前值是不是大于前一个值就行了</li>
-<li>下面的代码，本来没设置num来标记是不是第一个节点。直接第一个节点和 <code>Integer.MIN_VALUE</code> 就好了，谁知道测试用例有第一个值是 <code>Integer.MIN_VALUE</code> 的，没办法又多设置了一个变量。</li>
-</ul>
-<pre><code class="java">boolean flag = true;
-int num = 0;
-int tmp_value = Integer.MIN_VALUE;
-
-public void preorder(TreeNode node) {
-    if(node==null || flag == false)
-        return;
-    preorder(node.left);
-
-    if(num!=0 &amp;&amp; node.val&lt;=tmp_value) {
-        flag = false;
-        return;
-    }
-    else  {
-        tmp_value = node.val;
-        num += 1;
-    }
-    preorder(node.right);
-}
-
-public boolean isValidBST(TreeNode root) {
-    preorder(root);
-    return flag;
-}</code></pre>
-<h5 id="9-2-leetcode-108-将排序数组转为平衡的二叉搜索树"><a href="#9-2-leetcode-108-将排序数组转为平衡的二叉搜索树" class="headerlink" title="9.2 leetcode 108. 将排序数组转为平衡的二叉搜索树"></a>9.2 <a href="https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/" target="_blank" rel="noopener">leetcode 108. 将排序数组转为平衡的二叉搜索树</a></h5><pre><code class="java">Given the sorted array: [-10,-3,0,5,9],
-
-One possible answer is: [0,-3,9,-10,null,5], which represents the following height balanced BST:
-
-      0
-     / \
-   -3   9
-   /   /
- -10  5</code></pre>
-<ul>
-<li>很简单，每次选取中间节点作为当前节点，然后递归调用就好了。</li>
-</ul>
-<pre><code class="java">public TreeNode BST(int[] nums, int begin, int end) {
-    if(begin&gt;=end)
-        return null;
-    int mid = (begin + end)/2;
-    TreeNode node = new TreeNode(nums[mid]);
-    node.left = BST(nums, begin, mid);
-    node.right = BST(nums, mid+1, end);
-    return node;
-}
-
-public TreeNode sortedArrayToBST(int[] nums) {
-    return BST(nums, 0, nums.length);
-}</code></pre>
-<h5 id="9-3-leetcode-109-将排序链表转为平衡的二叉搜索树"><a href="#9-3-leetcode-109-将排序链表转为平衡的二叉搜索树" class="headerlink" title="9.3 leetcode 109. 将排序链表转为平衡的二叉搜索树"></a>9.3 <a href="https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/" target="_blank" rel="noopener">leetcode 109. 将排序链表转为平衡的二叉搜索树</a></h5><ul>
-<li>跟上道题是一样的，只不过由排序数组改为了排序链表。</li>
-<li>方法一：把链表中的内容先存到数组中，再用9.2题的方法。</li>
-<li>方法二：直接用链表去找中间节点，其他方法同9.2。找中间节点的方法就是设置快慢指针。一个每次走一步，一个每次走两步。第一个到达尾部时，第二个指向中间节点。</li>
-</ul>
-<pre><code class="java">public TreeNode BST(ListNode begin, ListNode end) {
-    if(begin==end)
-        return null;
-
-    ListNode slow = begin;
-    ListNode fast = begin;
-    while(fast!=end &amp;&amp; fast.next!=end) {
-        slow = slow.next;
-        fast = fast.next.next;
-    }
-
-    TreeNode node = new TreeNode(slow.val);
-    node.left = BST(begin, slow);
-    node.right = BST(slow.next, end);
-    return node;
-}
-
-public TreeNode sortedListToBST(ListNode head) {
-    return BST(head, null);
-}</code></pre>
-<h4 id="10-Z字形打印二叉树："><a href="#10-Z字形打印二叉树：" class="headerlink" title="10. Z字形打印二叉树："></a>10. Z字形打印二叉树：</h4><hr>
-<h4 id="二叉搜索树："><a href="#二叉搜索树：" class="headerlink" title="二叉搜索树："></a>二叉搜索树：</h4><h4 id="给定一个数组，判断该数组是不是二叉搜索树的后序遍历结果："><a href="#给定一个数组，判断该数组是不是二叉搜索树的后序遍历结果：" class="headerlink" title="给定一个数组，判断该数组是不是二叉搜索树的后序遍历结果："></a>给定一个数组，判断该数组是不是二叉搜索树的后序遍历结果：</h4><h4 id="二叉搜索树转为双向链表："><a href="#二叉搜索树转为双向链表：" class="headerlink" title="二叉搜索树转为双向链表："></a>二叉搜索树转为双向链表：</h4>
+            <p>二叉树的相关</p>
             
         </article>
     </div>
@@ -802,14 +385,14 @@ public TreeNode sortedListToBST(ListNode head) {
         <a href="/2019/08/16/Self-Attention机制/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="Self-Attention机制">
+                <img src="/images/bg/bg.png" alt="Self-Attention机制">
                 
                 <h1>Self-Attention机制</h1>
             </div>
         </a>
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月16日</a>
-            <a><i class="nexmoefont icon-areachart"></i>691 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>695 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
             
                 <a class="nexmoefont icon-appstore-fill -link" href="/categories/深度学习/">深度学习</a>
@@ -820,40 +403,7 @@ public TreeNode sortedListToBST(ListNode head) {
         </div>
         <article>
             
-            <h1 id="Self-Attention机制"><a href="#Self-Attention机制" class="headerlink" title="Self-Attention机制"></a>Self-Attention机制</h1><p>图像方面：增大图像的感受野</p>
-<p>NLP方面：定位关键token或者特征</p>
-<h3 id="NLP：Attention-Is-All-You-Need"><a href="#NLP：Attention-Is-All-You-Need" class="headerlink" title="NLP：Attention Is All You Need"></a>NLP：Attention Is All You Need</h3><h4 id="1-高层Transformer"><a href="#1-高层Transformer" class="headerlink" title="1. 高层Transformer"></a>1. 高层Transformer</h4><p>我们就以机器翻译为例子详细剖析Transformer的结构，在机器翻译中，Transformer可概括为：</p>
-<p><img src="/images/self-attention/the_transformer_3.png" alt="1"></p>
-<p>Transformer的本质上是一个Encoder-Decoder的结构，那么上面图片的结构可以表示为：</p>
-<p><img src="/images/self-attention/The_transformer_encoders_decoders.png" alt="2"></p>
-<p>Encoders由6个编码block组成，同样Decoders是6个解码block组成。与所有的生成模型相同的是，编码器的输出会作为解码器的输入，如图3所示：</p>
-<p><img src="/images/self-attention/The_transformer_encoder_decoder_stack.png" alt="3"></p>
-<p>6个encoder的结构都是相同的，但是他们不共享权值，每个encoder由两部分组成：self-attention 和 feedd forward neural network:</p>
-<p><img src="/images/self-attention/Transformer_encoder.png" alt="4"></p>
-<p>Decoder的结构如图5所示，它和encoder的不同之处在于Decoder多了一个Encoder-Decoder Attention，两个Attention分别用于计算输入和输出的权值：</p>
-<ul>
-<li>Self-Attention：当前翻译和已经翻译的前文之间的关系；</li>
-<li>Encoder-Decnoder Attention：当前翻译和编码的特征向量之间的关系。</li>
-</ul>
-<p><img src="/images/self-attention/Transformer_decoder.png" alt="5"></p>
-<h4 id="2-输入编码"><a href="#2-输入编码" class="headerlink" title="2. 输入编码"></a>2. 输入编码</h4><p>上一节主要介绍了Transformer的框架，下面介绍他的输入数据。</p>
-<p>如图6所示，首先通过Word2Vec等embedding方法将输入语料转为特征向量：（dimension=512）</p>
-<p><img src="/images/self-attention/embeddings.png" alt="6. 单词的输入编码"></p>
-<p>embedding只发生在最底层的encoder中，即只有网络的第一层是将embedding的结果输入到网络中，之后每层的输入都是上一层的输出。</p>
-<p><img src="/images/self-attention/encoder_with_tensors.png" alt="7"></p>
-<p>在这里，我们可以看到Transformer的一个关键属性，即每个位置的单词在编码器中流经它自己的路径。 self-attention层中的这些路径之间存在依赖关系。 然而，feed-forward层不具有那些依赖性，因此各种路径可以在流过前馈层时并行执行。?? 不太懂</p>
-<h4 id="3-Self-Attention机制"><a href="#3-Self-Attention机制" class="headerlink" title="3. Self-Attention机制"></a>3. Self-Attention机制</h4><p>self-attention的核心内容是为输入向量的每个单词学习一个权重。</p>
-<p>例如我们要翻译的句子是：（即网络模型的输入sentence）<br>”The animal didn’t cross the street because it was too tired”</p>
-<p>句子里面的<code>it</code>指代的是谁？animal 还是 street。</p>
-<p>Self-attention 就是 Transformer 用来将其他相关单词的“理解”融入我们当前正在处理的单词中的方法。</p>
-<p>Self-attention is the method the Transformer uses to bake the “understanding” of other relevant words into the one we’re currently processing.</p>
-<p><img src="/images/self-attention/transformer_self-attention_visualization.png" alt="8. As we are encoding the word &quot;it&quot; in encoder #5 (the top encoder in the stack), part of the attention mechanism was focusing on &quot;The Animal&quot;, and baked a part of its representation into the encoding of &quot;it&quot;."></p>
-<p>在self-attention中，每个单词有3个不同的向量，它们分别是Query向量（ $Q$ ），Key向量（ $K$ ）和Value向量（ $V$ ），长度均是64。它们是通过3个不同的权值矩阵由embedding向量 $X$ 乘以三个不同的权值矩阵 $W^Q$ ， $W^K$ ， $W^V$ 得到，其中三个矩阵的尺寸也是相同的。均是 $512*64$ 。</p>
-<p><img src="/images/self-attention/transformer_self_attention_vectors.png" alt="9"></p>
-<p><a href="https://zhuanlan.zhihu.com/p/48508221" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/48508221</a></p>
-<p><a href="http://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener">http://jalammar.github.io/illustrated-transformer/</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/64881836" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/64881836</a></p>
-
+            <p>Self-Attention机制</p>
             
         </article>
     </div>
@@ -862,14 +412,14 @@ public TreeNode sortedListToBST(ListNode head) {
         <a href="/2019/08/15/Shell字符串/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="Shell字符串">
+                <img src="/images/bg/bg.png" alt="Shell字符串">
                 
                 <h1>Shell字符串</h1>
             </div>
         </a>
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月15日</a>
-            <a><i class="nexmoefont icon-areachart"></i>1,014 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>1,018 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
             
                 <a class="nexmoefont icon-appstore-fill -link" href="/categories/Shell/">Shell</a>
@@ -880,123 +430,7 @@ public TreeNode sortedListToBST(ListNode head) {
         </div>
         <article>
             
-            <h4 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h4><p>字符串可以由单引号<code>&#39; &#39;</code>包围，也可以由双引号<code>&quot; &quot;</code>包围，也可以不用引号。</p>
-<p>字符串举例：</p>
-<pre><code>str1=alyssaasa.github.io
-str2=&quot;shell script&quot;
-str3=&#39;Shell字符串&#39;</code></pre><p>三种形式的区别：</p>
-<ol>
-<li><p>由单引号<code>&#39;&#39;</code>包围的字符串：</p>
-<ul>
-<li>任何字符都会原样输出，在其中使用变量是无效的。</li>
-<li>字符串中不能出现单引号，即使对单引号进行转义也不行。</li>
-</ul>
-</li>
-<li><p>由双引号<code>&quot; &quot;</code>包围的字符串：</p>
-<ul>
-<li>如果其中包含了某个变量，那么该变量会被解析（得到该变量的值），而不是原样输出。</li>
-<li>字符串中可以出现双引号，只要它被转义了就行。</li>
-</ul>
-</li>
-<li><p>不被引号包围的字符串：</p>
-<ul>
-<li>不被引号包围的字符串中出现变量时也会被解析，这一点和双引号<code>&quot; &quot;</code>包围的字符串一样。</li>
-<li>字符串中<strong>不能出现空格</strong>，否则空格后边的字符串会作为其他变量或者命令解析。</li>
-</ul>
-</li>
-</ol>
-<pre><code>#!/bin/bash
-n=74
-str1=c.biancheng.net$n 
-str2=&quot;shell \&quot;script\&quot; $n&quot;
-str3=&#39;C语言中文网 $n&#39;
-echo $str1
-echo $str2
-echo $str3</code></pre><p>运行结果：</p>
-<pre><code>c.biancheng.net74
-shell &quot;script&quot; 74
-C语言中文网 $n</code></pre><h4 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h4><pre><code>${#string_name}    其中string_name为字符串名字</code></pre><p>举例：</p>
-<pre><code>#! /bin/bash
-
-str = &quot;http://alyssaasa.github.io&quot;
-echo ${#str}</code></pre><p>运行结果：<code>26</code></p>
-<h4 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a>字符串的拼接</h4><p>不需要使用任何运算符，将两个字符串并排放在一起就能实现拼接</p>
-<pre><code>#!/bin/bash
-name=&quot;Shell&quot;
-url=&quot;http://c.biancheng.net/shell/&quot;
-str1=$name$url          # 中间不能有空格
-str2=&quot;$name $url&quot;   # 如果被双引号包围，那么中间可以有空格
-str3=$name&quot;: &quot;$url  # 中间可以出现别的字符串
-str4=&quot;$name: $url&quot;  # 这样写也可以
-str5=&quot;${name}Script: ${url}index.html&quot;  # 这个时候需要给变量名加上大括号,帮助解释器识别变量的边界
-echo $str1
-echo $str2
-echo $str3
-echo $str4
-echo $str5</code></pre><p>运行结果：</p>
-<pre><code>Shellhttp://c.biancheng.net/shell/
-Shell http://c.biancheng.net/shell/
-Shell: http://c.biancheng.net/shell/
-Shell: http://c.biancheng.net/shell/
-ShellScript: http://c.biancheng.net/shell/index.html</code></pre><h4 id="字符串的截取"><a href="#字符串的截取" class="headerlink" title="字符串的截取"></a>字符串的截取</h4><ul>
-<li><p><strong>从指定位置开始截取</strong></p>
-<p>这种方式需要两个参数：除了指定起始位置，还需要截取长度，才能最终确定要截取的字符串。</p>
-<ol>
-<li><p><strong>从字符串左边开始计数：</strong><code>${string:start:length}</code></p>
-<ul>
-<li><p>string: 要截取的字符串</p>
-</li>
-<li><p>start: 起始位置 （从左边开始，从 0 开始计数）</p>
-</li>
-<li><p>length 是要截取的长度（省略的话表示直到字符串的末尾）</p>
-<pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 2: 9}
-结果：biancheng</code></pre><pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 2}  # 省略 length，截取到字符串末尾
-结果：biancheng.net</code></pre></li>
-</ul>
-</li>
-<li><p><strong>从字符串左边开始计数：</strong><code>${string:0-start:length}</code></p>
-<ul>
-<li><p>0-start: 这是固定的写法，专门用来表示从字符串右边开始计数。</p>
-</li>
-<li><p><strong>从左边开始计数时，起始数字是 0；从右边开始计数时，起始数字是 1。</strong></p>
-</li>
-<li><p>不管从哪边开始计数，截取方向都是从左到右。</p>
-<pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 0-13: 9}
-结果：biancheng  # 从右边数，b 是第 13 个字符。</code></pre><pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 0-13}  # 省略 length，直接截取到字符串末尾
-结果：biancheng.net</code></pre></li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p><strong>从指定字符（子字符串）开始截取</strong></p>
-<p>这种截取方式无法指定字符串长度，只能从指定字符（子字符串）截取到字符串末尾。</p>
-<p>Shell 可以截取指定字符（子字符串）右边的所有字符，也可以截取左边的所有字符。</p>
-<ol>
-<li><p>使用 <code>#</code> 截取指定字符（或者子字符串）右边的所有字符：<code>${string#*chars}</code></p>
-<ul>
-<li><p>string: 要截取的字符串</p>
-</li>
-<li><p>chars: 指定的字符（或者子字符串）</p>
-</li>
-<li><p><code>*</code>：通配符的一种，表示任意长度的字符串</p>
-</li>
-<li><p><code>*chars</code>  连起来使用的意思是：忽略左边的所有字符，直到遇见 chars（chars 不会被截取）</p>
-<pre><code>url=&quot;http://c.biancheng.net/index.html&quot;
-echo ${url#*:}
-结果：//c.biancheng.net/index.html</code></pre><p>以下写法也会得到同样的结果：</p>
-<pre><code>echo ${url#*p:}
-echo ${url#*ttp:}</code></pre><p><a href="http://c.biancheng.net/view/1120.html" target="_blank" rel="noopener">http://c.biancheng.net/view/1120.html</a> 太多了，以后用得到的时候再写。。</p>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-
+            <p>Shell字符串</p>
             
         </article>
     </div>
@@ -1022,7 +456,7 @@ echo ${url#*ttp:}</code></pre><p><a href="http://c.biancheng.net/view/1120.html"
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568443290367"></script>
+<script src="/js/app.js?v=1568476338138"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

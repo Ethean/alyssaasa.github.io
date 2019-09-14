@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://yoursite.com/images/hexo/1.png">
 <meta property="og:image" content="http://yoursite.com/images/hexo/2.png">
 <meta property="og:image" content="http://yoursite.com/images/hexo/3.png">
-<meta property="og:updated_time" content="2019-09-14T05:38:02.749Z">
+<meta property="og:updated_time" content="2019-09-14T12:35:09.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+NexT+github Pages 搭建">
 <meta name="twitter:description" content="Hexo next 的配置过程">
@@ -34,13 +34,13 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568443290311">
+  <link rel="stylesheet" href="/css/style.css?v=1568476338100">
 </head>
 
 <body class="mdui-drawer-body-left">
   
   <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="nexmoe-bg" style="background-image: url(/images/bg/2.jpg)"></div>
     <div class="mdui-appbar mdui-shadow-0">
       <div class="mdui-toolbar">
         <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
@@ -165,21 +165,9 @@
 
   
   
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章归档</h3>
-    <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li></ul>
-    </div>
-  </div>
-
 
   
 </aside>
-    <div class="nexmoe-copyright">
-        &copy; 2019 Alyssa
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
-    </div>
 </div><!-- .nexmoe-drawer -->
   </div>
   <div id="nexmoe-content">
@@ -187,14 +175,13 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-        <img src="/images/bg.jfif">
+        <img src="/images/bg/bg.png">
         
         <h1>Hexo+NexT+github Pages 搭建</h1>
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月12日</a>
     <a><i class="nexmoefont icon-areachart"></i>1,064 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
     
       <a class="nexmoefont icon-appstore-fill -link" href="/categories/Hexo/">Hexo</a>
     
@@ -266,7 +253,7 @@ timezone: #在这一行不用管 </code></pre><h5 id="Hexo主题配置"><a href=
     var gitalk = new Gitalk({
         clientID: 'a0b09f47cc93396b2dd6',
         clientSecret: 'bdf8c7211c890d37071003e98dd9879483be6512',
-        id: window.location.pathname,
+        id: (location.pathname).split("/").pop().substring(0, 49),
         repo: 'alyssaasa.github.io',
         owner: 'alyssaasa',
         admin: 'alyssaasa'
@@ -290,7 +277,7 @@ timezone: #在这一行不用管 </code></pre><h5 id="Hexo主题配置"><a href=
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568443290320"></script>
+<script src="/js/app.js?v=1568476338104"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
