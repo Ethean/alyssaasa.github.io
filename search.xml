@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   
-  <title>将keras的h5文件转为tensorflow的pb文件 - Sooner or Later, One Way or Another</title>
+  <title>search - Sooner or Later, One Way or Another</title>
   <meta charset="UTF-8">
   <meta name="description" content="null">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,18 +11,14 @@
   
 
   <link rel="shortcut icon" href="/images/favicon/4.png" type="image/png">
-  <meta name="description" content="背景：目前keras框架使用简单，很容易上手，深得广大算法工程师的喜爱，但是当部署到客户端时，可能会出现各种各样的bug，甚至不支持使用keras，本文来解决的是将keras的h5模型转换为客户端常用的tensorflow的pb模型并使用tensorflow加载pb模型。">
-<meta name="keywords" content="深度学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="将keras的h5文件转为tensorflow的pb文件">
-<meta property="og:url" content="http://yoursite.com/2019/08/21/将keras的h5文件转为tensorflow的pb文件/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="search">
+<meta property="og:url" content="http://yoursite.com/search.xml">
 <meta property="og:site_name" content="Sooner or Later, One Way or Another">
-<meta property="og:description" content="背景：目前keras框架使用简单，很容易上手，深得广大算法工程师的喜爱，但是当部署到客户端时，可能会出现各种各样的bug，甚至不支持使用keras，本文来解决的是将keras的h5模型转换为客户端常用的tensorflow的pb模型并使用tensorflow加载pb模型。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-14T12:36:16.900Z">
+<meta property="og:updated_time" content="2019-09-15T13:05:24.181Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="将keras的h5文件转为tensorflow的pb文件">
-<meta name="twitter:description" content="背景：目前keras框架使用简单，很容易上手，深得广大算法工程师的喜爱，但是当部署到客户端时，可能会出现各种各样的bug，甚至不支持使用keras，本文来解决的是将keras的h5模型转换为客户端常用的tensorflow的pb模型并使用tensorflow加载pb模型。">
+<meta name="twitter:title" content="search">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css"> 
    
@@ -32,7 +28,7 @@
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1412554_24vsf7gc7r1.css">
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568553911724">
+  <link rel="stylesheet" href="/css/style.css?v=1568553911586">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -166,60 +162,18 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-        <img src="/images/bg/bg.png">
+            <img src="/images/bg/2.jpg">
         
-        <h1>将keras的h5文件转为tensorflow的pb文件</h1>
+        <h1>search</h1>
     </div>
   <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月21日</a>
-    <a><i class="nexmoefont icon-areachart"></i>268 字</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月15日</a>
+    <a><i class="nexmoefont icon-areachart"></i>0 字</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/深度学习/">深度学习</a>
-    
-    
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/深度学习/">深度学习</a>
     
   </div>
   <article>
-    <p>背景：目前keras框架使用简单，很容易上手，深得广大算法工程师的喜爱，但是当部署到客户端时，可能会出现各种各样的bug，甚至不支持使用keras，本文来解决的是将keras的h5模型转换为客户端常用的tensorflow的pb模型并使用tensorflow加载pb模型。</p>
-<a id="more"></a>
-<ol>
-<li>网上各种给的代码乱七八糟，直接用这个转就好了</li>
-</ol>
-<p><a href="https://github.com/amir-abdi/keras_to_tensorflow" target="_blank" rel="noopener">https://github.com/amir-abdi/keras_to_tensorflow</a></p>
-<ol>
-<li><p>keras中</p>
-<pre><code>cnn.save(&quot;model.h5&quot;)   # 保存模型和权值
-cnn.save_weights(&quot;model_weights.h5&quot;) # 保存权值
-cnn = load_model(&quot;model.h5&quot;) # 导入模型和权值
-cnn.load_weights(&quot;model_weights.h5&quot;)  # 导入权值
-</code></pre></li>
-<li><p>在python中的使用</p>
-<pre><code class="lang-python">def recognize(input_1, input_2):
-    with tf.Graph().as_default():
-        output_graph_def = tf.GraphDef()
-
-        with open(&#39;model.pb&#39;, &quot;rb&quot;) as f:
-            output_graph_def.ParseFromString(f.read())
-            _ = tf.import_graph_def(output_graph_def, name=&quot;&quot;)
-
-        # 这里是看pb文件中保存的模型的每一层的名字
-        tensor_name = [tensor.name for tensor in output_graph_def.node]
-        print(tensor_name)
-
-        with tf.Session() as sess:
-            init = tf.global_variables_initializer()
-            sess.run(init)
-
-            input_x1 = sess.graph.get_tensor_by_name(&quot;input_1:0&quot;)
-            input_x2 = sess.graph.get_tensor_by_name(&quot;input_2:0&quot;)
-            output = sess.graph.get_tensor_by_name(&quot;dense_3/Sigmoid:0&quot;)
-            print(sess.run(output, feed_dict={input_x1:input_1, input_x2:input_2}))
-</code></pre>
-</li>
-</ol>
-<p><a href="https://blog.csdn.net/Butertfly/article/details/80952987" target="_blank" rel="noopener">https://blog.csdn.net/Butertfly/article/details/80952987</a></p>
-
+    
   </article>
   
     
@@ -257,7 +211,7 @@ cnn.load_weights(&quot;model_weights.h5&quot;)  # 导入权值
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568553911732"></script>
+<script src="/js/app.js?v=1568553911600"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
