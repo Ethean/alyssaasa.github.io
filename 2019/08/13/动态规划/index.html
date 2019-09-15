@@ -5,12 +5,12 @@
   
   <title>动态规划 - Sooner or Later, One Way or Another</title>
   <meta charset="UTF-8">
-  <meta name="description" content>
+  <meta name="description" content="null">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
 
-  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <link rel="shortcut icon" href="/images/favicon/4.png" type="image/png">
   <meta name="description" content="将一个问题拆成几个子问题，分别求解这些子问题的解，即可推断出大问题的解。">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
@@ -26,13 +26,15 @@
 <meta name="twitter:description" content="将一个问题拆成几个子问题，分别求解这些子问题的解，即可推断出大问题的解。">
 <meta name="twitter:image" content="http://yoursite.com/images/donggui1.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+  <link rel="stylesheet" href="https://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css">
    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   
   
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1412554_24vsf7gc7r1.css">
+  
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568522882738">
+  <link rel="stylesheet" href="/css/style.css?v=1568540005845">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -57,7 +59,7 @@
     </div>
     <div class="nexmoe-count">
         <div><span>文章</span>19</div>
-        <div><span>标签</span>6</div>
+        <div><span>标签</span>8</div>
         <div><span>分类</span>5</div>
     </div>
     <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -89,7 +91,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">社交按钮</h3>
     <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+        <a class="mdui-ripple" href="https://space.bilibili.com/18781994" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
             <i class="nexmoefont icon-bilibili"></i>
         </a><a class="mdui-ripple" href="https://github.com/alyssaasa/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
             <i class="nexmoefont icon-github"></i>
@@ -156,7 +158,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud">
-      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
+      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/二分查找/" style="font-size: 10px;">二分查找</a> <a href="/tags/时间复杂度/" style="font-size: 10px;">时间复杂度</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
     </div>
     
   </div>
@@ -188,9 +190,7 @@
     
   </div>
   <article>
-    <p>将一个问题拆成几个子问题，分别求解这些子问题的解，即可推断出大问题的解。</p>
-<a id="more"></a>
-
+    <p>将一个问题拆成几个子问题，分别求解这些子问题的解，即可推断出大问题的解。<br><a id="more"></a></p>
 <h4 id="🌈-DP的特点"><a href="#🌈-DP的特点" class="headerlink" title="🌈. DP的特点"></a>🌈. DP的特点</h4><ol>
 <li>无后效性：未来与过去无关。即：如果给定某一阶段的状态，则在这一阶段以后过程的发展不受这阶段以前的各状态的影响。</li>
 <li>最优子结构：大问题的<strong>最优解</strong>可以由小问题的<strong>最优解</strong>推出</li>
@@ -202,20 +202,21 @@
 </ul>
 <h4 id="🌈-DP经典题型"><a href="#🌈-DP经典题型" class="headerlink" title="🌈. DP经典题型"></a>🌈. DP经典题型</h4><p>但是感觉不管查什么资料都是这些，其实什么也解决不了，根据做题的经验，动态规划最难的地方，一是确定一道题能不能用动态规划解决，二就是怎么确定状态，就是f(n)怎么定义。</p>
 <ul>
-<li>线性表： length – length + 1</li>
-<li>字符串（线性表）–&gt; 前缀 + 后缀 –&gt; 前缀 true &amp;&amp; 后缀 true –&gt; true</li>
+<li>线性表： length — length + 1</li>
+<li>字符串（线性表）—&gt; 前缀 + 后缀 —&gt; 前缀 true &amp;&amp; 后缀 true —&gt; true</li>
 </ul>
 <h5 id="1-leetcode-53-最大子段和"><a href="#1-leetcode-53-最大子段和" class="headerlink" title="1.  leetcode 53. 最大子段和"></a>1.  <a href="https://leetcode.com/problems/maximum-subarray/submissions/" target="_blank" rel="noopener">leetcode 53. 最大子段和</a></h5><ul>
 <li><code>dp[i]</code> 表示以 <code>i</code> 结尾的子段和的最大值</li>
 </ul>
-<pre><code class="java">public int maxSubArray(int[] nums) {
+<pre><code class="lang-java">public int maxSubArray(int[] nums) {
     int[] dp = new int[nums.length];
     dp[0] = nums[0];
     for(int i=1;i&lt;nums.length;i++)
     dp[i] = Math.max(nums[i], dp[i-1]+nums[i]);
     Arrays.sort(dp);
     return dp[dp.length-1];
-}</code></pre>
+}
+</code></pre>
 <h5 id="2-leetcode-139-word-break"><a href="#2-leetcode-139-word-break" class="headerlink" title="2.  leetcode 139. word break"></a>2.  <a href="https://leetcode.com/problems/word-break/" target="_blank" rel="noopener">leetcode 139. word break</a></h5><ul>
 <li>这道题就是字符串的问题，并且是前缀 + 后缀问题</li>
 <li><code>dp[i]</code> : 字符串 <code>s[:i]</code> 能否能否由字典中的词拆分开。（以i结尾的字符串能否被字典拆分开）</li>
@@ -224,7 +225,8 @@
 <pre><code>Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
 Note:
 1. The same word in the dictionary may be reused multiple times in the segmentation.
-2. You may assume the dictionary does not contain duplicate words.</code></pre><pre><code class="java">public static boolean wordBreak(String s, List&lt;String&gt; wordDict) {
+2. You may assume the dictionary does not contain duplicate words.
+</code></pre><pre><code class="lang-java">public static boolean wordBreak(String s, List&lt;String&gt; wordDict) {
     boolean[] dp = new boolean[s.length()+1];
     dp[0] = true;
     for(int i=1;i&lt;=s.length();i++) {
@@ -237,12 +239,13 @@ Note:
         }
     }
     return dp[s.length()];
-}</code></pre>
+}
+</code></pre>
 <h5 id="3-leetcode-300-最长上升子序列"><a href="#3-leetcode-300-最长上升子序列" class="headerlink" title="3.  leetcode 300. 最长上升子序列"></a>3.  <a href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">leetcode 300. 最长上升子序列</a></h5><ul>
 <li>输入：[10, 9, 2, 5, 3, 7, 101, 18]，则输出为：4，因为最长的上升子序列是：[2, 3, 7, 101]</li>
 <li>dp[i]: 以第i位为结尾的最长上升子序列的长度。</li>
 </ul>
-<pre><code class="java">public int lengthOfLIS(int[] nums) {
+<pre><code class="lang-java">public int lengthOfLIS(int[] nums) {
     if(nums.length==0)
         return 0;
     int[] dp = new int[nums.length];
@@ -255,14 +258,15 @@ Note:
     }
     Arrays.sort(dp);
     return dp[nums.length-1];
-}</code></pre>
+}
+</code></pre>
 <h5 id="4-leetcode-1143-最长公共子序列"><a href="#4-leetcode-1143-最长公共子序列" class="headerlink" title="4.  leetcode 1143. 最长公共子序列"></a>4.  <a href="https://leetcode.com/problems/longest-common-subsequence/" target="_blank" rel="noopener">leetcode 1143. 最长公共子序列</a></h5><ul>
 <li>输入：text1= “abcde” ,  text2 = “ace”</li>
 <li>输出：3</li>
 <li>最长公共子序列不需要连续，只要是共同有的就行了。</li>
 <li>最长公共子串是需要连续的。</li>
 </ul>
-<pre><code class="java">public int longestCommonSubsequence(String text1, String text2) {
+<pre><code class="lang-java">public int longestCommonSubsequence(String text1, String text2) {
     int[][] dp = new int[text1.length()+1][text2.length()+1];
     for(int i=1;i&lt;=text1.length();i++) {
         for(int j=1;j&lt;=text2.length();j++) {
@@ -273,13 +277,14 @@ Note:
         }
     }
     return dp[text1.length()][text2.length()];
-}</code></pre>
+}
+</code></pre>
 <h5 id="5-leetcode-62-从左上到右下共有多少条路径"><a href="#5-leetcode-62-从左上到右下共有多少条路径" class="headerlink" title="5.  leetcode 62. 从左上到右下共有多少条路径"></a>5.  <a href="https://leetcode.com/problems/unique-paths/" target="_blank" rel="noopener">leetcode 62. 从左上到右下共有多少条路径</a></h5><ul>
 <li><code>dp[m][n]</code> 表示走到 <code>m n</code> 位置时的走法数</li>
 <li><code>dp[m][n] = dp[m-1][n] + dp[m][n-1]</code></li>
 <li>相似题目：<a href="https://leetcode.com/problems/unique-paths-ii/" target="_blank" rel="noopener">leetcode 63. 62题多了障碍</a>，就是递归的时候多了判断而已。</li>
 </ul>
-<pre><code class="java">public int uniquePaths(int m, int n) {
+<pre><code class="lang-java">public int uniquePaths(int m, int n) {
     int[][] dp = new int[m][n];
     for(int i=0;i&lt;m;i++)
         dp[i][0] = 1;
@@ -290,8 +295,9 @@ Note:
             dp[i][j] = dp[i-1][j] + dp[i][j-1];
 
     return dp[m-1][n-1];
-}</code></pre>
-<h5 id="6-leetcode-134-环形加油站"><a href="#6-leetcode-134-环形加油站" class="headerlink" title="6.  leetcode 134. 环形加油站"></a>6.  <a href="https://leetcode.com/problems/gas-station/" target="_blank" rel="noopener">leetcode 134. 环形加油站</a></h5><pre><code class="java">public static int canCompleteCircuit(int[] gas, int[] cost) {
+}
+</code></pre>
+<h5 id="6-leetcode-134-环形加油站"><a href="#6-leetcode-134-环形加油站" class="headerlink" title="6.  leetcode 134. 环形加油站"></a>6.  <a href="https://leetcode.com/problems/gas-station/" target="_blank" rel="noopener">leetcode 134. 环形加油站</a></h5><pre><code class="lang-java">public static int canCompleteCircuit(int[] gas, int[] cost) {
     int res_index = 0;
     for(int i=0;i&lt;gas.length;i++) {
         if(gas[i]&lt;cost[i])
@@ -315,8 +321,9 @@ Note:
         }
     }
     return -1;
-}</code></pre>
-<h5 id="7-leetcode-96-独一无二的二叉搜索树数目"><a href="#7-leetcode-96-独一无二的二叉搜索树数目" class="headerlink" title="7.  leetcode 96. 独一无二的二叉搜索树数目"></a>7.  <a href="https://leetcode.com/problems/unique-binary-search-trees/" target="_blank" rel="noopener">leetcode 96. 独一无二的二叉搜索树数目</a></h5><pre><code class="java">Input: 3    //输入:1...n
+}
+</code></pre>
+<h5 id="7-leetcode-96-独一无二的二叉搜索树数目"><a href="#7-leetcode-96-独一无二的二叉搜索树数目" class="headerlink" title="7.  leetcode 96. 独一无二的二叉搜索树数目"></a>7.  <a href="https://leetcode.com/problems/unique-binary-search-trees/" target="_blank" rel="noopener">leetcode 96. 独一无二的二叉搜索树数目</a></h5><pre><code class="lang-java">Input: 3    //输入:1...n
 Output: 5   //有多少独一无二的二叉搜索树
 Explanation:
 Given n = 3, there are a total of 5 unique BST&#39;s:
@@ -325,7 +332,8 @@ Given n = 3, there are a total of 5 unique BST&#39;s:
        \       /     /      / \      \
         3     2     1      1   3      2
        /     /       \                 \
-      2     1         2                 3</code></pre>
+      2     1         2                 3
+</code></pre>
 <ul>
 <li>要分析有多少独一无二的二叉搜索树的个数。那么可以定义<strong>f(x):x为根节点时二叉搜索树的个数</strong></li>
 <li>f(x)的定义很关键。。看到这个定义我就知道怎么做了。但是自己想的时候就想不到这一点。😭</li>
@@ -339,13 +347,14 @@ f(n-2) = G(n-3)*G(2)
 ...
 f(1) = G(0)*G(n-1)
 而 f(1)+f(2)+...+f(n) = G(n)
-所以：G(n) = G(n-1)*G(0) + G(n-2)*G(1) + G(n-3)*G(2) + ... + G(0)*G(n-1)</code></pre><ul>
+所以：G(n) = G(n-1)*G(0) + G(n-2)*G(1) + G(n-3)*G(2) + ... + G(0)*G(n-1)
+</code></pre><ul>
 <li>从上面我们就能看出来，要想求G(n), 要先求出 G(0)…G(n-1)</li>
 <li>G(0) = 1, G(1) = 1;</li>
 <li>G(2) = G(1)*G(0) + G(0)*G(1) = 2</li>
 <li>G(3) = G(2)*G(0) + G(1)*G(1) + G(0)*G(2)</li>
 </ul>
-<pre><code class="java">public int numTrees(int n) {
+<pre><code class="lang-java">public int numTrees(int n) {
     int[] dp = new int[n+1];
     dp[0] = 1;
     dp[1] = 1;
@@ -354,11 +363,12 @@ f(1) = G(0)*G(n-1)
         for(int j=i-1;j&gt;=0;j--)
             dp[i] += dp[j]*dp[i-j-1];
     return dp[n];
-}</code></pre>
+}
+</code></pre>
 <h5 id="8-leetcode-95-把96题所有的二叉搜索树都写出来"><a href="#8-leetcode-95-把96题所有的二叉搜索树都写出来" class="headerlink" title="8.  leetcode 95. 把96题所有的二叉搜索树都写出来"></a>8.  <a href="https://leetcode.com/problems/unique-binary-search-trees-ii/" target="_blank" rel="noopener">leetcode 95. 把96题所有的二叉搜索树都写出来</a></h5><ul>
 <li>虽然感觉是在96的基础上做了变形，但是完全不一样啊！！</li>
 </ul>
-<pre><code class="java">public List&lt;TreeNode&gt; generateTrees1(int n) {
+<pre><code class="lang-java">public List&lt;TreeNode&gt; generateTrees1(int n) {
     if(n &lt;= 0) return new ArrayList&lt;&gt;();
     List&lt;TreeNode&gt; list = greateSubTree(1, n);
     return list;
@@ -380,17 +390,19 @@ private List&lt;TreeNode&gt; greateSubTree(int start, int end) {
         }
     }
     return res;
-}</code></pre>
+}
+</code></pre>
 <h5 id="9-leetcode-120-三角形矩阵从上到小的最小和路径"><a href="#9-leetcode-120-三角形矩阵从上到小的最小和路径" class="headerlink" title="9.  leetcode 120. 三角形矩阵从上到小的最小和路径"></a>9.  <a href="https://leetcode.com/problems/triangle/" target="_blank" rel="noopener">leetcode 120. 三角形矩阵从上到小的最小和路径</a></h5><pre><code>   [                        | index:
         [2],                |           0
        [3,4],               |         0   1
       [6,5,7],              |       0   1   2
      [4,1,8,3]              |     0   1   2   3
-   ]                        |   0   1   2   3   4</code></pre><ul>
+   ]                        |   0   1   2   3   4
+</code></pre><ul>
 <li>从下到上，第 <code>n</code> 行第 <code>i</code> 个位置 由第 <code>n-1</code> 行的第 <code>i-1</code>个和第 <code>i</code> 个走到，取两个路径和中小的那个。</li>
 <li><code>dp[n][i] = nums[n][i] + min(dp[n-1][i-1], dp[n-1][i])</code></li>
 </ul>
-<pre><code class="java">public int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) {
+<pre><code class="lang-java">public int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) {
     int result = Integer.MAX_VALUE;
     int m = triangle.size();
     int n = triangle.get(m-1).size();  // 最后一行的长度
@@ -408,8 +420,9 @@ private List&lt;TreeNode&gt; greateSubTree(int start, int end) {
         result = dp[m-1][i] &lt; result ? dp[m-1][i] : result;
 
     return result;
-}</code></pre>
-<h5 id="11-leetcode-392-判断s是不是t的子序列"><a href="#11-leetcode-392-判断s是不是t的子序列" class="headerlink" title="11.  leetcode 392. 判断s是不是t的子序列"></a>11.  <a href="https://leetcode.com/problems/is-subsequence/" target="_blank" rel="noopener">leetcode 392. 判断s是不是t的子序列</a></h5><pre><code class="java">public boolean isSubsequence(String s, String t) {
+}
+</code></pre>
+<h5 id="11-leetcode-392-判断s是不是t的子序列"><a href="#11-leetcode-392-判断s是不是t的子序列" class="headerlink" title="11.  leetcode 392. 判断s是不是t的子序列"></a>11.  <a href="https://leetcode.com/problems/is-subsequence/" target="_blank" rel="noopener">leetcode 392. 判断s是不是t的子序列</a></h5><pre><code class="lang-java">public boolean isSubsequence(String s, String t) {
     //判断s是不是t的子序列
     //dp[i][j] s的第i位到t的第j位是否是子序列
     if(s.length()==0)
@@ -426,14 +439,15 @@ private List&lt;TreeNode&gt; greateSubTree(int start, int end) {
         }
     }
     return dp[s.length()-1][t.length()-1];
-}</code></pre>
+}
+</code></pre>
 <h5 id="12-leetcode-338-计算二进制中1的个数"><a href="#12-leetcode-338-计算二进制中1的个数" class="headerlink" title="12.  leetcode 338. 计算二进制中1的个数"></a>12.  <a href="https://leetcode.com/problems/counting-bits/" target="_blank" rel="noopener">leetcode 338. 计算二进制中1的个数</a></h5><ul>
 <li>每2的幂开始，就是前面全部的位置+1</li>
 <li>0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  …….</li>
 <li>0 1 1 2 1 2 2 3 1 2  2   3   2    3   3   4   1    2   2    3   2   …….</li>
 <li>4的位置，8的位置，16的位置开始，都是从头部遍历，然后+1即可。</li>
 </ul>
-<pre><code class="java">public int[] countBits(int num) {
+<pre><code class="lang-java">public int[] countBits(int num) {
     int[] dp = new int[num+1];
     if(num&gt;=0) dp[0] = 0;
     if(num&gt;=1) dp[1] = 1;
@@ -458,22 +472,24 @@ private List&lt;TreeNode&gt; greateSubTree(int start, int end) {
         tmp += 1;
     }
     return dp;
-}</code></pre>
-<h5 id="13-leetcode-714-带有转移费用的股票最佳买卖时间"><a href="#13-leetcode-714-带有转移费用的股票最佳买卖时间" class="headerlink" title="13.  leetcode 714. 带有转移费用的股票最佳买卖时间"></a>13.  <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/" target="_blank" rel="noopener">leetcode 714. 带有转移费用的股票最佳买卖时间</a></h5><pre><code class="java">Input: prices = [1, 3, 2, 8, 4, 9], fee = 2
+}
+</code></pre>
+<h5 id="13-leetcode-714-带有转移费用的股票最佳买卖时间"><a href="#13-leetcode-714-带有转移费用的股票最佳买卖时间" class="headerlink" title="13.  leetcode 714. 带有转移费用的股票最佳买卖时间"></a>13.  <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/" target="_blank" rel="noopener">leetcode 714. 带有转移费用的股票最佳买卖时间</a></h5><pre><code class="lang-java">Input: prices = [1, 3, 2, 8, 4, 9], fee = 2
 Output: 8
 Explanation: The maximum profit can be achieved by:
 Buying at prices[0] = 1
 Selling at prices[3] = 8
 Buying at prices[4] = 4
 Selling at prices[5] = 9
-The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.</code></pre>
+The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
+</code></pre>
 <ul>
 <li>股票必须先卖出然后才能再买入。</li>
 <li><code>hold[i]</code>：表示第 <code>i</code> 时刻手里有股票的最大收益。那么该状态可由两种情况得到。一种是之前没有股票，在该时刻买入。一种是之前就有股票：<code>hold[i] = max(hold[i-1], unhold[i-1]-prices[i])</code></li>
 <li><code>unhold[i]</code>：表示第 <code>i</code> 时刻手里没有股票最大收益。一种是之前有股票，在该时刻卖出。一种是之前就没有股票： <code>unhold[i] = max(unhold[i-1], hold[i-1]+prices[i]-fee)</code></li>
 <li>最终返回 <code>unhold[len-1]</code>。即最后时刻手里没有股票。</li>
 </ul>
-<pre><code class="java">public int maxProfit(int[] prices, int fee) {
+<pre><code class="lang-java">public int maxProfit(int[] prices, int fee) {
     int[] hold = new int[prices.length];
     int[] unhold = new int[prices.length];
     hold[0] = 0-prices[0];
@@ -482,10 +498,11 @@ The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.</code></pre>
         hold[i] = Math.max(hold[i-1], unhold[i-1]-prices[i]);
     }
     return unhold[prices.length-1];
-}</code></pre>
+}
+</code></pre>
 <hr>
 <h4 id="🌈-区间DP"><a href="#🌈-区间DP" class="headerlink" title="🌈. 区间DP"></a>🌈. 区间DP</h4><p><strong>思想：先在小区间进行DP得到最优解，然后再利用小区间的最优解合并求大区间的最优解。</strong></p>
-<pre><code class="java">int[][] dp = new int[n][n];
+<pre><code class="lang-java">int[][] dp = new int[n][n];
 for(int i=n-1;i&gt;=0;i--) {
     for(int j=i+1;j&lt;n;j++) {
         dp[i][j] = Integer.MIN_VALUE; // 初始值
@@ -494,15 +511,17 @@ for(int i=n-1;i&gt;=0;i--) {
             dp[i][j] = max(dp[i][j], dp[i][k] + dp[k+1][j] + w[i][j]);
         }
     }
-}</code></pre>
+}
+</code></pre>
 <h5 id="1-leetcode-5-最长回文子串"><a href="#1-leetcode-5-最长回文子串" class="headerlink" title="1.  leetcode 5. 最长回文子串"></a>1.  <a href="https://leetcode.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener">leetcode 5. 最长回文子串</a></h5><pre><code>Input: &quot;babad&quot;
 Output: &quot;bab&quot;
-Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
+Note: &quot;aba&quot; is also a valid answer.
+</code></pre><ul>
 <li>方法一：中心扩展法，遍历到数组的某一个元素时，以这个元素为中心，向两边进行扩展，如果两边的元素相同则继续扩展，否则停止扩展。<strong>时间复杂度O(n^2),空间复杂度为O(1)</strong></li>
 <li>存在问题：但这种方法存在一个问题，当长度为偶数时，例如<code>1221</code>，这是一个回文串，但是并没有中心元素，如果直接用方法1，就会判断其不为回文串。</li>
 <li>解决办法：在字符串的中间插入分隔符<code>#</code>，那么<code>1221</code>就会变成<code>1#2#2#1</code>，长度为奇数。而本身长度为奇数的<code>12321</code>，插入分隔符变为<code>1#2#3#2#1</code>，仍然为奇数。那么就可以采用1的方法进行统一判断。插入分隔符后长度为<code>2*n-1</code></li>
 </ul>
-<pre><code class="java">public String longestPalindrome(String s) {
+<pre><code class="lang-java">public String longestPalindrome(String s) {
     if(s.length()&lt;2)
         return s;
     String res = &quot;&quot;;
@@ -539,7 +558,8 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
     res = new_s.substring(begin, end+1);
     res = res.replace(&quot;#&quot;,&quot;&quot;);
     return res;
-}</code></pre>
+}
+</code></pre>
 <ul>
 <li>方法二：动态规划：如果用<code>dp[i][j]</code>保存子串从<code>i</code> 到<code>j</code>是否是回文子串， 如果<code>dp[i][j]</code>为回文，那么<code>dp[i+1][j-1]</code>,也一定为回文。</li>
 <li><code>dp[i][j]= s[i]==s[j] &amp;&amp; dp[i+1][j-1]</code>, 要想求<code>dp[i][j]</code>，要先求出<code>dp[i+1][j-1]</code></li>
@@ -547,7 +567,7 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
 <li><strong>求 <code>j</code> 要先求 <code>j-1</code>， 说明 <code>j</code> 要从小到大遍历；</strong></li>
 <li><strong>用<code>dp[i][j]</code>保存子串从<code>i</code> 到<code>j</code>是否是回文子串， 那么 <code>j&gt;=i</code></strong></li>
 </ul>
-<pre><code class="java">public String longestPalindrome(String s) {
+<pre><code class="lang-java">public String longestPalindrome(String s) {
     if (s.isEmpty()) {
         return s;
     }
@@ -568,8 +588,9 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
         }
     }
     return s.substring(left,right+1);
-}</code></pre>
-<h5 id="2-leetcode-1130-Minimum-Cost-Tree-From-Leaf-Values"><a href="#2-leetcode-1130-Minimum-Cost-Tree-From-Leaf-Values" class="headerlink" title="2.  leetcode 1130. Minimum Cost Tree From Leaf Values"></a>2.  <a href="https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/" target="_blank" rel="noopener">leetcode 1130. Minimum Cost Tree From Leaf Values</a></h5><pre><code class="java">给你一个正整数数组 arr，考虑所有满足以下条件的二叉树：
+}
+</code></pre>
+<h5 id="2-leetcode-1130-Minimum-Cost-Tree-From-Leaf-Values"><a href="#2-leetcode-1130-Minimum-Cost-Tree-From-Leaf-Values" class="headerlink" title="2.  leetcode 1130. Minimum Cost Tree From Leaf Values"></a>2.  <a href="https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/" target="_blank" rel="noopener">leetcode 1130. Minimum Cost Tree From Leaf Values</a></h5><pre><code class="lang-java">给你一个正整数数组 arr，考虑所有满足以下条件的二叉树：
 1. 每个节点都有 0 个或是 2 个子节点。
 2. 数组 arr 中的值与树的中序遍历中每个叶节点的值一一对应。
 3. 每个非叶节点的值等于其左子树和右子树中叶节点的最大值的乘积。
@@ -583,14 +604,15 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
    /  \          /  \
   12   4        6    8
  /  \               / \
-6    2             2   4 </code></pre>
+6    2             2   4
+</code></pre>
 <ul>
 <li><code>dp[i][j]</code>：从 <code>i</code> 到 <code>j</code> 的非叶子节点的最小和。</li>
 <li><code>dp[i][j] = min(dp[i][j], dp[i][k] + dp[k+1][j] + max(A[i..k])*max(A[k+1..j]))</code></li>
 <li>想求 <code>dp[i][j]</code>， 要先知道 <code>dp[i][k]</code> 和 <code>dp[k+1][j]</code>，<code>k</code> 是从 <code>i</code> 到 <code>j</code> 的一个值。</li>
 <li>要求 <code>dp[1][4]</code> ，要先求 <code>dp[1][2] dp[3][4]</code> ， 所以 <code>i</code> 要从大到小遍历，<code>j</code> 从小到大遍历。</li>
 </ul>
-<pre><code class="java">public int mctFromLeafValues(int[] arr) {
+<pre><code class="lang-java">public int mctFromLeafValues(int[] arr) {
     // max数组是先把arr中区间i到j的最大值保存下来，后面max[i][k]*max[k+1][j]要用。
     // 不保存，直接调用函数查找最大值也行，但是比较耗时。
     int[][] max = new int[arr.length][arr.length];
@@ -613,17 +635,19 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
     }
     // 其实根据返回值也能确定i是从大到小，j是从小到大，因为返回的位置一定是最后一个得到结果的值。
     return dp[0][arr.length-1];
-}</code></pre>
-<h5 id="3-poj-1738-石子合并-（直线型）"><a href="#3-poj-1738-石子合并-（直线型）" class="headerlink" title="3.  poj 1738. 石子合并 （直线型）"></a>3.  <a href="http://poj.org/problem?id=1738" target="_blank" rel="noopener">poj 1738. 石子合并 （直线型）</a></h5><pre><code class="JAVA">有N堆石子排成一排，每堆石子有一定的数量。现要将N堆石子并成为一堆。合并的过程只能每次将相邻的两堆石子堆成一堆，每次合并花费的代价为这两堆石子的和，经过N-1次合并后成为一堆。求出总的代价最小值。
+}
+</code></pre>
+<h5 id="3-poj-1738-石子合并-（直线型）"><a href="#3-poj-1738-石子合并-（直线型）" class="headerlink" title="3.  poj 1738. 石子合并 （直线型）"></a>3.  <a href="http://poj.org/problem?id=1738" target="_blank" rel="noopener">poj 1738. 石子合并 （直线型）</a></h5><pre><code class="lang-JAVA">有N堆石子排成一排，每堆石子有一定的数量。现要将N堆石子并成为一堆。合并的过程只能每次将相邻的两堆石子堆成一堆，每次合并花费的代价为这两堆石子的和，经过N-1次合并后成为一堆。求出总的代价最小值。
 
 输入：13 7 8 16 21 4 18
-输出：239</code></pre>
+输出：239
+</code></pre>
 <ul>
 <li><code>dp[i][j]</code>：从 <code>i</code> 堆石子到 <code>j</code> 堆石子进行合并最小代价。</li>
 <li><code>dp[i][j] = dp[i][k] + dp[k+1][j] + w[i][j]</code>, 其中<code>w[i][j]</code>表示 <code>i</code> 到 <code>j</code> 的石子的和。 </li>
 <li>为了方便我们定义 <code>sum[i]</code> 为从第 <code>0</code> 堆石子到第 <code>i</code> 堆石子的和。那么 <code>w[i][j]=sum[j]-sum[i-1]</code></li>
 </ul>
-<pre><code class="java">public int stoneSum(int[] arr) {
+<pre><code class="lang-java">public int stoneSum(int[] arr) {
     int[] sum = new int[arr.length+1];
     // sum[1] 表示第0堆石子。
     for(int i=1;i&lt;=arr.length;i++)
@@ -640,14 +664,16 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
         }
     }
     return dp[0][arr.length-1];
-}</code></pre>
-<h5 id="4-石子合并（环形）"><a href="#4-石子合并（环形）" class="headerlink" title="4.  石子合并（环形）"></a>4.  石子合并（环形）</h5><pre><code class="JAVA">有n堆石子排成一圈，每次选择相邻的两堆石子，将其合并为一堆，记录该次合并的得分为两堆石子个数之和。已知每堆石子的石子个数，求当所有石子合并为一堆时，最小的总得分。</code></pre>
+}
+</code></pre>
+<h5 id="4-石子合并（环形）"><a href="#4-石子合并（环形）" class="headerlink" title="4.  石子合并（环形）"></a>4.  石子合并（环形）</h5><pre><code class="lang-JAVA">有n堆石子排成一圈，每次选择相邻的两堆石子，将其合并为一堆，记录该次合并的得分为两堆石子个数之和。已知每堆石子的石子个数，求当所有石子合并为一堆时，最小的总得分。
+</code></pre>
 <ul>
 <li>注：3题是排成一列，该题是排成一圈。</li>
 <li>方法一：将石子复制一遍，由n个堆的环形变成2n个堆的直线形。最终不再是求 <code>dp[0][n-1]</code>, 而是在 <code>dp[0][n-1], dp[1][n], dp[2][n+1]...dp[n][2n-1]</code>中取最小值。</li>
 <li>相当于我起始位置不一定从 <code>0</code> 开始，可以从任意位置开始，到长度为 <code>n</code> 的地方结束。</li>
 </ul>
-<pre><code class="java">public static int stoneSum(int[] stone) {
+<pre><code class="lang-java">public static int stoneSum(int[] stone) {
     int[] arr = new int[stone.length*2];
     for(int i=0;i&lt;stone.length;i++) {
         arr[i] = stone[i];
@@ -675,14 +701,17 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
     for(int i=0;i&lt;n;i++)
         min_val = dp[i][n-1+i]&lt;min_val?dp[i][n-1+i]:min_val;
     return min_val;
-}</code></pre>
+}
+</code></pre>
 <ul>
 <li>方法二： 直接利用环形的动态规划，取余即可。这个暂时不太懂怎么来的。</li>
 <li><code>dp[i][j] = dp[i][k] + dp[(i+k−1)%n+1][j−k] + w[i][j]</code></li>
 </ul>
-<pre><code class="java">不太懂原理。。</code></pre>
-<h5 id="5-poj-2955-括号匹配问题：最长匹配子序列的长度"><a href="#5-poj-2955-括号匹配问题：最长匹配子序列的长度" class="headerlink" title="5.  poj 2955. 括号匹配问题：最长匹配子序列的长度"></a>5.  <a href="http://poj.org/problem?id=2955" target="_blank" rel="noopener">poj 2955. 括号匹配问题：最长匹配子序列的长度</a></h5><pre><code class="java">Given the initial sequence ([([]])], the longest regularbrackets subsequence is[([])].
-找到符合括号匹配的最长子序列的长度。</code></pre>
+<pre><code class="lang-java">不太懂原理。。
+</code></pre>
+<h5 id="5-poj-2955-括号匹配问题：最长匹配子序列的长度"><a href="#5-poj-2955-括号匹配问题：最长匹配子序列的长度" class="headerlink" title="5.  poj 2955. 括号匹配问题：最长匹配子序列的长度"></a>5.  <a href="http://poj.org/problem?id=2955" target="_blank" rel="noopener">poj 2955. 括号匹配问题：最长匹配子序列的长度</a></h5><pre><code class="lang-java">Given the initial sequence ([([]])], the longest regularbrackets subsequence is[([])].
+找到符合括号匹配的最长子序列的长度。
+</code></pre>
 <ul>
 <li>这道题和回文串的动规方法很像，如果 <code>s[i]==s[j]</code>，那么 <code>dp[i][j] = 2 + dp[i+1][j-1]</code></li>
 <li>但仅仅做上面一个判断是不够的。</li>
@@ -690,7 +719,7 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
 <li><code>dp[0][3] = max(dp[0][3], dp[0][0]+dp[1][3], dp[0][1]+dp[2][3], dp[0][2]+dp[3][3])</code></li>
 <li>也就是，我到底是把最外面两个括号当作一个匹配，然后加上里面。还是把最左括号和左面一部分匹配+最右括号和右面一部分匹配。然后看哪种得到的结果最大就是哪种情况。</li>
 </ul>
-<pre><code class="java">public static int longestValidParentheses(String s) {
+<pre><code class="lang-java">public static int longestValidParentheses(String s) {
     if(s.length()==0)
         return 0;
     int[][] dp = new int[s.length()][s.length()];
@@ -704,19 +733,22 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
         }
     }
     return dp[0][s.length()-1];
-}</code></pre>
-<h5 id="6-⭐-整数划分使乘积最大"><a href="#6-⭐-整数划分使乘积最大" class="headerlink" title="6.  ⭐ 整数划分使乘积最大"></a>6.  ⭐ 整数划分使乘积最大</h5><pre><code class="java">给出两个整数 n, m, 要求在 n 中加入 m - 1 个乘号，将 n 分成 m 段，求出这 m 段的最大乘积。
+}
+</code></pre>
+<h5 id="6-⭐-整数划分使乘积最大"><a href="#6-⭐-整数划分使乘积最大" class="headerlink" title="6.  ⭐ 整数划分使乘积最大"></a>6.  ⭐ 整数划分使乘积最大</h5><pre><code class="lang-java">给出两个整数 n, m, 要求在 n 中加入 m - 1 个乘号，将 n 分成 m 段，求出这 m 段的最大乘积。
 输入：111，2       输出：11
-输入：1111，2      输出：121</code></pre>
-<pre><code class="java">我的思考过程：
+输入：1111，2      输出：121
+</code></pre>
+<pre><code class="lang-java">我的思考过程：
 1. dp[i][j][m]: 从位置i到位置j,分成m段的乘积最大值。
 2. 那么dp[i][j][m] = dp[i][k][p]*dp[k+1][j][m-p-1]，但是这样参数太多。
 3. 我们最终求dp[0][len][m] = dp[0][k][p]*dp[k+1][len][m-p-1]
 4. 可以定义：dp[i][j]:从0位置到i位置插入了j个乘号得到的最大值。那么原dp[0][k][p]可表示为dp[k][p]
 5. 那么dp[k+1][len][m-p-1]又没办法表示了。那么我们只能让后一段只有一个数，没有乘号，那么后一段就不需要这么复杂，直接num[k+1...len]就行了。
 6. dp[i][j] = max(dp[i][j], dp[k][j-1]*num[k+1...len])
-7. 最终求：dp[len][m-1], 所以i和i都要从小到大遍历。</code></pre>
-<pre><code class="java">public static int maxResult(int n, int m) {
+7. 最终求：dp[len][m-1], 所以i和i都要从小到大遍历。
+</code></pre>
+<pre><code class="lang-java">public static int maxResult(int n, int m) {
     String s = n + &quot;&quot;;
     int[][] dp = new int[s.length()][m];
     // 如果不分割，那么0到i子串的值为多少。
@@ -733,15 +765,17 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
         }
     }
     return dp[s.length()-1][m-1];
-}</code></pre>
-<h5 id="7-凸多边形三角划分问题"><a href="#7-凸多边形三角划分问题" class="headerlink" title="7.  凸多边形三角划分问题"></a>7.  凸多边形三角划分问题</h5><pre><code class="java">给定一个具有N(N&lt;=50)个顶点(从1到N编号)的凸多边形，每个顶点的权值已知。问如何把这个凸多边形划分成N-2个互不相交的三角形，使得这些三角形顶点的权值的乘积之和最小。</code></pre>
+}
+</code></pre>
+<h5 id="7-凸多边形三角划分问题"><a href="#7-凸多边形三角划分问题" class="headerlink" title="7.  凸多边形三角划分问题"></a>7.  凸多边形三角划分问题</h5><pre><code class="lang-java">给定一个具有N(N&lt;=50)个顶点(从1到N编号)的凸多边形，每个顶点的权值已知。问如何把这个凸多边形划分成N-2个互不相交的三角形，使得这些三角形顶点的权值的乘积之和最小。
+</code></pre>
 <ul>
 <li><code>dp[i][j]</code>：表示从顶点 <code>i</code> 到顶点 <code>j</code> 组成的凸多边形划分之后乘积之和的最小值。</li>
 <li><code>dp[i][j] = dp[i][k] + dp[k][j] + arr[i]*arr[j]*arr[k]</code></li>
 <li>哎😔，，边界太难控制了。。</li>
 </ul>
 <p><img src="/images/donggui1.png" alt></p>
-<pre><code class="java">public int triangleMin(int[] arr) {
+<pre><code class="lang-java">public int triangleMin(int[] arr) {
     int[][] dp = new int[arr.length][arr.length];
     // 至少得有三条边
     for(int i=arr.length-3;i&gt;=0;i--) {
@@ -752,8 +786,9 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
         }
     }
     return dp[0][arr.length-1];
-}</code></pre>
-<h5 id="8-leetcode-375-猜数字，使花费最小"><a href="#8-leetcode-375-猜数字，使花费最小" class="headerlink" title="8.  leetcode 375. 猜数字，使花费最小"></a>8.  <a href="https://leetcode.com/problems/guess-number-higher-or-lower-ii/" target="_blank" rel="noopener">leetcode 375. 猜数字，使花费最小</a></h5><pre><code class="java">我从 1 到 n 之间选择一个数字，你来猜我选了哪个数字。每次你猜错了，我都会告诉你，我选的数字比你的大了或者小了。然而，当你猜了数字 x 并且猜错了的时候，你需要支付金额为 x 的现金。直到你猜到我选的数字，你才算赢得了这个游戏。
+}
+</code></pre>
+<h5 id="8-leetcode-375-猜数字，使花费最小"><a href="#8-leetcode-375-猜数字，使花费最小" class="headerlink" title="8.  leetcode 375. 猜数字，使花费最小"></a>8.  <a href="https://leetcode.com/problems/guess-number-higher-or-lower-ii/" target="_blank" rel="noopener">leetcode 375. 猜数字，使花费最小</a></h5><pre><code class="lang-java">我从 1 到 n 之间选择一个数字，你来猜我选了哪个数字。每次你猜错了，我都会告诉你，我选的数字比你的大了或者小了。然而，当你猜了数字 x 并且猜错了的时候，你需要支付金额为 x 的现金。直到你猜到我选的数字，你才算赢得了这个游戏。
 
 示例: n = 10, 我选择了8.
      第一轮: 你猜我选择的数字是5，我会告诉你，我的数字更大一些，然后你需要支付5块。
@@ -762,24 +797,23 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
      游戏结束。8 就是我选的数字。
 你最终要支付 5 + 7 + 9 = 21 块钱。
 
-给定 n ≥ 1，计算你至少需要拥有多少现金才能确保你能赢得这个游戏。</code></pre>
+给定 n ≥ 1，计算你至少需要拥有多少现金才能确保你能赢得这个游戏。
+</code></pre>
 <ul>
-<li><p>就是要怎样进行猜数字，才能让自己花费的钱最少。比如n=10，那么一开始猜7，如果大了就猜9，那么需要花费7+9=16块钱赢得游戏。如果一开始猜5，那么大了还要猜7和9，那么就要花费5+7+9=21。所以我们要求最少花费多少钱赢得游戏。</p>
-</li>
-<li><p>通过上面的解释可以看出这不是二分查找的题，二分查找虽然能保证一定找到你想要的数字，但却不是花费最少的方法。所以是一道动态规划的题。</p>
-</li>
+<li>就是要怎样进行猜数字，才能让自己花费的钱最少。比如n=10，那么一开始猜7，如果大了就猜9，那么需要花费7+9=16块钱赢得游戏。如果一开始猜5，那么大了还要猜7和9，那么就要花费5+7+9=21。所以我们要求最少花费多少钱赢得游戏。</li>
+<li>通过上面的解释可以看出这不是二分查找的题，二分查找虽然能保证一定找到你想要的数字，但却不是花费最少的方法。所以是一道动态规划的题。</li>
 <li><p>分析：</p>
-<pre><code class="java">在1到n里面，随便猜一个数i，那么此时赢得游戏的最少花费为: 
+<pre><code class="lang-java">在1到n里面，随便猜一个数i，那么此时赢得游戏的最少花费为: 
             dp[1..n] = arr[i] + max(dp[1..i-1], dp[i+1..n])，
 而 dp[1..i+1] 又可以继续分割，随机猜一个数字k, 那么
-            dp[1..i+1] = arr[k] + max(dp[1..k], dp[k..i+1])</code></pre>
+            dp[1..i+1] = arr[k] + max(dp[1..k], dp[k..i+1])
+</code></pre>
 </li>
 <li><p>麻卖批。。分析到这明显是区间dp啊！！！为什么自己就不能从这么简单的地方开始分析呢。。</p>
 </li>
-<li><p>定义 <code>dp[i][j]</code>：从位置 <code>i</code> 到位置 <code>j</code> 猜出数字的最小花费。那么我们最终要求的为 <code>dp[1][n]</code> 。</p>
-</li>
+<li>定义 <code>dp[i][j]</code>：从位置 <code>i</code> 到位置 <code>j</code> 猜出数字的最小花费。那么我们最终要求的为 <code>dp[1][n]</code> 。</li>
 </ul>
-<pre><code class="java">public int getMoneyAmount(int n) {
+<pre><code class="lang-java">public int getMoneyAmount(int n) {
     if(n==1) return 0;
     // 定义长度为 n+1, 0位置不使用，为了让index和值对应，要不然还要减一，不方便看。
     int[][] dp = new int[n+1][n+1];
@@ -794,7 +828,8 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
         }
     }
     return dp[1][n];
-}</code></pre>
+}
+</code></pre>
 
   </article>
   
@@ -833,7 +868,7 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568522882742"></script>
+<script src="/js/app.js?v=1568540005852"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
@@ -845,6 +880,21 @@ Note: &quot;aba&quot; is also a valid answer.</code></pre><ul>
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 
 </html>

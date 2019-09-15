@@ -5,12 +5,12 @@
   
   <title>位运算 - Sooner or Later, One Way or Another</title>
   <meta charset="UTF-8">
-  <meta name="description" content>
+  <meta name="description" content="null">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
 
-  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <link rel="shortcut icon" href="/images/favicon/4.png" type="image/png">
   <meta name="description" content="位运算">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
@@ -24,13 +24,15 @@
 <meta name="twitter:title" content="位运算">
 <meta name="twitter:description" content="位运算">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+  <link rel="stylesheet" href="https://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css">
    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   
   
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1412554_24vsf7gc7r1.css">
+  
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568522882590">
+  <link rel="stylesheet" href="/css/style.css?v=1568540005676">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -55,7 +57,7 @@
     </div>
     <div class="nexmoe-count">
         <div><span>文章</span>19</div>
-        <div><span>标签</span>6</div>
+        <div><span>标签</span>8</div>
         <div><span>分类</span>5</div>
     </div>
     <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -87,7 +89,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">社交按钮</h3>
     <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+        <a class="mdui-ripple" href="https://space.bilibili.com/18781994" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
             <i class="nexmoefont icon-bilibili"></i>
         </a><a class="mdui-ripple" href="https://github.com/alyssaasa/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
             <i class="nexmoefont icon-github"></i>
@@ -154,7 +156,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud">
-      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
+      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/二分查找/" style="font-size: 10px;">二分查找</a> <a href="/tags/时间复杂度/" style="font-size: 10px;">时间复杂度</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
     </div>
     
   </div>
@@ -188,29 +190,34 @@
   <article>
     <p>位运算</p>
 <a id="more"></a>
-
-<h5 id="1-leetcode-136-Single-Number"><a href="#1-leetcode-136-Single-Number" class="headerlink" title="1. leetcode 136. Single Number"></a>1. <a href="https://leetcode.com/problems/single-number/" target="_blank" rel="noopener">leetcode 136. Single Number</a></h5><pre><code class="java">Given a non-empty array of integers, every element appears twice except for one. Find that single one.
-数组中只有一个数字出现了一次，其他数字都出现了2次。找出这个只出现一次的数字。</code></pre>
+<h5 id="1-leetcode-136-Single-Number"><a href="#1-leetcode-136-Single-Number" class="headerlink" title="1. leetcode 136. Single Number"></a>1. <a href="https://leetcode.com/problems/single-number/" target="_blank" rel="noopener">leetcode 136. Single Number</a></h5><pre><code class="lang-java">Given a non-empty array of integers, every element appears twice except for one. Find that single one.
+数组中只有一个数字出现了一次，其他数字都出现了2次。找出这个只出现一次的数字。
+</code></pre>
 <ul>
 <li>异或。相同的两个数二进制异或为0.</li>
 <li>所有的元素进行异或，最后的值即为出现一次的元素的值。</li>
 </ul>
-<pre><code class="java">public int singleNumber(int[] nums) {
+<pre><code class="lang-java">public int singleNumber(int[] nums) {
     int res = 0;
     for(int i=0;i&lt;nums.length;i++)
         res = res^nums[i];
     return res;
-}</code></pre>
-<h5 id="2-leetcode-137-Single-Number-II"><a href="#2-leetcode-137-Single-Number-II" class="headerlink" title="2. leetcode 137. Single Number II"></a>2. <a href="https://leetcode.com/problems/single-number-ii/" target="_blank" rel="noopener">leetcode 137. Single Number II</a></h5><pre><code class="java">Given a non-empty array of integers, every element appears three times except for one, which appears exactly once. Find that single one.
-数组中只有一个数字出现了一次，其他数字都出现了3次。找出这个只出现一次的数字。</code></pre>
+}
+</code></pre>
+<h5 id="2-leetcode-137-Single-Number-II"><a href="#2-leetcode-137-Single-Number-II" class="headerlink" title="2. leetcode 137. Single Number II"></a>2. <a href="https://leetcode.com/problems/single-number-ii/" target="_blank" rel="noopener">leetcode 137. Single Number II</a></h5><pre><code class="lang-java">Given a non-empty array of integers, every element appears three times except for one, which appears exactly once. Find that single one.
+数组中只有一个数字出现了一次，其他数字都出现了3次。找出这个只出现一次的数字。
+</code></pre>
 <ul>
 <li>我们把数组中的每个数字都转为二进制。</li>
 <li>如果一个数字出现三次，那么二进制的每一位也都出现三次。如果把所有出现三次的数字的二进制表示的每一位都分别累加起来，那么每一位的和都能被3整除。</li>
 <li>那么我们就把所有数字的对应位都累加起来，如果能被3整除，那么出现一次的数字该位为0，否则该位为1，这样运算下来，我们就能知道只出现一次的这个数字的二进制表示，那么我们就可以得到这个数字的值。</li>
 </ul>
-<pre><code class="java"></code></pre>
-<h5 id="3-leetcode-260-Single-Number-III"><a href="#3-leetcode-260-Single-Number-III" class="headerlink" title="3. leetcode 260. Single Number III"></a>3. <a href="https://leetcode.com/problems/single-number-iii/" target="_blank" rel="noopener">leetcode 260. Single Number III</a></h5><pre><code class="java">Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.
-数组中有两个数字仅出现一次，其余数字都出现两次。找出仅出现一次的这两个数字。</code></pre>
+<pre><code class="lang-java">
+
+</code></pre>
+<h5 id="3-leetcode-260-Single-Number-III"><a href="#3-leetcode-260-Single-Number-III" class="headerlink" title="3. leetcode 260. Single Number III"></a>3. <a href="https://leetcode.com/problems/single-number-iii/" target="_blank" rel="noopener">leetcode 260. Single Number III</a></h5><pre><code class="lang-java">Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.
+数组中有两个数字仅出现一次，其余数字都出现两次。找出仅出现一次的这两个数字。
+</code></pre>
 <ul>
 <li>只有一个数字可以直接异或，因为其他部分异或都为0。而两个数字，就不能直接整个数组异或了，因为这两个只出现一次的数字也会求异或，所以得不到两个数字的值。如果能把这两个数字分开，分到两个不同的子数组里就好了。</li>
 <li>如何划分到两个不同的子数组中呢？</li>
@@ -223,7 +230,9 @@
 <li>同时，其他出现两次的每个数字，每个相同的两个数必出现在同一个子数组中，因为他们俩完全相等，第n位是不是1当然也是同样的结果。</li>
 <li>也就是说，两个子数组中，除了a和b分别在自己的子数组中出现一次，其他数字都出现两次，那么我们将两个子数组分别求异或，就能得到a和b的值了。</li>
 </ol>
-<pre><code class="java"></code></pre>
+<pre><code class="lang-java">
+
+</code></pre>
 
   </article>
   
@@ -262,7 +271,7 @@
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568522882595"></script>
+<script src="/js/app.js?v=1568540005682"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
@@ -274,6 +283,21 @@
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 
 </html>

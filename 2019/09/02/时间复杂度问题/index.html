@@ -5,34 +5,36 @@
   
   <title>时间复杂度问题 - Sooner or Later, One Way or Another</title>
   <meta charset="UTF-8">
-  <meta name="description" content>
+  <meta name="description" content="null">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
 
-  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
-  <meta name="description" content="非常重要的时间复杂度问题">
-<meta name="keywords" content="算法">
+  <link rel="shortcut icon" href="/images/favicon/4.png" type="image/png">
+  <meta name="description" content="时间复杂度问题是非常重要的问题，尤其是在面试的时候，去公司工作，大部分程序员都非常注重节省时间或者空间，不单单是完成一道题就行了的。不管是开发岗还是算法岗。今年找工作的时候大部分的算法题都会问到时间复杂度是多少，或者有没有更快的方法。然而自己没有太注重这个方面，所以栽了很多坑🕳。。还是自己太菜。">
+<meta name="keywords" content="二分查找,时间复杂度">
 <meta property="og:type" content="article">
 <meta property="og:title" content="时间复杂度问题">
 <meta property="og:url" content="http://yoursite.com/2019/09/02/时间复杂度问题/index.html">
 <meta property="og:site_name" content="Sooner or Later, One Way or Another">
-<meta property="og:description" content="非常重要的时间复杂度问题">
+<meta property="og:description" content="时间复杂度问题是非常重要的问题，尤其是在面试的时候，去公司工作，大部分程序员都非常注重节省时间或者空间，不单单是完成一道题就行了的。不管是开发岗还是算法岗。今年找工作的时候大部分的算法题都会问到时间复杂度是多少，或者有没有更快的方法。然而自己没有太注重这个方面，所以栽了很多坑🕳。。还是自己太菜。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/tree.png">
-<meta property="og:updated_time" content="2019-09-14T12:36:37.038Z">
+<meta property="og:updated_time" content="2019-09-15T09:32:59.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="时间复杂度问题">
-<meta name="twitter:description" content="非常重要的时间复杂度问题">
+<meta name="twitter:description" content="时间复杂度问题是非常重要的问题，尤其是在面试的时候，去公司工作，大部分程序员都非常注重节省时间或者空间，不单单是完成一道题就行了的。不管是开发岗还是算法岗。今年找工作的时候大部分的算法题都会问到时间复杂度是多少，或者有没有更快的方法。然而自己没有太注重这个方面，所以栽了很多坑🕳。。还是自己太菜。">
 <meta name="twitter:image" content="http://yoursite.com/images/tree.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+  <link rel="stylesheet" href="https://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css">
    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   
   
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1412554_24vsf7gc7r1.css">
+  
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568522882608">
+  <link rel="stylesheet" href="/css/style.css?v=1568540005686">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -57,7 +59,7 @@
     </div>
     <div class="nexmoe-count">
         <div><span>文章</span>19</div>
-        <div><span>标签</span>6</div>
+        <div><span>标签</span>8</div>
         <div><span>分类</span>5</div>
     </div>
     <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -89,7 +91,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">社交按钮</h3>
     <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+        <a class="mdui-ripple" href="https://space.bilibili.com/18781994" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
             <i class="nexmoefont icon-bilibili"></i>
         </a><a class="mdui-ripple" href="https://github.com/alyssaasa/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
             <i class="nexmoefont icon-github"></i>
@@ -156,7 +158,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud">
-      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
+      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/二分查找/" style="font-size: 10px;">二分查找</a> <a href="/tags/时间复杂度/" style="font-size: 10px;">时间复杂度</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
     </div>
     
   </div>
@@ -179,21 +181,21 @@
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月02日</a>
-    <a><i class="nexmoefont icon-areachart"></i>2,444 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>2,969 字</a>
     
       <a class="nexmoefont icon-appstore-fill -link" href="/categories/算法/">算法</a>
     
     
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/算法/">算法</a>
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/二分查找/">二分查找</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/时间复杂度/">时间复杂度</a>
     
   </div>
   <article>
-    <p>非常重要的时间复杂度问题</p>
+    <p>时间复杂度问题是非常重要的问题，尤其是在面试的时候，去公司工作，大部分程序员都非常注重节省时间或者空间，不单单是完成一道题就行了的。不管是开发岗还是算法岗。今年找工作的时候大部分的算法题都会问到时间复杂度是多少，或者有没有更快的方法。然而自己没有太注重这个方面，所以栽了很多坑🕳。。还是自己太菜。</p>
 <a id="more"></a>
-
-<h4 id="🌈-时间复杂度"><a href="#🌈-时间复杂度" class="headerlink" title="🌈. 时间复杂度"></a>🌈. 时间复杂度</h4><h5 id="1-一遍循环：O-n"><a href="#1-一遍循环：O-n" class="headerlink" title="1. 一遍循环：O(n)"></a>1. 一遍循环：O(n)</h5><h5 id="2-嵌套两遍循环：O-n-n"><a href="#2-嵌套两遍循环：O-n-n" class="headerlink" title="2. 嵌套两遍循环：O(n*n)"></a>2. 嵌套两遍循环：O(n*n)</h5><pre><code class="java">for(int i=0;i&lt;n;i++) 
+<h4 id="🌈-时间复杂度"><a href="#🌈-时间复杂度" class="headerlink" title="🌈. 时间复杂度"></a>🌈. 时间复杂度</h4><h5 id="1-一遍循环：O-n"><a href="#1-一遍循环：O-n" class="headerlink" title="1. 一遍循环：O(n)"></a>1. 一遍循环：O(n)</h5><h5 id="2-嵌套两遍循环：O-n-n"><a href="#2-嵌套两遍循环：O-n-n" class="headerlink" title="2. 嵌套两遍循环：O(n*n)"></a>2. 嵌套两遍循环：O(n*n)</h5><pre><code class="lang-java">for(int i=0;i&lt;n;i++) 
     for(int j=0;j&lt;n;j++)
-        .....</code></pre>
+        .....
+</code></pre>
 <h5 id="3-O-log-n-与-O-n-log-n-分析方法："><a href="#3-O-log-n-与-O-n-log-n-分析方法：" class="headerlink" title="3. O(log n) 与 O(n log n) 分析方法："></a>3. O(log n) 与 O(n log n) 分析方法：</h5><p>📍 自理解：一般这种带有 <code>logn</code> 都是有递归操作的。例如二分查找，就是每次我找到中间位置，然后如果查找的值大于当前值，那么我只需在后一半中继续查找，如果查找的值小于当前值，就在前一半中继续查找，每次我都可以减少一半数量的元素。其时间复杂度为 <code>O(logn)</code> 。像归并排序, 虽然我每次把整个array分成了两个部分，但是两个部分都需要去进行递归处理，那么时间复杂度就是 <code>O(nlogn)</code> 。</p>
 <p>📍 通过递归深度来计算时间复杂度：</p>
 <p><img src="/images/tree.png" alt></p>
@@ -207,17 +209,18 @@
 <li>在第一层时，<code>n</code> 个节点都需要被访问到。</li>
 <li>如果 k 大于 index，那么执行 <code>C</code> 侧的递归即可，这时需要访问的节点数为 <code>n/2</code>。 </li>
 <li>如果 k 大于 index，那么执行 <code>G</code> 侧的递归即可，这时需要访问的节点数为 <code>n/4</code>。 </li>
-<li>二叉树的深度为 <code>log(n+1)</code> ， 那么一共需要：$$n + \frac{n}{2} + \frac{n}{4} +…+ \frac{n}{2^{log(n+1)-1}} = \frac{2n^2}{n+1} = O(n)$$</li>
+<li>二叉树的深度为 <code>log(n+1)</code> ， 那么一共需要：<script type="math/tex">n + \frac{n}{2} + \frac{n}{4} +...+ \frac{n}{2^{log(n+1)-1}} = \frac{2n^2}{n+1} = O(n)</script></li>
 </ul>
-<h4 id="🌈-例题"><a href="#🌈-例题" class="headerlink" title="🌈. 例题"></a>🌈. 例题</h4><h5 id="1-leetcode-169-找出数组中出现次数大于一半的元素"><a href="#1-leetcode-169-找出数组中出现次数大于一半的元素" class="headerlink" title="1.  leetcode 169. 找出数组中出现次数大于一半的元素"></a>1.  <a href="https://leetcode.com/problems/majority-element/" target="_blank" rel="noopener">leetcode 169. 找出数组中出现次数大于一半的元素</a></h5><pre><code class="java">给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
-你可以假设数组是非空的，并且给定的数组总是存在众数。</code></pre>
+<h4 id="🌈-例题"><a href="#🌈-例题" class="headerlink" title="🌈. 例题"></a>🌈. 例题</h4><h5 id="1-leetcode-169-找出数组中出现次数大于一半的元素"><a href="#1-leetcode-169-找出数组中出现次数大于一半的元素" class="headerlink" title="1.  leetcode 169. 找出数组中出现次数大于一半的元素"></a>1.  <a href="https://leetcode.com/problems/majority-element/" target="_blank" rel="noopener">leetcode 169. 找出数组中出现次数大于一半的元素</a></h5><pre><code class="lang-java">给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
+你可以假设数组是非空的，并且给定的数组总是存在众数。
+</code></pre>
 <ul>
 <li>统计一遍。O(n)， 但需要额外的空间保存每个数字出现的次数。</li>
 <li>排序。因为该元素出现次数大于一半，也就是说，排序后中间位置的数字一定是出现次数<strong>大于</strong> <code>⌊ n/2 ⌋</code> 的元素。而排序的时间复杂度最少也为O(nlogn).</li>
 <li>排序后，中间的数字一定是出现次数<strong>大于</strong> <code>⌊ n/2 ⌋</code> 的元素，也就是说我们只要找到排序后的中间元素就好了。这道题就可以转换为：找出第n/2大的数。</li>
 <li>哈哈，这样就可以利用快排的特点了，那么就可以把时间复杂度缩小到O(n)。</li>
 </ul>
-<pre><code class="java">public int partition(int[] nums, int begin, int end) {
+<pre><code class="lang-java">public int partition(int[] nums, int begin, int end) {
     int tmp_value = nums[begin];
     while(begin&lt;end) {
         while(begin&lt;end &amp;&amp; nums[end]&gt;=tmp_value) end -= 1;
@@ -237,21 +240,27 @@ public int majorityElement(int[] nums) {
         else if(index&lt;nums.length/2) begin = index+1;
     }
     return nums[index];
-}</code></pre>
+}
+</code></pre>
 <h5 id="2-剑指offer-找出数组中最小的k个数"><a href="#2-剑指offer-找出数组中最小的k个数" class="headerlink" title="2. 剑指offer. 找出数组中最小的k个数"></a>2. 剑指offer. 找出数组中最小的k个数</h5><ul>
 <li>方法一：和上面一样，利用二分查找，找到最小的k个数，那么只要找到第k+1大的数，那么他之前的就是最小的k个数。这种方式会改变数组内的值</li>
 <li>方法二：不改变数组的值。设置一个容器，存储空间为k，遍历数组，每遍历到一个数，判断容器里的最大值和当前值大小，如果当前值小于容器中的最大值，删除容器中的最大值，用当前值替换。</li>
 <li>而在容器中找到最大值插入删除的操作，最省时的是构建最大堆。时间复杂度为O(log k)。那么总的时间复杂度就是O(n log k)</li>
 <li>第二种方法对<strong>海量数据</strong>很有用，因为第一种方法需要一次把所有的数据都读进来，而第二种方法可以一个一个读入，辅助空间为k即可。n很大k很小时，这种方法很好。</li>
 </ul>
-<pre><code class="java"></code></pre>
+<pre><code class="lang-java">
+
+</code></pre>
 <h5 id="3-剑指offer-在排序数组中查找某数字出现的次数"><a href="#3-剑指offer-在排序数组中查找某数字出现的次数" class="headerlink" title="3.  剑指offer. 在排序数组中查找某数字出现的次数"></a>3.  剑指offer. 在排序数组中查找某数字出现的次数</h5><ul>
 <li>利用二分查找，找到重复数字的左右端点。</li>
 <li>查找左端点的时候，利用二分查找，如果当前节点为重复数字，看它和左边的节点是否相等，如果不相等，那么该节点为左端点。 右端点也是一样的。</li>
 <li>找到左右端点的位置，就可以知道其出现次数了</li>
 </ul>
-<pre><code class="java"></code></pre>
-<h5 id="4-剑指offer-0到n-1中缺失的数字"><a href="#4-剑指offer-0到n-1中缺失的数字" class="headerlink" title="4.  剑指offer. 0到n-1中缺失的数字"></a>4.  剑指offer. 0到n-1中缺失的数字</h5><pre><code class="java">长度为n-1的递增序列，其中只有一个数字不存在。找到这个不存在的数字。</code></pre>
+<pre><code class="lang-java">
+
+</code></pre>
+<h5 id="4-剑指offer-0到n-1中缺失的数字"><a href="#4-剑指offer-0到n-1中缺失的数字" class="headerlink" title="4.  剑指offer. 0到n-1中缺失的数字"></a>4.  剑指offer. 0到n-1中缺失的数字</h5><pre><code class="lang-java">长度为n-1的递增序列，其中只有一个数字不存在。找到这个不存在的数字。
+</code></pre>
 <ul>
 <li>就是找到第一个index与值不相等的元素。</li>
 <li>二分查找 。如果当前值和index不等，并且前一个值和index相等，那么这个值就是我们想要的。</li>
@@ -260,19 +269,114 @@ public int majorityElement(int[] nums) {
 <li>如果当前值比index小，那么它前面不可能有了，只能向后找</li>
 <li>如果当前值比index 大，那么它后面是不可能有了，只能向前找。</li>
 </ul>
-<pre><code class="java"></code></pre>
+<pre><code class="lang-java">
+
+</code></pre>
 <h5 id="6-把数字翻译成字符串。"><a href="#6-把数字翻译成字符串。" class="headerlink" title="6. 把数字翻译成字符串。"></a>6. 把数字翻译成字符串。</h5><p>p 231.  46题</p>
-<h5 id="7-leetcode-380-O-1-时间插入、删除、随即抽取"><a href="#7-leetcode-380-O-1-时间插入、删除、随即抽取" class="headerlink" title="7. leetcode 380. O(1)时间插入、删除、随即抽取"></a>7. <a href="https://leetcode.com/problems/insert-delete-getrandom-o1/" target="_blank" rel="noopener">leetcode 380. O(1)时间插入、删除、随即抽取</a></h5><pre><code class="java">Design a data structure that supports all following operations in average O(1) time.
+<pre><code class="lang-java">
+
+</code></pre>
+<h5 id="7-leetcode-4-找到两个已排序数组的中位数"><a href="#7-leetcode-4-找到两个已排序数组的中位数" class="headerlink" title="7. leetcode 4. 找到两个已排序数组的中位数"></a>7. <a href="https://leetcode.com/problems/median-of-two-sorted-arrays/" target="_blank" rel="noopener">leetcode 4. 找到两个已排序数组的中位数</a></h5><ul>
+<li>最简单直接的方法，先将两个有序数组合并成一个有序数组，然后找到中位数。</li>
+<li>合并时可以到 <code>(nums1.length + nums2.length)/2 + 1</code> 的时候就停止，因为我们的目的就是找中位数。</li>
+<li>这种方法的时间复杂度是 <code>O(m+n)</code> 。 <code>m</code> 和 <code>n</code> 分别为两个数组的长度。</li>
+</ul>
+<pre><code class="lang-java">public int[] merge(int[] nums1, int[] nums2) {
+    int length = nums1.length + nums2.length;
+    int[] res_arr = new int[length];
+    if(nums1.length==0) res_arr = Arrays.copyOf(nums2, nums2.length);
+    else if(nums2.length==0) res_arr = Arrays.copyOf(nums1, nums1.length);
+    else {
+        int begin_1 = 0, begin_2 = 0;
+        for(int i=0;i&lt;length;i++) {
+            if(begin_1&gt;=nums1.length) {
+                res_arr[i] = nums2[begin_2];
+                begin_2 += 1;
+            }
+            else if(begin_2&gt;=nums2.length) {
+                res_arr[i] = nums1[begin_1];
+                begin_1 += 1;
+            }
+            else {
+                if(nums1[begin_1]&lt;nums2[begin_2]) {
+                    res_arr[i] = nums1[begin_1];
+                    begin_1 += 1;
+                }
+                else {
+                    res_arr[i] = nums2[begin_2];
+                    begin_2 += 1; 
+                }
+            }
+            if(i==length/2+1)
+                break;
+        }
+    }
+    return res_arr;
+}
+
+public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    int length = nums1.length + nums2.length;
+    int[] res = merge(nums1, nums2);
+    if(length%2==0) return (res[length/2-1] + res[length/2])/2.0;
+    else return res[length/2];
+}
+</code></pre>
+<ul>
+<li><p>涉及到有序数组，涉及到查找，就要想到<strong>二分查找</strong>！！</p>
+</li>
+<li><p>解释：<a href="https://youtu.be/LPFhl65R7ww" target="_blank" rel="noopener">https://youtu.be/LPFhl65R7ww</a></p>
+</li>
+</ul>
+<pre><code class="lang-java">public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    if(nums2.length&lt;nums1.length) { //为了让nums1中存的是短的数组
+        int[] tmp = nums1;
+        nums1 = nums2;
+        nums2 = tmp;
+    }
+    int begin = 0;
+    int end = nums1.length;
+    int length = (nums1.length + nums2.length + 1)/2;
+
+    while(begin&lt;=end) {
+        int mid1 = (begin + end)/2;
+        int mid2 = length - mid1;
+        if(mid1&lt;nums1.length &amp;&amp; nums2[mid2-1]&gt;nums1[mid1]) {
+            begin = mid1 + 1;
+        }
+        else if(mid1&gt;0 &amp;&amp; nums1[mid1-1]&gt;nums2[mid2]){
+            end = mid1 - 1;
+        }
+        else {
+            int max_of_left = 0;
+            if(mid1==0) max_of_left = nums2[mid2-1];
+            else if(mid2==0) max_of_left = nums1[mid1-1];
+            else max_of_left =  Math.max(nums1[mid1-1], nums2[mid2-1]);
+
+            if((nums1.length + nums2.length)%2==1) return max_of_left;
+
+            int min_of_right = 0;
+            if(mid1==nums1.length) min_of_right = nums2[mid2];
+            else if(mid2==nums2.length) min_of_right = nums1[mid1];
+            else min_of_right =  Math.min(nums1[mid1], nums2[mid2]);
+
+            return (max_of_left + min_of_right)/2.0;
+        }
+    }
+    return 0;
+}
+</code></pre>
+<h5 id="20-leetcode-380-O-1-时间插入、删除、随即抽取"><a href="#20-leetcode-380-O-1-时间插入、删除、随即抽取" class="headerlink" title="20. leetcode 380. O(1)时间插入、删除、随即抽取"></a>20. <a href="https://leetcode.com/problems/insert-delete-getrandom-o1/" target="_blank" rel="noopener">leetcode 380. O(1)时间插入、删除、随即抽取</a></h5><pre><code class="lang-java">Design a data structure that supports all following operations in average O(1) time.
 1. insert(val): Inserts an item val to the set if not already present.
 2. remove(val): Removes an item val from the set if present.
-3. getRandom: Returns a random element from current set of elements. Each element must have the same probability of being returned.</code></pre>
+3. getRandom: Returns a random element from current set of elements. Each element must have the same probability of being returned.
+</code></pre>
 <ul>
 <li>O(1)时间进行插入和删除操作，也就是不能遍历。</li>
 <li>而且不能删除list中间的某一个元素，因为删除list中间的某一个元素的时间复杂度是O(n), 因为后面的元素需要全部向前面移动一位，也就是如果要使用list，那么只能删除最后一个元素。</li>
 <li>可以使用hashmap，因为hashmap相当于链表，这道题又是set，也就是不存在重复元素。但是因为最后要随机抽取元素，只用map也不行，因为随机一个index之后，不能在map中去遍历，因为时间复杂度需要是O(1).</li>
 <li>所以只能map和list一起用，map中存储元素值和其在list中的索引，每删除一个元素，那么我们需要把list中的最后一个元素和当前元素交换，然后删除最后一个元素。并且改变map中最后一个元素的value值，也就是在list中的索引值。这样随机取数的时候只要在list中get(index)即可。</li>
 </ul>
-<pre><code class="java">/**
+<pre><code class="lang-java">/**
  * Your RandomizedSet object will be instantiated and called as such:
  * RandomizedSet obj = new RandomizedSet();
  * boolean param_1 = obj.insert(val);
@@ -324,11 +428,13 @@ class RandomizedSet {
         int p = (int)(Math.random()*(list.size()));
         return list.get(p);
     }
-}</code></pre>
-<h5 id="8-leetcode-381-O-1-时间插入、删除、随即抽取-允许重复"><a href="#8-leetcode-381-O-1-时间插入、删除、随即抽取-允许重复" class="headerlink" title="8.  leetcode 381. O(1)时间插入、删除、随即抽取 (允许重复)"></a>8.  <a href="https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/" target="_blank" rel="noopener">leetcode 381. O(1)时间插入、删除、随即抽取 (允许重复)</a></h5><pre><code class="java">Note: Duplicate elements are allowed.
+}
+</code></pre>
+<h5 id="21-leetcode-381-O-1-时间插入、删除、随即抽取-允许重复"><a href="#21-leetcode-381-O-1-时间插入、删除、随即抽取-允许重复" class="headerlink" title="21.  leetcode 381. O(1)时间插入、删除、随即抽取 (允许重复)"></a>21.  <a href="https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/" target="_blank" rel="noopener">leetcode 381. O(1)时间插入、删除、随即抽取 (允许重复)</a></h5><pre><code class="lang-java">Note: Duplicate elements are allowed.
 1. insert(val): Inserts an item val to the collection.
 2. remove(val): Removes an item val from the collection if present.
-3. getRandom: Returns a random element from current collection of elements. The probability of each element being returned is linearly related to the number of same value the collection contains.</code></pre>
+3. getRandom: Returns a random element from current collection of elements. The probability of each element being returned is linearly related to the number of same value the collection contains.
+</code></pre>
 
   </article>
   
@@ -367,7 +473,7 @@ class RandomizedSet {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568522882612"></script>
+<script src="/js/app.js?v=1568540005692"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
@@ -379,6 +485,21 @@ class RandomizedSet {
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 
 </html>

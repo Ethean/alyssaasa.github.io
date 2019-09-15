@@ -5,12 +5,12 @@
   
   <title>数组 - Sooner or Later, One Way or Another</title>
   <meta charset="UTF-8">
-  <meta name="description" content>
+  <meta name="description" content="null">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
 
-  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <link rel="shortcut icon" href="/images/favicon/4.png" type="image/png">
   <meta name="description" content="非常简单但很重要的问题">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
@@ -24,13 +24,15 @@
 <meta name="twitter:title" content="数组">
 <meta name="twitter:description" content="非常简单但很重要的问题">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+  <link rel="stylesheet" href="https://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css">
    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   
   
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1412554_24vsf7gc7r1.css">
+  
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568522882632">
+  <link rel="stylesheet" href="/css/style.css?v=1568540005740">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -55,7 +57,7 @@
     </div>
     <div class="nexmoe-count">
         <div><span>文章</span>19</div>
-        <div><span>标签</span>6</div>
+        <div><span>标签</span>8</div>
         <div><span>分类</span>5</div>
     </div>
     <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -87,7 +89,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">社交按钮</h3>
     <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+        <a class="mdui-ripple" href="https://space.bilibili.com/18781994" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
             <i class="nexmoefont icon-bilibili"></i>
         </a><a class="mdui-ripple" href="https://github.com/alyssaasa/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
             <i class="nexmoefont icon-github"></i>
@@ -154,7 +156,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud">
-      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
+      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/二分查找/" style="font-size: 10px;">二分查找</a> <a href="/tags/时间复杂度/" style="font-size: 10px;">时间复杂度</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
     </div>
     
   </div>
@@ -177,7 +179,7 @@
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月21日</a>
-    <a><i class="nexmoefont icon-areachart"></i>1,649 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>1,635 字</a>
     
       <a class="nexmoefont icon-appstore-fill -link" href="/categories/算法/">算法</a>
     
@@ -188,7 +190,6 @@
   <article>
     <p>非常简单但很重要的问题</p>
 <a id="more"></a>
-
 <h3 id="1-数组的全排列"><a href="#1-数组的全排列" class="headerlink" title="1. 数组的全排列"></a>1. 数组的全排列</h3><h5 id="1-leetcode-31-给出全排列的下一个排列"><a href="#1-leetcode-31-给出全排列的下一个排列" class="headerlink" title="1. leetcode 31. 给出全排列的下一个排列"></a>1. <a href="https://leetcode.com/problems/next-permutation/" target="_blank" rel="noopener">leetcode 31. 给出全排列的下一个排列</a></h5><ul>
 <li>输入1: <code>1,2,3,4,3,8,7,6,5</code> → <code>1,2,3,4,5,3,6,7,8</code></li>
 <li>输入2: <code>3,2,1</code> → <code>1,2,3</code></li>
@@ -196,7 +197,7 @@
 <li><strong>从后向前，找到递减的位置，然后从后面找到比他大的第一个元素，交换，然后对后面从小到大排序即可</strong></li>
 <li>如果当前已经是最大，那么就输出他的最小值  从小到大排序即可</li>
 </ul>
-<pre><code class="java">public void swap(int[] nums, int i, int j) {
+<pre><code class="lang-java">public void swap(int[] nums, int i, int j) {
     int tmp = nums[i];
     nums[i] = nums[j];
     nums[j] = tmp;
@@ -229,12 +230,13 @@ public void nextPermutation(int[] nums) {
     }
     if(flag)
         Arrays.sort(nums);
-}</code></pre>
+}
+</code></pre>
 <h5 id="2-leetcode-46-无重复数字数组的全排列"><a href="#2-leetcode-46-无重复数字数组的全排列" class="headerlink" title="2. leetcode 46. 无重复数字数组的全排列"></a>2. <a href="https://leetcode.com/problems/permutations/" target="_blank" rel="noopener">leetcode 46. 无重复数字数组的全排列</a></h5><ul>
 <li>输入：[1,2,3]</li>
 <li>输出：[1,2,3]   [1,3,2]  [2,1,3]  [2,3,1]  [3,1,2]  [3,2,1]</li>
 </ul>
-<pre><code class="java">public void get_permute(int[] nums, int[] visit, List&lt;List&lt;Integer&gt;&gt; result, List&lt;Integer&gt; tmp_res) {
+<pre><code class="lang-java">public void get_permute(int[] nums, int[] visit, List&lt;List&lt;Integer&gt;&gt; result, List&lt;Integer&gt; tmp_res) {
     if(tmp_res.size()==nums.length) {
         List&lt;Integer&gt; tmp = new ArrayList();
         tmp.addAll(tmp_res);
@@ -258,13 +260,14 @@ public List&lt;List&lt;Integer&gt;&gt; permute(int[] nums) {
     List&lt;Integer&gt; tmp_res = new ArrayList();
     get_permute(nums, visit, result, tmp_res);
     return result;
-}</code></pre>
+}
+</code></pre>
 <h5 id="3-leetcode-47-有重复数字的全排列"><a href="#3-leetcode-47-有重复数字的全排列" class="headerlink" title="3. leetcode 47. 有重复数字的全排列"></a>3. <a href="https://leetcode.com/problems/permutations-ii/" target="_blank" rel="noopener">leetcode 47. 有重复数字的全排列</a></h5><ul>
 <li>输入：[1,2,1]</li>
 <li>输出：[1,1,2]  [1,2,1]  [2,1,1]</li>
 <li>有重复数字时，可以使用set代替之前的list,因为set本身就有过滤重复的用途。</li>
 </ul>
-<pre><code class="java">public void get_permute(int[] nums, int[] visit, Set&lt;List&lt;Integer&gt;&gt; result, List&lt;Integer&gt; tmp_res) {
+<pre><code class="lang-java">public void get_permute(int[] nums, int[] visit, Set&lt;List&lt;Integer&gt;&gt; result, List&lt;Integer&gt; tmp_res) {
     if(tmp_res.size()==nums.length) {
      List&lt;Integer&gt; tmp = new ArrayList();
         tmp.addAll(tmp_res);
@@ -293,7 +296,8 @@ public List&lt;List&lt;Integer&gt;&gt; permuteUnique(int[] nums) {
     for(List&lt;Integer&gt; list1:res)
         result.add(list1);
     return result;
-}</code></pre>
+}
+</code></pre>
 <ul>
 <li>但是这种做法会比较复杂，不管相同不相同的数字，都会进行一次全排列，会比较耗时，所以可以先将数组排序，将相同的放在一起，如果取出下一个元素和上一个相同，那么这一轮就可以不再进行全排列了。</li>
 </ul>
@@ -305,19 +309,22 @@ public List&lt;List&lt;Integer&gt;&gt; permuteUnique(int[] nums) {
 <li>4 13     13/6 = 2…1    3</li>
 <li>7/2! = 7/2 = 3…1   </li>
 </ul>
-<pre><code class="java"></code></pre>
+<pre><code class="lang-java">
+
+</code></pre>
 <h5 id="5-给定第k个全排列，求倒数第k个全排列"><a href="#5-给定第k个全排列，求倒数第k个全排列" class="headerlink" title="5. 给定第k个全排列，求倒数第k个全排列"></a>5. 给定第k个全排列，求倒数第k个全排列</h5><ul>
 <li>n=3, 则全排列为：<code>&quot;123&quot;</code> <code>&quot;132&quot;</code> <code>&quot;213&quot;</code> <code>&quot;231&quot;</code> <code>&quot;312&quot;</code> <code>&quot;321&quot;</code></li>
 <li>给定k=3, 第3个全排列为 <code>&quot;213&quot;</code> ，则输出为：<code>&quot;231&quot;</code></li>
 <li>这道题比较有规律，倒数第k个全排列，就是n+1减去正数第k个全排列每个位置上面的值。</li>
 <li>例：k=2, n=3：正数：<code>&quot;132&quot;</code>；倒数：(n+1-1)(n+1-3)(n+1-2)=<code>&quot;312&quot;</code> </li>
 </ul>
-<h3 id="2-输出所有和为target的数组"><a href="#2-输出所有和为target的数组" class="headerlink" title="2. 输出所有和为target的数组"></a>2. 输出所有和为target的数组</h3><h5 id="1-先来一个类似的简单题：leetcode-633-判断一个值可否由两个数的平方和组成"><a href="#1-先来一个类似的简单题：leetcode-633-判断一个值可否由两个数的平方和组成" class="headerlink" title="1. 先来一个类似的简单题：leetcode 633. 判断一个值可否由两个数的平方和组成"></a>1. 先来一个类似的简单题：<a href="https://leetcode.com/problems/sum-of-square-numbers/" target="_blank" rel="noopener">leetcode 633. 判断一个值可否由两个数的平方和组成</a></h5><pre><code class="java">whether there&#39;re two integers a and b such that a^2 + b^2 = c.
-例如：输入5，返回true， 因为 1 * 1 + 2 * 2 = 5。</code></pre>
+<h3 id="2-输出所有和为target的数组"><a href="#2-输出所有和为target的数组" class="headerlink" title="2. 输出所有和为target的数组"></a>2. 输出所有和为target的数组</h3><h5 id="1-先来一个类似的简单题：leetcode-633-判断一个值可否由两个数的平方和组成"><a href="#1-先来一个类似的简单题：leetcode-633-判断一个值可否由两个数的平方和组成" class="headerlink" title="1. 先来一个类似的简单题：leetcode 633. 判断一个值可否由两个数的平方和组成"></a>1. 先来一个类似的简单题：<a href="https://leetcode.com/problems/sum-of-square-numbers/" target="_blank" rel="noopener">leetcode 633. 判断一个值可否由两个数的平方和组成</a></h5><pre><code class="lang-java">whether there&#39;re two integers a and b such that a^2 + b^2 = c.
+例如：输入5，返回true， 因为 1 * 1 + 2 * 2 = 5。
+</code></pre>
 <ul>
-<li>解法：设置两个变量，i=0, j= $\sqrt5$ 的向下取整， 若$i<em>i+j</em>j&lt;c$, 则增大i，否则减小j，直到i&gt;j或找到满足条件的值为止。</li>
+<li>解法：设置两个变量，i=0, j= $\sqrt5$ 的向下取整， 若$i<em>i+j</em>j<c$, 则增大i，否则减小j，直到i>j或找到满足条件的值为止。</c$,></li>
 </ul>
-<pre><code class="java">public boolean judgeSquareSum(int c) {
+<pre><code class="lang-java">public boolean judgeSquareSum(int c) {
     int i = 0;
     int j = (int)Math.sqrt(c);
     while(i&lt;=j) {
@@ -327,22 +334,19 @@ public List&lt;List&lt;Integer&gt;&gt; permuteUnique(int[] nums) {
         if(value&lt;c) i += 1;
     }
     return false;
-}</code></pre>
+}
+</code></pre>
 <h5 id="2-leetcode-15-threesum-输出所有和为0的数组"><a href="#2-leetcode-15-threesum-输出所有和为0的数组" class="headerlink" title="2. leetcode 15. threesum, 输出所有和为0的数组"></a>2. <a href="https://leetcode.com/problems/3sum/" target="_blank" rel="noopener">leetcode 15. threesum, 输出所有和为0的数组</a></h5><ul>
-<li><p>先将数组进行排序。</p>
-</li>
+<li>先将数组进行排序。</li>
 <li><p>设置两个指针，一个指向数组头，一个指向数组尾，向中间移动。</p>
 </li>
 <li><p>如果指针指向的两数之和小于target，则我们将左边那个指针i右移一位，使得指向的数字增大一些。</p>
 </li>
-<li><p>同理，如果两数之和大于target，则我们将右边那个指针j左移一位，使得指向的数字减小一些。</p>
-</li>
-<li><p>直到找到满足条件的两个值。</p>
-</li>
-<li><p>因为该道题是三个数的和为target，所以需要先确定一个数，然后让new_target = target-当前值。</p>
-</li>
+<li>同理，如果两数之和大于target，则我们将右边那个指针j左移一位，使得指向的数字减小一些。</li>
+<li>直到找到满足条件的两个值。</li>
+<li>因为该道题是三个数的和为target，所以需要先确定一个数，然后让new_target = target-当前值。</li>
 </ul>
-<pre><code class="java">public static List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) {
+<pre><code class="lang-java">public static List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) {
     Set&lt;List&lt;Integer&gt;&gt; res = new HashSet&lt;&gt;();
     Arrays.sort(nums);
     for(int i=1;i&lt;nums.length;i++) {
@@ -372,8 +376,9 @@ public List&lt;List&lt;Integer&gt;&gt; permuteUnique(int[] nums) {
         result.add(iterator.next());
 
    return result;
-}</code></pre>
-<h5 id="3-leetcode-16-三个数的和最接近target"><a href="#3-leetcode-16-三个数的和最接近target" class="headerlink" title="3. leetcode 16. 三个数的和最接近target"></a>3. <a href="https://leetcode.com/problems/3sum-closest/" target="_blank" rel="noopener">leetcode 16. 三个数的和最接近target</a></h5><pre><code class="java">public static int threeSumClosest(int[] nums, int target) {
+}
+</code></pre>
+<h5 id="3-leetcode-16-三个数的和最接近target"><a href="#3-leetcode-16-三个数的和最接近target" class="headerlink" title="3. leetcode 16. 三个数的和最接近target"></a>3. <a href="https://leetcode.com/problems/3sum-closest/" target="_blank" rel="noopener">leetcode 16. 三个数的和最接近target</a></h5><pre><code class="lang-java">public static int threeSumClosest(int[] nums, int target) {
     int res = Integer.MAX_VALUE;
     Arrays.sort(nums);
     for(int i=1;i&lt;nums.length-1;i++) {
@@ -395,16 +400,18 @@ public List&lt;List&lt;Integer&gt;&gt; permuteUnique(int[] nums) {
         res = Math.abs(target-tmp)&lt;Math.abs(target-res)?tmp:res;
     }
     return res;
-}</code></pre>
+}
+</code></pre>
 <h3 id="3-其他题目"><a href="#3-其他题目" class="headerlink" title="3. 其他题目"></a>3. 其他题目</h3><h5 id="1-leetcode-56-Merge-Intervals"><a href="#1-leetcode-56-Merge-Intervals" class="headerlink" title="1. leetcode 56. Merge Intervals"></a>1. <a href="https://leetcode.com/problems/merge-intervals/" target="_blank" rel="noopener">leetcode 56. Merge Intervals</a></h5><ul>
 <li>将数组有重叠的部分进行合并。</li>
 <li>先将数组按照第一个元素的位置排序，然后比较前一个的第二个值与后一个的第一个值</li>
 <li>如果前一个的第二个值大于后一个的第一个值，就进行合并，右边界取第一个和第二个右边界的大值</li>
 </ul>
-<pre><code class="java">Input: [[1,3],[2,6],[8,10],[15,18]]
+<pre><code class="lang-java">Input: [[1,3],[2,6],[8,10],[15,18]]
 Output: [[1,6],[8,10],[15,18]]
-Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].</code></pre>
-<pre><code class="java">public static int[][] merge(int[][] intervals) {
+Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].
+</code></pre>
+<pre><code class="lang-java">public static int[][] merge(int[][] intervals) {
     List&lt;int[]&gt; list = new ArrayList();
     Arrays.sort(intervals, new Comparator&lt;int[]&gt;(){
         @Override
@@ -427,7 +434,8 @@ Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].</c
     }
 
     return list.toArray(new int[list.size()][2]);
-}</code></pre>
+}
+</code></pre>
 
   </article>
   
@@ -466,7 +474,7 @@ Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].</c
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568522882642"></script>
+<script src="/js/app.js?v=1568540005749"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
@@ -478,6 +486,21 @@ Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].</c
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 
 </html>

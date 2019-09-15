@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   
-  <title>Shell字符串 - Sooner or Later, One Way or Another</title>
+  <title>关于我 - Sooner or Later, One Way or Another</title>
   <meta charset="UTF-8">
   <meta name="description" content="null">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,18 +11,17 @@
   
 
   <link rel="shortcut icon" href="/images/favicon/4.png" type="image/png">
-  <meta name="description" content="Shell字符串">
-<meta name="keywords" content="Shell">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Shell字符串">
-<meta property="og:url" content="http://yoursite.com/2019/08/15/Shell字符串/index.html">
+  <meta name="description" content="写点啥。。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于我">
+<meta property="og:url" content="http://yoursite.com/about.html">
 <meta property="og:site_name" content="Sooner or Later, One Way or Another">
-<meta property="og:description" content="Shell字符串">
+<meta property="og:description" content="写点啥。。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-14T12:35:37.614Z">
+<meta property="og:updated_time" content="2019-09-15T06:13:29.881Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shell字符串">
-<meta name="twitter:description" content="Shell字符串">
+<meta name="twitter:title" content="关于我">
+<meta name="twitter:description" content="写点啥。。">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css">
    
@@ -32,7 +31,7 @@
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1412554_24vsf7gc7r1.css">
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568540005834">
+  <link rel="stylesheet" href="/css/style.css?v=1568540005593">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -173,152 +172,18 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-        <img src="/images/bg/bg.png">
+            <img src="/images/bg/2.jpg">
         
-        <h1>Shell字符串</h1>
+        <h1>关于我</h1>
     </div>
   <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月15日</a>
-    <a><i class="nexmoefont icon-areachart"></i>1,018 字</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月13日</a>
+    <a><i class="nexmoefont icon-areachart"></i>3 字</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/Shell/">Shell</a>
-    
-    
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/Shell/">Shell</a>
     
   </div>
   <article>
-    <p>Shell字符串</p>
-<a id="more"></a>
-<h4 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h4><p>字符串可以由单引号<code>&#39; &#39;</code>包围，也可以由双引号<code>&quot; &quot;</code>包围，也可以不用引号。</p>
-<p>字符串举例：</p>
-<pre><code>str1=alyssaasa.github.io
-str2=&quot;shell script&quot;
-str3=&#39;Shell字符串&#39;
-</code></pre><p>三种形式的区别：</p>
-<ol>
-<li><p>由单引号<code>&#39;&#39;</code>包围的字符串：</p>
-<ul>
-<li>任何字符都会原样输出，在其中使用变量是无效的。</li>
-<li>字符串中不能出现单引号，即使对单引号进行转义也不行。</li>
-</ul>
-</li>
-<li><p>由双引号<code>&quot; &quot;</code>包围的字符串：</p>
-<ul>
-<li>如果其中包含了某个变量，那么该变量会被解析（得到该变量的值），而不是原样输出。</li>
-<li>字符串中可以出现双引号，只要它被转义了就行。</li>
-</ul>
-</li>
-<li><p>不被引号包围的字符串：</p>
-<ul>
-<li>不被引号包围的字符串中出现变量时也会被解析，这一点和双引号<code>&quot; &quot;</code>包围的字符串一样。</li>
-<li>字符串中<strong>不能出现空格</strong>，否则空格后边的字符串会作为其他变量或者命令解析。</li>
-</ul>
-</li>
-</ol>
-<pre><code>#!/bin/bash
-n=74
-str1=c.biancheng.net$n 
-str2=&quot;shell \&quot;script\&quot; $n&quot;
-str3=&#39;C语言中文网 $n&#39;
-echo $str1
-echo $str2
-echo $str3
-</code></pre><p>运行结果：</p>
-<pre><code>c.biancheng.net74
-shell &quot;script&quot; 74
-C语言中文网 $n
-</code></pre><h4 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h4><pre><code>${#string_name}    其中string_name为字符串名字
-</code></pre><p>举例：</p>
-<pre><code>#! /bin/bash
-
-str = &quot;http://alyssaasa.github.io&quot;
-echo ${#str}
-</code></pre><p>运行结果：<code>26</code></p>
-<h4 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a>字符串的拼接</h4><p>不需要使用任何运算符，将两个字符串并排放在一起就能实现拼接</p>
-<pre><code>#!/bin/bash
-name=&quot;Shell&quot;
-url=&quot;http://c.biancheng.net/shell/&quot;
-str1=$name$url          # 中间不能有空格
-str2=&quot;$name $url&quot;   # 如果被双引号包围，那么中间可以有空格
-str3=$name&quot;: &quot;$url  # 中间可以出现别的字符串
-str4=&quot;$name: $url&quot;  # 这样写也可以
-str5=&quot;${name}Script: ${url}index.html&quot;  # 这个时候需要给变量名加上大括号,帮助解释器识别变量的边界
-echo $str1
-echo $str2
-echo $str3
-echo $str4
-echo $str5
-</code></pre><p>运行结果：</p>
-<pre><code>Shellhttp://c.biancheng.net/shell/
-Shell http://c.biancheng.net/shell/
-Shell: http://c.biancheng.net/shell/
-Shell: http://c.biancheng.net/shell/
-ShellScript: http://c.biancheng.net/shell/index.html
-</code></pre><h4 id="字符串的截取"><a href="#字符串的截取" class="headerlink" title="字符串的截取"></a>字符串的截取</h4><ul>
-<li><p><strong>从指定位置开始截取</strong></p>
-<p>这种方式需要两个参数：除了指定起始位置，还需要截取长度，才能最终确定要截取的字符串。</p>
-<ol>
-<li><p><strong>从字符串左边开始计数：</strong><code>${string:start:length}</code></p>
-<ul>
-<li><p>string: 要截取的字符串</p>
-</li>
-<li><p>start: 起始位置 （从左边开始，从 0 开始计数）</p>
-</li>
-<li><p>length 是要截取的长度（省略的话表示直到字符串的末尾）</p>
-<pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 2: 9}
-结果：biancheng
-</code></pre><pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 2}  # 省略 length，截取到字符串末尾
-结果：biancheng.net
-</code></pre></li>
-</ul>
-</li>
-<li><p><strong>从字符串左边开始计数：</strong><code>${string:0-start:length}</code></p>
-<ul>
-<li><p>0-start: 这是固定的写法，专门用来表示从字符串右边开始计数。</p>
-</li>
-<li><p><strong>从左边开始计数时，起始数字是 0；从右边开始计数时，起始数字是 1。</strong></p>
-</li>
-<li><p>不管从哪边开始计数，截取方向都是从左到右。</p>
-<pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 0-13: 9}
-结果：biancheng  # 从右边数，b 是第 13 个字符。
-</code></pre><pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 0-13}  # 省略 length，直接截取到字符串末尾
-结果：biancheng.net
-</code></pre></li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p><strong>从指定字符（子字符串）开始截取</strong></p>
-<p>这种截取方式无法指定字符串长度，只能从指定字符（子字符串）截取到字符串末尾。</p>
-<p>Shell 可以截取指定字符（子字符串）右边的所有字符，也可以截取左边的所有字符。</p>
-<ol>
-<li><p>使用 <code>#</code> 截取指定字符（或者子字符串）右边的所有字符：<code>${string#*chars}</code></p>
-<ul>
-<li><p>string: 要截取的字符串</p>
-</li>
-<li><p>chars: 指定的字符（或者子字符串）</p>
-</li>
-<li><p><code>*</code>：通配符的一种，表示任意长度的字符串</p>
-</li>
-<li><p><code>*chars</code>  连起来使用的意思是：忽略左边的所有字符，直到遇见 chars（chars 不会被截取）</p>
-<pre><code>url=&quot;http://c.biancheng.net/index.html&quot;
-echo ${url#*:}
-结果：//c.biancheng.net/index.html
-</code></pre><p>以下写法也会得到同样的结果：</p>
-<pre><code>echo ${url#*p:}
-echo ${url#*ttp:}
-</code></pre><p><a href="http://c.biancheng.net/view/1120.html" target="_blank" rel="noopener">http://c.biancheng.net/view/1120.html</a> 太多了，以后用得到的时候再写。。</p>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
+    <p>写点啥。。</p>
 
   </article>
   
@@ -357,7 +222,7 @@ echo ${url#*ttp:}
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568540005842"></script>
+<script src="/js/app.js?v=1568540005611"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

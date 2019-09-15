@@ -5,12 +5,12 @@
   
   <title>排序算法 - Sooner or Later, One Way or Another</title>
   <meta charset="UTF-8">
-  <meta name="description" content>
+  <meta name="description" content="null">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
 
-  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <link rel="shortcut icon" href="/images/favicon/4.png" type="image/png">
   <meta name="description" content="各种排序算法">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
@@ -33,13 +33,15 @@
 <meta name="twitter:description" content="各种排序算法">
 <meta name="twitter:image" content="http://yoursite.com/images/sort/analysis.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+  <link rel="stylesheet" href="https://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css">
    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   
   
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1412554_24vsf7gc7r1.css">
+  
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568522882667">
+  <link rel="stylesheet" href="/css/style.css?v=1568540005766">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -64,7 +66,7 @@
     </div>
     <div class="nexmoe-count">
         <div><span>文章</span>19</div>
-        <div><span>标签</span>6</div>
+        <div><span>标签</span>8</div>
         <div><span>分类</span>5</div>
     </div>
     <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -96,7 +98,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">社交按钮</h3>
     <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+        <a class="mdui-ripple" href="https://space.bilibili.com/18781994" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
             <i class="nexmoefont icon-bilibili"></i>
         </a><a class="mdui-ripple" href="https://github.com/alyssaasa/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
             <i class="nexmoefont icon-github"></i>
@@ -163,7 +165,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud">
-      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
+      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/二分查找/" style="font-size: 10px;">二分查找</a> <a href="/tags/时间复杂度/" style="font-size: 10px;">时间复杂度</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
     </div>
     
   </div>
@@ -197,7 +199,6 @@
   <article>
     <p>各种排序算法</p>
 <a id="more"></a>
-
 <p><a href="https://www.cnblogs.com/onepixel/p/7674659.html" target="_blank" rel="noopener">文中图片来源</a></p>
 <h4 id="各种排序算法复杂度分析"><a href="#各种排序算法复杂度分析" class="headerlink" title="各种排序算法复杂度分析"></a>各种排序算法复杂度分析</h4><ul>
 <li>稳定：如果a原本在b前面，而a=b，排序之后a仍然在b的前面。</li>
@@ -205,18 +206,19 @@
 </ul>
 <p><img src="/images/sort/analysis.png" alt></p>
 <p>在写排序算法之前，先把每种排序算法都用到的数组元素交换的代码写出来：</p>
-<pre><code class="java">public void swap(int[] arr, int i, int j) {
+<pre><code class="lang-java">public void swap(int[] arr, int i, int j) {
     int tmp = arr[i];
     arr[i] = arr[j];
     arr[j] = tmp;
-}</code></pre>
+}
+</code></pre>
 <h4 id="1-选择排序-selection-sort"><a href="#1-选择排序-selection-sort" class="headerlink" title="1. 选择排序 (selection sort)"></a>1. 选择排序 (selection sort)</h4><ul>
 <li>选择出数组中的最小元素，将它与数组的第一个元素进行交换；</li>
 <li>从剩下的元素中选择出最小的元素，将它与数组的第二个元素进行交换；</li>
 <li>直到将整个数组排序。</li>
 </ul>
 <p><img src="/images/sort/selection_sort.gif" alt></p>
-<pre><code class="java">  public void selection_sort(int[] arr) {
+<pre><code class="lang-java">  public void selection_sort(int[] arr) {
       for(int i=0;i&lt;arr.length;i++) {
           // 寻找 [i, n) 区间里的最小值的索引
           int minIndex = i;
@@ -226,7 +228,8 @@
           }
           swap(arr, i, minIndex);
       }
-  }</code></pre>
+  }
+</code></pre>
 <ul>
 <li>算法分析：最稳定的算法之一；时间复杂度为$O(n^2)$；数据规模越小越好；不占用额外空间。</li>
 </ul>
@@ -235,7 +238,7 @@
 <li>第 j 个元素不断与左侧元素进行比较，arr[j] &lt; arr[j-1] 就交换两个元素的位置，并j=j-1。</li>
 </ul>
 <p><img src="/images/sort/insert_sort.gif" alt></p>
-<pre><code class="java">  public void insert_sort(int[] arr) {
+<pre><code class="lang-java">  public void insert_sort(int[] arr) {
       for(int i=0;i&lt;arr.length;i++) {
           int j =i;
           while(j&gt;0 &amp;&amp; arr[j]&lt;arr[j-1]) {
@@ -243,9 +246,10 @@
              j = j-1;
           }
       }
-  }</code></pre>
+  }
+</code></pre>
 <p>  上面的代码每次都要交换位置，会浪费时间，优化代码：</p>
-<pre><code class="java">  for(int i=0;i&lt;arr.length;i++) {
+<pre><code class="lang-java">  for(int i=0;i&lt;arr.length;i++) {
       int j =i;
       int e = arr[i];
       while(j&gt;0 &amp;&amp; e&lt;arr[j-1]) {
@@ -253,7 +257,8 @@
          j = j-1;
       }
       arr[j] = e;
-  }</code></pre>
+  }
+</code></pre>
 <ul>
 <li>算法分析：插入排序通常采用in-place排序（即只需要用O(1)的额外空间的排序），所以在排序过程中，需要不断把元素进行后移，为新的元素插入提供空间。</li>
 </ul>
@@ -262,7 +267,7 @@
 <li>当执行一轮循环后，没有发生交换，则表示数组已经有序。</li>
 </ul>
 <p><img src="/images/sort/bubble_sort.gif" alt></p>
-<pre><code class="java">  public void bubble_sort(int[] arr) {
+<pre><code class="lang-java">  public void bubble_sort(int[] arr) {
       for(int i=arr.length-1;i&gt;=0;i--) {
           boolean swap_flag = false;
           for(int j=0;j&lt;i;j++){  // 因为i后面已经有序了，而且是最大的，所以不需要进行比较了    
@@ -273,14 +278,15 @@
           }
           if(!swap_flag)  return;
       }
-  }</code></pre>
+  }
+</code></pre>
 <h4 id="4-希尔排序-shell-sort"><a href="#4-希尔排序-shell-sort" class="headerlink" title="4. 希尔排序 (shell sort)"></a>4. 希尔排序 (shell sort)</h4><ul>
 <li>希尔排序会优先比较距离较远的元素。又叫<strong>缩小增量排序</strong>。</li>
 <li>希尔排序把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；</li>
 <li>随着增量逐渐减少，每组包含的元素越来越多，当增量减至1时，整个数组恰被分成一组，算法便终止。</li>
 </ul>
 <p><img src="/images/sort/shell_sort.gif" alt></p>
-<pre><code class="java">  public static void shell_sort(int[] arr){
+<pre><code class="lang-java">  public static void shell_sort(int[] arr){
         int len = arr.length;
         //增量gap，并逐步缩小增量
         for(int gap = len/2; gap &gt; 0; gap /= 2){
@@ -295,12 +301,13 @@
               arr[j] = e;
           }
         }
-  }</code></pre>
+  }
+</code></pre>
 <h4 id="5-归并排序-merge-sort"><a href="#5-归并排序-merge-sort" class="headerlink" title="5. 归并排序 (merge sort)"></a>5. 归并排序 (merge sort)</h4><ul>
 <li>归并排序采用了分治的思想，将大数组化为一个个的小数组去处理，然后再归并到一起。</li>
 </ul>
 <p><img src="/images/sort/merge_sort.gif" alt></p>
-<pre><code class="java">  public static void merge_sort(int[] arr,int left, int right) {
+<pre><code class="lang-java">  public static void merge_sort(int[] arr,int left, int right) {
       if(left&gt;=right)        
           return;
       int mid = (left + right)/2;
@@ -337,20 +344,21 @@
     int[] arr = {1, 5, 7, 3, 4, 2, 9, 13, 52, 0, 32};
     merge_sort(arr, 0, arr.length-1);
     int b = 2;
-  }</code></pre>
+  }
+</code></pre>
 <h4 id="6-快速排序-quick-sort"><a href="#6-快速排序-quick-sort" class="headerlink" title="6. 快速排序 (quick sort)"></a>6. 快速排序 (quick sort)</h4><ul>
 <li><p>一趟快速排序的算法是：</p>
 <ol>
 <li>设置两个变量i，j，排序开始的时候：i=0, j=N-1；</li>
 <li>以第一个数组元素作为关键元素，赋值给key，即key = arr[0]；</li>
-<li>从 j 开始向前搜索，即由后向前开始搜索(j–)，找到第一个小于key的值arr[j], 将arr[j]和key的值进行交换；</li>
+<li>从 j 开始向前搜索，即由后向前开始搜索(j—)，找到第一个小于key的值arr[j], 将arr[j]和key的值进行交换；</li>
 <li>从 i 开始向后搜索，即由前向后开始搜索(i++)，找到第一个大于key的值arr[i], 将arr[i]和key的值进行交换；</li>
 <li>重复3，4步，直到 i=j。</li>
 </ol>
 <p><img src="/images/sort/quick_sort.gif" alt="快速排序"></p>
 </li>
 <li><p><strong>每进行一趟快速排序，都会有一个元素处于最终的位置，它左侧的元素都比他小，它右侧的元素都比他大</strong>。</p>
-<pre><code class="java">public static int partition(int[] arr, int left, int right) {
+<pre><code class="lang-java">public static int partition(int[] arr, int left, int right) {
     int key = arr[left];
     while(left&lt;right) {
         while (arr[right] &gt;= key &amp;&amp; left &lt; right)
@@ -377,9 +385,10 @@ public static void quick_sort(int[] arr, int left, int right) {
 public static void main(String[] args) {
       int[] arr = {1, 5, 7, 3, 13, 52, 0, 32};
       quick_sort(arr, 0, arr.length-1);
-}</code></pre>
+}
+</code></pre>
 <p>这部分按照原始定义要按照下面这种写法，但是因为每次都要交换，所以改成了上面这种。因为一开始key的值已经保存了，所以不需要每次都交换。</p>
-<pre><code class="java">while(left&lt;right) {
+<pre><code class="lang-java">while(left&lt;right) {
     while (arr[right] &gt;= key &amp;&amp; left &lt; right)
           right -= 1;
     if(left &lt; right)
@@ -391,7 +400,8 @@ public static void main(String[] args) {
 -          arr[right] = arr[left];  
 +       swap(arr, left, right);
 }
-- arr[left] = key;</code></pre>
+- arr[left] = key;
+</code></pre>
 </li>
 </ul>
 <h4 id="7-堆排序-heap-sort"><a href="#7-堆排序-heap-sort" class="headerlink" title="7. 堆排序 (heap sort)"></a>7. 堆排序 (heap sort)</h4><h5 id="7-1-堆："><a href="#7-1-堆：" class="headerlink" title="7.1. 堆："></a>7.1. 堆：</h5><ul>
@@ -402,15 +412,16 @@ public static void main(String[] args) {
 </ul>
 <h5 id="7-2-堆的基本操作："><a href="#7-2-堆的基本操作：" class="headerlink" title="7.2. 堆的基本操作："></a>7.2. 堆的基本操作：</h5><ul>
 <li><p>在大顶堆中，当一个节点的值比父节点的值要大，那么就需要交换这两个节点。交换后还可能比它新的父节点大，因此就要不断地进行比较和交换操作。把这种操作成为<strong>上浮(ShiftUp)</strong>。</p>
-<pre><code class="java">private void shiftUp(int[] data, int k) {
+<pre><code class="lang-java">private void shiftUp(int[] data, int k) {
     while(k &gt; 1 &amp;&amp; data[k] &gt; data[k/2]) {
         swap(data, k, k/2);
         k = k/2;
     }
-}</code></pre>
+}
+</code></pre>
 </li>
 <li><p>类似的，当一个节点比子节点小，那么就需要不断地向下进行比较和交换操作，这种操作叫做<strong>下沉(ShiftDown)</strong>。一个节点如果有两个子节点，那么应该与两个子节点中最大的那个节点进行交换。</p>
-<pre><code class="java">private void shiftDown(int[] data, int count, int k) {
+<pre><code class="lang-java">private void shiftDown(int[] data, int count, int k) {
     while(2*k &lt;= count) {  // 当前节点有左孩子 
         int j = 2*k;
         if(j+1 &lt;= count &amp;&amp; data[j] &lt; data[j+1])
@@ -421,30 +432,33 @@ public static void main(String[] args) {
         swap(data, k, j);
         k = j;
     }
-}</code></pre>
+}
+</code></pre>
 </li>
 <li><p>插入元素：将新元素放入数组尾部，然后执行上浮，到合适的位置</p>
-<pre><code class="java">private void insert(int[] data, int count, int item) {
+<pre><code class="lang-java">private void insert(int[] data, int count, int item) {
     //这个这样写是不对的，因为直接用了数组，到时候可以用list动态增加数组长度
     count += 1;
     data[count] = item;
     shiftUp(data, count);
-}</code></pre>
+}
+</code></pre>
 </li>
 <li><p>删除最大元素：从大顶堆中取出堆顶元素，然后将最后一个元素移到堆顶位置，再下沉到合适的位置。</p>
-<pre><code class="java">private void extractMax(int[] data, int count) {
+<pre><code class="lang-java">private void extractMax(int[] data, int count) {
     int item = data[1];   // 因为数组0位置没有存储元素
     swap(data, 1, count);
     shiftDown(data, 1);
     count -= 1;
-}</code></pre>
+}
+</code></pre>
 </li>
 </ul>
 <h5 id="7-3-堆排序："><a href="#7-3-堆排序：" class="headerlink" title="7.3. 堆排序："></a>7.3. 堆排序：</h5><ul>
 <li><p>由于大顶堆很容易得到最大的元素并删除它，不断地进行这种操作可以得到一个递减序列。如果把最大元素和当前堆数组中的最后一个元素交换位置，并且不删除它，就可以得到一个递增序列。（其实也可以构造小顶堆，和上面的方法差不多）。堆排序是原地排序，不需要额外空间。</p>
 </li>
 <li><p>把MaxHeap当作一个类，上面都是他的内部函数。</p>
-<pre><code class="java">public class HeapSort {
+<pre><code class="lang-java">public class HeapSort {
    public static void sort(int[] arr) {
       int count = arr.length;
       MaxHeap&lt;Integer[]&gt; maxHeap = new MaxHeap();
@@ -454,7 +468,8 @@ public static void main(String[] args) {
       for(int i=n-1;i&gt;=0;i++)
          arr[i] = maxHeap.extractMax(arr, count);
    }
-}</code></pre>
+}
+</code></pre>
 </li>
 </ul>
 <h4 id="8-计数排序-counting-sort"><a href="#8-计数排序-counting-sort" class="headerlink" title="8. 计数排序 (counting sort)"></a>8. 计数排序 (counting sort)</h4><ul>
@@ -509,7 +524,7 @@ public static void main(String[] args) {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568522882673"></script>
+<script src="/js/app.js?v=1568540005777"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
@@ -521,6 +536,21 @@ public static void main(String[] args) {
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 
 </html>

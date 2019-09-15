@@ -5,12 +5,12 @@
   
   <title>链表 - Sooner or Later, One Way or Another</title>
   <meta charset="UTF-8">
-  <meta name="description" content>
+  <meta name="description" content="null">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
 
-  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <link rel="shortcut icon" href="/images/favicon/4.png" type="image/png">
   <meta name="description" content="链表有一个很烦的点在于可能会对头节点进行处理。。所以时刻不能忽略头节点可能被处理的情况。">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
@@ -24,13 +24,15 @@
 <meta name="twitter:title" content="链表">
 <meta name="twitter:description" content="链表有一个很烦的点在于可能会对头节点进行处理。。所以时刻不能忽略头节点可能被处理的情况。">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+  <link rel="stylesheet" href="https://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css">
    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   
   
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1412554_24vsf7gc7r1.css">
+  
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568522882723">
+  <link rel="stylesheet" href="/css/style.css?v=1568540005814">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -55,7 +57,7 @@
     </div>
     <div class="nexmoe-count">
         <div><span>文章</span>19</div>
-        <div><span>标签</span>6</div>
+        <div><span>标签</span>8</div>
         <div><span>分类</span>5</div>
     </div>
     <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -87,7 +89,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">社交按钮</h3>
     <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+        <a class="mdui-ripple" href="https://space.bilibili.com/18781994" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
             <i class="nexmoefont icon-bilibili"></i>
         </a><a class="mdui-ripple" href="https://github.com/alyssaasa/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
             <i class="nexmoefont icon-github"></i>
@@ -154,7 +156,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud">
-      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
+      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/二分查找/" style="font-size: 10px;">二分查找</a> <a href="/tags/时间复杂度/" style="font-size: 10px;">时间复杂度</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
     </div>
     
   </div>
@@ -188,17 +190,17 @@
   <article>
     <p>链表有一个很烦的点在于可能会对头节点进行处理。。所以时刻不能忽略头节点可能被处理的情况。</p>
 <a id="more"></a>
-
-<pre><code class="java">class ListNode {
+<pre><code class="lang-java">class ListNode {
     int val;
     ListNode next;
     ListNode(int x) { val = x; }
-}</code></pre>
+}
+</code></pre>
 <h5 id="1-在o-1-时间内删除链表节点，给定头节点和要删除节点。"><a href="#1-在o-1-时间内删除链表节点，给定头节点和要删除节点。" class="headerlink" title="1. 在o(1)时间内删除链表节点，给定头节点和要删除节点。"></a>1. 在o(1)时间内删除链表节点，给定头节点和要删除节点。</h5><ul>
 <li>知道要删除的节点，要从头开始遍历找到他前面的结点，才能删除该节点。</li>
 <li>把要删节点的下一个节点的值赋值给要删除的节点，然后删除要删节点的下一个节点</li>
 </ul>
-<pre><code class="java">public void deleteNode(ListNode head, ListNode node) {
+<pre><code class="lang-java">public void deleteNode(ListNode head, ListNode node) {
     if(head==null || node==null)
         return;
     if(node.next!=null) {
@@ -212,12 +214,13 @@
             pre_node = pre_node.next;
         pre_node.next = null;
     }  
-}</code></pre>
+}
+</code></pre>
 <h5 id="2-leetcode-83-删除已排序链表中重复的节点"><a href="#2-leetcode-83-删除已排序链表中重复的节点" class="headerlink" title="2. leetcode 83. 删除已排序链表中重复的节点"></a>2. <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/" target="_blank" rel="noopener">leetcode 83. 删除已排序链表中重复的节点</a></h5><ul>
 <li>题意：输入：<code>1-&gt;2-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5</code>   输出：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code></li>
 <li>从前向后遍历，设立两个指针pre， post。pre指向重复位置的第一个节点，post指向重复的最后一个节点，然后将他们相连即可。</li>
 </ul>
-<pre><code class="java">public ListNode deleteDuplicates(ListNode head) {
+<pre><code class="lang-java">public ListNode deleteDuplicates(ListNode head) {
     ListNode pre = head;
     ListNode post = head;
     while(post!=null) {
@@ -228,7 +231,8 @@
         post = post.next;
     }
     return head;
-}</code></pre>
+}
+</code></pre>
 <h5 id="3-Leetcode-82-删除已排序链表中重复的节点"><a href="#3-Leetcode-82-删除已排序链表中重复的节点" class="headerlink" title="3. Leetcode 82. 删除已排序链表中重复的节点"></a>3. <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/" target="_blank" rel="noopener">Leetcode 82. 删除已排序链表中重复的节点</a></h5><ul>
 <li>题意：输入：<code>1-&gt;1-&gt;2-&gt;2-&gt;3-&gt;6-&gt;4-&gt;4-&gt;5</code>   输出：<code>3-&gt;6-&gt;5</code></li>
 <li>和之前的不同，这个因为要把重复的都删掉，那么头节点也会有重复的，所以要多设置一个开始节点start</li>
@@ -236,7 +240,7 @@
 <li><strong>要学会设置计数变量，计数变量有很多好处，到处都用得到，辅助空间o(1)，还能有很大作用</strong></li>
 <li>但是这个代码的还是很耗时的，有待优化。</li>
 </ul>
-<pre><code class="java">public ListNode deleteDuplicates(ListNode head) {
+<pre><code class="lang-java">public ListNode deleteDuplicates(ListNode head) {
     ListNode start = new ListNode(0);
     start.next = head;
     ListNode pre = start;
@@ -256,13 +260,14 @@
     }
     pre.next=post;
       return start.next;
-}</code></pre>
+}
+</code></pre>
 <h5 id="4-leetcode-19-移除链表中倒数第n个节点"><a href="#4-leetcode-19-移除链表中倒数第n个节点" class="headerlink" title="4. leetcode 19. 移除链表中倒数第n个节点"></a>4. <a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">leetcode 19. 移除链表中倒数第n个节点</a></h5><ul>
 <li>题意：输入：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code>,   <code>n=2</code>.   输出：<code>1-&gt;2-&gt;3-&gt;5</code></li>
 <li><strong>因为要移除的可能是头指针，所以要定义一个指针指向头节点</strong></li>
 <li>思路1：遍历一遍，知道链表长度，第二次遍历到<code>length-n-1</code>的时候，<code>node.next = node.next.next</code> 即可。</li>
 </ul>
-<pre><code class="java">public ListNode removeNthFromEnd(ListNode head, int n) {
+<pre><code class="lang-java">public ListNode removeNthFromEnd(ListNode head, int n) {
     ListNode start = new ListNode(0);
       start.next = head;
     ListNode node1 = next;
@@ -279,11 +284,12 @@
     else if(node2.next.next==null) node2.next = null; 
     else node2.next = node2.next.next;
     return start.next;
-}</code></pre>
+}
+</code></pre>
 <ul>
 <li>思路2：要想只遍历一遍链表，需要定义两个指针，当第一个指针走n次之后，两个指针一起走，第一个指针指向链表尾部时，第二个链表指向要删除的前一个位置。然后<code>node.next = node.next.next</code> 即可。</li>
 </ul>
-<pre><code class="java">public ListNode removeNthFromEnd(ListNode head, int n) {
+<pre><code class="lang-java">public ListNode removeNthFromEnd(ListNode head, int n) {
     ListNode start = new ListNode(0);
      start.next = head;
     ListNode node1 = start;
@@ -297,7 +303,8 @@
     if(node2.next.next==null) node2.next=null;
     else node2.next = node2.next.next;
     return start.next;
-} </code></pre>
+}
+</code></pre>
 <h5 id="5-leetcode-876-输出链表的中间节点"><a href="#5-leetcode-876-输出链表的中间节点" class="headerlink" title="5. leetcode 876. 输出链表的中间节点"></a>5. <a href="https://leetcode.com/problems/middle-of-the-linked-list/" target="_blank" rel="noopener">leetcode 876. 输出链表的中间节点</a></h5><ul>
 <li>如果链表长度为奇数，输出中间一个：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code>, 输出为：<code>3</code></li>
 <li>如果链表长度为偶数，输出中间两个的第二个：<code>1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;6</code>, 输出为：<code>4</code></li>
@@ -305,7 +312,7 @@
 <li>但不同点在于，知道n就知道差几了，这个完全不知道链表长度啊！</li>
 <li>快慢指针赛跑，快指针一次走两步，慢指针一次走一步，快指针到链表尾时，慢指针指向中间节点</li>
 </ul>
-<pre><code class="java">public ListNode middleNode(ListNode head) {
+<pre><code class="lang-java">public ListNode middleNode(ListNode head) {
     ListNode fast = head;
     ListNode slow = head;
     while(fast!=null &amp;&amp; fast.next!=null) {
@@ -313,14 +320,15 @@
         slow = slow.next;
     }
     return slow;
-}</code></pre>
+}
+</code></pre>
 <p><strong>举一反三：当我们用一个指针遍历链表不能解决问题的时候，可以尝试用两个指针来遍历链表。可以让其中一个指针遍历的速度快一些，或者让它在链表上先走若干步。</strong></p>
 <h5 id="6-leetcode-206-链表反转"><a href="#6-leetcode-206-链表反转" class="headerlink" title="6. leetcode 206. 链表反转"></a>6. <a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" rel="noopener">leetcode 206. 链表反转</a></h5><ul>
 <li>定义一个new_head, 用在开头，每次在new_head之后插入节点。</li>
 <li>Ori: 1-&gt;2-&gt;3-&gt;4</li>
 <li>New: new_head-&gt;1;   new_head-&gt;2-&gt;1;  new_head-&gt;3-&gt;2-&gt;1;  new_head-&gt;4-&gt;3-&gt;2-&gt;1</li>
 </ul>
-<pre><code class="java">public ListNode reverseList(ListNode head) {
+<pre><code class="lang-java">public ListNode reverseList(ListNode head) {
     ListNode new_head = new ListNode(0);
     while(head!=null) {
         ListNode tmp = head.next;
@@ -329,7 +337,8 @@
         head = tmp;
     }
     return new_head.next;
-}</code></pre>
+}
+</code></pre>
 
   </article>
   
@@ -368,7 +377,7 @@
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568522882734"></script>
+<script src="/js/app.js?v=1568540005821"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
@@ -380,6 +389,21 @@
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 
 </html>
