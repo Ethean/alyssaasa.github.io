@@ -20,7 +20,7 @@
 <meta property="og:description" content="时间复杂度问题是非常重要的问题，尤其是在面试的时候，去公司工作，大部分程序员都非常注重节省时间或者空间，不单单是完成一道题就行了的。不管是开发岗还是算法岗。今年找工作的时候大部分的算法题都会问到时间复杂度是多少，或者有没有更快的方法。然而自己没有太注重这个方面，所以栽了很多坑🕳。。还是自己太菜。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/tree.png">
-<meta property="og:updated_time" content="2019-09-15T09:32:59.352Z">
+<meta property="og:updated_time" content="2019-09-26T16:32:41.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="时间复杂度问题">
 <meta name="twitter:description" content="时间复杂度问题是非常重要的问题，尤其是在面试的时候，去公司工作，大部分程序员都非常注重节省时间或者空间，不单单是完成一道题就行了的。不管是开发岗还是算法岗。今年找工作的时候大部分的算法题都会问到时间复杂度是多少，或者有没有更快的方法。然而自己没有太注重这个方面，所以栽了很多坑🕳。。还是自己太菜。">
@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1412554_24vsf7gc7r1.css">
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1569514868607">
+  <link rel="stylesheet" href="/css/style.css?v=1569518065130">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -174,7 +174,7 @@
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月02日</a>
-    <a><i class="nexmoefont icon-areachart"></i>2,969 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>2,971 字</a>
     
       <a class="nexmoefont icon-appstore-fill -link" href="/categories/算法/">算法</a>
     
@@ -185,7 +185,7 @@
   <article>
     <p>时间复杂度问题是非常重要的问题，尤其是在面试的时候，去公司工作，大部分程序员都非常注重节省时间或者空间，不单单是完成一道题就行了的。不管是开发岗还是算法岗。今年找工作的时候大部分的算法题都会问到时间复杂度是多少，或者有没有更快的方法。然而自己没有太注重这个方面，所以栽了很多坑🕳。。还是自己太菜。</p>
 <a id="more"></a>
-<h4 id="🌈-时间复杂度"><a href="#🌈-时间复杂度" class="headerlink" title="🌈. 时间复杂度"></a>🌈. 时间复杂度</h4><h5 id="1-一遍循环：O-n"><a href="#1-一遍循环：O-n" class="headerlink" title="1. 一遍循环：O(n)"></a>1. 一遍循环：O(n)</h5><h5 id="2-嵌套两遍循环：O-n-n"><a href="#2-嵌套两遍循环：O-n-n" class="headerlink" title="2. 嵌套两遍循环：O(n*n)"></a>2. 嵌套两遍循环：O(n*n)</h5><pre><code class="lang-java">for(int i=0;i&lt;n;i++) 
+<h3 id="🌈-时间复杂度"><a href="#🌈-时间复杂度" class="headerlink" title="🌈. 时间复杂度"></a>🌈. 时间复杂度</h3><h5 id="1-一遍循环：O-n"><a href="#1-一遍循环：O-n" class="headerlink" title="1. 一遍循环：O(n)"></a>1. 一遍循环：O(n)</h5><h5 id="2-嵌套两遍循环：O-n-n"><a href="#2-嵌套两遍循环：O-n-n" class="headerlink" title="2. 嵌套两遍循环：O(n*n)"></a>2. 嵌套两遍循环：O(n*n)</h5><pre><code class="lang-java">for(int i=0;i&lt;n;i++) 
     for(int j=0;j&lt;n;j++)
         .....
 </code></pre>
@@ -204,7 +204,7 @@
 <li>如果 k 大于 index，那么执行 <code>G</code> 侧的递归即可，这时需要访问的节点数为 <code>n/4</code>。 </li>
 <li>二叉树的深度为 <code>log(n+1)</code> ， 那么一共需要：<script type="math/tex">n + \frac{n}{2} + \frac{n}{4} +...+ \frac{n}{2^{log(n+1)-1}} = \frac{2n^2}{n+1} = O(n)</script></li>
 </ul>
-<h4 id="🌈-例题"><a href="#🌈-例题" class="headerlink" title="🌈. 例题"></a>🌈. 例题</h4><h5 id="1-leetcode-169-找出数组中出现次数大于一半的元素"><a href="#1-leetcode-169-找出数组中出现次数大于一半的元素" class="headerlink" title="1.  leetcode 169. 找出数组中出现次数大于一半的元素"></a>1.  <a href="https://leetcode.com/problems/majority-element/" target="_blank" rel="noopener">leetcode 169. 找出数组中出现次数大于一半的元素</a></h5><pre><code class="lang-java">给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
+<h3 id="🌈-相关例题"><a href="#🌈-相关例题" class="headerlink" title="🌈. 相关例题"></a>🌈. 相关例题</h3><h5 id="1-leetcode-169-找出数组中出现次数大于一半的元素"><a href="#1-leetcode-169-找出数组中出现次数大于一半的元素" class="headerlink" title="1.  leetcode 169. 找出数组中出现次数大于一半的元素"></a>1.  <a href="https://leetcode.com/problems/majority-element/" target="_blank" rel="noopener">leetcode 169. 找出数组中出现次数大于一半的元素</a></h5><pre><code class="lang-java">给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
 你可以假设数组是非空的，并且给定的数组总是存在众数。
 </code></pre>
 <ul>
@@ -464,7 +464,7 @@ class RandomizedSet {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1569514868615"></script>
+<script src="/js/app.js?v=1569518065137"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
