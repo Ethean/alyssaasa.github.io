@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Sooner or Later, One Way or Another">
 <meta property="og:description" content="回溯法：实现某个元素选或不选的问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-14T12:36:02.068Z">
+<meta property="og:updated_time" content="2019-09-26T16:07:49.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回溯算法">
 <meta name="twitter:description" content="回溯法：实现某个元素选或不选的问题。">
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1412554_24vsf7gc7r1.css">
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1569500435686">
+  <link rel="stylesheet" href="/css/style.css?v=1569514104879">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -172,7 +172,7 @@
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月08日</a>
-    <a><i class="nexmoefont icon-areachart"></i>878 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>1,684 字</a>
     
       <a class="nexmoefont icon-appstore-fill -link" href="/categories/算法/">算法</a>
     
@@ -188,7 +188,32 @@
 <li>将当前元素拿出，再进行一次不放入该元素，递归的进行后续元素的选择。</li>
 <li><strong>本来选择放入，再选择不放入的过程，称为回溯试探法。</strong></li>
 <li>回溯就是，返回之前的状态，再进行一次递归。</li>
+<li>回溯问题的求解一般流程：</li>
 </ul>
+<pre><code class="lang-java">List&lt;List&lt;Object&gt;&gt; res = new ArrayList();
+
+public void backtracking(字符串 或 数组, int index, List&lt;Object&gt; tmp....) {
+    if(不满足条件) return;
+    if(满足条件) {
+        res.add(new ArrayList(tmp)); // 将结果存在最终的List&lt;List&lt;Object&gt;&gt; 里面
+        return; // 返回
+    }
+    for(int j=?;j&lt;arr.length();j++) {  // 根据需要确定循环条件
+        tmp.add(某一部分);
+        记录当前状态S1
+        更新状态为S2
+        backtracking(用状态S2回溯);
+        tmp.remove(tmp.size()-1); // 移除添加的元素
+        回到状态S1
+    }
+}
+
+public List&lt;List&lt;Object&gt;&gt; main(字符串 或 数组) {
+    List&lt;Object&gt; tmp = new ArrayList();
+    backtracking(需要传递的参数值。一般有源参数，index, tmp....);
+    return res;
+}
+</code></pre>
 <h5 id="1-leetcode-78-求子集-Subsets"><a href="#1-leetcode-78-求子集-Subsets" class="headerlink" title="1. leetcode 78. 求子集 Subsets"></a>1. <a href="https://leetcode.com/problems/subsets/" target="_blank" rel="noopener">leetcode 78. 求子集 Subsets</a></h5><pre><code class="lang-java">Given a set of distinct integers, nums, return all possible subsets.
 Input: nums = [1,2,3]
 Output:
@@ -351,8 +376,7 @@ public List&lt;List&lt;Integer&gt;&gt; permuteUnique(int[] nums) {
     return result;
 }
 </code></pre>
-<h5 id="5-leetcode-39-和为target的所有组合，可重复-Combination-Sum"><a href="#5-leetcode-39-和为target的所有组合，可重复-Combination-Sum" class="headerlink" title="5. leetcode 39. 和为target的所有组合，可重复 Combination Sum"></a>5. <a href="https://leetcode.com/problems/combination-sum/" target="_blank" rel="noopener">leetcode 39. 和为target的所有组合，可重复 Combination Sum</a></h5><pre><code class="lang-java">Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.
-
+<h5 id="5-leetcode-39-和为target的所有组合，选择的元素可重复-Combination-Sum"><a href="#5-leetcode-39-和为target的所有组合，选择的元素可重复-Combination-Sum" class="headerlink" title="5. leetcode 39. 和为target的所有组合，选择的元素可重复 Combination Sum"></a>5. <a href="https://leetcode.com/problems/combination-sum/" target="_blank" rel="noopener">leetcode 39. 和为target的所有组合，选择的元素可重复 Combination Sum</a></h5><pre><code class="lang-java">Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.
 The same repeated number may be chosen from candidates unlimited number of times.
 
 Input: candidates = [2,3,6,7], target = 7,
@@ -362,6 +386,12 @@ A solution set is:
   [2,2,3]
 ]
 </code></pre>
+<ul>
+<li>因为元素可以重复使用，所以backtracking时从 <code>i</code> 开始即可。</li>
+<li>而且原始数组中无重复元素，所以直接用list即可，否则使用set.</li>
+<li>类似题目1：<a href="https://leetcode.com/problems/combination-sum-ii/" target="_blank" rel="noopener">leetcode 40. Combination Sum II</a> : 元素不可重复使用：backtracking时从 <code>i+1</code> 开始；原始数组有重复元素：使用set即可。</li>
+<li>类似题目2：<a href="https://leetcode.com/problems/combination-sum-iii/" target="_blank" rel="noopener">leetcode 216. Combination Sum III</a>：直接初始化原始数组为0-9、判断条件多加一条即可。</li>
+</ul>
 <pre><code class="lang-java">List&lt;List&lt;Integer&gt;&gt; result = new ArrayList();
 
 public void backtracking(int[] nums, int index, int target, int sum, List&lt;Integer&gt; tmp_res) {
@@ -384,6 +414,101 @@ public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int targ
     List&lt;Integer&gt; tmp_res = new ArrayList();
     backtracking(candidates,0, target, 0, tmp_res);
     return result;
+}
+</code></pre>
+<h5 id="6-leetcode-131-Palindrome-Partitioning"><a href="#6-leetcode-131-Palindrome-Partitioning" class="headerlink" title="6. leetcode 131. Palindrome Partitioning"></a>6. <a href="https://leetcode.com/problems/palindrome-partitioning/" target="_blank" rel="noopener">leetcode 131. Palindrome Partitioning</a></h5><pre><code class="lang-java">Given a string s, partition s such that every substring of the partition is a palindrome.
+分区s使得分区的每个子字符串都是回文.
+Return all possible palindrome partitioning of s.
+
+Input: &quot;aab&quot;
+Output:
+[
+  [&quot;aa&quot;,&quot;b&quot;],
+  [&quot;a&quot;,&quot;a&quot;,&quot;b&quot;]
+]
+</code></pre>
+<ul>
+<li>就是从头开始找回文串，找到一个就放进List里，再判断后面是不是回文串就行了。</li>
+<li>回溯都是有模板的，先把模板写出来，然后再填充具体需要判断的内容，就会思路清晰很多。</li>
+</ul>
+<pre><code class="lang-java">List&lt;List&lt;String&gt;&gt; res = new ArrayList();
+
+public boolean isplindrome(String s) {
+    int begin = 0, end = s.length()-1;
+    while(begin&lt;=end) {
+        if(s.charAt(begin)==s.charAt(end)) {
+            begin += 1;
+            end -= 1;
+        }
+        else return false;
+    }
+    return true;
+}
+
+public void backtracking(String s, List&lt;String&gt; tmp) {
+    if(s.length()==0) {
+        res.add(new ArrayList(tmp));
+        return;
+    }
+    for(int j=0;j&lt;s.length();j++) {
+        if(isplindrome(s.substring(0, j+1))) {
+            tmp.add(s.substring(0, j+1));
+            String tmp_s = s;
+            s = s.substring(j+1, s.length());
+            backtracking(s, tmp);
+            tmp.remove(tmp.size()-1);
+            s = tmp_s;
+        }
+    }
+}
+
+public List&lt;List&lt;String&gt;&gt; partition(String s) {
+    List&lt;String&gt; tmp = new ArrayList();
+    backtracking(s, tmp);
+    return res;
+}
+</code></pre>
+<h5 id="7-leetcode-842-Split-Array-into-Fibonacci-Sequence"><a href="#7-leetcode-842-Split-Array-into-Fibonacci-Sequence" class="headerlink" title="7. leetcode 842. Split Array into Fibonacci Sequence"></a>7. <a href="https://leetcode.com/problems/split-array-into-fibonacci-sequence/" target="_blank" rel="noopener">leetcode 842. Split Array into Fibonacci Sequence</a></h5><pre><code class="lang-java">Given a string S of digits, such as S = &quot;123456579&quot;, we can split it into a Fibonacci-like sequence [123, 456, 579].
+(F.length &gt;= 3) and (F[i] + F[i+1] = F[i+2] for all 0 &lt;= i &lt; F.length - 2).
+每个数字不能有前导0.除非单独一个0
+
+Input: &quot;11235813&quot;    Output: [1,1,2,3,5,8,13]
+Input: &quot;112358130&quot;   Output: []
+Input: &quot;0123&quot;        Output: []
+</code></pre>
+<ul>
+<li><p><code>try catch</code> 主要是应对字符串长度过长，超出整数的范围。</p>
+</li>
+<li><p>本来写了三重循环，因为不知道初始的那两个元素怎么加到res里。后来发现：</p>
+<p><code>if(res.size()&lt;2||res.get(len-1)+res.get(len-2)==value)</code>，用  <code>res.size()&lt;2</code> 判断一下就行了呀</p>
+</li>
+</ul>
+<pre><code class="lang-java">List&lt;Integer&gt; res = new ArrayList();
+public  boolean backtracking(String S, int k) {
+    if(k&gt;=S.length() &amp;&amp; res.size()&gt;2) return true;
+    else if(k&gt;=S.length()) return false;
+    int len = res.size();
+    for(int i=k;i&lt;S.length();i++) {
+        if(i&gt;k &amp;&amp; S.charAt(k)==&#39;0&#39;) // 前导0
+            return false;
+        int value = 0;
+        try{value = Integer.parseInt(S.substring(k, i+1));}
+        catch(Exception e) {return false;}
+        if(len&lt;2 || res.get(len-1)+res.get(len-2)==value) {
+            res.add(value);
+            boolean flag = backtracking(S, i+1);
+            if(flag) return true;
+            res.remove(res.size()-1);
+        }
+        else if(res.get(len-1)+res.get(len-2)&lt;value) // 提前结束
+            return false;
+    }
+    return false;
+}
+
+public  List&lt;Integer&gt; splitIntoFibonacci(String S) {
+    backtracking(S, 0);
+    return res;
 }
 </code></pre>
 
@@ -422,7 +547,7 @@ public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int targ
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1569500435694"></script>
+<script src="/js/app.js?v=1569514104886"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
