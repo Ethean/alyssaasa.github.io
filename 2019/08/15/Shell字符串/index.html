@@ -1,194 +1,337 @@
 <!DOCTYPE html>
-<html>
 
-<head><meta name="generator" content="Hexo 3.9.0">
-  
-  <title>Shell字符串 - Sooner or Later, One Way or Another</title>
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
   <meta charset="UTF-8">
-  <meta name="description" content="null">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/2.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/1.png?v=7.3.0">
 
-  <link rel="shortcut icon" href="/images/favicon/4.png" type="image/png">
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":"mac"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
   <meta name="description" content="Shell字符串">
 <meta name="keywords" content="Shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell字符串">
 <meta property="og:url" content="http://yoursite.com/2019/08/15/Shell字符串/index.html">
-<meta property="og:site_name" content="Sooner or Later, One Way or Another">
+<meta property="og:site_name" content="Sooner or Later">
 <meta property="og:description" content="Shell字符串">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-09-14T12:35:37.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell字符串">
 <meta name="twitter:description" content="Shell字符串">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
-  <link rel="stylesheet" href="https://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css"> 
-   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  <link rel="canonical" href="http://yoursite.com/2019/08/15/Shell字符串/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Shell字符串 | Sooner or Later</title>
   
-  
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1412554_24vsf7gc7r1.css">
-  
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1569518065266">
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-<body class="mdui-drawer-body-left">
-  
-  <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(/images/bg/2.jpg)"></div>
-    <div class="mdui-appbar mdui-shadow-0">
-      <div class="mdui-toolbar">
-        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
-        <div class="mdui-toolbar-spacer"></div>
-        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-        <a href="/" title="Alyssa" class="mdui-btn mdui-btn-icon"><img src="/images/toux.jpg"></a>
-       </div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Sooner or Later</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+        <p class="site-subtitle">One Way or Another</p>
+      
   </div>
-  <div id="nexmoe-header">
-      <div class="nexmoe-drawer mdui-drawer" id="drawer">
-    <div class="nexmoe-avatar mdui-ripple">
-        <a href="/" title="Alyssa">
-            <img src="/images/toux.jpg" alt="Alyssa">
-        </a>
-    </div>
-    <div class="nexmoe-count">
-        <div><span>文章</span>19</div>
-        <div><span>标签</span>8</div>
-        <div><span>分类</span>5</div>
-    </div>
-    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
-            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
-            <div class="mdui-list-item-content">
-                回到首页
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
-            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
-            <div class="mdui-list-item-content">
-                关于博客
-            </div>
-        </a>
-        
-    </ul>
-    <aside id="nexmoe-sidebar">
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">社交按钮</h3>
-    <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="https://space.bilibili.com/18781994" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
-            <i class="nexmoefont icon-bilibili"></i>
-        </a><a class="mdui-ripple" href="https://github.com/alyssaasa/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
-            <i class="nexmoefont icon-github"></i>
-        </a>
-    </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
+
+
+<nav class="site-nav">
   
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章分类</h3>
-    <div class="nexmoe-widget">
-
-      <ul class="category-list">
-
+  <ul id="menu" class="menu">
+      
+      
+      
         
+        <li class="menu-item menu-item-home">
+      
+    
 
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
+  </li>
+      
+      
+      
         
+        <li class="menu-item menu-item-archives">
+      
+    
 
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
         
+        <li class="menu-item menu-item-categories">
+      
+    
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Hexo/">Hexo</a>
-          <span class="category-list-count">1</span>
-        </li>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
+  </li>
+      
+      
+      
         
+        <li class="menu-item menu-item-tags">
+      
+    
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Shell/">Shell</a>
-          <span class="category-list-count">2</span>
-        </li>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
+  </li>
+      
+      
+      
         
+        <li class="menu-item menu-item-about">
+      
+    
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/机器学习/">机器学习</a>
-          <span class="category-list-count">1</span>
-        </li>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
         
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/深度学习/">深度学习</a>
-          <span class="category-list-count">2</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/算法/">算法</a>
-          <span class="category-list-count">13</span>
-        </li>
-
-        
-      </ul>
-
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup">
+  <div class="search-header">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <div class="search-input-wrapper">
+      <input autocomplete="off" autocorrect="off" autocapitalize="none"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="search-input">
     </div>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
   </div>
+  <div id="search-result"></div>
+</div>
 
 
-  
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">标签云</h3>
-    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
-      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/二分查找/" style="font-size: 10px;">二分查找</a> <a href="/tags/时间复杂度/" style="font-size: 10px;">时间复杂度</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
-    </div>
-    
   </div>
+</div>
+    </header>
 
-  
-  
+    
 
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post" itemscope itemtype="http://schema.org/Article">
   
-</aside>
-</div><!-- .nexmoe-drawer -->
-  </div>
-  <div id="nexmoe-content">
-    <div class="nexmoe-primary">
-        <div class="nexmoe-post">
-    <div class="nexmoe-post-cover"> 
-        
-        <img src="/images/bg/bg.png">
-        
-        <h1>Shell字符串</h1>
-    </div>
-  <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月15日</a>
-    <a><i class="nexmoefont icon-areachart"></i>1,018 字</a>
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/Shell字符串/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alyssa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/toux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sooner or Later">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Shell字符串
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-15 23:38:10" itemprop="dateCreated datePublished" datetime="2019-08-15T23:38:10+08:00">2019-08-15</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-14 20:35:37" itemprop="dateModified" datetime="2019-09-14T20:35:37+08:00">2019-09-14</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/Shell/">Shell</a>
     
     
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/Shell/">Shell</a>
-    
-  </div>
-  <article>
-    <p>Shell字符串</p>
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Shell字符串</p>
 <a id="more"></a>
 <h4 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h4><p>字符串可以由单引号<code>&#39; &#39;</code>包围，也可以由双引号<code>&quot; &quot;</code>包围，也可以不用引号。</p>
 <p>字符串举例：</p>
-<pre><code>str1=alyssaasa.github.io
-str2=&quot;shell script&quot;
-str3=&#39;Shell字符串&#39;
-</code></pre><p>三种形式的区别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str1=alyssaasa.github.io</span><br><span class="line">str2=&quot;shell script&quot;</span><br><span class="line">str3=&apos;Shell字符串&apos;</span><br></pre></td></tr></table></figure>
+<p>三种形式的区别：</p>
 <ol>
 <li><p>由单引号<code>&#39;&#39;</code>包围的字符串：</p>
 <ul>
@@ -209,46 +352,18 @@ str3=&#39;Shell字符串&#39;
 </ul>
 </li>
 </ol>
-<pre><code>#!/bin/bash
-n=74
-str1=c.biancheng.net$n 
-str2=&quot;shell \&quot;script\&quot; $n&quot;
-str3=&#39;C语言中文网 $n&#39;
-echo $str1
-echo $str2
-echo $str3
-</code></pre><p>运行结果：</p>
-<pre><code>c.biancheng.net74
-shell &quot;script&quot; 74
-C语言中文网 $n
-</code></pre><h4 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h4><pre><code>${#string_name}    其中string_name为字符串名字
-</code></pre><p>举例：</p>
-<pre><code>#! /bin/bash
-
-str = &quot;http://alyssaasa.github.io&quot;
-echo ${#str}
-</code></pre><p>运行结果：<code>26</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">n=74</span><br><span class="line">str1=c.biancheng.net$n </span><br><span class="line">str2=&quot;shell \&quot;script\&quot; $n&quot;</span><br><span class="line">str3=&apos;C语言中文网 $n&apos;</span><br><span class="line">echo $str1</span><br><span class="line">echo $str2</span><br><span class="line">echo $str3</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c.biancheng.net74</span><br><span class="line">shell &quot;script&quot; 74</span><br><span class="line">C语言中文网 $n</span><br></pre></td></tr></table></figure>
+<h4 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#string_name&#125;    其中string_name为字符串名字</span><br></pre></td></tr></table></figure>
+<p>举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"></span><br><span class="line">str = &quot;http://alyssaasa.github.io&quot;</span><br><span class="line">echo $&#123;#str&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<code>26</code></p>
 <h4 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a>字符串的拼接</h4><p>不需要使用任何运算符，将两个字符串并排放在一起就能实现拼接</p>
-<pre><code>#!/bin/bash
-name=&quot;Shell&quot;
-url=&quot;http://c.biancheng.net/shell/&quot;
-str1=$name$url          # 中间不能有空格
-str2=&quot;$name $url&quot;   # 如果被双引号包围，那么中间可以有空格
-str3=$name&quot;: &quot;$url  # 中间可以出现别的字符串
-str4=&quot;$name: $url&quot;  # 这样写也可以
-str5=&quot;${name}Script: ${url}index.html&quot;  # 这个时候需要给变量名加上大括号,帮助解释器识别变量的边界
-echo $str1
-echo $str2
-echo $str3
-echo $str4
-echo $str5
-</code></pre><p>运行结果：</p>
-<pre><code>Shellhttp://c.biancheng.net/shell/
-Shell http://c.biancheng.net/shell/
-Shell: http://c.biancheng.net/shell/
-Shell: http://c.biancheng.net/shell/
-ShellScript: http://c.biancheng.net/shell/index.html
-</code></pre><h4 id="字符串的截取"><a href="#字符串的截取" class="headerlink" title="字符串的截取"></a>字符串的截取</h4><ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">name=&quot;Shell&quot;</span><br><span class="line">url=&quot;http://c.biancheng.net/shell/&quot;</span><br><span class="line">str1=$name$url  		# 中间不能有空格</span><br><span class="line">str2=&quot;$name $url&quot;   # 如果被双引号包围，那么中间可以有空格</span><br><span class="line">str3=$name&quot;: &quot;$url  # 中间可以出现别的字符串</span><br><span class="line">str4=&quot;$name: $url&quot;  # 这样写也可以</span><br><span class="line">str5=&quot;$&#123;name&#125;Script: $&#123;url&#125;index.html&quot;  # 这个时候需要给变量名加上大括号,帮助解释器识别变量的边界</span><br><span class="line">echo $str1</span><br><span class="line">echo $str2</span><br><span class="line">echo $str3</span><br><span class="line">echo $str4</span><br><span class="line">echo $str5</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Shellhttp://c.biancheng.net/shell/</span><br><span class="line">Shell http://c.biancheng.net/shell/</span><br><span class="line">Shell: http://c.biancheng.net/shell/</span><br><span class="line">Shell: http://c.biancheng.net/shell/</span><br><span class="line">ShellScript: http://c.biancheng.net/shell/index.html</span><br></pre></td></tr></table></figure>
+<h4 id="字符串的截取"><a href="#字符串的截取" class="headerlink" title="字符串的截取"></a>字符串的截取</h4><ul>
 <li><p><strong>从指定位置开始截取</strong></p>
 <p>这种方式需要两个参数：除了指定起始位置，还需要截取长度，才能最终确定要截取的字符串。</p>
 <ol>
@@ -259,13 +374,9 @@ ShellScript: http://c.biancheng.net/shell/index.html
 <li><p>start: 起始位置 （从左边开始，从 0 开始计数）</p>
 </li>
 <li><p>length 是要截取的长度（省略的话表示直到字符串的末尾）</p>
-<pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 2: 9}
-结果：biancheng
-</code></pre><pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 2}  # 省略 length，截取到字符串末尾
-结果：biancheng.net
-</code></pre></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url=&quot;c.biancheng.net&quot;</span><br><span class="line">echo $&#123;url: 2: 9&#125;</span><br><span class="line">结果：biancheng</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url=&quot;c.biancheng.net&quot;</span><br><span class="line">echo $&#123;url: 2&#125;  # 省略 length，截取到字符串末尾</span><br><span class="line">结果：biancheng.net</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 <li><p><strong>从字符串左边开始计数：</strong><code>${string:0-start:length}</code></p>
@@ -275,13 +386,9 @@ echo ${url: 2}  # 省略 length，截取到字符串末尾
 <li><p><strong>从左边开始计数时，起始数字是 0；从右边开始计数时，起始数字是 1。</strong></p>
 </li>
 <li><p>不管从哪边开始计数，截取方向都是从左到右。</p>
-<pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 0-13: 9}
-结果：biancheng  # 从右边数，b 是第 13 个字符。
-</code></pre><pre><code>url=&quot;c.biancheng.net&quot;
-echo ${url: 0-13}  # 省略 length，直接截取到字符串末尾
-结果：biancheng.net
-</code></pre></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url=&quot;c.biancheng.net&quot;</span><br><span class="line">echo $&#123;url: 0-13: 9&#125;</span><br><span class="line">结果：biancheng  # 从右边数，b 是第 13 个字符。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url=&quot;c.biancheng.net&quot;</span><br><span class="line">echo $&#123;url: 0-13&#125;  # 省略 length，直接截取到字符串末尾</span><br><span class="line">结果：biancheng.net</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ol>
@@ -299,13 +406,10 @@ echo ${url: 0-13}  # 省略 length，直接截取到字符串末尾
 <li><p><code>*</code>：通配符的一种，表示任意长度的字符串</p>
 </li>
 <li><p><code>*chars</code>  连起来使用的意思是：忽略左边的所有字符，直到遇见 chars（chars 不会被截取）</p>
-<pre><code>url=&quot;http://c.biancheng.net/index.html&quot;
-echo ${url#*:}
-结果：//c.biancheng.net/index.html
-</code></pre><p>以下写法也会得到同样的结果：</p>
-<pre><code>echo ${url#*p:}
-echo ${url#*ttp:}
-</code></pre><p><a href="http://c.biancheng.net/view/1120.html" target="_blank" rel="noopener">http://c.biancheng.net/view/1120.html</a> 太多了，以后用得到的时候再写。。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url=&quot;http://c.biancheng.net/index.html&quot;</span><br><span class="line">echo $&#123;url#*:&#125;</span><br><span class="line">结果：//c.biancheng.net/index.html</span><br></pre></td></tr></table></figure>
+<p>以下写法也会得到同样的结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo $&#123;url#*p:&#125;</span><br><span class="line">echo $&#123;url#*ttp:&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://c.biancheng.net/view/1120.html" target="_blank" rel="noopener">http://c.biancheng.net/view/1120.html</a> 太多了，以后用得到的时候再写。。</p>
 </li>
 </ul>
 </li>
@@ -313,46 +417,270 @@ echo ${url#*ttp:}
 </li>
 </ul>
 
-  </article>
-  
-    
+    </div>
 
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Shell/" rel="tag"><i class="fa fa-tag"></i> Shell</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/08/15/shell变量的定义、赋值和删除/" rel="next" title="Shell变量的定义、赋值和删除">
+                  <i class="fa fa-chevron-left"></i> Shell变量的定义、赋值和删除
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/08/16/Self-Attention机制/" rel="prev" title="Self-Attention机制">
+                  Self-Attention机制 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
   
-  <section class="nexmoe-comment">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
-<div id="gitalk"></div>
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-    var gitalk = new Gitalk({
-        clientID: 'a0b09f47cc93396b2dd6',
-        clientSecret: 'bdf8c7211c890d37071003e98dd9879483be6512',
-        id: (location.pathname).split("/").pop().substring(0, 49),
-        repo: 'alyssaasa.github.io',
-        owner: 'alyssaasa',
-        admin: 'alyssaasa'
-    })
-    gitalk.render('gitalk')
-</script>
-</section>
-</div>
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="gitalk-container"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
- 
-    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/toux.jpg"
+      alt="Alyssa">
+  <p class="site-author-name" itemprop="name">Alyssa</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/alyssaasa" title="GitHub &rarr; https://github.com/alyssaasa" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://instagram.com/yourname" title="Instagram &rarr; https://instagram.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+    
+  </div>
 
 
 
 
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
-<script src="/js/app.js?v=1569518065272"></script>
-<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串类型"><span class="nav-number">1.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取字符串长度"><span class="nav-number">2.</span> <span class="nav-text">获取字符串长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串的拼接"><span class="nav-number">3.</span> <span class="nav-text">字符串的拼接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串的截取"><span class="nav-number">4.</span> <span class="nav-text">字符串的截取</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      	
+
+    </div>
+
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alyssa</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
 
   
 
@@ -360,21 +688,114 @@ echo ${url#*ttp:}
 
 
 
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
 <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
         }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
     });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script><script src="/js/post-details.js?v=7.3.0"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'a0b09f47cc93396b2dd6',
+      clientSecret: 'bdf8c7211c890d37071003e98dd9879483be6512',
+      repo: 'alyssaasa.github.io',
+      owner: 'alyssaasa',
+      admin: ['alyssaasa'],
+      id: '22b89fbf57b5ae332c2ad64ca5a913f0',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
 </body>
+
 
 </html>

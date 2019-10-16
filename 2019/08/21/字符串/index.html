@@ -1,250 +1,349 @@
 <!DOCTYPE html>
-<html>
 
-<head><meta name="generator" content="Hexo 3.9.0">
-  
-  <title>字符串 - Sooner or Later, One Way or Another</title>
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
   <meta charset="UTF-8">
-  <meta name="description" content="null">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/2.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/1.png?v=7.3.0">
 
-  <link rel="shortcut icon" href="/images/favicon/4.png" type="image/png">
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":"mac"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
   <meta name="description" content="字符串问题">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字符串">
 <meta property="og:url" content="http://yoursite.com/2019/08/21/字符串/index.html">
-<meta property="og:site_name" content="Sooner or Later, One Way or Another">
+<meta property="og:site_name" content="Sooner or Later">
 <meta property="og:description" content="字符串问题">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-09-14T12:37:10.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符串">
 <meta name="twitter:description" content="字符串问题">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
-  <link rel="stylesheet" href="https://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css"> 
-   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  <link rel="canonical" href="http://yoursite.com/2019/08/21/字符串/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>字符串 | Sooner or Later</title>
   
-  
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1412554_24vsf7gc7r1.css">
-  
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1569518065193">
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-<body class="mdui-drawer-body-left">
-  
-  <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(/images/bg/2.jpg)"></div>
-    <div class="mdui-appbar mdui-shadow-0">
-      <div class="mdui-toolbar">
-        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
-        <div class="mdui-toolbar-spacer"></div>
-        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-        <a href="/" title="Alyssa" class="mdui-btn mdui-btn-icon"><img src="/images/toux.jpg"></a>
-       </div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Sooner or Later</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+        <p class="site-subtitle">One Way or Another</p>
+      
   </div>
-  <div id="nexmoe-header">
-      <div class="nexmoe-drawer mdui-drawer" id="drawer">
-    <div class="nexmoe-avatar mdui-ripple">
-        <a href="/" title="Alyssa">
-            <img src="/images/toux.jpg" alt="Alyssa">
-        </a>
-    </div>
-    <div class="nexmoe-count">
-        <div><span>文章</span>19</div>
-        <div><span>标签</span>8</div>
-        <div><span>分类</span>5</div>
-    </div>
-    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
-            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
-            <div class="mdui-list-item-content">
-                回到首页
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
-            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
-            <div class="mdui-list-item-content">
-                关于博客
-            </div>
-        </a>
-        
-    </ul>
-    <aside id="nexmoe-sidebar">
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">社交按钮</h3>
-    <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="https://space.bilibili.com/18781994" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
-            <i class="nexmoefont icon-bilibili"></i>
-        </a><a class="mdui-ripple" href="https://github.com/alyssaasa/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
-            <i class="nexmoefont icon-github"></i>
-        </a>
-    </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
+
+
+<nav class="site-nav">
   
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章分类</h3>
-    <div class="nexmoe-widget">
-
-      <ul class="category-list">
-
+  <ul id="menu" class="menu">
+      
+      
+      
         
+        <li class="menu-item menu-item-home">
+      
+    
 
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
+  </li>
+      
+      
+      
         
+        <li class="menu-item menu-item-archives">
+      
+    
 
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
         
+        <li class="menu-item menu-item-categories">
+      
+    
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Hexo/">Hexo</a>
-          <span class="category-list-count">1</span>
-        </li>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
+  </li>
+      
+      
+      
         
+        <li class="menu-item menu-item-tags">
+      
+    
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Shell/">Shell</a>
-          <span class="category-list-count">2</span>
-        </li>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
+  </li>
+      
+      
+      
         
+        <li class="menu-item menu-item-about">
+      
+    
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/机器学习/">机器学习</a>
-          <span class="category-list-count">1</span>
-        </li>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
         
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/深度学习/">深度学习</a>
-          <span class="category-list-count">2</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/算法/">算法</a>
-          <span class="category-list-count">13</span>
-        </li>
-
-        
-      </ul>
-
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup">
+  <div class="search-header">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <div class="search-input-wrapper">
+      <input autocomplete="off" autocorrect="off" autocapitalize="none"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="search-input">
     </div>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
   </div>
+  <div id="search-result"></div>
+</div>
 
 
-  
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">标签云</h3>
-    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
-      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/二分查找/" style="font-size: 10px;">二分查找</a> <a href="/tags/时间复杂度/" style="font-size: 10px;">时间复杂度</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
-    </div>
-    
   </div>
+</div>
+    </header>
 
-  
-  
+    
 
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post" itemscope itemtype="http://schema.org/Article">
   
-</aside>
-</div><!-- .nexmoe-drawer -->
-  </div>
-  <div id="nexmoe-content">
-    <div class="nexmoe-primary">
-        <div class="nexmoe-post">
-    <div class="nexmoe-post-cover"> 
-        
-        <img src="/images/bg/bg.png">
-        
-        <h1>字符串</h1>
-    </div>
-  <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月21日</a>
-    <a><i class="nexmoefont icon-areachart"></i>1,243 字</a>
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/字符串/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alyssa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/toux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sooner or Later">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">字符串
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-21 21:30:11" itemprop="dateCreated datePublished" datetime="2019-08-21T21:30:11+08:00">2019-08-21</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-14 20:37:10" itemprop="dateModified" datetime="2019-09-14T20:37:10+08:00">2019-09-14</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/算法/">算法</a>
     
     
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/算法/">算法</a>
-    
-  </div>
-  <article>
-    <p>字符串问题</p>
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>字符串问题</p>
 <a id="more"></a>
-<h5 id="1-leetcode-316-删除字符串中的重复字符"><a href="#1-leetcode-316-删除字符串中的重复字符" class="headerlink" title="1. leetcode 316. 删除字符串中的重复字符"></a>1. <a href="https://leetcode.com/problems/remove-duplicate-letters/" target="_blank" rel="noopener">leetcode 316. 删除字符串中的重复字符</a></h5><pre><code class="lang-java">Given a string which contains only lowercase letters, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.
-Example 1:  Input: &quot;bcabc&quot;      Output: &quot;abc&quot;
-Example 2:  Input: &quot;cbacdcbc&quot;   Output: &quot;acdb&quot;
-</code></pre>
+<h5 id="1-leetcode-316-删除字符串中的重复字符"><a href="#1-leetcode-316-删除字符串中的重复字符" class="headerlink" title="1. leetcode 316. 删除字符串中的重复字符"></a>1. <a href="https://leetcode.com/problems/remove-duplicate-letters/" target="_blank" rel="noopener">leetcode 316. 删除字符串中的重复字符</a></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Given a string which contains only lowercase letters, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.</span><br><span class="line">Example <span class="number">1</span>:  Input: <span class="string">"bcabc"</span>      Output: <span class="string">"abc"</span></span><br><span class="line">Example <span class="number">2</span>:  Input: <span class="string">"cbacdcbc"</span>   Output: <span class="string">"acdb"</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>因为只有26个小写字母，所以可以用数组模拟hashmap先统计每个字符出现的次数。</li>
 <li>然后要用辅助栈。其实发现很多问题都是数组和栈辅助进行操作，来对比当前元素和栈顶元素的大小，从而进行相应的操作。删除栈顶元素还是向栈中添加元素。</li>
 </ul>
-<pre><code class="lang-java">public String removeDuplicateLetters(String s) {
-    int[] count = new int[26];  // 统计每个字符出现的次数
-    boolean[] visit = new boolean[26];  // 表示某个字符是否已经出现在栈中
-    for(char ch : s.toCharArray())  
-        count[ch-&#39;a&#39;] += 1;
-    Stack&lt;Character&gt; sta = new Stack();
-    for(char ch : s.toCharArray()) {
-        count[ch-&#39;a&#39;] -= 1;
-        if(visit[ch-&#39;a&#39;]) continue;
-        // 如果当前元素比栈顶元素小，并且栈顶元素次数不等0
-        // 那么就把栈顶元素弹出来，把当前元素入栈
-        while(!sta.isEmpty() &amp;&amp; ch&lt;sta.peek() &amp;&amp; count[sta.peek()-&#39;a&#39;]!=0) 
-            visit[sta.pop()-&#39;a&#39;] = false;
-        sta.push(ch);
-        visit[ch-&#39;a&#39;] = true;
-    }
-    String res = &quot;&quot;;
-    while(!sta.isEmpty())
-        res = sta.pop()+res;
-    return res;
-}
-</code></pre>
-<h5 id="2-leetcode-567-字符串中的全排列"><a href="#2-leetcode-567-字符串中的全排列" class="headerlink" title="2. leetcode 567. 字符串中的全排列"></a>2. <a href="https://leetcode.com/problems/permutation-in-string/" target="_blank" rel="noopener">leetcode 567. 字符串中的全排列</a></h5><pre><code>Given two strings s1 and s2, write a function to return true if s2 contains the permutation of s1. In other words, one of the first string&#39;s permutations is the substring of the second string.
-</code></pre><pre><code>Input: s1 = &quot;ab&quot; s2 = &quot;eidbaooo&quot;
-Output: True
-Explanation: s2 contains one permutation of s1 (&quot;ba&quot;).
-</code></pre><ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">removeDuplicateLetters</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];  <span class="comment">// 统计每个字符出现的次数</span></span><br><span class="line">    <span class="keyword">boolean</span>[] visit = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">26</span>];  <span class="comment">// 表示某个字符是否已经出现在栈中</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">char</span> ch : s.toCharArray())  </span><br><span class="line">        count[ch-<span class="string">'a'</span>] += <span class="number">1</span>;</span><br><span class="line">    Stack&lt;Character&gt; sta = <span class="keyword">new</span> Stack();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">char</span> ch : s.toCharArray()) &#123;</span><br><span class="line">        count[ch-<span class="string">'a'</span>] -= <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(visit[ch-<span class="string">'a'</span>]) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="comment">// 如果当前元素比栈顶元素小，并且栈顶元素次数不等0</span></span><br><span class="line">        <span class="comment">// 那么就把栈顶元素弹出来，把当前元素入栈</span></span><br><span class="line">        <span class="keyword">while</span>(!sta.isEmpty() &amp;&amp; ch&lt;sta.peek() &amp;&amp; count[sta.peek()-<span class="string">'a'</span>]!=<span class="number">0</span>) </span><br><span class="line">            visit[sta.pop()-<span class="string">'a'</span>] = <span class="keyword">false</span>;</span><br><span class="line">        sta.push(ch);</span><br><span class="line">        visit[ch-<span class="string">'a'</span>] = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    String res = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">while</span>(!sta.isEmpty())</span><br><span class="line">        res = sta.pop()+res;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-leetcode-567-字符串中的全排列"><a href="#2-leetcode-567-字符串中的全排列" class="headerlink" title="2. leetcode 567. 字符串中的全排列"></a>2. <a href="https://leetcode.com/problems/permutation-in-string/" target="_blank" rel="noopener">leetcode 567. 字符串中的全排列</a></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Given two strings s1 and s2, write a function to return true if s2 contains the permutation of s1. In other words, one of the first string&apos;s permutations is the substring of the second string.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: s1 = &quot;ab&quot; s2 = &quot;eidbaooo&quot;</span><br><span class="line">Output: True</span><br><span class="line">Explanation: s2 contains one permutation of s1 (&quot;ba&quot;).</span><br></pre></td></tr></table></figure>
+<ul>
 <li>最直观的做法就是把s1的全排列都列出来，然后看每个全排列是不是s2的子串，但是当字符串的长度过长时，会超时。</li>
 <li><strong>如何判断字符串m是不是字符串n的全排列，我们只要把字符串m和字符串n中的每个字符出现的次数做统计，如果两者每个字符出现的次数都相等，那么就证明字符串m是字符串n的一个全排列。</strong></li>
 <li>如何判断字符串n是不是包含字符串m的全排列，也就是字符串m的全排列是不是字符串n的一个子串，那么我们就需要<strong>建立一个长度为m.length的滑动窗口</strong>，判断n的这个滑动窗口中n子串和m字符串每个字符出现的次数是不是相等。</li>
 <li>但每到一个滑动窗口都重新统计一次次数很麻烦，每次移动滑动窗口的时候，只有左侧被移出去的字符和右侧被移进来的字符的次数有变化，那么我们把左侧移出去的字符数-1，右侧移进来的字符数+1，即为当前窗口n的每个字符出现的次数。</li>
 <li>该题的类似题目：<a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/" target="_blank" rel="noopener">leetcode 438. 找到s1的全排列在s2中的位置</a></li>
 </ul>
-<pre><code class="lang-java">public boolean checkInclusion(String s1, String s2) {
-    if(s1.length()&gt;s2.length())
-        return false;
-    //统计s1中每个字符出现的次数，s2中每个长度为s1.length的窗口中字符出现的次数
-    int[] hash1 = new int[26];
-    int[] hash2 = new int[26];
-    for(int i=0;i&lt;s1.length();i++) {
-        hash1[s1.charAt(i)-&#39;a&#39;] ++;
-        hash2[s2.charAt(i)-&#39;a&#39;] ++;
-    }
-    if(Arrays.equals(hash1, hash2))
-        return true;
-    for(int i=s1.length();i&lt;s2.length();i++) {
-        hash2[s2.charAt(i)-&#39;a&#39;] ++;
-        hash2[s2.charAt(i-s1.length())-&#39;a&#39;] --;
-        if(Arrays.equals(hash1, hash2))
-            return true;
-    }
-    return false;
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkInclusion</span><span class="params">(String s1, String s2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s1.length()&gt;s2.length())</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="comment">//统计s1中每个字符出现的次数，s2中每个长度为s1.length的窗口中字符出现的次数</span></span><br><span class="line">    <span class="keyword">int</span>[] hash1 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">    <span class="keyword">int</span>[] hash2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s1.length();i++) &#123;</span><br><span class="line">        hash1[s1.charAt(i)-<span class="string">'a'</span>] ++;</span><br><span class="line">        hash2[s2.charAt(i)-<span class="string">'a'</span>] ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(Arrays.equals(hash1, hash2))</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=s1.length();i&lt;s2.length();i++) &#123;</span><br><span class="line">        hash2[s2.charAt(i)-<span class="string">'a'</span>] ++;</span><br><span class="line">        hash2[s2.charAt(i-s1.length())-<span class="string">'a'</span>] --;</span><br><span class="line">        <span class="keyword">if</span>(Arrays.equals(hash1, hash2))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="3-leetcode-179-将数组进行排序，使之组成的数最大-实则为对字符串排序"><a href="#3-leetcode-179-将数组进行排序，使之组成的数最大-实则为对字符串排序" class="headerlink" title="3. leetcode 179. 将数组进行排序，使之组成的数最大 (实则为对字符串排序)"></a>3. <a href="https://leetcode.com/problems/largest-number/" target="_blank" rel="noopener">leetcode 179. 将数组进行排序，使之组成的数最大 (实则为对字符串排序)</a></h5><ul>
 <li>输入：<code>[3,30,34,5,9]</code> </li>
 <li>输出：<code>9534330</code></li>
@@ -252,89 +351,271 @@ Explanation: s2 contains one permutation of s1 (&quot;ba&quot;).
 <li>碰到长度不等时，会有些问题，比如第一个要交换。第二个不要交换；第三个要交换</li>
 <li>最好的办法就是直接把两个字符串m和n拼接起来，然后比较mn和nm的大小即可，不存在长度不等的情况。</li>
 </ul>
-<pre><code class="lang-java">public void swap(String[] str, int i, int j) {
- String tmp = str[i];
- str[i] = str[j];
- str[j] = tmp;
-}
-//因为这道题涉及到了长度不同，谁放在前面的问题，不能简单地直接逐个字符比较
-//那么，把m和n拼接成的mn和nm按照字符串大小的比较规则来处理即可。
-//如果mn &lt; nm,应该打印出nm,即n应该排在m前面，要交换顺序，反之，m应该排在n前面。
-public boolean cmp(String a, String b) {
-    String new_1 = a+b;
-    String new_2 = b+a;
-    for(int i=0;i&lt;new_1.length();i++)  {
-        if(new_1.charAt(i)==new_2.charAt(i)) continue;
-        return new_1.charAt(i)&lt;new_2.charAt(i);
-    }
-    return true;
-}
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(String[] str, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line"> String tmp = str[i];</span><br><span class="line"> str[i] = str[j];</span><br><span class="line"> str[j] = tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//因为这道题涉及到了长度不同，谁放在前面的问题，不能简单地直接逐个字符比较</span></span><br><span class="line"><span class="comment">//那么，把m和n拼接成的mn和nm按照字符串大小的比较规则来处理即可。</span></span><br><span class="line"><span class="comment">//如果mn &lt; nm,应该打印出nm,即n应该排在m前面，要交换顺序，反之，m应该排在n前面。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">cmp</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">    String new_1 = a+b;</span><br><span class="line">    String new_2 = b+a;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;new_1.length();i++)  &#123;</span><br><span class="line">        <span class="keyword">if</span>(new_1.charAt(i)==new_2.charAt(i)) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">return</span> new_1.charAt(i)&lt;new_2.charAt(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">largestNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    String[] str = <span class="keyword">new</span> String[nums.length];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++) &#123;  <span class="comment">// 先将数组中的数字转为字符串，再去比较。</span></span><br><span class="line">        str[i] = nums[i]+<span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//写个冒泡排序，任何一种排序算法都可以，只要把交换的条件变为我们的cmp条件即可。</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=nums.length-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--) &#123;</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(cmp(str[j], str[j+<span class="number">1</span>])) &#123;</span><br><span class="line">                swap(str, j, j+<span class="number">1</span>);</span><br><span class="line">                flag = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!flag) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    String result = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str.length;i++) &#123;</span><br><span class="line">        result += str[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(result.charAt(<span class="number">0</span>)==<span class="string">'0'</span>) <span class="keyword">return</span> <span class="string">"0"</span>; <span class="comment">//防止出现"00"的情况。</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
 
-public String largestNumber(int[] nums) {
-    String[] str = new String[nums.length];
-    for(int i=0;i&lt;nums.length;i++) {  // 先将数组中的数字转为字符串，再去比较。
-        str[i] = nums[i]+&quot;&quot;;
-    }
-    //写个冒泡排序，任何一种排序算法都可以，只要把交换的条件变为我们的cmp条件即可。
-    for(int i=nums.length-1;i&gt;=0;i--) {
-        boolean flag = false;
-        for(int j=0;j&lt;i;j++) {
-            if(cmp(str[j], str[j+1])) {
-                swap(str, j, j+1);
-                flag = true;
-            }
-        }
-        if(!flag) break;
-    }
-    String result = &quot;&quot;;
-    for(int i=0;i&lt;str.length;i++) {
-        result += str[i];
-    }
-    if(result.charAt(0)==&#39;0&#39;) return &quot;0&quot;; //防止出现&quot;00&quot;的情况。
-    else return result;
-}
-</code></pre>
-
-  </article>
-  
     
+    
+    
+        
+      
 
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/08/21/图/" rel="next" title="图">
+                  <i class="fa fa-chevron-left"></i> 图
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/08/28/查找算法/" rel="prev" title="查找算法">
+                  查找算法 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
   
-  <section class="nexmoe-comment">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
-<div id="gitalk"></div>
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-    var gitalk = new Gitalk({
-        clientID: 'a0b09f47cc93396b2dd6',
-        clientSecret: 'bdf8c7211c890d37071003e98dd9879483be6512',
-        id: (location.pathname).split("/").pop().substring(0, 49),
-        repo: 'alyssaasa.github.io',
-        owner: 'alyssaasa',
-        admin: 'alyssaasa'
-    })
-    gitalk.render('gitalk')
-</script>
-</section>
-</div>
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="gitalk-container"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
- 
-    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/toux.jpg"
+      alt="Alyssa">
+  <p class="site-author-name" itemprop="name">Alyssa</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/alyssaasa" title="GitHub &rarr; https://github.com/alyssaasa" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://instagram.com/yourname" title="Instagram &rarr; https://instagram.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+    
+  </div>
 
 
 
 
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
-<script src="/js/app.js?v=1569518065198"></script>
-<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-leetcode-316-删除字符串中的重复字符"><span class="nav-number">1.</span> <span class="nav-text">1. leetcode 316. 删除字符串中的重复字符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-leetcode-567-字符串中的全排列"><span class="nav-number">2.</span> <span class="nav-text">2. leetcode 567. 字符串中的全排列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-leetcode-179-将数组进行排序，使之组成的数最大-实则为对字符串排序"><span class="nav-number">3.</span> <span class="nav-text">3. leetcode 179. 将数组进行排序，使之组成的数最大 (实则为对字符串排序)</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      	
+
+    </div>
+
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alyssa</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
 
   
 
@@ -342,21 +623,114 @@ public String largestNumber(int[] nums) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
 <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
         }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
     });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script><script src="/js/post-details.js?v=7.3.0"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'a0b09f47cc93396b2dd6',
+      clientSecret: 'bdf8c7211c890d37071003e98dd9879483be6512',
+      repo: 'alyssaasa.github.io',
+      owner: 'alyssaasa',
+      admin: ['alyssaasa'],
+      id: '60cd745a8f5e862189900a91e7004f32',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
 </body>
+
 
 </html>

@@ -1,231 +1,344 @@
 <!DOCTYPE html>
-<html>
 
-<head><meta name="generator" content="Hexo 3.9.0">
-  
-  <title>链表 - Sooner or Later, One Way or Another</title>
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
   <meta charset="UTF-8">
-  <meta name="description" content="null">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/2.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/1.png?v=7.3.0">
 
-  <link rel="shortcut icon" href="/images/favicon/4.png" type="image/png">
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":"mac"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
   <meta name="description" content="链表有一个很烦的点在于可能会对头节点进行处理。。所以时刻不能忽略头节点可能被处理的情况。">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="链表">
 <meta property="og:url" content="http://yoursite.com/2019/08/15/链表/index.html">
-<meta property="og:site_name" content="Sooner or Later, One Way or Another">
+<meta property="og:site_name" content="Sooner or Later">
 <meta property="og:description" content="链表有一个很烦的点在于可能会对头节点进行处理。。所以时刻不能忽略头节点可能被处理的情况。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-09-14T12:36:25.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="链表">
 <meta name="twitter:description" content="链表有一个很烦的点在于可能会对头节点进行处理。。所以时刻不能忽略头节点可能被处理的情况。">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
-  <link rel="stylesheet" href="https://apps.bdimg.com/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css"> 
-   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  <link rel="canonical" href="http://yoursite.com/2019/08/15/链表/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>链表 | Sooner or Later</title>
   
-  
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1412554_24vsf7gc7r1.css">
-  
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1569518065274">
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-<body class="mdui-drawer-body-left">
-  
-  <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(/images/bg/2.jpg)"></div>
-    <div class="mdui-appbar mdui-shadow-0">
-      <div class="mdui-toolbar">
-        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
-        <div class="mdui-toolbar-spacer"></div>
-        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-        <a href="/" title="Alyssa" class="mdui-btn mdui-btn-icon"><img src="/images/toux.jpg"></a>
-       </div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Sooner or Later</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+        <p class="site-subtitle">One Way or Another</p>
+      
   </div>
-  <div id="nexmoe-header">
-      <div class="nexmoe-drawer mdui-drawer" id="drawer">
-    <div class="nexmoe-avatar mdui-ripple">
-        <a href="/" title="Alyssa">
-            <img src="/images/toux.jpg" alt="Alyssa">
-        </a>
-    </div>
-    <div class="nexmoe-count">
-        <div><span>文章</span>19</div>
-        <div><span>标签</span>8</div>
-        <div><span>分类</span>5</div>
-    </div>
-    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
-            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
-            <div class="mdui-list-item-content">
-                回到首页
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
-            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
-            <div class="mdui-list-item-content">
-                关于博客
-            </div>
-        </a>
-        
-    </ul>
-    <aside id="nexmoe-sidebar">
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">社交按钮</h3>
-    <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="https://space.bilibili.com/18781994" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
-            <i class="nexmoefont icon-bilibili"></i>
-        </a><a class="mdui-ripple" href="https://github.com/alyssaasa/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
-            <i class="nexmoefont icon-github"></i>
-        </a>
-    </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
+
+
+<nav class="site-nav">
   
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章分类</h3>
-    <div class="nexmoe-widget">
-
-      <ul class="category-list">
-
+  <ul id="menu" class="menu">
+      
+      
+      
         
+        <li class="menu-item menu-item-home">
+      
+    
 
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
+  </li>
+      
+      
+      
         
+        <li class="menu-item menu-item-archives">
+      
+    
 
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
         
+        <li class="menu-item menu-item-categories">
+      
+    
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Hexo/">Hexo</a>
-          <span class="category-list-count">1</span>
-        </li>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
+  </li>
+      
+      
+      
         
+        <li class="menu-item menu-item-tags">
+      
+    
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Shell/">Shell</a>
-          <span class="category-list-count">2</span>
-        </li>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
+  </li>
+      
+      
+      
         
+        <li class="menu-item menu-item-about">
+      
+    
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/机器学习/">机器学习</a>
-          <span class="category-list-count">1</span>
-        </li>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
         
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/深度学习/">深度学习</a>
-          <span class="category-list-count">2</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/算法/">算法</a>
-          <span class="category-list-count">13</span>
-        </li>
-
-        
-      </ul>
-
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup">
+  <div class="search-header">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <div class="search-input-wrapper">
+      <input autocomplete="off" autocorrect="off" autocapitalize="none"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="search-input">
     </div>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
   </div>
+  <div id="search-result"></div>
+</div>
 
 
-  
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">标签云</h3>
-    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
-      <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/二分查找/" style="font-size: 10px;">二分查找</a> <a href="/tags/时间复杂度/" style="font-size: 10px;">时间复杂度</a> <a href="/tags/机器学习/" style="font-size: 10px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 15px;">深度学习</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
-    </div>
-    
   </div>
+</div>
+    </header>
 
-  
-  
+    
 
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post" itemscope itemtype="http://schema.org/Article">
   
-</aside>
-</div><!-- .nexmoe-drawer -->
-  </div>
-  <div id="nexmoe-content">
-    <div class="nexmoe-primary">
-        <div class="nexmoe-post">
-    <div class="nexmoe-post-cover"> 
-        
-        <img src="/images/bg/bg.png">
-        
-        <h1>链表</h1>
-    </div>
-  <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月15日</a>
-    <a><i class="nexmoefont icon-areachart"></i>1,144 字</a>
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/链表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alyssa">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/toux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sooner or Later">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">链表
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-15 23:30:11" itemprop="dateCreated datePublished" datetime="2019-08-15T23:30:11+08:00">2019-08-15</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-14 20:36:25" itemprop="dateModified" datetime="2019-09-14T20:36:25+08:00">2019-09-14</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/算法/">算法</a>
     
     
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/算法/">算法</a>
-    
-  </div>
-  <article>
-    <p>链表有一个很烦的点在于可能会对头节点进行处理。。所以时刻不能忽略头节点可能被处理的情况。</p>
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>链表有一个很烦的点在于可能会对头节点进行处理。。所以时刻不能忽略头节点可能被处理的情况。</p>
 <a id="more"></a>
-<pre><code class="lang-java">class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int x) { val = x; }
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ListNode next;</span><br><span class="line">    ListNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="1-在o-1-时间内删除链表节点，给定头节点和要删除节点。"><a href="#1-在o-1-时间内删除链表节点，给定头节点和要删除节点。" class="headerlink" title="1. 在o(1)时间内删除链表节点，给定头节点和要删除节点。"></a>1. 在o(1)时间内删除链表节点，给定头节点和要删除节点。</h5><ul>
 <li>知道要删除的节点，要从头开始遍历找到他前面的结点，才能删除该节点。</li>
 <li>把要删节点的下一个节点的值赋值给要删除的节点，然后删除要删节点的下一个节点</li>
 </ul>
-<pre><code class="lang-java">public void deleteNode(ListNode head, ListNode node) {
-    if(head==null || node==null)
-        return;
-    if(node.next!=null) {
-        node.val = node.next.val;
-        node.next = node.next.next;
-    }
-    //node节点为尾节点，则需要找到node的前驱节点再删除它
-    else{
-        ListNode pre_node = head;
-        while(pre_node.next!=node)
-            pre_node = pre_node.next;
-        pre_node.next = null;
-    }  
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(ListNode head, ListNode node)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head==<span class="keyword">null</span> || node==<span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span>(node.next!=<span class="keyword">null</span>) &#123;</span><br><span class="line">        node.val = node.next.val;</span><br><span class="line">        node.next = node.next.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//node节点为尾节点，则需要找到node的前驱节点再删除它</span></span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        ListNode pre_node = head;</span><br><span class="line">        <span class="keyword">while</span>(pre_node.next!=node)</span><br><span class="line">            pre_node = pre_node.next;</span><br><span class="line">        pre_node.next = <span class="keyword">null</span>;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="2-leetcode-83-删除已排序链表中重复的节点"><a href="#2-leetcode-83-删除已排序链表中重复的节点" class="headerlink" title="2. leetcode 83. 删除已排序链表中重复的节点"></a>2. <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/" target="_blank" rel="noopener">leetcode 83. 删除已排序链表中重复的节点</a></h5><ul>
 <li>题意：输入：<code>1-&gt;2-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5</code>   输出：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code></li>
 <li>从前向后遍历，设立两个指针pre， post。pre指向重复位置的第一个节点，post指向重复的最后一个节点，然后将他们相连即可。</li>
 </ul>
-<pre><code class="lang-java">public ListNode deleteDuplicates(ListNode head) {
-    ListNode pre = head;
-    ListNode post = head;
-    while(post!=null) {
-        while(post.next!=null &amp;&amp; post.val==post.next.val)
-            post = post.next;
-        pre.next = post.next;
-        pre = post.next;
-        post = post.next;
-    }
-    return head;
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    ListNode pre = head;</span><br><span class="line">    ListNode post = head;</span><br><span class="line">    <span class="keyword">while</span>(post!=<span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span>(post.next!=<span class="keyword">null</span> &amp;&amp; post.val==post.next.val)</span><br><span class="line">            post = post.next;</span><br><span class="line">        pre.next = post.next;</span><br><span class="line">        pre = post.next;</span><br><span class="line">        post = post.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="3-Leetcode-82-删除已排序链表中重复的节点"><a href="#3-Leetcode-82-删除已排序链表中重复的节点" class="headerlink" title="3. Leetcode 82. 删除已排序链表中重复的节点"></a>3. <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/" target="_blank" rel="noopener">Leetcode 82. 删除已排序链表中重复的节点</a></h5><ul>
 <li>题意：输入：<code>1-&gt;1-&gt;2-&gt;2-&gt;3-&gt;6-&gt;4-&gt;4-&gt;5</code>   输出：<code>3-&gt;6-&gt;5</code></li>
 <li>和之前的不同，这个因为要把重复的都删掉，那么头节点也会有重复的，所以要多设置一个开始节点start</li>
@@ -233,71 +346,17 @@
 <li><strong>要学会设置计数变量，计数变量有很多好处，到处都用得到，辅助空间o(1)，还能有很大作用</strong></li>
 <li>但是这个代码的还是很耗时的，有待优化。</li>
 </ul>
-<pre><code class="lang-java">public ListNode deleteDuplicates(ListNode head) {
-    ListNode start = new ListNode(0);
-    start.next = head;
-    ListNode pre = start;
-    ListNode post = start.next;
-    int current_num = 1;
-    while(post!=null) {
-        while(post.next!=null &amp;&amp; post.val==post.next.val) {
-            current_num += 1;
-            post = post.next;
-        }
-        if(current_num==1) {
-            pre.next = post;
-            pre = post;
-        }
-        post = post.next;
-        current_num = 1;
-    }
-    pre.next=post;
-      return start.next;
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    ListNode start = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    start.next = head;</span><br><span class="line">    ListNode pre = start;</span><br><span class="line">    ListNode post = start.next;</span><br><span class="line">    <span class="keyword">int</span> current_num = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(post!=<span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span>(post.next!=<span class="keyword">null</span> &amp;&amp; post.val==post.next.val) &#123;</span><br><span class="line">            current_num += <span class="number">1</span>;</span><br><span class="line">            post = post.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(current_num==<span class="number">1</span>) &#123;</span><br><span class="line">            pre.next = post;</span><br><span class="line">            pre = post;</span><br><span class="line">        &#125;</span><br><span class="line">        post = post.next;</span><br><span class="line">        current_num = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    pre.next=post;</span><br><span class="line">  	<span class="keyword">return</span> start.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="4-leetcode-19-移除链表中倒数第n个节点"><a href="#4-leetcode-19-移除链表中倒数第n个节点" class="headerlink" title="4. leetcode 19. 移除链表中倒数第n个节点"></a>4. <a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">leetcode 19. 移除链表中倒数第n个节点</a></h5><ul>
 <li>题意：输入：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code>,   <code>n=2</code>.   输出：<code>1-&gt;2-&gt;3-&gt;5</code></li>
 <li><strong>因为要移除的可能是头指针，所以要定义一个指针指向头节点</strong></li>
 <li>思路1：遍历一遍，知道链表长度，第二次遍历到<code>length-n-1</code>的时候，<code>node.next = node.next.next</code> 即可。</li>
 </ul>
-<pre><code class="lang-java">public ListNode removeNthFromEnd(ListNode head, int n) {
-    ListNode start = new ListNode(0);
-      start.next = head;
-    ListNode node1 = next;
-    ListNode node2 = next;
-    int length = 0;
-    while(node1!=null) {
-        node1 = node1.next;
-        length += 1;
-    }
-    for(int i=0;i&lt;length-n-1;i++) {
-        node2 = node2.next;
-    }
-    if(node2.next==null) return null;
-    else if(node2.next.next==null) node2.next = null; 
-    else node2.next = node2.next.next;
-    return start.next;
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    ListNode start = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">  	start.next = head;</span><br><span class="line">    ListNode node1 = next;</span><br><span class="line">    ListNode node2 = next;</span><br><span class="line">    <span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(node1!=<span class="keyword">null</span>) &#123;</span><br><span class="line">        node1 = node1.next;</span><br><span class="line">        length += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;length-n-<span class="number">1</span>;i++) &#123;</span><br><span class="line">        node2 = node2.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(node2.next==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(node2.next.next==<span class="keyword">null</span>) node2.next = <span class="keyword">null</span>; </span><br><span class="line">    <span class="keyword">else</span> node2.next = node2.next.next;</span><br><span class="line">    <span class="keyword">return</span> start.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>思路2：要想只遍历一遍链表，需要定义两个指针，当第一个指针走n次之后，两个指针一起走，第一个指针指向链表尾部时，第二个链表指向要删除的前一个位置。然后<code>node.next = node.next.next</code> 即可。</li>
 </ul>
-<pre><code class="lang-java">public ListNode removeNthFromEnd(ListNode head, int n) {
-    ListNode start = new ListNode(0);
-     start.next = head;
-    ListNode node1 = start;
-    ListNode node2 = start;
-    for(int i=0;i&lt;=n;i++)
-        node1 = node1.next;
-      while(node1!=null) {
-        node1 = node1.next;
-        node2 = node2.next;
-    }
-    if(node2.next.next==null) node2.next=null;
-    else node2.next = node2.next.next;
-    return start.next;
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    ListNode start = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line"> 	start.next = head;</span><br><span class="line">    ListNode node1 = start;</span><br><span class="line">    ListNode node2 = start;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)</span><br><span class="line">        node1 = node1.next;</span><br><span class="line">  	<span class="keyword">while</span>(node1!=<span class="keyword">null</span>) &#123;</span><br><span class="line">        node1 = node1.next;</span><br><span class="line">        node2 = node2.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(node2.next.next==<span class="keyword">null</span>) node2.next=<span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">else</span> node2.next = node2.next.next;</span><br><span class="line">    <span class="keyword">return</span> start.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="5-leetcode-876-输出链表的中间节点"><a href="#5-leetcode-876-输出链表的中间节点" class="headerlink" title="5. leetcode 876. 输出链表的中间节点"></a>5. <a href="https://leetcode.com/problems/middle-of-the-linked-list/" target="_blank" rel="noopener">leetcode 876. 输出链表的中间节点</a></h5><ul>
 <li>如果链表长度为奇数，输出中间一个：<code>1-&gt;2-&gt;3-&gt;4-&gt;5</code>, 输出为：<code>3</code></li>
 <li>如果链表长度为偶数，输出中间两个的第二个：<code>1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;6</code>, 输出为：<code>4</code></li>
@@ -305,74 +364,279 @@
 <li>但不同点在于，知道n就知道差几了，这个完全不知道链表长度啊！</li>
 <li>快慢指针赛跑，快指针一次走两步，慢指针一次走一步，快指针到链表尾时，慢指针指向中间节点</li>
 </ul>
-<pre><code class="lang-java">public ListNode middleNode(ListNode head) {
-    ListNode fast = head;
-    ListNode slow = head;
-    while(fast!=null &amp;&amp; fast.next!=null) {
-        fast = fast.next.next;
-        slow = slow.next;
-    }
-    return slow;
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">middleNode</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    ListNode fast = head;</span><br><span class="line">    ListNode slow = head;</span><br><span class="line">    <span class="keyword">while</span>(fast!=<span class="keyword">null</span> &amp;&amp; fast.next!=<span class="keyword">null</span>) &#123;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">        slow = slow.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> slow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>举一反三：当我们用一个指针遍历链表不能解决问题的时候，可以尝试用两个指针来遍历链表。可以让其中一个指针遍历的速度快一些，或者让它在链表上先走若干步。</strong></p>
 <h5 id="6-leetcode-206-链表反转"><a href="#6-leetcode-206-链表反转" class="headerlink" title="6. leetcode 206. 链表反转"></a>6. <a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" rel="noopener">leetcode 206. 链表反转</a></h5><ul>
 <li>定义一个new_head, 用在开头，每次在new_head之后插入节点。</li>
 <li>Ori: 1-&gt;2-&gt;3-&gt;4</li>
 <li>New: new_head-&gt;1;   new_head-&gt;2-&gt;1;  new_head-&gt;3-&gt;2-&gt;1;  new_head-&gt;4-&gt;3-&gt;2-&gt;1</li>
 </ul>
-<pre><code class="lang-java">public ListNode reverseList(ListNode head) {
-    ListNode new_head = new ListNode(0);
-    while(head!=null) {
-        ListNode tmp = head.next;
-        head.next = new_head.next;
-        new_head.next = head;
-        head = tmp;
-    }
-    return new_head.next;
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    ListNode new_head = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">while</span>(head!=<span class="keyword">null</span>) &#123;</span><br><span class="line">        ListNode tmp = head.next;</span><br><span class="line">        head.next = new_head.next;</span><br><span class="line">        new_head.next = head;</span><br><span class="line">        head = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> new_head.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-  </article>
-  
+    </div>
+
     
+    
+    
+        
+      
 
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/08/13/动态规划/" rel="next" title="动态规划">
+                  <i class="fa fa-chevron-left"></i> 动态规划
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/08/15/shell变量的定义、赋值和删除/" rel="prev" title="Shell变量的定义、赋值和删除">
+                  Shell变量的定义、赋值和删除 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
   
-  <section class="nexmoe-comment">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
-<div id="gitalk"></div>
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-    var gitalk = new Gitalk({
-        clientID: 'a0b09f47cc93396b2dd6',
-        clientSecret: 'bdf8c7211c890d37071003e98dd9879483be6512',
-        id: (location.pathname).split("/").pop().substring(0, 49),
-        repo: 'alyssaasa.github.io',
-        owner: 'alyssaasa',
-        admin: 'alyssaasa'
-    })
-    gitalk.render('gitalk')
-</script>
-</section>
-</div>
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="gitalk-container"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
- 
-    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/toux.jpg"
+      alt="Alyssa">
+  <p class="site-author-name" itemprop="name">Alyssa</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/alyssaasa" title="GitHub &rarr; https://github.com/alyssaasa" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://instagram.com/yourname" title="Instagram &rarr; https://instagram.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+    
+  </div>
 
 
 
 
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
-<script src="/js/app.js?v=1569518065280"></script>
-<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-在o-1-时间内删除链表节点，给定头节点和要删除节点。"><span class="nav-number">1.</span> <span class="nav-text">1. 在o(1)时间内删除链表节点，给定头节点和要删除节点。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-leetcode-83-删除已排序链表中重复的节点"><span class="nav-number">2.</span> <span class="nav-text">2. leetcode 83. 删除已排序链表中重复的节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Leetcode-82-删除已排序链表中重复的节点"><span class="nav-number">3.</span> <span class="nav-text">3. Leetcode 82. 删除已排序链表中重复的节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-leetcode-19-移除链表中倒数第n个节点"><span class="nav-number">4.</span> <span class="nav-text">4. leetcode 19. 移除链表中倒数第n个节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-leetcode-876-输出链表的中间节点"><span class="nav-number">5.</span> <span class="nav-text">5. leetcode 876. 输出链表的中间节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-leetcode-206-链表反转"><span class="nav-number">6.</span> <span class="nav-text">6. leetcode 206. 链表反转</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      	
+
+    </div>
+
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alyssa</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
 
   
 
@@ -380,21 +644,114 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
 <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
         }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
     });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script><script src="/js/post-details.js?v=7.3.0"></script>
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'a0b09f47cc93396b2dd6',
+      clientSecret: 'bdf8c7211c890d37071003e98dd9879483be6512',
+      repo: 'alyssaasa.github.io',
+      owner: 'alyssaasa',
+      admin: ['alyssaasa'],
+      id: '57bd8803fa87a8c61f5ad59eb78bbb54',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
 </body>
+
 
 </html>
