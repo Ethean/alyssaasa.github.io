@@ -372,7 +372,7 @@ body {
 }
 .main-inner {
   background: #fff;
-  opacity: 0.8;
+  opacity: 1;
 }
 .header-inner {
   opacity: 0.8;
@@ -1666,7 +1666,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3277ac;
+  background: #05770b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
