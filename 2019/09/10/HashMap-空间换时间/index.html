@@ -18,7 +18,7 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-.min.css?v=1.0.2">
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
 
 
@@ -328,12 +328,12 @@
       
         <p>HashMap的使用，很多时候都是为了空间换时间。有时遇到字母或者字符时，还可以利用固定长度的数组代替HashMap，比如字符为 <code>Object[256]</code> , 字母的话为 <code>Object[26]</code> 。 </p>
 <a id="more"></a>
-<h5 id="1-leetcode-387-First-Unique-Character-in-a-String"><a href="#1-leetcode-387-First-Unique-Character-in-a-String" class="headerlink" title="1. leetcode 387. First Unique Character in a String"></a>1. <a href="https://leetcode.com/problems/first-unique-character-in-a-string/" target="_blank" rel="noopener">leetcode 387. First Unique Character in a String</a></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Given a string, find the first non-repeating character in it and <span class="keyword">return</span> it<span class="string">'s index. If it doesn'</span>t exist, <span class="keyword">return</span> -<span class="number">1</span>.</span><br><span class="line"></span><br><span class="line">Examples:</span><br><span class="line">s = <span class="string">"leetcode"</span>  <span class="keyword">return</span> <span class="number">0</span>.</span><br><span class="line">s = <span class="string">"loveleetcode"</span>  <span class="keyword">return</span> <span class="number">2</span>.</span><br></pre></td></tr></table></figure>
+<h5 id="1-leetcode-387-First-Unique-Character-in-a-String"><a href="#1-leetcode-387-First-Unique-Character-in-a-String" class="headerlink" title="1. leetcode 387. First Unique Character in a String"></a>1. <a href="https://leetcode.com/problems/first-unique-character-in-a-string/" target="_blank" rel="noopener">leetcode 387. First Unique Character in a String</a></h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Given a string, find the first non-repeating character in it and <span class="keyword">return</span> it<span class="string">'s index. If it doesn'</span>t exist, <span class="keyword">return</span> -<span class="number">1</span>.</span><br><span class="line"></span><br><span class="line">Examples:</span><br><span class="line">s = <span class="string">"leetcode"</span>  <span class="keyword">return</span> <span class="number">0</span>.</span><br><span class="line">s = <span class="string">"loveleetcode"</span>  <span class="keyword">return</span> <span class="number">2</span>.</span><br></pre></td></tr></table></figure>
 <ul>
 <li>可以用hash表，统计每个字符出现的次数，然后再遍历一遍字符串，当当前元素出现的次数为1时，输出该字符的index。</li>
 <li>因为字符串中字符的种类最多256个，所以可以用数组模拟hash表。以字符的index作为key，出现次数作为value即可。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">firstUniqChar</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">char</span> ch:s.toCharArray())</span><br><span class="line">        count[ch-<span class="string">'0'</span>] += <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)</span><br><span class="line">        <span class="keyword">if</span>(count[s.charAt(i)-<span class="string">'0'</span>]==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">firstUniqChar</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">char</span> ch:s.toCharArray())</span><br><span class="line">        count[ch-<span class="string">'0'</span>] += <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)</span><br><span class="line">        <span class="keyword">if</span>(count[s.charAt(i)-<span class="string">'0'</span>]==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -495,7 +495,9 @@
         
           
         
-        <span class="site-state-item-count">10</span>
+          
+        
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

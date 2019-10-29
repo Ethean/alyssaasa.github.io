@@ -18,7 +18,7 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-.min.css?v=1.0.2">
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
 
 
@@ -334,10 +334,10 @@
 <p><a href="https://github.com/amir-abdi/keras_to_tensorflow" target="_blank" rel="noopener">https://github.com/amir-abdi/keras_to_tensorflow</a></p>
 <ol>
 <li><p>keras中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cnn.save(&quot;model.h5&quot;)   # 保存模型和权值</span><br><span class="line">cnn.save_weights(&quot;model_weights.h5&quot;) # 保存权值</span><br><span class="line">cnn = load_model(&quot;model.h5&quot;) # 导入模型和权值</span><br><span class="line">cnn.load_weights(&quot;model_weights.h5&quot;)  # 导入权值</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cnn.save(&quot;model.h5&quot;)   # 保存模型和权值</span><br><span class="line">cnn.save_weights(&quot;model_weights.h5&quot;) # 保存权值</span><br><span class="line">cnn = load_model(&quot;model.h5&quot;) # 导入模型和权值</span><br><span class="line">cnn.load_weights(&quot;model_weights.h5&quot;)  # 导入权值</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在python中的使用</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">recognize</span><span class="params">(input_1, input_2)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> tf.Graph().as_default():</span><br><span class="line">        output_graph_def = tf.GraphDef()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'model.pb'</span>, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            output_graph_def.ParseFromString(f.read())</span><br><span class="line">            _ = tf.import_graph_def(output_graph_def, name=<span class="string">""</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 这里是看pb文件中保存的模型的每一层的名字</span></span><br><span class="line">        tensor_name = [tensor.name <span class="keyword">for</span> tensor <span class="keyword">in</span> output_graph_def.node]</span><br><span class="line">        print(tensor_name)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">            init = tf.global_variables_initializer()</span><br><span class="line">            sess.run(init)</span><br><span class="line"></span><br><span class="line">            input_x1 = sess.graph.get_tensor_by_name(<span class="string">"input_1:0"</span>)</span><br><span class="line">            input_x2 = sess.graph.get_tensor_by_name(<span class="string">"input_2:0"</span>)</span><br><span class="line">            output = sess.graph.get_tensor_by_name(<span class="string">"dense_3/Sigmoid:0"</span>)</span><br><span class="line">            print(sess.run(output, feed_dict=&#123;input_x1:input_1, input_x2:input_2&#125;))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">recognize</span><span class="params">(input_1, input_2)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> tf.Graph().as_default():</span><br><span class="line">        output_graph_def = tf.GraphDef()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'model.pb'</span>, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            output_graph_def.ParseFromString(f.read())</span><br><span class="line">            _ = tf.import_graph_def(output_graph_def, name=<span class="string">""</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 这里是看pb文件中保存的模型的每一层的名字</span></span><br><span class="line">        tensor_name = [tensor.name <span class="keyword">for</span> tensor <span class="keyword">in</span> output_graph_def.node]</span><br><span class="line">        print(tensor_name)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">            init = tf.global_variables_initializer()</span><br><span class="line">            sess.run(init)</span><br><span class="line"></span><br><span class="line">            input_x1 = sess.graph.get_tensor_by_name(<span class="string">"input_1:0"</span>)</span><br><span class="line">            input_x2 = sess.graph.get_tensor_by_name(<span class="string">"input_2:0"</span>)</span><br><span class="line">            output = sess.graph.get_tensor_by_name(<span class="string">"dense_3/Sigmoid:0"</span>)</span><br><span class="line">            print(sess.run(output, feed_dict=&#123;input_x1:input_1, input_x2:input_2&#125;))</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><a href="https://blog.csdn.net/Butertfly/article/details/80952987" target="_blank" rel="noopener">https://blog.csdn.net/Butertfly/article/details/80952987</a></p>
@@ -376,8 +376,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/21/图/" rel="prev" title="图">
-                  图 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/08/21/字符串/" rel="prev" title="字符串">
+                  字符串 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -493,7 +493,9 @@
         
           
         
-        <span class="site-state-item-count">10</span>
+          
+        
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

@@ -364,7 +364,7 @@ body {
   height: 100%;
 }
 body {
-  background: url("http://img.netbian.com/file/2019/0517/06427677a09c8e8e7aa8226a204b49d2.jpg");
+  background: url("http://img.netbian.com/file/2019/0917/2422bf893cf8f61b3e3314c5a5354517.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -1666,7 +1666,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #daeeff;
+  background: #de78a4;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2866,4 +2866,11 @@ ul.breadcrumb li+li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
+}
+.posts-expand .post-body img {
+  border: none;
+  padding: 0px;
+}
+.post-gallery .post-gallery-img img {
+  padding: 3px;
 }

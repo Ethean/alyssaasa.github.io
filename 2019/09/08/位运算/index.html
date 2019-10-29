@@ -18,7 +18,7 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-.min.css?v=1.0.2">
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
 
 
@@ -328,20 +328,20 @@
       
         <p>位运算</p>
 <a id="more"></a>
-<h5 id="1-leetcode-136-Single-Number"><a href="#1-leetcode-136-Single-Number" class="headerlink" title="1. leetcode 136. Single Number"></a>1. <a href="https://leetcode.com/problems/single-number/" target="_blank" rel="noopener">leetcode 136. Single Number</a></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Given a non-empty array of integers, every element appears twice except <span class="keyword">for</span> one. Find that single one.</span><br><span class="line">数组中只有一个数字出现了一次，其他数字都出现了<span class="number">2</span>次。找出这个只出现一次的数字。</span><br></pre></td></tr></table></figure>
+<h5 id="1-leetcode-136-Single-Number"><a href="#1-leetcode-136-Single-Number" class="headerlink" title="1. leetcode 136. Single Number"></a>1. <a href="https://leetcode.com/problems/single-number/" target="_blank" rel="noopener">leetcode 136. Single Number</a></h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Given a non-empty array of integers, every element appears twice except <span class="keyword">for</span> one. Find that single one.</span><br><span class="line">数组中只有一个数字出现了一次，其他数字都出现了<span class="number">2</span>次。找出这个只出现一次的数字。</span><br></pre></td></tr></table></figure>
 <ul>
 <li>异或。相同的两个数二进制异或为0.</li>
 <li>所有的元素进行异或，最后的值即为出现一次的元素的值。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)</span><br><span class="line">        res = res^nums[i];</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="2-leetcode-137-Single-Number-II"><a href="#2-leetcode-137-Single-Number-II" class="headerlink" title="2. leetcode 137. Single Number II"></a>2. <a href="https://leetcode.com/problems/single-number-ii/" target="_blank" rel="noopener">leetcode 137. Single Number II</a></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Given a non-empty array of integers, every element appears three times except <span class="keyword">for</span> one, which appears exactly once. Find that single one.</span><br><span class="line">数组中只有一个数字出现了一次，其他数字都出现了<span class="number">3</span>次。找出这个只出现一次的数字。</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)</span><br><span class="line">        res = res^nums[i];</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-leetcode-137-Single-Number-II"><a href="#2-leetcode-137-Single-Number-II" class="headerlink" title="2. leetcode 137. Single Number II"></a>2. <a href="https://leetcode.com/problems/single-number-ii/" target="_blank" rel="noopener">leetcode 137. Single Number II</a></h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Given a non-empty array of integers, every element appears three times except <span class="keyword">for</span> one, which appears exactly once. Find that single one.</span><br><span class="line">数组中只有一个数字出现了一次，其他数字都出现了<span class="number">3</span>次。找出这个只出现一次的数字。</span><br></pre></td></tr></table></figure>
 <ul>
 <li>我们把数组中的每个数字都转为二进制。</li>
 <li>如果一个数字出现三次，那么二进制的每一位也都出现三次。如果把所有出现三次的数字的二进制表示的每一位都分别累加起来，那么每一位的和都能被3整除。</li>
 <li>那么我们就把所有数字的对应位都累加起来，如果能被3整除，那么出现一次的数字该位为0，否则该位为1，这样运算下来，我们就能知道只出现一次的这个数字的二进制表示，那么我们就可以得到这个数字的值。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h5 id="3-leetcode-260-Single-Number-III"><a href="#3-leetcode-260-Single-Number-III" class="headerlink" title="3. leetcode 260. Single Number III"></a>3. <a href="https://leetcode.com/problems/single-number-iii/" target="_blank" rel="noopener">leetcode 260. Single Number III</a></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.</span><br><span class="line">数组中有两个数字仅出现一次，其余数字都出现两次。找出仅出现一次的这两个数字。</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="3-leetcode-260-Single-Number-III"><a href="#3-leetcode-260-Single-Number-III" class="headerlink" title="3. leetcode 260. Single Number III"></a>3. <a href="https://leetcode.com/problems/single-number-iii/" target="_blank" rel="noopener">leetcode 260. Single Number III</a></h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.</span><br><span class="line">数组中有两个数字仅出现一次，其余数字都出现两次。找出仅出现一次的这两个数字。</span><br></pre></td></tr></table></figure>
 <ul>
 <li>只有一个数字可以直接异或，因为其他部分异或都为0。而两个数字，就不能直接整个数组异或了，因为这两个只出现一次的数字也会求异或，所以得不到两个数字的值。如果能把这两个数字分开，分到两个不同的子数组里就好了。</li>
 <li>如何划分到两个不同的子数组中呢？</li>
@@ -354,7 +354,7 @@
 <li>同时，其他出现两次的每个数字，每个相同的两个数必出现在同一个子数组中，因为他们俩完全相等，第n位是不是1当然也是同样的结果。</li>
 <li>也就是说，两个子数组中，除了a和b分别在自己的子数组中出现一次，其他数字都出现两次，那么我们将两个子数组分别求异或，就能得到a和b的值了。</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -516,7 +516,9 @@
         
           
         
-        <span class="site-state-item-count">10</span>
+          
+        
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

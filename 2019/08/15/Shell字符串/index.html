@@ -18,7 +18,7 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-.min.css?v=1.0.2">
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
 
 
@@ -330,7 +330,7 @@
 <a id="more"></a>
 <h4 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h4><p>字符串可以由单引号<code>&#39; &#39;</code>包围，也可以由双引号<code>&quot; &quot;</code>包围，也可以不用引号。</p>
 <p>字符串举例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str1=alyssaasa.github.io</span><br><span class="line">str2=&quot;shell script&quot;</span><br><span class="line">str3=&apos;Shell字符串&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">str1=alyssaasa.github.io</span><br><span class="line">str2=&quot;shell script&quot;</span><br><span class="line">str3=&apos;Shell字符串&apos;</span><br></pre></td></tr></table></figure>
 <p>三种形式的区别：</p>
 <ol>
 <li><p>由单引号<code>&#39;&#39;</code>包围的字符串：</p>
@@ -352,17 +352,17 @@
 </ul>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">n=74</span><br><span class="line">str1=c.biancheng.net$n </span><br><span class="line">str2=&quot;shell \&quot;script\&quot; $n&quot;</span><br><span class="line">str3=&apos;C语言中文网 $n&apos;</span><br><span class="line">echo $str1</span><br><span class="line">echo $str2</span><br><span class="line">echo $str3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">n=74</span><br><span class="line">str1=c.biancheng.net$n </span><br><span class="line">str2=&quot;shell \&quot;script\&quot; $n&quot;</span><br><span class="line">str3=&apos;C语言中文网 $n&apos;</span><br><span class="line">echo $str1</span><br><span class="line">echo $str2</span><br><span class="line">echo $str3</span><br></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c.biancheng.net74</span><br><span class="line">shell &quot;script&quot; 74</span><br><span class="line">C语言中文网 $n</span><br></pre></td></tr></table></figure>
-<h4 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#string_name&#125;    其中string_name为字符串名字</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">c.biancheng.net74</span><br><span class="line">shell &quot;script&quot; 74</span><br><span class="line">C语言中文网 $n</span><br></pre></td></tr></table></figure>
+<h4 id="获取字符串长度"><a href="#获取字符串长度" class="headerlink" title="获取字符串长度"></a>获取字符串长度</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$&#123;#string_name&#125;    其中string_name为字符串名字</span><br></pre></td></tr></table></figure>
 <p>举例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"></span><br><span class="line">str = &quot;http://alyssaasa.github.io&quot;</span><br><span class="line">echo $&#123;#str&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line"></span><br><span class="line">str = &quot;http://alyssaasa.github.io&quot;</span><br><span class="line">echo $&#123;#str&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果：<code>26</code></p>
 <h4 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a>字符串的拼接</h4><p>不需要使用任何运算符，将两个字符串并排放在一起就能实现拼接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">name=&quot;Shell&quot;</span><br><span class="line">url=&quot;http://c.biancheng.net/shell/&quot;</span><br><span class="line">str1=$name$url  		# 中间不能有空格</span><br><span class="line">str2=&quot;$name $url&quot;   # 如果被双引号包围，那么中间可以有空格</span><br><span class="line">str3=$name&quot;: &quot;$url  # 中间可以出现别的字符串</span><br><span class="line">str4=&quot;$name: $url&quot;  # 这样写也可以</span><br><span class="line">str5=&quot;$&#123;name&#125;Script: $&#123;url&#125;index.html&quot;  # 这个时候需要给变量名加上大括号,帮助解释器识别变量的边界</span><br><span class="line">echo $str1</span><br><span class="line">echo $str2</span><br><span class="line">echo $str3</span><br><span class="line">echo $str4</span><br><span class="line">echo $str5</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">name=&quot;Shell&quot;</span><br><span class="line">url=&quot;http://c.biancheng.net/shell/&quot;</span><br><span class="line">str1=$name$url  		# 中间不能有空格</span><br><span class="line">str2=&quot;$name $url&quot;   # 如果被双引号包围，那么中间可以有空格</span><br><span class="line">str3=$name&quot;: &quot;$url  # 中间可以出现别的字符串</span><br><span class="line">str4=&quot;$name: $url&quot;  # 这样写也可以</span><br><span class="line">str5=&quot;$&#123;name&#125;Script: $&#123;url&#125;index.html&quot;  # 这个时候需要给变量名加上大括号,帮助解释器识别变量的边界</span><br><span class="line">echo $str1</span><br><span class="line">echo $str2</span><br><span class="line">echo $str3</span><br><span class="line">echo $str4</span><br><span class="line">echo $str5</span><br></pre></td></tr></table></figure>
 <p>运行结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Shellhttp://c.biancheng.net/shell/</span><br><span class="line">Shell http://c.biancheng.net/shell/</span><br><span class="line">Shell: http://c.biancheng.net/shell/</span><br><span class="line">Shell: http://c.biancheng.net/shell/</span><br><span class="line">ShellScript: http://c.biancheng.net/shell/index.html</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Shellhttp://c.biancheng.net/shell/</span><br><span class="line">Shell http://c.biancheng.net/shell/</span><br><span class="line">Shell: http://c.biancheng.net/shell/</span><br><span class="line">Shell: http://c.biancheng.net/shell/</span><br><span class="line">ShellScript: http://c.biancheng.net/shell/index.html</span><br></pre></td></tr></table></figure>
 <h4 id="字符串的截取"><a href="#字符串的截取" class="headerlink" title="字符串的截取"></a>字符串的截取</h4><ul>
 <li><p><strong>从指定位置开始截取</strong></p>
 <p>这种方式需要两个参数：除了指定起始位置，还需要截取长度，才能最终确定要截取的字符串。</p>
@@ -374,8 +374,8 @@
 <li><p>start: 起始位置 （从左边开始，从 0 开始计数）</p>
 </li>
 <li><p>length 是要截取的长度（省略的话表示直到字符串的末尾）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url=&quot;c.biancheng.net&quot;</span><br><span class="line">echo $&#123;url: 2: 9&#125;</span><br><span class="line">结果：biancheng</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url=&quot;c.biancheng.net&quot;</span><br><span class="line">echo $&#123;url: 2&#125;  # 省略 length，截取到字符串末尾</span><br><span class="line">结果：biancheng.net</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">url=&quot;c.biancheng.net&quot;</span><br><span class="line">echo $&#123;url: 2: 9&#125;</span><br><span class="line">结果：biancheng</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">url=&quot;c.biancheng.net&quot;</span><br><span class="line">echo $&#123;url: 2&#125;  # 省略 length，截取到字符串末尾</span><br><span class="line">结果：biancheng.net</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -386,8 +386,8 @@
 <li><p><strong>从左边开始计数时，起始数字是 0；从右边开始计数时，起始数字是 1。</strong></p>
 </li>
 <li><p>不管从哪边开始计数，截取方向都是从左到右。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url=&quot;c.biancheng.net&quot;</span><br><span class="line">echo $&#123;url: 0-13: 9&#125;</span><br><span class="line">结果：biancheng  # 从右边数，b 是第 13 个字符。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url=&quot;c.biancheng.net&quot;</span><br><span class="line">echo $&#123;url: 0-13&#125;  # 省略 length，直接截取到字符串末尾</span><br><span class="line">结果：biancheng.net</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">url=&quot;c.biancheng.net&quot;</span><br><span class="line">echo $&#123;url: 0-13: 9&#125;</span><br><span class="line">结果：biancheng  # 从右边数，b 是第 13 个字符。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">url=&quot;c.biancheng.net&quot;</span><br><span class="line">echo $&#123;url: 0-13&#125;  # 省略 length，直接截取到字符串末尾</span><br><span class="line">结果：biancheng.net</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -406,9 +406,9 @@
 <li><p><code>*</code>：通配符的一种，表示任意长度的字符串</p>
 </li>
 <li><p><code>*chars</code>  连起来使用的意思是：忽略左边的所有字符，直到遇见 chars（chars 不会被截取）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url=&quot;http://c.biancheng.net/index.html&quot;</span><br><span class="line">echo $&#123;url#*:&#125;</span><br><span class="line">结果：//c.biancheng.net/index.html</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">url=&quot;http://c.biancheng.net/index.html&quot;</span><br><span class="line">echo $&#123;url#*:&#125;</span><br><span class="line">结果：//c.biancheng.net/index.html</span><br></pre></td></tr></table></figure>
 <p>以下写法也会得到同样的结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo $&#123;url#*p:&#125;</span><br><span class="line">echo $&#123;url#*ttp:&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo $&#123;url#*p:&#125;</span><br><span class="line">echo $&#123;url#*ttp:&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="http://c.biancheng.net/view/1120.html" target="_blank" rel="noopener">http://c.biancheng.net/view/1120.html</a> 太多了，以后用得到的时候再写。。</p>
 </li>
 </ul>
@@ -577,7 +577,9 @@
         
           
         
-        <span class="site-state-item-count">10</span>
+          
+        
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
