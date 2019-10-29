@@ -32,7 +32,7 @@
     sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     save_scroll: false,
-    copycode: {"enable":false,"show_result":false,"style":"mac"},
+    copycode: {"enable":false,"show_result":false,"style":"flat"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
@@ -266,7 +266,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2019/10/17/CTR预估模型/" class="post-title-link" itemprop="url">CTR预估模型</a>
+            <a href="/2019/10/17/CTR预估模型/" class="post-title-link" itemprop="url">前深度学习时代的CTR预估模型</a>
           
         </h1>
 
@@ -281,11 +281,19 @@
                 
               
 
-              <time title="创建时间：2019-10-17 20:51:14 / 修改时间：23:45:19" itemprop="dateCreated datePublished" datetime="2019-10-17T20:51:14+08:00">2019-10-17</time>
+              <time title="创建时间：2019-10-17 20:51:14" itemprop="dateCreated datePublished" datetime="2019-10-17T20:51:14+08:00">2019-10-17</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-29 16:00:24" itemprop="dateModified" datetime="2019-10-29T16:00:24+08:00">2019-10-29</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -313,7 +321,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>原文链接1: <a href="https://zhuanlan.zhihu.com/p/61154299" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/61154299</a></p><p>原文链接2: <a href="https://zhuanlan.zhihu.com/p/63186101" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/63186101</a></p>
+          <p>原文链接1: <a href="https://zhuanlan.zhihu.com/p/61154299" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/61154299</a><br>原文链接2: <a href="https://zhuanlan.zhihu.com/p/63186101" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/63186101</a></p>
+<p>在互联网永不停歇的增长需求的驱动下，CTR预估模型（以下简称CTR模型）的发展也可谓一日千里，从2010年之前千篇一律的<strong>逻辑回归</strong>（Logistic Regression，LR），进化到<strong>因子分解机</strong>（Factorization Machine，FM）、<strong>梯度提升树</strong>（Gradient Boosting Decision Tree，GBDT），再到2015年之后深度学习的百花齐放，各种模型架构层出不穷。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -377,11 +386,19 @@
                 
               
 
-              <time title="创建时间：2019-10-17 17:45:03 / 修改时间：23:43:32" itemprop="dateCreated datePublished" datetime="2019-10-17T17:45:03+08:00">2019-10-17</time>
+              <time title="创建时间：2019-10-17 17:45:03" itemprop="dateCreated datePublished" datetime="2019-10-17T17:45:03+08:00">2019-10-17</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-29 16:02:44" itemprop="dateModified" datetime="2019-10-29T16:02:44+08:00">2019-10-29</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -409,7 +426,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>原文链接：<a href="https://www.matrix67.com/blog/archives/5044" target="_blank" rel="noopener">https://www.matrix67.com/blog/archives/5044</a></p><h5 id="1-如何挖掘新词"><a href="#1-如何挖掘新词" class="headerlink" title="1. 如何挖掘新词"></a>1. 如何挖掘新词</h5>
+          <p>原文链接：<a href="https://www.matrix67.com/blog/archives/5044" target="_blank" rel="noopener">https://www.matrix67.com/blog/archives/5044</a></p>
+<h5 id="🎃-如何挖掘新词"><a href="#🎃-如何挖掘新词" class="headerlink" title="🎃. 如何挖掘新词"></a>🎃. 如何挖掘新词</h5><p>汉语是一种独特而神奇的语言。对汉语资料进行自然语言处理时，我们会遇到很多其他语言不会有的困难，比如分词——汉语的词与词之间没有空格，那计算机怎么才知道，“已结婚的和尚未结婚的青年都要实行计划生育”究竟说的是“已／结婚／的／和／尚未／结婚／的／青年”，还是“已／结婚／的／和尚／未／结婚／的／青年”呢？这就是所谓的分词歧义难题。不过，现在很多语言模型已经能比较漂亮地解决这一问题了。但在中文分词领域里，还有一个比分词歧义更令人头疼的东西——未登录词。中文没有首字母大写，专名号也被取消了，这叫计算机如何辨认人名地名之类的东西？更惨的则是机构名、品牌名、专业名词、缩略语、网络新词等等，它们的产生机制似乎完全无规律可寻。最近十年来，中文分词领域都在集中攻克这一难关。自动发现新词成为了关键的环节。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -484,7 +502,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-17 23:31:59" itemprop="dateModified" datetime="2019-10-17T23:31:59+08:00">2019-10-17</time>
+                <time title="修改时间：2019-10-29 17:11:13" itemprop="dateModified" datetime="2019-10-29T17:11:13+08:00">2019-10-29</time>
               </span>
             
           
@@ -513,7 +531,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a href="https://www.zhihu.com/question/21923021" target="_blank" rel="noopener">https://www.zhihu.com/question/21923021</a></p><p>字符串匹配算法：</p><p><strong>回溯法字符串匹配算法</strong></p>
+          <p>参考链接：<a href="https://www.zhihu.com/question/21923021" target="_blank" rel="noopener">https://www.zhihu.com/question/21923021</a><br>参考链接：<a href="https://blog.csdn.net/qq_37969433/article/details/82947411" target="_blank" rel="noopener">https://blog.csdn.net/qq_37969433/article/details/82947411</a></p>
+<h4 id="🎃-问题描述"><a href="#🎃-问题描述" class="headerlink" title="🎃. 问题描述"></a>🎃. 问题描述</h4><p>给定一个主串S及一个模式串P，判断模式串是否为主串的子串；若是，返回匹配的第一个元素的位置，否则返回-1；如S=“abcd”，P=“bcd”，则返回1；S=“abcd”，P=“acb”，返回-1。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
