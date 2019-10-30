@@ -55,19 +55,21 @@
   };
 </script>
 
-  <meta name="description" content="HashMap的使用，很多时候都是为了空间换时间。有时遇到字母或者字符时，还可以利用固定长度的数组代替HashMap，比如字符为 Object[256] , 字母的话为 Object[26] 。">
-<meta name="keywords" content="算法">
+  <meta name="description" content="🎦 白板讲解：https://www.bilibili.com/video/av28186618如果对SVM支持向量机一点都不了解，不建议直接看下面的推导，我也是先看了视频，然后把视频里面的东西一步一步整理下来得到的下面的复习资料。下面的推导过程只适合已经看了视频，后续怕自己忘记这个过程复习来用的。">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HashMap 空间换时间">
-<meta property="og:url" content="http://yoursite.com/2019/09/10/HashMap-空间换时间/index.html">
+<meta property="og:title" content="SVM 支持向量机">
+<meta property="og:url" content="http://yoursite.com/2019/10/30/SVM-支持向量机/index.html">
 <meta property="og:site_name" content="Sooner or Later">
-<meta property="og:description" content="HashMap的使用，很多时候都是为了空间换时间。有时遇到字母或者字符时，还可以利用固定长度的数组代替HashMap，比如字符为 Object[256] , 字母的话为 Object[26] 。">
+<meta property="og:description" content="🎦 白板讲解：https://www.bilibili.com/video/av28186618如果对SVM支持向量机一点都不了解，不建议直接看下面的推导，我也是先看了视频，然后把视频里面的东西一步一步整理下来得到的下面的复习资料。下面的推导过程只适合已经看了视频，后续怕自己忘记这个过程复习来用的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-26T16:20:22.868Z">
+<meta property="og:image" content="http://yoursite.com/images/svm/1.jpg">
+<meta property="og:updated_time" content="2019-10-30T15:29:53.560Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HashMap 空间换时间">
-<meta name="twitter:description" content="HashMap的使用，很多时候都是为了空间换时间。有时遇到字母或者字符时，还可以利用固定长度的数组代替HashMap，比如字符为 Object[256] , 字母的话为 Object[26] 。">
-  <link rel="canonical" href="http://yoursite.com/2019/09/10/HashMap-空间换时间/">
+<meta name="twitter:title" content="SVM 支持向量机">
+<meta name="twitter:description" content="🎦 白板讲解：https://www.bilibili.com/video/av28186618如果对SVM支持向量机一点都不了解，不建议直接看下面的推导，我也是先看了视频，然后把视频里面的东西一步一步整理下来得到的下面的复习资料。下面的推导过程只适合已经看了视频，后续怕自己忘记这个过程复习来用的。">
+<meta name="twitter:image" content="http://yoursite.com/images/svm/1.jpg">
+  <link rel="canonical" href="http://yoursite.com/2019/10/30/SVM-支持向量机/">
 
 
 <script id="page-configurations">
@@ -81,7 +83,7 @@
   };
 </script>
 
-  <title>HashMap 空间换时间 | Sooner or Later</title>
+  <title>SVM 支持向量机 | Sooner or Later</title>
   
 
 
@@ -258,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/10/HashMap-空间换时间/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/30/SVM-支持向量机/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alyssa">
@@ -270,7 +272,7 @@
       <meta itemprop="name" content="Sooner or Later">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">HashMap 空间换时间
+        <h1 class="post-title" itemprop="name headline">SVM 支持向量机
 
           
         </h1>
@@ -286,19 +288,11 @@
                 
               
 
-              <time title="创建时间：2019-09-10 20:51:14" itemprop="dateCreated datePublished" datetime="2019-09-10T20:51:14+08:00">2019-09-10</time>
+              <time title="创建时间：2019-10-30 21:46:26 / 修改时间：23:29:53" itemprop="dateCreated datePublished" datetime="2019-10-30T21:46:26+08:00">2019-10-30</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-27 00:20:22" itemprop="dateModified" datetime="2019-09-27T00:20:22+08:00">2019-09-27</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -307,7 +301,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
 
                 
                 
@@ -326,15 +320,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>HashMap的使用，很多时候都是为了空间换时间。有时遇到字母或者字符时，还可以利用固定长度的数组代替HashMap，比如字符为 <code>Object[256]</code> , 字母的话为 <code>Object[26]</code> 。 </p>
-<a id="more"></a>
-<h5 id="1-leetcode-387-First-Unique-Character-in-a-String"><a href="#1-leetcode-387-First-Unique-Character-in-a-String" class="headerlink" title="1. leetcode 387. First Unique Character in a String"></a>1. <a href="https://leetcode.com/problems/first-unique-character-in-a-string/" target="_blank" rel="noopener">leetcode 387. First Unique Character in a String</a></h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Given a string, find the first non-repeating character in it and <span class="keyword">return</span> it<span class="string">'s index. If it doesn'</span>t exist, <span class="keyword">return</span> -<span class="number">1</span>.</span><br><span class="line"></span><br><span class="line">Examples:</span><br><span class="line">s = <span class="string">"leetcode"</span>  <span class="keyword">return</span> <span class="number">0</span>.</span><br><span class="line">s = <span class="string">"loveleetcode"</span>  <span class="keyword">return</span> <span class="number">2</span>.</span><br></pre></td></tr></table></figure>
-<ul>
-<li>可以用hash表，统计每个字符出现的次数，然后再遍历一遍字符串，当当前元素出现的次数为1时，输出该字符的index。</li>
-<li>因为字符串中字符的种类最多256个，所以可以用数组模拟hash表。以字符的index作为key，出现次数作为value即可。</li>
+        <h3 id="🎦-白板讲解：https-www-bilibili-com-video-av28186618"><a href="#🎦-白板讲解：https-www-bilibili-com-video-av28186618" class="headerlink" title="🎦 白板讲解：https://www.bilibili.com/video/av28186618"></a>🎦 白板讲解：<a href="https://www.bilibili.com/video/av28186618" target="_blank" rel="noopener">https://www.bilibili.com/video/av28186618</a></h3><p>如果对SVM支持向量机一点都不了解，不建议直接看下面的推导，我也是先看了视频，然后把视频里面的东西一步一步整理下来得到的下面的复习资料。下面的推导过程只适合已经看了视频，后续怕自己忘记这个过程复习来用的。</p><a id="more"></a>
+<h3 id="📃-SVM推导整理：⭐核心：离超平面最近的点最远"><a href="#📃-SVM推导整理：⭐核心：离超平面最近的点最远" class="headerlink" title="📃 SVM推导整理：⭐核心：离超平面最近的点最远"></a>📃 SVM推导整理：⭐核心：离超平面最近的点最远</h3><h4 id="1-硬间隔分类器："><a href="#1-硬间隔分类器：" class="headerlink" title="1. 硬间隔分类器："></a>1. 硬间隔分类器：</h4><p><img src="/images/svm/1.jpg" alt="img"></p>
+<h5 id="📍-离超平面-w-Tx-b-最近的点最远："><a href="#📍-离超平面-w-Tx-b-最近的点最远：" class="headerlink" title="📍. 离超平面 $w^Tx+b$ 最近的点最远："></a>📍. 离超平面 $w^Tx+b$ 最近的点最远：</h5><ul>
+<li>点到直线的距离：<script type="math/tex">distance = \frac{|w^Tx_i+b|}{||w||}</script></li>
+<li>那么离超平面最近的点即：<script type="math/tex">\min\limits_{x_i} distance = \min\limits_{x_i} \frac{|w^Tx_i+b|}{||w||}</script></li>
+<li>目标：离超平面最近的点最远：<script type="math/tex">\max\limits_{w,b} \min\limits_{x_i} distance = \max\limits_{w,b} \min\limits_{x_i} \frac{|w^Tx_i+b|}{||w||}</script></li>
+<li>因为是二分类任务，则有：<script type="math/tex; mode=display">y=\begin{cases} 1 & w^Tx+b>0 \\ -1 & w^Tx+b<0 \end{cases} \quad ==>  \quad y_i(w^Tx_i+b)>0</script></li>
+<li>那么，我们的目标就可以转化为：<script type="math/tex; mode=display">\max\limits_{w,b} \min\limits_{x_i} distance = \max\limits_{w,b} \min\limits_{x_i} \frac{|w^Tx_i+b|}{||w||} = \max\limits_{w,b} \min\limits_{x_i} \frac{y_i(w^Tx_i+b)}{||w||}, \, s.t. y_i(w^Tx_i+b)>0</script></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">firstUniqChar</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">char</span> ch:s.toCharArray())</span><br><span class="line">        count[ch-<span class="string">'0'</span>] += <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)</span><br><span class="line">        <span class="keyword">if</span>(count[s.charAt(i)-<span class="string">'0'</span>]==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h5 id="📍-将原公式进行转化："><a href="#📍-将原公式进行转化：" class="headerlink" title="📍. 将原公式进行转化："></a>📍. 将原公式进行转化：</h5><ul>
+<li>因为 <script type="math/tex">y_i(w^Tx_i+b)>0</script>, 所以 <script type="math/tex">\exists r>0, \min\limits_{x_i} y_i(w^Tx_i+b) = r</script></li>
+<li>我们令 $r=1$, 则有 $\min\limits_{x_i} y_i(w^Tx_i+b) = 1 \quad ==&gt;  \quad y_i(w^Tx_i+b)\ge1$</li>
+<li>令 $r=1$ 只是为了好算，设置 $r$ 为其他值是一样的，只是倍数关系而已。 那么目标则可表示为：<script type="math/tex; mode=display">\begin{align}\max\limits_{w,b} \min\limits_{x_i} \frac{y_i(w^Tx_i+b)}{||w||}, \, s.t. y_i(w^Tx_i+b)>0 & = \max\limits_{w,b} \frac{1}{||w||}, \, s.t. y_i(w^Tx_i+b)\ge1 \\ & = \min\limits_{w,b} ||w||, \, s.t. y_i(w^Tx_i+b)\ge1 \end{align}</script></li>
+<li>所以原始目标便可转化为：<script type="math/tex; mode=display">\max\limits_{w,b} \min\limits_{x_i} distance = \min\limits_{w,b} \frac{1}{2}w^Tw, \, s.t. y_i(w^Tx_i+b)\ge1</script></li>
+</ul>
+<h5 id="📍-将弱对偶关系转为强对偶关系："><a href="#📍-将弱对偶关系转为强对偶关系：" class="headerlink" title="📍. 将弱对偶关系转为强对偶关系："></a>📍. 将弱对偶关系转为强对偶关系：</h5><ul>
+<li><p>由拉格朗日乘子法：</p>
+<script type="math/tex; mode=display">\begin{cases} \min\limits_{w,b} \frac{1}{2}w^Tw \\ 1-y_i(w^Tx_i+b)\le0 \end{cases} \quad ==>  \quad \begin{cases} \frac{1}{2}w^Tw +\sum_\limits{i=1}^{N}\lambda_i(1-y_i(w^Tx_i+b)) = L(w,b,\lambda)\\ \lambda_i\ge0 \end{cases}</script></li>
+<li><p>原问题转换成：</p>
+<script type="math/tex; mode=display">\begin{cases} \min\limits_{w,b} \max\limits_{\lambda} L(w,b,\lambda) \\ s.t. \lambda_i\ge0 \end{cases}\quad ==>\text{强对偶关系}==>\quad \begin{cases} \max\limits_{\lambda}\min\limits_{w,b}  L(w,b,\lambda) \\ s.t. \lambda_i\ge0 \end{cases}</script></li>
+</ul>
+<h5 id="📍-计算："><a href="#📍-计算：" class="headerlink" title="📍. 计算："></a>📍. 计算：</h5>
     </div>
 
     
@@ -349,7 +356,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+              <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
             
           </div>
         
@@ -359,8 +366,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/08/回溯算法/" rel="next" title="回溯算法">
-                  <i class="fa fa-chevron-left"></i> 回溯算法
+                <a href="/2019/10/17/CTR预估模型/" rel="next" title="前深度学习时代的CTR预估模型">
+                  <i class="fa fa-chevron-left"></i> 前深度学习时代的CTR预估模型
                 </a>
               
             </div>
@@ -368,10 +375,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/17/队列/" rel="prev" title="队列">
-                  队列 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -539,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-leetcode-387-First-Unique-Character-in-a-String"><span class="nav-number">1.</span> <span class="nav-text">1. leetcode 387. First Unique Character in a String</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#🎦-白板讲解：https-www-bilibili-com-video-av28186618"><span class="nav-number">1.</span> <span class="nav-text">🎦 白板讲解：https://www.bilibili.com/video/av28186618</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#📃-SVM推导整理：⭐核心：离超平面最近的点最远"><span class="nav-number">2.</span> <span class="nav-text">📃 SVM推导整理：⭐核心：离超平面最近的点最远</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-硬间隔分类器："><span class="nav-number">2.1.</span> <span class="nav-text">1. 硬间隔分类器：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#📍-离超平面-w-Tx-b-最近的点最远："><span class="nav-number">2.1.1.</span> <span class="nav-text">📍. 离超平面 $w^Tx+b$ 最近的点最远：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#📍-将原公式进行转化："><span class="nav-number">2.1.2.</span> <span class="nav-text">📍. 将原公式进行转化：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#📍-将弱对偶关系转为强对偶关系："><span class="nav-number">2.1.3.</span> <span class="nav-text">📍. 将弱对偶关系转为强对偶关系：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#📍-计算："><span class="nav-number">2.1.4.</span> <span class="nav-text">📍. 计算：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -710,7 +713,7 @@
       repo: 'alyssaasa.github.io',
       owner: 'alyssaasa',
       admin: ['alyssaasa'],
-      id: '00a0593e5f04851dad6f08b17448d876',
+      id: '32a27d3d995e34b476051329287807a5',
         language: 'zh-CN',
       
       distractionFreeMode: 'true'
