@@ -58,9 +58,9 @@
 <meta property="og:site_name" content="各有未来">
 <meta property="og:description" content="教程链接： https://www.liaoxuefeng.com/wiki/896043488029600 🍬. 总结1. 初始化一个Git仓库，使用 &quot;git init&quot; 命令。2. 添加文件到Git仓库，分两步：     - 使用命令 &quot;git add &amp;lt;file&amp;gt;&quot;，注意，可反复多次使用，添加多个文件；     - 使用命令 &quot;git commit -m &amp;lt;messag">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://app.yinxiang.com/shard/s58/res/fd8b7926-0fd6-4ccd-9bac-d3308bbb02d6/1533796511401.png">
-<meta property="og:image" content="https://app.yinxiang.com/shard/s58/res/cf382393-24cc-4613-8c59-8b5ee35fc8de/1533797170084.png">
-<meta property="og:image" content="https://app.yinxiang.com/shard/s58/res/d8f66e88-cf7d-42b5-852c-05e3ecfaf1de/1533797251613.png">
+<meta property="og:image" content="http://yoursite.com/images/git/0.jpg">
+<meta property="og:image" content="http://yoursite.com/images/git/1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/git/2.jpg">
 <meta property="og:image" content="http://yoursite.com/images/git/0.png">
 <meta property="og:image" content="http://yoursite.com/images/git/1.png">
 <meta property="og:image" content="http://yoursite.com/images/git/2.png">
@@ -71,11 +71,11 @@
 <meta property="og:image" content="http://yoursite.com/images/git/7.png">
 <meta property="og:image" content="http://yoursite.com/images/git/8.png">
 <meta property="og:image" content="http://yoursite.com/images/git/6.png">
-<meta property="og:updated_time" content="2019-11-11T06:11:10.288Z">
+<meta property="og:updated_time" content="2019-11-11T11:07:49.313Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git学习">
 <meta name="twitter:description" content="教程链接： https://www.liaoxuefeng.com/wiki/896043488029600 🍬. 总结1. 初始化一个Git仓库，使用 &quot;git init&quot; 命令。2. 添加文件到Git仓库，分两步：     - 使用命令 &quot;git add &amp;lt;file&amp;gt;&quot;，注意，可反复多次使用，添加多个文件；     - 使用命令 &quot;git commit -m &amp;lt;messag">
-<meta name="twitter:image" content="https://app.yinxiang.com/shard/s58/res/fd8b7926-0fd6-4ccd-9bac-d3308bbb02d6/1533796511401.png">
+<meta name="twitter:image" content="http://yoursite.com/images/git/0.jpg">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/10/git学习/">
 
@@ -260,7 +260,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-11 14:11:10" itemprop="dateModified" datetime="2019-11-11T14:11:10+08:00">2019-11-11</time>
+                <time title="修改时间：2019-11-11 19:07:49" itemprop="dateModified" datetime="2019-11-11T19:07:49+08:00">2019-11-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -315,7 +315,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">位于分支 master</span><br><span class="line">无文件要提交，干净的工作区</span><br></pre></td></tr></table></figure>
 <p>Git告诉我们当前没有需要提交的修改，而且，工作目录是干净的。</p>
 <h4 id="🌼-版本回退"><a href="#🌼-版本回退" class="headerlink" title="🌼. 版本回退"></a>🌼. 版本回退</h4><p>在之前的几次修改中，我一共提交了三个版本，用<code>git log</code>查看：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --pretty=oneline</span><br><span class="line">4676b30e64d651522d8f1caf6722267eba7ad13b 修改2</span><br><span class="line">2e79bb499e48367e070d2eeae7a599504f8eac67 修改a=1</span><br><span class="line">909ebc275138015313a9c652ef6c30e0e438fcc9 新建文件</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --pretty=oneline</span><br><span class="line">4676b30e64d651522d8f1caf6722267eba7ad13b 修改2</span><br><span class="line">2e79bb499e48367e070d2eeae7a599504f8eac67 修改 a=1</span><br><span class="line">909ebc275138015313a9c652ef6c30e0e438fcc9 新建文件</span><br></pre></td></tr></table></figure>
 <p>其中：一大串类似<code>4676b30e...</code>的是<code>commit id</code>（版本号）<br>新建文件：（空）<br>修改a=1： a=1<br>修改2： a=2 b=3</p>
 <p>现在，将<code>test.py</code>会退到上一个版本：</p>
 <p>首先，Git必须知道当前版本是哪个版本，在Git中，用<code>HEAD</code>表示当前版本，也就是最新的提交<code>4676b30...</code>，上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个<code>^</code>比较容易数不过来，所以写成<code>HEAD~100</code>。</p>
@@ -332,30 +332,36 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --hard 4676b30 (commit id)</span><br></pre></td></tr></table></figure>
 <p>看看<code>test.py</code>的内容是不是版本<code>修改2</code>：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat test.py</span><br><span class="line">a = 2</span><br><span class="line">b = 3</span><br></pre></td></tr></table></figure>
-<h4 id="🌼-暂存区"><a href="#🌼-暂存区" class="headerlink" title="🌼. 暂存区"></a>🌼. 暂存区</h4><p><img src="https://app.yinxiang.com/shard/s58/res/fd8b7926-0fd6-4ccd-9bac-d3308bbb02d6/1533796511401.png" alt="Alt text"><br>工作区就是我们能看到的文件；版本库就是<code>.git</code>文件夹<br>Git的版本库里存了很多东西，其中最重要的就是称为<code>stage</code>的暂存区，还有Git为我们自动创建的第一个分支<code>master</code>，以及指向<code>master</code>的一个指针叫<code>HEAD</code>。</p>
-<p>前面讲了我们把文件往Git版本库里添加的时候，是分两步执行的：<br>第一步是用<code>git add</code>把文件添加进去，实际上就是把文件修改添加到暂存区；<br>第二步是用<code>git commit</code>提交更改，实际上就是把暂存区的所有内容提交到当前分支。<br>可以简单理解为，<strong>需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改。</strong></p>
-<p>举例说明：</p>
-<ol>
-<li>修改<code>test.py</code>的内容：<code>a=1 b=3 c=2</code></li>
-<li>新建文件<code>test2.py</code>，内容：<code>hello world</code></li>
-</ol>
-<p>执行 <code>git status</code>:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">位于分支 master</span><br><span class="line">尚未暂存以备提交的变更：</span><br><span class="line">  （使用 <span class="string">"git add &lt;文件&gt;..."</span> 更新要提交的内容）</span><br><span class="line">  （使用 <span class="string">"git checkout -- &lt;文件&gt;..."</span> 丢弃工作区的改动）</span><br><span class="line"></span><br><span class="line">    修改：     test.py</span><br><span class="line"></span><br><span class="line">未跟踪的文件:</span><br><span class="line">  （使用 <span class="string">"git add &lt;文件&gt;..."</span> 以包含要提交的内容）</span><br><span class="line"></span><br><span class="line">    test2.py</span><br><span class="line"></span><br><span class="line">修改尚未加入提交（使用 <span class="string">"git add"</span> 和/或 <span class="string">"git commit -a"</span>）</span><br></pre></td></tr></table></figure>
-<p>Git非常清楚地告诉我们，<code>test.py</code>被修改了，而<code>test2.py</code>还从来没有被添加过，所以它的状态是<code>未跟踪的文件Untracked</code>。</p>
-<p>现在，使用两次命令<code>git add</code>，把<code>test.py</code>和<code>test2.py</code>都添加后，用<code>git status</code>再查看一下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">位于分支 master</span><br><span class="line">要提交的变更：</span><br><span class="line">  （使用 <span class="string">"git reset HEAD &lt;文件&gt;..."</span> 以取消暂存）</span><br><span class="line"></span><br><span class="line">    修改：     test.py</span><br><span class="line">    新文件：   test2.py</span><br></pre></td></tr></table></figure>
-<p><img src="https://app.yinxiang.com/shard/s58/res/cf382393-24cc-4613-8c59-8b5ee35fc8de/1533797170084.png" alt="Alt text"><br>所以，<code>git add</code>命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，执行<code>git commit</code>就可以一次性把暂存区的所有修改提交到分支。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git commit -m <span class="string">"understand how stage works"</span></span><br><span class="line">[master 6efac73] understand how stage works</span><br><span class="line"> 2 files changed, 3 insertions(+), 2 deletions(-)</span><br><span class="line"> create mode 100644 test2.py</span><br></pre></td></tr></table></figure>
-<p>一旦提交后，如果你又没有zongjie对工作区做任何修改，那么工作区就是“干净”的：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">位于分支 master</span><br><span class="line">无文件要提交，干净的工作区</span><br></pre></td></tr></table></figure>
-<p>现在版本库变成了这样，暂存区就没有任何内容了：</p>
-<p><img src="https://app.yinxiang.com/shard/s58/res/d8f66e88-cf7d-42b5-852c-05e3ecfaf1de/1533797251613.png" alt="Alt text"></p>
 <p>比如我现在在工作区中新建一个<code>test3.py</code>,然后修改<code>test.py</code>和<code>test2.py</code>的内容，然后将这三个文件都<code>git add</code>到stage区，然后一次性<code>git commit</code>到<code>master</code>区。现在<code>git log</code>如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --pretty=oneline</span><br><span class="line">d142268223521c9f9c73c232793a7b10e0591f1a 测试</span><br><span class="line">6efac73f38c50d6f5cd7b8f3bd09458a5465750c understand how stage works</span><br><span class="line">4676b30e64d651522d8f1caf6722267eba7ad13b 修改2</span><br><span class="line">2e79bb499e48367e070d2eeae7a599504f8eac67 修改a=1</span><br><span class="line">909ebc275138015313a9c652ef6c30e0e438fcc9 新建文件</span><br></pre></td></tr></table></figure>
 <p>然后我将版本回退到<code>understand how stage works</code>：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br><span class="line">HEAD 现在位于 6efac73 understand how stage works</span><br></pre></td></tr></table></figure>
 <p>此时，工作区中<code>test3.py</code>文件就不见了，然后<code>test.py</code>和<code>test2.py</code>中的内容都会回退到<code>understand how stage works</code>版本。</p>
 <p><strong>也就是说，回退版本，不是对某个文件回退版本，而是对你这一次commit的所有文件进行版本回退</strong></p>
+<h4 id="🌼-暂存区"><a href="#🌼-暂存区" class="headerlink" title="🌼. 暂存区"></a>🌼. 暂存区</h4><p>工作区就是我们能看到的文件；版本库就是<code>.git</code>文件夹<br>Git的版本库里存了很多东西，其中最重要的就是称为<code>stage</code>的暂存区，还有Git为我们自动创建的第一个分支<code>master</code>，以及指向<code>master</code>的一个指针叫<code>HEAD</code>。</p>
+<p><img src="/images/git/0.jpg" alt="img"></p>
+<p>前面讲了我们把文件往Git版本库里添加的时候，是分两步执行的：<br>第一步是用<code>git add</code>把文件添加进去，实际上就是把文件修改添加到暂存区；<br>第二步是用<code>git commit</code>提交更改，实际上就是把暂存区的所有内容提交到当前分支。<br>可以简单理解为，<strong>需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改。</strong></p>
+<p>举例说明：</p>
+<ol>
+<li><p>先对<code>readme.txt</code>做个修改，比如加上一行内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Git is a distributed version control system.</span><br><span class="line">Git is free software distributed under the GPL.</span><br><span class="line">Git has a mutable index called stage.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后，在工作区新增一个<code>LICENSE</code>文本文件（内容随便写）。</p>
+</li>
+</ol>
+<p>先用<code>git status</code>查看一下状态：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged <span class="keyword">for</span> commit:</span><br><span class="line">  (use <span class="string">"git add &lt;file&gt;..."</span> to update what will be committed)</span><br><span class="line">  (use <span class="string">"git checkout -- &lt;file&gt;..."</span> to discard changes <span class="keyword">in</span> working directory)</span><br><span class="line"></span><br><span class="line">	modified:   readme.txt</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use <span class="string">"git add &lt;file&gt;..."</span> to include <span class="keyword">in</span> what will be committed)</span><br><span class="line"></span><br><span class="line">	LICENSE</span><br><span class="line"></span><br><span class="line">no changes added to commit (use <span class="string">"git add"</span> and/or <span class="string">"git commit -a"</span>)</span><br></pre></td></tr></table></figure>
+<p>Git非常清楚地告诉我们，<code>readme.txt</code>被修改了，而<code>LICENSE</code>还从来没有被添加过，所以它的状态是<code>Untracked</code>。</p>
+<p>现在，使用两次命令<code>git add</code>，把<code>readme.txt</code>和<code>LICENSE</code>都添加后，用<code>git status</code>再查看一下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">"git reset HEAD &lt;file&gt;..."</span> to unstage)</span><br><span class="line"></span><br><span class="line">	new file:   LICENSE</span><br><span class="line">	modified:   readme.txt</span><br></pre></td></tr></table></figure>
+<p>现在，暂存区的状态就变成这样了：</p>
+<p><img src="/images/git/1.jpg" alt="img"></p>
+<p>所以，<code>git add</code>命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，执行<code>git commit</code>就可以一次性把暂存区的所有修改提交到分支。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git commit -m <span class="string">"understand how stage works"</span></span><br><span class="line">[master e43a48b] understand how stage works</span><br><span class="line"> 2 files changed, 2 insertions(+)</span><br><span class="line"> create mode 100644 LICENSE</span><br></pre></td></tr></table></figure>
+<p>一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+<p>现在版本库变成了这样，暂存区就没有任何内容了：</p>
+<p><img src="/images/git/2.jpg" alt="img"></p>
 <h4 id="🌼-撤销修改"><a href="#🌼-撤销修改" class="headerlink" title="🌼. 撤销修改"></a>🌼. 撤销修改</h4><p>1.命令<code>git checkout -- test.py</code>意思就是，把<code>test.py</code>文件在工作区的修改全部撤销，这里有两种情况：</p>
 <ul>
 <li>一种是<code>test.py</code>自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</li>
