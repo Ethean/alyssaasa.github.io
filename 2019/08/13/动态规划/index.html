@@ -1,25 +1,19 @@
 <!DOCTYPE html>
-
-
-
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/2.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/1.png?v=7.3.0">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/2.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/1.png">
 
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+<link rel="stylesheet" href="/css/main.css">
 
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-.min.css?v=1.0.2">
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 
 <script id="hexo-configurations">
@@ -27,12 +21,12 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '7.3.0',
+    version: '7.5.0',
     exturl: false,
-    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
-    save_scroll: false,
-    copycode: {"enable":false,"show_result":false,"style":"flat"},
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
@@ -51,7 +45,8 @@
       copy_button: '复制',
       copy_success: '复制成功',
       copy_failure: '复制失败'
-    }
+    },
+    sidebarPadding: 40
   };
 </script>
 
@@ -69,7 +64,8 @@
 <meta name="twitter:title" content="动态规划">
 <meta name="twitter:description" content="🌈. DP的特点 无后效性：未来与过去无关。即：如果给定某一阶段的状态，则在这一阶段以后过程的发展不受这阶段以前的各状态的影响。 最优子结构：大问题的最优解可以由小问题的最优解推出  🌈. DP的操作过程将一个大问题转化为几个小问题，大事化小，小事化了：  求解小问题 推出大问题的解  🌈. DP经典题型但是感觉不管查什么资料都是这些，其实什么也解决不了，根据做题的经验，动态规划最难的地方，">
 <meta name="twitter:image" content="http://yoursite.com/images/others/donggui1.png">
-  <link rel="canonical" href="http://yoursite.com/2019/08/13/动态规划/">
+
+<link rel="canonical" href="http://yoursite.com/2019/08/13/动态规划/">
 
 
 <script id="page-configurations">
@@ -91,11 +87,8 @@
 
 
 
-
-
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -104,9 +97,8 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -120,16 +112,15 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  <div class="container sidebar-position-left">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">各有未来</span>
@@ -139,11 +130,11 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
 
@@ -151,128 +142,96 @@
 <nav class="site-nav">
   
   <ul id="menu" class="menu">
-      
-      
-      
-        
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
       </li>
-    
   </ul>
 
 </nav>
   <div class="site-search">
-    
-  <div class="popup search-popup">
-  <div class="search-header">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <div class="search-input-wrapper">
-      <input autocomplete="off" autocorrect="off" autocapitalize="none"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="search-input">
-    </div>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
   </div>
-  <div id="search-result"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
 </div>
+<div id="search-result"></div>
 
+</div>
+<div class="search-pop-overlay"></div>
 
   </div>
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+
+          <div class="content">
             
 
-          <div id="content" class="content page-post-detail">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  <article class="post" itemscope itemtype="http://schema.org/Article">
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/13/动态规划/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/toux.jpg">
       <meta itemprop="name" content="Alyssa">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/toux.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="各有未来">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">动态规划
-
-          
+        <h1 class="post-title" itemprop="name headline">
+          动态规划
         </h1>
 
         <div class="post-meta">
@@ -282,16 +241,8 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              
-                
-              
-
               <time title="创建时间：2019-08-13 23:40:08" itemprop="dateCreated datePublished" datetime="2019-08-13T23:40:08+08:00">2019-08-13</time>
             </span>
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
@@ -299,21 +250,17 @@
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-10-30 21:46:45" itemprop="dateModified" datetime="2019-10-30T21:46:45+08:00">2019-10-30</time>
               </span>
-            
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
-
-                
-                
-              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
             </span>
-          
 
           
 
@@ -497,215 +444,115 @@
     
     
     
-        
-      
 
       <footer class="post-footer">
           
-            
-          
           <div class="post-tags">
-            
               <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
-            
           </div>
-        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-              
                 <a href="/2019/08/12/Hexo+NexT+github Pages配置/" rel="next" title="Hexo+NexT+github Pages 搭建">
                   <i class="fa fa-chevron-left"></i> Hexo+NexT+github Pages 搭建
                 </a>
-              
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/08/15/shell变量的定义、赋值和删除/" rel="prev" title="Shell变量的定义、赋值和删除">
-                  Shell变量的定义、赋值和删除 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/08/15/链表/" rel="prev" title="链表">
+                  链表 <i class="fa fa-chevron-right"></i>
                 </a>
-              
             </div>
           </div>
-        
       </footer>
     
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
   </div>
 
 
           </div>
           
-    
     <div class="comments" id="gitalk-container"></div>
-  
 
         </div>
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#🌈-DP的特点"><span class="nav-number">1.</span> <span class="nav-text">🌈. DP的特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#🌈-DP的操作过程"><span class="nav-number">2.</span> <span class="nav-text">🌈. DP的操作过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#🌈-DP经典题型"><span class="nav-number">3.</span> <span class="nav-text">🌈. DP经典题型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-leetcode-53-最大子段和"><span class="nav-number">3.1.</span> <span class="nav-text">1.  leetcode 53. 最大子段和</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-leetcode-139-word-break"><span class="nav-number">3.2.</span> <span class="nav-text">2.  leetcode 139. word break</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-leetcode-300-最长上升子序列"><span class="nav-number">3.3.</span> <span class="nav-text">3.  leetcode 300. 最长上升子序列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-leetcode-1143-最长公共子序列"><span class="nav-number">3.4.</span> <span class="nav-text">4.  leetcode 1143. 最长公共子序列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-leetcode-62-从左上到右下共有多少条路径"><span class="nav-number">3.5.</span> <span class="nav-text">5.  leetcode 62. 从左上到右下共有多少条路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-leetcode-134-环形加油站"><span class="nav-number">3.6.</span> <span class="nav-text">6.  leetcode 134. 环形加油站</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-leetcode-96-独一无二的二叉搜索树数目"><span class="nav-number">3.7.</span> <span class="nav-text">7.  leetcode 96. 独一无二的二叉搜索树数目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-leetcode-95-把96题所有的二叉搜索树都写出来"><span class="nav-number">3.8.</span> <span class="nav-text">8.  leetcode 95. 把96题所有的二叉搜索树都写出来</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-leetcode-120-三角形矩阵从上到小的最小和路径"><span class="nav-number">3.9.</span> <span class="nav-text">9.  leetcode 120. 三角形矩阵从上到小的最小和路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-leetcode-392-判断s是不是t的子序列"><span class="nav-number">3.10.</span> <span class="nav-text">11.  leetcode 392. 判断s是不是t的子序列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-leetcode-338-计算二进制中1的个数"><span class="nav-number">3.11.</span> <span class="nav-text">12.  leetcode 338. 计算二进制中1的个数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-leetcode-714-带有转移费用的股票最佳买卖时间"><span class="nav-number">3.12.</span> <span class="nav-text">13.  leetcode 714. 带有转移费用的股票最佳买卖时间</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#🌈-区间DP"><span class="nav-number">4.</span> <span class="nav-text">🌈. 区间DP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-leetcode-5-最长回文子串"><span class="nav-number">4.1.</span> <span class="nav-text">1.  leetcode 5. 最长回文子串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-leetcode-1130-Minimum-Cost-Tree-From-Leaf-Values"><span class="nav-number">4.2.</span> <span class="nav-text">2.  leetcode 1130. Minimum Cost Tree From Leaf Values</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-poj-1738-石子合并-（直线型）"><span class="nav-number">4.3.</span> <span class="nav-text">3.  poj 1738. 石子合并 （直线型）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-石子合并（环形）"><span class="nav-number">4.4.</span> <span class="nav-text">4.  石子合并（环形）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-poj-2955-括号匹配问题：最长匹配子序列的长度"><span class="nav-number">4.5.</span> <span class="nav-text">5.  poj 2955. 括号匹配问题：最长匹配子序列的长度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-⭐-整数划分使乘积最大"><span class="nav-number">4.6.</span> <span class="nav-text">6.  ⭐ 整数划分使乘积最大</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-凸多边形三角划分问题"><span class="nav-number">4.7.</span> <span class="nav-text">7.  凸多边形三角划分问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-leetcode-375-猜数字，使花费最小"><span class="nav-number">4.8.</span> <span class="nav-text">8.  leetcode 375. 猜数字，使花费最小</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/toux.jpg"
-      alt="Alyssa">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Alyssa"
+      src="/images/toux.jpg">
   <p class="site-author-name" itemprop="name">Alyssa</p>
-  <div class="site-description motion-element" itemprop="description"></div>
+  <div class="site-description" itemprop="description"></div>
 </div>
-  <nav class="site-state motion-element">
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
-    
   </nav>
+</div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
         <a href="https://github.com/alyssaasa" title="GitHub &rarr; https://github.com/alyssaasa" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://instagram.com/yourname" title="Instagram &rarr; https://instagram.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+        <a href="https://weibo.com/Alyssaasa" title="Weibo &rarr; https://weibo.com/Alyssaasa" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
       </span>
-    
   </div>
 
 
 
-
-        </div>
       </div>
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#🌈-DP的特点"><span class="nav-number">1.</span> <span class="nav-text">🌈. DP的特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#🌈-DP的操作过程"><span class="nav-number">2.</span> <span class="nav-text">🌈. DP的操作过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#🌈-DP经典题型"><span class="nav-number">3.</span> <span class="nav-text">🌈. DP经典题型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-leetcode-53-最大子段和"><span class="nav-number">3.1.</span> <span class="nav-text">1.  leetcode 53. 最大子段和</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-leetcode-139-word-break"><span class="nav-number">3.2.</span> <span class="nav-text">2.  leetcode 139. word break</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-leetcode-300-最长上升子序列"><span class="nav-number">3.3.</span> <span class="nav-text">3.  leetcode 300. 最长上升子序列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-leetcode-1143-最长公共子序列"><span class="nav-number">3.4.</span> <span class="nav-text">4.  leetcode 1143. 最长公共子序列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-leetcode-62-从左上到右下共有多少条路径"><span class="nav-number">3.5.</span> <span class="nav-text">5.  leetcode 62. 从左上到右下共有多少条路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-leetcode-134-环形加油站"><span class="nav-number">3.6.</span> <span class="nav-text">6.  leetcode 134. 环形加油站</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-leetcode-96-独一无二的二叉搜索树数目"><span class="nav-number">3.7.</span> <span class="nav-text">7.  leetcode 96. 独一无二的二叉搜索树数目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-leetcode-95-把96题所有的二叉搜索树都写出来"><span class="nav-number">3.8.</span> <span class="nav-text">8.  leetcode 95. 把96题所有的二叉搜索树都写出来</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-leetcode-120-三角形矩阵从上到小的最小和路径"><span class="nav-number">3.9.</span> <span class="nav-text">9.  leetcode 120. 三角形矩阵从上到小的最小和路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-leetcode-392-判断s是不是t的子序列"><span class="nav-number">3.10.</span> <span class="nav-text">11.  leetcode 392. 判断s是不是t的子序列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-leetcode-338-计算二进制中1的个数"><span class="nav-number">3.11.</span> <span class="nav-text">12.  leetcode 338. 计算二进制中1的个数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-leetcode-714-带有转移费用的股票最佳买卖时间"><span class="nav-number">3.12.</span> <span class="nav-text">13.  leetcode 714. 带有转移费用的股票最佳买卖时间</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#🌈-区间DP"><span class="nav-number">4.</span> <span class="nav-text">🌈. 区间DP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-leetcode-5-最长回文子串"><span class="nav-number">4.1.</span> <span class="nav-text">1.  leetcode 5. 最长回文子串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-leetcode-1130-Minimum-Cost-Tree-From-Leaf-Values"><span class="nav-number">4.2.</span> <span class="nav-text">2.  leetcode 1130. Minimum Cost Tree From Leaf Values</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-poj-1738-石子合并-（直线型）"><span class="nav-number">4.3.</span> <span class="nav-text">3.  poj 1738. 石子合并 （直线型）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-石子合并（环形）"><span class="nav-number">4.4.</span> <span class="nav-text">4.  石子合并（环形）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-poj-2955-括号匹配问题：最长匹配子序列的长度"><span class="nav-number">4.5.</span> <span class="nav-text">5.  poj 2955. 括号匹配问题：最长匹配子序列的长度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-⭐-整数划分使乘积最大"><span class="nav-number">4.6.</span> <span class="nav-text">6.  ⭐ 整数划分使乘积最大</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-凸多边形三角划分问题"><span class="nav-number">4.7.</span> <span class="nav-text">7.  凸多边形三角划分问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-leetcode-375-猜数字，使花费最小"><span class="nav-number">4.8.</span> <span class="nav-text">8.  leetcode 375. 猜数字，使花费最小</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      	
 
     </div>
-
   </aside>
   <div id="sidebar-dimmer"></div>
 
@@ -713,19 +560,30 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Alyssa</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
 
         
+
+
+
+
 
 
 
@@ -737,29 +595,15 @@
         
       </div>
     </footer>
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-          <span id="scrollpercent"><span>0</span>%</span>
-        
-      </div>
-
-    
-
   </div>
 
   
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
-
-<script src="/js/schemes/pisces.js?v=7.3.0"></script>
-
-
-
-<script src="/js/next-boot.js?v=7.3.0"></script>
-
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
 
 
 
@@ -768,19 +612,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-  <script src="/js/local-search.js?v=7.3.0"></script>
-
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -797,7 +629,6 @@
   
 
   
-    
       
 <script type="text/x-mathjax-config">
 
@@ -846,16 +677,8 @@
 </script>
 
     
-  
 
   
-
-  
-
-
-  
-  <script src="/js/scrollspy.js?v=7.3.0"></script><script src="/js/post-details.js?v=7.3.0"></script>
-
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
@@ -869,7 +692,6 @@
       admin: ['alyssaasa'],
       id: 'b54a196f26e3911375ba406bec8b9e62',
         language: 'zh-CN',
-      
       distractionFreeMode: 'true'
     });
     gitalk.render('gitalk-container');
@@ -877,6 +699,4 @@
 </script>
 
 </body>
-
-
 </html>
