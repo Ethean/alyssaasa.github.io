@@ -35,13 +35,18 @@
 .post-button .btn {
   border-radius: 20px;
 }
-/*设置页面透明度*/
-.header-inner {
-  opacity: 0.9;
+/*
+//设置页面透明度
+.header-inner{
+	opacity: 0.9;
 }
-.main-inner {
-  opacity: 0.9;
+.main-inner { 
+   // margin-top: 60px;
+   // padding: 60px 60px 60px 60px;
+
+    opacity: 0.9;
 }
+*/
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -1197,7 +1202,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #1f21ff;
+  background: #9fc9e2;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2791,7 +2796,7 @@ body {
   height: 100%;
 }
 body {
-  background: url("http://img.netbian.com/file/2019/0625/5a638e37c2073daecfbd650bb013e8f4.jpg");
+  background: url("http://img.netbian.com/file/2019/0917/2422bf893cf8f61b3e3314c5a5354517.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
