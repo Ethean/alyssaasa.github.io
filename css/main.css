@@ -6,17 +6,6 @@
 .post-gallery .post-gallery-img img {
   padding: 3px;
 }
-/* 文章内链接颜色修改为蓝色 */
-.post-body p a {
-  color: #0593d3;
-  border-bottom: none;
-  border-bottom: 1px solid #0593d3;
-}
-.post-body p a:hover {
-  color: #fc6423;
-  border-bottom: none;
-  border-bottom: 1px solid #fc6423;
-}
 /*文章底部标签样式*/
 .posts-expand .post-tags a {
   -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -955,16 +944,16 @@ pre .javascript .function {
 }
 .main-inner {
   margin: 0 auto;
-  width: 85%;
+  width: 90%;
 }
 @media (min-width: 1200px) {
   .main-inner {
-    width: 85%;
+    width: 90%;
   }
 }
 @media (min-width: 1600px) {
   .main-inner {
-    width: 85%;
+    width: 90%;
   }
 }
 .header {
@@ -973,16 +962,16 @@ pre .javascript .function {
 .header-inner {
   margin: 0 auto;
   position: relative;
-  width: 85%;
+  width: 90%;
 }
 @media (min-width: 1200px) {
   .header-inner {
-    width: 85%;
+    width: 90%;
   }
 }
 @media (min-width: 1600px) {
   .header-inner {
-    width: 85%;
+    width: 90%;
   }
 }
 .headband {
@@ -1208,7 +1197,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #78990e;
+  background: #1f21ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1445,16 +1434,16 @@ pre .javascript .function {
   box-sizing: border-box;
   margin: 0 auto;
   text-align: center;
-  width: 85%;
+  width: 90%;
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 85%;
+    width: 90%;
   }
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 85%;
+    width: 90%;
   }
 }
 .with-love {
@@ -2337,16 +2326,16 @@ ul.breadcrumb li + li:last-child {
 .header {
   margin: 0 auto;
   position: relative;
-  width: 85%;
+  width: 90%;
 }
 @media (min-width: 1200px) {
   .header {
-    width: 85%;
+    width: 90%;
   }
 }
 @media (min-width: 1600px) {
   .header {
-    width: 85%;
+    width: 90%;
   }
 }
 @media (max-width: 991px) {
