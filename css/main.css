@@ -1,4 +1,4 @@
-/* 去掉图片边框 */
+/* 去掉文章图片边框 */
 .posts-expand .post-body img {
   border: none;
   padding: 0px;
@@ -16,6 +16,42 @@
   color: #fc6423;
   border-bottom: none;
   border-bottom: 1px solid #fc6423;
+}
+/*文章底部标签样式*/
+.posts-expand .post-tags a {
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  font-family: 'Comic Sans MS', sans-serif;
+  transition: 0.2s ease-out;
+  padding: 3px 5px;
+  margin: 5px;
+  background: #f5f5f5;
+  border-bottom: none;
+  border-radius: 15px;
+}
+@media (max-width: 767px) {
+  .posts-expand .post-tags a {
+    padding: 1px 3px;
+    font-size: 8px;
+  }
+}
+.posts-expand .post-tags a:hover {
+  background: rgba(100,154,182,0.902);
+  color: #fff;
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  -moz-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.post-button .btn {
+  border-radius: 20px;
+}
+/*设置页面透明度*/
+.header-inner {
+  opacity: 0.9;
+}
+.main-inner {
+  opacity: 0.9;
 }
 html {
   line-height: 1.15; /* 1 */
@@ -1172,7 +1208,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #fff601;
+  background: #78990e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1504,10 +1540,7 @@ pre .javascript .function {
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
-  width: 24px;
-}
-.back-to-top span {
-  display: none;
+  width: initial;
 }
 .back-to-top:hover {
   color: #fc6423;
@@ -2769,7 +2802,7 @@ body {
   height: 100%;
 }
 body {
-  background: url("http://img.netbian.com/file/2019/0917/2422bf893cf8f61b3e3314c5a5354517.jpg");
+  background: url("http://img.netbian.com/file/2019/0625/5a638e37c2073daecfbd650bb013e8f4.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
