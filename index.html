@@ -207,6 +207,89 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/10/Git学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/toux.jpg">
+      <meta itemprop="name" content="Alyssa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="各有未来">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/10/Git学习/" class="post-title-link" itemprop="url">Git学习</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-10 16:25:30" itemprop="dateCreated datePublished" datetime="2019-11-10T16:25:30+08:00">2019-11-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-11 19:07:49" itemprop="dateModified" datetime="2019-11-11T19:07:49+08:00">2019-11-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>教程链接： <a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/896043488029600</a> </p><h4 id="🍬-总结"><a href="#🍬-总结" class="headerlink" title="🍬. 总结"></a>🍬. 总结</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 初始化一个Git仓库，使用 <span class="string">"git init"</span> 命令。</span><br><span class="line">2. 添加文件到Git仓库，分两步：</span><br><span class="line">     - 使用命令 <span class="string">"git add &lt;file&gt;"</span>，注意，可反复多次使用，添加多个文件；</span><br><span class="line">     - 使用命令 <span class="string">"git commit -m &lt;message&gt;"</span>，完成。</span><br><span class="line">3. 要随时掌握工作区的状态，使用 <span class="string">"git status"</span> 命令。</span><br><span class="line">   如果 <span class="string">"git status"</span> 告诉你有文件被修改过，用 <span class="string">"git diff"</span> 可以查看修改内容。</span><br><span class="line">4. 版本回退：</span><br><span class="line">   - HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令 <span class="string">"git reset --hard commit_id"</span>。</span><br><span class="line">   - 穿梭前，用 <span class="string">"git log"</span> 可以查看提交历史，以便确定要回退到哪个版本。</span><br><span class="line">   - 要重返未来，用 <span class="string">"git reflog"</span> 查看命令历史，以便确定要回到未来的哪个版本。</span><br><span class="line">5. 撤销修改：</span><br><span class="line">   - 场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令 <span class="string">"git checkout -- file"</span>。</span><br><span class="line">   - 场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令 <span class="string">"git reset HEAD"</span>，就回到了场景1，第二步按场景1操作。</span><br><span class="line">6. 删除文件：</span><br><span class="line">   - 删除一个文件：用命令 <span class="string">"git rm file"</span> 删掉，并且 <span class="string">"git commit -m xxx"</span></span><br><span class="line">   - 恢复误删除文件：<span class="string">"git checkout -- file"</span> 其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。</span><br><span class="line">7. 创建与合并分支：</span><br><span class="line">   - 查看分支：<span class="string">"git branch"</span></span><br><span class="line">   - 创建分支：<span class="string">"git branch &lt;name&gt;"</span></span><br><span class="line">   - 切换分支：<span class="string">"git checkout &lt;name&gt;"</span> 或者 <span class="string">"git switch &lt;name&gt;"</span></span><br><span class="line">   - 创建+切换分支：<span class="string">"git checkout -b &lt;name&gt;"</span> 或者 <span class="string">"git switch -c &lt;name&gt;"</span></span><br><span class="line">   - 合并某分支到当前分支：<span class="string">"git merge &lt;name&gt;"</span></span><br><span class="line">   - 删除分支：<span class="string">"git branch -d &lt;name&gt;"</span></span><br><span class="line">8. 当你当前分支的工作没做完想切换分支的时候，需要把当前分支的内容先隐藏 <span class="string">"git stash"</span></span><br><span class="line">9. 如果要丢弃一个没有被合并过的分支，可以通过 <span class="string">"git branch -D &lt;name&gt;"</span> 强行删除。</span><br><span class="line">10. 多人协作：</span><br><span class="line">   - 查看远程库信息，使用 <span class="string">"git remote -v"</span>；</span><br><span class="line">   - 本地新建的分支如果不推送到远程，对其他人就是不可见的；</span><br><span class="line">   - 从本地推送分支，使用 <span class="string">"git push origin branch-name"</span>，如果推送失败，先用 <span class="string">"git pull"</span> 抓取远程的新提交；</span><br><span class="line">   - 在本地创建和远程分支对应的分支，使用 <span class="string">"git checkout -b branch-name origin/branch-name"</span>，本地和远程分支的名称最好一致；</span><br><span class="line">   - 建立本地分支和远程分支的关联，使用 <span class="string">"git branch --set-upstream branch-name origin/branch-name"</span>；</span><br><span class="line">   - 从远程抓取分支，使用 <span class="string">"git pull"</span>，如果有冲突，要先处理冲突。</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/10/Git学习/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/08/LayerNorm-与-BatchNorm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -952,89 +1035,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/08/位运算/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/toux.jpg">
-      <meta itemprop="name" content="Alyssa">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="各有未来">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/09/08/位运算/" class="post-title-link" itemprop="url">位运算</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-09-08 21:30:11" itemprop="dateCreated datePublished" datetime="2019-09-08T21:30:11+08:00">2019-09-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-14 20:36:53" itemprop="dateModified" datetime="2019-09-14T20:36:53+08:00">2019-09-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>位运算</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/09/08/位运算/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1085,20 +1085,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
